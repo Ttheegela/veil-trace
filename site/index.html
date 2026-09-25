@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veil Trace — Ownership &amp; Trade-Path Risk</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body{background:#F7F7F5;color:#1A1816;font-family:'Inter',system-ui,sans-serif;}
+  .font-serif-display{font-family:'Playfair Display',serif;}
+  .font-serif-alt{font-family:'Instrument Serif',serif;}
+  .neural-line{stroke-dasharray:8 6;animation:dash 6s linear infinite;}
+  @keyframes dash{to{stroke-dashoffset:-140;}}
+  @keyframes pulse-cursor{50%{opacity:0;}}
+  .cursor-blink{animation:pulse-cursor 1s step-end infinite;}
+  .mask-fade{-webkit-mask-image:linear-gradient(to bottom, transparent, black 70%);mask-image:linear-gradient(to bottom, transparent, black 70%);}
+</style>
+</head>
+<body class="antialiased">
+
+<nav class="absolute top-0 left-0 w-full z-50 flex items-center justify-between px-6 md:px-10 py-6 text-white">
+  <div class="font-serif-display text-lg tracking-tight">VEIL TRACE</div>
+  <div class="hidden md:flex items-center gap-8 text-sm text-white/80">
+    <a href="#solutions" class="hover:text-white transition">Solutions</a>
+    <a href="#terminal" class="hover:text-white transition">Terminal</a>
+    <a href="#case" class="hover:text-white transition">Case Study</a>
+    <a href="#sources" class="hover:text-white transition">Sources</a>
+  </div>
+  <a href="#terminal" class="bg-black rounded-full px-5 py-2 text-sm font-medium flex items-center gap-2 hover:bg-white hover:text-black transition duration-300">
+    Get started <i data-lucide="arrow-right" class="w-4 h-4"></i>
+  </a>
+</nav>
+
+<section class="relative h-screen min-h-[640px] overflow-hidden">
+  <div class="absolute inset-0">
+    <video class="w-full h-full object-cover" style="object-fit:cover" autoplay loop muted playsinline poster="../demo/screens/v3_b2_1920.png">
+      <source src="media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
+  </div>
+  <div class="relative z-10 h-full flex flex-col justify-end px-6 md:px-10 pb-24 max-w-4xl">
+    <div class="inline-flex w-fit items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm text-white mb-6">
+      <i data-lucide="sparkles" class="w-4 h-4"></i> AI Compliance Analyst · Live
+    </div>
+    <h1 class="font-serif-display text-5xl md:text-8xl font-medium tracking-tight text-white leading-[0.95]">
+      See who's really<br>behind the shipment.
+    </h1>
+    <p class="mt-6 text-xl text-stone-50/90 max-w-xl">
+      An AI-native terminal that traces ownership and trade-path risk in real time — built on Sayari, Tradeverifyd and Tavily data, checked against UN Comtrade and official sanctions lists.
+    </p>
+    <a href="#terminal" class="mt-8 w-fit bg-black text-white rounded-full px-6 py-3 flex items-center gap-2 hover:bg-white hover:text-black transition duration-300">
+      Get started <i data-lucide="arrow-right" class="w-4 h-4"></i>
+    </a>
+  </div>
+</section>
+
+<section class="py-14 px-6 md:px-10">
+  <p class="text-center text-sm mb-8" style="color:#898683">Built for sanctions &amp; trade-compliance teams</p>
+  <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="shield-check" class="w-5 h-5"></i><span class="font-medium">OFAC</span></div>
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="briefcase" class="w-5 h-5"></i><span class="font-medium">US BIS</span></div>
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="globe" class="w-5 h-5"></i><span class="font-medium">UN Comtrade</span></div>
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="layers" class="w-5 h-5"></i><span class="font-medium">OpenSanctions</span></div>
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="box" class="w-5 h-5"></i><span class="font-medium">Sayari</span></div>
+    <div class="flex items-center gap-2 grayscale opacity-50 hover:opacity-100 hover:grayscale-0 transition duration-300"><i data-lucide="blocks" class="w-5 h-5"></i><span class="font-medium">Tradeverifyd</span></div>
+  </div>
+</section>
+
+<section id="solutions" class="grid grid-cols-1 md:grid-cols-3 border-t" style="border-color:rgba(26,24,22,0.1)">
+  <!-- row 1 -->
+  <div class="group p-10 md:border-r border-b hover:bg-white transition duration-300 cursor-pointer" style="border-color:rgba(26,24,22,0.1)">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="navigation" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Route Detection</h3>
+    <p class="opacity-60 mb-6">Flags shipments moving through countries a supplier never used before.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+  <div class="group p-10 md:border-r border-b hover:bg-white transition duration-300 cursor-pointer" style="border-color:rgba(26,24,22,0.1)">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="layers" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Ownership Tracing</h3>
+    <p class="opacity-60 mb-6">Follows a shipment past the shipping name to the buyer that stays the same.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+  <div class="group p-10 border-b hover:bg-white transition duration-300 cursor-pointer" style="border-color:rgba(26,24,22,0.1)">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="target" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Alias Matching</h3>
+    <p class="opacity-60 mb-6">Catches a company that reappears under a new name in weeks.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+  <!-- row 2 -->
+  <div class="group p-10 md:border-r hover:bg-white transition duration-300 cursor-pointer" style="border-color:rgba(26,24,22,0.1)">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="globe" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Sibling Detection</h3>
+    <p class="opacity-60 mb-6">Surfaces related firms sharing an address, director, or tax number.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+  <div class="group p-10 md:border-r hover:bg-white transition duration-300 cursor-pointer" style="border-color:rgba(26,24,22,0.1)">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="zap" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Listing-Lag Tracking</h3>
+    <p class="opacity-60 mb-6">Measures the gap between last shipment and the day a firm gets listed.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+  <div class="group p-10 hover:bg-white transition duration-300 cursor-pointer">
+    <div class="w-fit p-3 rounded-xl mb-6" style="background:#EFECE3"><i data-lucide="blocks" class="w-5 h-5"></i></div>
+    <h3 class="font-serif-display text-2xl mb-2">Blind-Spot Mapping</h3>
+    <p class="opacity-60 mb-6">Shows where no single source — not ours, not a screening tool — sees everything.</p>
+    <div class="flex items-center gap-1 text-sm font-medium">Explore <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition duration-300"></i></div>
+  </div>
+</section>
+
+<section class="relative py-32 overflow-hidden text-white" style="background:#1A1816">
+  <svg class="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none" viewBox="0 0 1000 500">
+    <path class="neural-line" d="M-50,250 L250,180 L500,260 L750,140 L1050,220" stroke="#60A5FA" stroke-width="1.5" fill="none"/>
+    <path class="neural-line" d="M-50,100 L300,150 L550,90 L800,180 L1050,120" stroke="#34D399" stroke-width="1.5" fill="none"/>
+    <path class="neural-line" d="M-50,400 L280,330 L520,410 L780,320 L1050,380" stroke="#A78BFA" stroke-width="1.5" fill="none"/>
+  </svg>
+  <div class="relative z-10 max-w-2xl mx-auto text-center px-6">
+    <h2 class="font-serif-display text-4xl md:text-5xl mb-10">Ask the terminal anything.</h2>
+    <div class="backdrop-blur-xl bg-white/10 border border-white/20 rounded-full flex items-center px-6 py-4 gap-3">
+      <i data-lucide="chrome" class="w-5 h-5 opacity-70"></i>
+      <span class="text-white/60 text-left flex-1">Get personalized guidance on a shipment, a firm, or a listing gap<span class="cursor-blink">|</span></span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3 mt-6">
+      <button class="px-4 py-2 rounded-full border border-white/20 text-sm hover:bg-blue-50 hover:text-black transition duration-300">Check a company</button>
+      <button class="px-4 py-2 rounded-full border border-white/20 text-sm hover:bg-blue-50 hover:text-black transition duration-300">Trace ownership</button>
+      <button class="px-4 py-2 rounded-full border border-white/20 text-sm hover:bg-blue-50 hover:text-black transition duration-300">Explain a listing gap</button>
+      <button class="px-4 py-2 rounded-full border border-white/20 text-sm hover:bg-blue-50 hover:text-black transition duration-300">Find sibling firms</button>
+    </div>
+  </div>
+</section>
+
+<section id="terminal" class="py-32 px-6 md:px-10">
+  <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+    <h2 class="font-serif-display text-4xl md:text-5xl">Your compliance terminal, live.</h2>
+    <div class="flex gap-2">
+      <span class="px-4 py-2 rounded-full text-sm font-medium" style="background:#EFECE3">Routes</span>
+      <span class="px-4 py-2 rounded-full text-sm opacity-50">Ownership</span>
+      <span class="px-4 py-2 rounded-full text-sm opacity-50">Lag</span>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="md:col-span-2 relative rounded-2xl border-2 border-dashed overflow-hidden" style="border-color:rgba(26,24,22,0.2)">
+      <img src="../demo/screens/v3_b3_1920.png" class="w-full h-full object-cover" alt="">
+      <div class="absolute right-6 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 flex flex-col gap-3">
+        <i data-lucide="navigation" class="w-4 h-4"></i>
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <i data-lucide="target" class="w-4 h-4"></i>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="rounded-xl overflow-hidden border" style="border-color:rgba(26,24,22,0.1)">
+        <img src="../demo/screens/v3_b1_1920.png" class="w-full h-full object-cover" alt="">
+      </div>
+      <div class="rounded-xl overflow-hidden border" style="border-color:rgba(26,24,22,0.1)">
+        <img src="../demo/screens/v3_b4_1920.png" class="w-full h-full object-cover" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case" class="py-32 px-6 md:px-10" style="background:#EFECE3">
+  <div class="flex gap-8 mb-12 border-b" style="border-color:rgba(26,24,22,0.15)">
+    <span class="pb-4 border-b-2 border-blue-600 font-medium">The Chip</span>
+    <span class="pb-4 opacity-50">The Firms</span>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+    <div class="md:col-span-2">
+      <div class="font-light text-6xl md:text-7xl mb-6">15–20</div>
+      <p class="text-xl max-w-lg opacity-80">months, on average, between a firm's last shipment record and the day it appears on a sanctions list — the window this terminal is built to shrink.</p>
+    </div>
+    <img src="../demo/screens/v3_b4_1920.png" class="rounded-xl shadow-xl w-full" alt="">
+  </div>
+</section>
+
+<footer id="sources" class="relative overflow-hidden pt-24 pb-8 text-white" style="background:#1A1816">
+  <div class="mask-fade">
+    <div class="font-serif-display font-medium leading-none text-center select-none" style="font-size:22vw">VEIL TRACE</div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm uppercase tracking-widest text-neutral-500 mt-10">
+    <div class="flex flex-col gap-3"><span class="text-neutral-300">Product</span><a href="#terminal" class="hover:text-white transition">Terminal</a><a href="#solutions" class="hover:text-white transition">Solutions</a></div>
+    <div class="flex flex-col gap-3"><span class="text-neutral-300">Docs</span><a href="#" class="hover:text-white transition">Methods Log</a><a href="#" class="hover:text-white transition">Sources</a></div>
+    <div class="flex flex-col gap-3"><span class="text-neutral-300">Legal</span><a href="#" class="hover:text-white transition">Privacy</a><a href="#" class="hover:text-white transition">Terms</a></div>
+  </div>
+  <div class="relative z-10 max-w-5xl mx-auto px-6 flex items-center justify-between mt-16 pt-6 border-t border-neutral-800 text-neutral-500 text-sm">
+    <span>© 2026 Veil Trace — Trace the Unseen.</span>
+    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="border border-neutral-700 rounded-full p-3 hover:bg-white hover:text-black transition duration-300">
+      <i data-lucide="arrow-up" class="w-4 h-4"></i>
+    </button>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
