@@ -305,11 +305,11 @@ function linkColor(l){
     case "gov":   return on ? "rgba(40,190,140,0.9)" : "rgba(25,158,112,0.28)";
     case "door":  return on ? "rgba(40,190,140,0.95)" : "rgba(25,158,112,0.45)";
     case "staff": return on ? "rgba(217,89,38,0.55)" : "rgba(217,89,38,0.12)";
-    default:      return on ? "rgba(150,180,225,0.85)" : "rgba(107,137,179,0.3)";
+    default:      return on ? "rgba(160,190,235,0.9)" : "rgba(125,165,225,0.6)";   // owner/operator: visible at any zoom
   }
 }
 function linkWidth(l){
-  let w = l.fam === "money" ? 1 + Math.min(4, Math.log10(1 + (l.a || 0)) / 1.6) : l.fam === "staff" ? 0.5 : 0.8;
+  let w = l.fam === "money" ? 1 + Math.min(4, Math.log10(1 + (l.a || 0)) / 1.6) : l.fam === "staff" ? 0.5 : l.fam === "ctrl" ? 1.2 : 0.8;
   if (hlLinks && hlLinks.has(l.id)) w *= 1.8;
   if (pathLinks && pathLinks.has(l.id)) w = 4;
   return w;
@@ -392,10 +392,11 @@ const Graph = ForceGraph()(el)
   .onZoom(() => hideTip());
 
 const charge = Graph.d3Force("charge"), linkF = Graph.d3Force("link");
-charge.strength(n => n.t === "ship" ? -10 : n.lane ? -130 : -40).distanceMax(380);
-linkF.distance(l => l.fam === "staff" ? 50 : l.fam === "ctrl" ? 16 : 70).strength(l => {
+// Ships repel weakly so they sit tight around their operator; operators repel more so each group stays distinct.
+charge.strength(n => n.t === "ship" ? -4 : n.lane ? -130 : -24 - 3 * Math.sqrt(n.k)).distanceMax(380);
+linkF.distance(l => l.fam === "staff" ? 50 : l.fam === "ctrl" ? 9 + 1.2 * Math.sqrt(Math.max(l.source.k || 1, l.target.k || 1)) : 70).strength(l => {
   // links that cross columns only pull vertically in practice (the column force wins on x)
-  return l.fam === "staff" ? 0.15 : l.fam === "ctrl" ? 0.6 : 0.3;
+  return l.fam === "staff" ? 0.15 : l.fam === "ctrl" ? 1 : 0.3;
 });
 Graph.d3Force("center", null);
 Graph.d3Force("columns", alpha => {
@@ -407,7 +408,8 @@ Graph.d3Force("columns", alpha => {
       n.vx = (nx - n.x) / keep;
       n.vy -= n.y * 0.004 * alpha;
     } else {
-      n.vx += (n.gx - n.x) * 0.035 * alpha; n.vy += (n.gy - n.y) * 0.035 * alpha;
+      const g = n.t === "ship" ? 0.008 : 0.03;   // ships follow their operator; operators are pulled to their cluster
+      n.vx += (n.gx - n.x) * g * alpha; n.vy += (n.gy - n.y) * g * alpha;
     }
   }
 });
