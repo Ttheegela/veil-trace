@@ -3,3 +3,5 @@ __pycache__/
 out/
 *.pkl
 .pytest_cache/
+.vercel
+.env*
