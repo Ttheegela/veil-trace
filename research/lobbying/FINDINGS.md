@@ -84,4 +84,4 @@ Timing is never treated as proof.
 - EU and UK lobbying registers were only lightly searched; Russian-linked entities are barred from the EU register.
 - Two figures are unchecked: Sidley Austin's parallel foreign-agent total for Hikvision, and Hytera's amounts.
 - Several FARA exhibits black out the client's name.
-- Lobbying outside the US disclosure systems (in Brussels, national capitals, or through think tanks and associations) is mostly invisible in public records. A separate trace of listed companies lobbying through clean intermediaries is in progress (`proxy_lobbying/`).
+- Lobbying outside the US disclosure systems (in Brussels, national capitals, or through think tanks and associations) is mostly invisible in public records. The trace of listed companies lobbying through clean intermediaries is in [clean-names-graph/](clean-names-graph/FINDINGS.md): an interactive graph of 63 organisations and 63 links (51 documented).
