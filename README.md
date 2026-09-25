@@ -1,5 +1,7 @@
 # VeilTrace
 
+https://veiltrace-psi.vercel.app/
+
 **Trace the Unseen: Climate Intelligence Build Day, 25 September 2026 (Microsoft Garage, NYC). Sanctions and evasion track.**
 
 > **Names change in weeks. The need doesn't.**
