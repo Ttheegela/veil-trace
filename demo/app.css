@@ -331,3 +331,16 @@ body.narrow #chrome.on-dark #rail, body.narrow #chrome.on-dark #bottom { backgro
 
 /* The hidden attribute must win over the display rules above. */
 #drawer[hidden], #notes[hidden], #help[hidden] { display: none !important; }
+
+/* Hover info box */
+#ev-tip { position: fixed; z-index: 60; max-width: min(460px, 90vw); padding: 14px 16px; border-radius: 8px;
+  background: var(--surface, var(--bg)); color: var(--fg); border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18); font: 400 16px/1.4 var(--font-sans); pointer-events: none;
+  opacity: 0; transform: translateY(4px); transition: opacity .15s ease, transform .15s ease; }
+#ev-tip.on { opacity: 1; transform: none; }
+#ev-tip .ev-tip-item + .ev-tip-item { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+#ev-tip .ev-tip-v { font-weight: 700; font-size: 20px; margin-bottom: 2px; }
+#ev-tip .ev-tip-s { margin-top: 6px; color: var(--muted-fg); font-size: 14px; }
+#ev-tip .ev-tip-k { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; border: 1px solid currentColor; font-size: 12px; }
+#ev-tip .ev-tip-more { margin-top: 8px; color: var(--muted-fg); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { #ev-tip { transition: none; } }

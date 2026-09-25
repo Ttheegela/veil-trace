@@ -222,6 +222,7 @@
           var q = pct(L.box);
           b.style.left = q[0] + '%'; b.style.top = q[1] + '%';
           b.setAttribute('aria-label', L.title + ': ' + L.line + '. Open sources.');
+          b.setAttribute('data-ev', [].concat(L.ev).join(','));
           b.addEventListener('click', function () { open(L.ev); });
           plates.push({ el: b, L: L });
         });
@@ -259,6 +260,7 @@
           var li = h('li', '', list);
           var b = h('button', '', li, '<b>' + L.title + ':</b> ' + L.line);
           b.type = 'button';
+          b.setAttribute('data-ev', [].concat(L.ev).join(','));
           b.addEventListener('click', function () { open(L.ev); });
         });
       }

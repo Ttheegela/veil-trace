@@ -152,10 +152,10 @@
     steps: 1,
     stepLabels: ['Arrive: one edge sweeps the scale from weeks to years; the company name stops at weeks; the product, the buyer and the route run past the moment lists arrive'],
     stepNotes: [
-      'SAY: "Lists follow names. Evaders change names. So track what doesn\'t change: the product, the buyer, the route. Every lead links to its source. Leads, not verdicts. Thank you."\n\nMOVE: one edge sweeps the scale from weeks to years: the company name stops at weeks; the product, the buyer and the route run past the moment lists arrive.\nCUE: on "the product, the buyer, the route", point at the three blue words. Stop talking at 3:00. This screen stays up for questions; the credits are in the sources drawer (E).'
+      'SAY: "Lists follow names. Evaders change names. So track what doesn\'t change: the product, the buyer, the route. Every number links to its source. Thank you."\n\nMOVE: one edge sweeps the scale from weeks to years: the company name stops at weeks; the product, the buyer and the route run past the moment lists arrive.\nCUE: on "the product, the buyer, the route", point at the three blue words. Stop talking at 3:00. This screen stays up for questions; the credits are in the sources drawer (E).'
     ],
     notes: [
-      'SAY: "Lists follow names. Evaders change names. So track what doesn\'t change: the product, the buyer, the route. Every lead links to its source. Leads, not verdicts. Thank you."',
+      'SAY: "Lists follow names. Evaders change names. So track what doesn\'t change: the product, the buyer, the route. Every number links to its source. Thank you."',
       '',
       'MOVE on arrival: one edge sweeps the scale from weeks to years: the company name stops at weeks; the product, the buyer and the route run past the moment lists arrive.',
       '',
@@ -209,7 +209,7 @@
         '<ul class="b6-three" aria-label="What does not change"><li>the product</li><li>the buyer</li><li>the route</li></ul>' +
         '<p class="d-explain"><span class="d-label">What you’re looking at</span>How long each thing stayed the same in our data, on a scale from one week to ten years.</p>' +
         '<figure class="b6-fig"></figure>' +
-        '<p class="d-why"><span class="d-label">Why it matters</span><strong>Tomorrow,</strong> a chip distributor’s compliance officer screens <strong>the product, the buyer, the route</strong>, not just the seller’s name. Every lead links to its source. Leads, not verdicts.</p>' +
+        '<p class="d-why"><span class="d-label">Why it matters</span><strong>Tomorrow,</strong> a chip distributor’s compliance officer screens <strong>the product, the buyer, the route</strong>, not just the seller’s name. Every number links to its source.</p>' +
         '<p class="b6-thanks">Thank you, Sayari, Tradeverifyd and Microsoft.</p>';
       el.appendChild(wrap);
 

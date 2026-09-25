@@ -93,6 +93,7 @@
     node.setAttribute('role', 'button');
     node.setAttribute('tabindex', '0');
     if (label) node.setAttribute('aria-label', label + ' (show sources)');
+    node.setAttribute('data-ev', ids.join(','));
     node.addEventListener('click', function () { ctx.openEvidence(ids); });
     node.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); ev.stopPropagation(); ctx.openEvidence(ids); } });
   }

@@ -78,10 +78,10 @@ Four companies from these routes. The dark lines are their shipment records.
 Governments did list them. But at least 15 to 20 months after they first appeared.
 
 [ALEX] (click)
-[MOVE] The gap between each company's last record and its listing grows; its notes land; then RM Design's small grey footnote ("it moved on: 40 records after listing, declared as leaving Turkey"; not spoken); then "4 of 5".
+[MOVE] The gap between each company's last record and its listing grows; its notes land; then RM Design's small grey footnote ("kept shipping after sanctions: 40 records, leaving Turkey"); then "4 of 5".
 
 [TARUN]
-By then, most had moved on: 4 of 5 listed shippers had already left these routes. RM Design left its route 24 days before its listing. A clean screen means not listed yet, not safe.
+By then, most had moved on: 4 of 5 listed shippers had already left these routes. One, RM Design, kept shipping after it was sanctioned: 40 records. A clean screen means not listed yet, not safe.
 
 ---
 
@@ -129,7 +129,7 @@ Screening tools miss things too. The skeptic we built into our team caught a san
 [MOVE] One edge sweeps the scale from weeks to years: the company name stops at weeks; the product, the buyer and the route run past the moment lists arrive.
 
 [TARUN]
-Lists follow names. Evaders change names. So track what doesn't change: the product, the buyer, the route. Every lead links to its source. Leads, not verdicts. Thank you.
+Lists follow names. Evaders change names. So track what doesn't change: the product, the buyer, the route. Every number links to its source. Thank you.
 
 ---
 
