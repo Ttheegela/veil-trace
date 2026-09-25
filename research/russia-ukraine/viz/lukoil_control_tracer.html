@@ -1,0 +1,498 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lukoil Control Tracer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#EDF0F3; --surface:#FFFFFF; --surface-2:#F5F7F9; --ink:#111A24; --muted:#556271; --line:#D2D9E1;
+  --accent:#2744C9; --accent-soft:#E3E8FB;
+  --sdn:#B93A12; --sdn-soft:#FBE3D9;
+  --block:#9A6412; --block-soft:#F8EBCF;
+  --clean:#1F6F8B; --clean-soft:#DDEEF4;
+  --ok:#1D7A4E; --ok-soft:#DCF1E5;
+  --edge:#7D8997;
+  --display:"Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mono:"JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E141B; --surface:#161E27; --surface-2:#1C2631; --ink:#E7ECF1; --muted:#9AA8B6; --line:#2B3744;
+    --accent:#8EA2FF; --accent-soft:#1F2A55;
+    --sdn:#FF8A5B; --sdn-soft:#3D2016;
+    --block:#E8B55A; --block-soft:#3A2D12;
+    --clean:#6CC3E0; --clean-soft:#12303B;
+    --ok:#62D69B; --ok-soft:#123324;
+    --edge:#6E7C8B;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E141B; --surface:#161E27; --surface-2:#1C2631; --ink:#E7ECF1; --muted:#9AA8B6; --line:#2B3744;
+  --accent:#8EA2FF; --accent-soft:#1F2A55;
+  --sdn:#FF8A5B; --sdn-soft:#3D2016;
+  --block:#E8B55A; --block-soft:#3A2D12;
+  --clean:#6CC3E0; --clean-soft:#12303B;
+  --ok:#62D69B; --ok-soft:#123324;
+  --edge:#6E7C8B;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg); color:var(--ink); font-family:var(--display); font-size:15px; line-height:1.5; padding-inline:16px; padding-block:24px 48px}
+.wrap{max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:20px}
+h1,h2,h3{margin:0; text-wrap:balance; line-height:1.15}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+a{color:var(--accent)}
+button{font:inherit; color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* header */
+.top{display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end}
+.top h1{font-size:clamp(30px,4.2vw,46px); font-weight:800; letter-spacing:-.02em}
+.top .lede{color:var(--muted); max-width:62ch; margin-top:8px}
+.stats{display:flex; gap:10px; flex-wrap:wrap}
+.stat{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:10px 14px; min-width:120px}
+.stat b{display:block; font-size:26px; font-weight:800; font-variant-numeric:tabular-nums; line-height:1.1}
+.stat span{font-size:12px; color:var(--muted)}
+.stat.warn b{color:var(--sdn)}
+
+/* tabs */
+.tabs{display:flex; gap:4px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:4px; overflow-x:auto}
+.tab{border:0; background:transparent; padding:9px 14px; border-radius:8px; cursor:pointer; font-weight:600; white-space:nowrap; color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--ink); color:var(--bg)}
+.tab .n{font-family:var(--mono); font-size:11px; opacity:.7; margin-right:6px}
+
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px; display:flex; flex-direction:column; gap:16px}
+.panel-head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:end}
+.panel-head h2{font-size:22px; font-weight:700}
+.panel-head p{color:var(--muted); max-width:70ch}
+
+/* map */
+.map-grid{display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:16px}
+.svg-box{overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--surface-2)}
+.svg-box svg{display:block; min-width:760px; width:100%; height:auto}
+.node{cursor:pointer}
+.node rect{stroke-width:1.5}
+.node:hover rect, .node.sel rect{stroke-width:3}
+.node text{font-family:var(--display); fill:var(--ink)}
+.node .sub{fill:var(--muted); font-size:11px}
+.node .nm{font-size:13px; font-weight:700}
+.node .tag{font-family:var(--mono); font-size:10px; font-weight:600}
+.edge{fill:none; stroke:var(--edge); stroke-width:1.6}
+.edge.dash{stroke-dasharray:5 5}
+.edge.twin{stroke:var(--clean); stroke-dasharray:2 4; stroke-width:1.6}
+.seg{display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px; background:var(--surface-2)}
+.seg button{border:0; background:transparent; padding:6px 12px; border-radius:999px; cursor:pointer; font-weight:600; font-size:13px; color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent); color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#0E141B}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#0E141B} }
+.legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12px; color:var(--muted)}
+.legend i{display:inline-block; width:12px; height:12px; border-radius:3px; margin-right:6px; vertical-align:-1px; border:1.5px solid}
+.detail{border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--surface-2); align-self:start}
+.detail h3{font-size:18px}
+.chip{display:inline-block; font-family:var(--mono); font-size:11px; font-weight:600; padding:3px 8px; border-radius:6px; border:1px solid}
+.chip.sdn{color:var(--sdn); background:var(--sdn-soft); border-color:var(--sdn)}
+.chip.block{color:var(--block); background:var(--block-soft); border-color:var(--block)}
+.chip.clean{color:var(--clean); background:var(--clean-soft); border-color:var(--clean)}
+.kv{display:grid; grid-template-columns:90px 1fr; gap:4px 10px; font-size:13px}
+.kv dt{color:var(--muted)} .kv dd{margin:0; word-break:break-word}
+.callout{border-left:3px solid var(--sdn); padding:8px 12px; background:var(--sdn-soft); border-radius:0 8px 8px 0; font-size:13px}
+.callout.okc{border-color:var(--ok); background:var(--ok-soft)}
+
+/* clock */
+.clock-read{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px}
+.clock-read div{background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+.clock-read b{display:block; font-size:20px; font-variant-numeric:tabular-nums}
+.clock-read span{font-size:12px; color:var(--muted)}
+input[type=range]{width:100%; accent-color:var(--accent)}
+.gantt text{font-family:var(--mono); font-size:10px; fill:var(--muted)}
+.gantt .lab{fill:var(--ink); font-weight:600}
+.evlist{display:flex; flex-direction:column; gap:6px; font-size:13px}
+.evlist li{list-style:none; display:grid; grid-template-columns:90px 1fr; gap:10px; color:var(--muted)}
+.evlist li.on{color:var(--ink)}
+.evlist ul{padding:0; margin:0}
+
+/* control test */
+.test-grid{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:16px}
+.toggles{display:flex; flex-direction:column; gap:8px}
+.tg{display:grid; grid-template-columns:auto 1fr auto; gap:12px; align-items:start; border:1px solid var(--line); border-radius:10px; padding:12px; cursor:pointer; background:var(--surface-2)}
+.tg:has(input:checked){border-color:var(--sdn); background:var(--sdn-soft)}
+.tg input{width:18px; height:18px; margin-top:2px; accent-color:var(--sdn)}
+.tg b{display:block; font-size:14px}
+.tg small{color:var(--muted); font-size:12.5px}
+.tg .w{font-family:var(--mono); font-size:11px; color:var(--muted)}
+.verdict{border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:10px; border:2px solid var(--line); align-self:start; position:sticky; top:calc(env(safe-area-inset-top,0px) + 12px)}
+.verdict .big{font-size:24px; font-weight:800; line-height:1.15}
+.meter{height:10px; border-radius:999px; background:var(--line); overflow:hidden}
+.meter div{height:100%; border-radius:999px; transition:width .25s}
+@media (prefers-reduced-motion: reduce){ .meter div{transition:none} }
+
+/* watchlist */
+.wl{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+.wi{border:1px solid var(--line); border-radius:12px; padding:14px; display:flex; flex-direction:column; gap:10px; background:var(--surface-2)}
+.wi h3{font-size:15px}
+.wi p{font-size:13px; color:var(--muted)}
+.wi select, .wi textarea{font:inherit; font-size:13px; width:100%; border:1px solid var(--line); border-radius:8px; padding:7px 9px; background:var(--surface); color:var(--ink)}
+.wi textarea{min-height:64px; resize:vertical}
+.wi[data-s="issue"]{border-color:var(--sdn)}
+.wi[data-s="cleared"]{border-color:var(--ok)}
+.wi[data-s="checking"]{border-color:var(--accent)}
+.sync{font-size:12px; color:var(--muted)}
+.foot{font-size:12px; color:var(--muted); display:flex; flex-direction:column; gap:6px}
+
+@media (max-width:900px){
+  .map-grid,.test-grid{grid-template-columns:1fr}
+  .wl{grid-template-columns:1fr 1fr}
+  .top{grid-template-columns:1fr}
+  .verdict{position:static}
+}
+@media (max-width:560px){
+  .wl{grid-template-columns:1fr}
+  .clock-read{grid-template-columns:1fr}
+}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">Case file · Lukoil International GmbH · Russia / oil</p>
+      <h1>Lukoil Control Tracer</h1>
+      <p class="lede">Carlyle is buying Lukoil's foreign business. OFAC will only let the deal close if Russian control truly leaves. Use this board to trace ownership, test screening, watch the licence clock and track what you've checked.</p>
+    </div>
+    <div class="stats" aria-label="Key figures">
+      <div class="stat"><b id="st-months">11</b><span>months since Lukoil was blocked</span></div>
+      <div class="stat"><b>11</b><span>short licences so far</span></div>
+      <div class="stat warn"><b>4 of 6</b><span>records screen clean</span></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button class="tab" role="tab" id="tab-map" aria-controls="p-map" aria-selected="true"><span class="n">1</span>Ownership map</button>
+    <button class="tab" role="tab" id="tab-clock" aria-controls="p-clock" aria-selected="false"><span class="n">2</span>Licence clock</button>
+    <button class="tab" role="tab" id="tab-test" aria-controls="p-test" aria-selected="false"><span class="n">3</span>Control test</button>
+    <button class="tab" role="tab" id="tab-watch" aria-controls="p-watch" aria-selected="false"><span class="n">4</span>Watchlist</button>
+  </nav>
+
+  <!-- MAP -->
+  <section class="panel" id="p-map" role="tabpanel" aria-labelledby="tab-map">
+    <div class="panel-head">
+      <div>
+        <h2>Who owns what, and what screening sees</h2>
+        <p>Click any box for details. Switch the screening mode to see how the same companies look when you screen by name versus by ID number and ownership.</p>
+      </div>
+      <div class="seg" role="group" aria-label="Screening mode">
+        <button id="m-name" aria-pressed="true">Screen by name</button>
+        <button id="m-id" aria-pressed="false">Screen by ID + owner</button>
+      </div>
+    </div>
+    <div class="map-grid">
+      <div style="display:flex; flex-direction:column; gap:10px; min-width:0">
+        <div class="svg-box"><svg id="map" viewBox="0 0 1000 560" role="img" aria-label="Ownership map from the Lukoil founder to the refineries"></svg></div>
+        <div class="legend">
+          <span><i style="border-color:var(--sdn); background:var(--sdn-soft)"></i>On a sanctions list</span>
+          <span><i style="border-color:var(--block); background:var(--block-soft)"></i>Blocked through its owner</span>
+          <span><i style="border-color:var(--clean); background:var(--clean-soft)"></i>Record shows no flag</span>
+          <span>── registry shareholder</span><span>- - - group link, not fully traced</span><span style="color:var(--clean)">··· possible duplicate record</span>
+        </div>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- CLOCK -->
+  <section class="panel" id="p-clock" role="tabpanel" aria-labelledby="tab-clock" hidden>
+    <div class="panel-head">
+      <div>
+        <h2>The licence clock</h2>
+        <p>OFAC lets talks continue one short licence at a time, like feeding a parking meter. None of them lets the sale close. Drag the slider to see what was in force on any day.</p>
+      </div>
+    </div>
+    <div class="clock-read">
+      <div><b id="ck-date">—</b><span>selected date</span></div>
+      <div><b id="ck-lic">—</b><span>licence in force</span></div>
+      <div><b id="ck-left">—</b><span>days left on it</span></div>
+    </div>
+    <input type="range" id="ck-range" min="0" max="365" value="338" aria-label="Pick a date">
+    <div class="svg-box"><svg id="gantt" class="gantt" viewBox="0 0 1000 200" role="img" aria-label="Timeline of General License 131 versions and key events"></svg></div>
+    <ul class="evlist" id="evlist"></ul>
+    <p class="sync">131I dates are not confirmed and shown hatched. 131J's start date is inferred from OFAC updating its FAQ on 18 Sep 2026.</p>
+  </section>
+
+  <!-- TEST -->
+  <section class="panel" id="p-test" role="tabpanel" aria-labelledby="tab-test" hidden>
+    <div class="panel-head">
+      <div>
+        <h2>Control test: sold, or sold on paper?</h2>
+        <p>Tick what you find after the deal closes. The verdict applies OFAC's March 2026 idea: judge who really runs the business, not just the share count. The box starts with one example finding ticked.</p>
+      </div>
+    </div>
+    <div class="test-grid">
+      <div class="toggles" id="toggles"></div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section class="panel" id="p-watch" role="tabpanel" aria-labelledby="tab-watch" hidden>
+    <div class="panel-head">
+      <div>
+        <h2>What to trace after closing</h2>
+        <p>Six places control could hide. Set a status and add notes as you check each one.</p>
+      </div>
+      <p class="sync" id="sync">Connecting…</p>
+    </div>
+    <div class="wl" id="wl"></div>
+  </section>
+
+  <footer class="foot">
+    <p>Data: Sayari Graph records (checked 25 Sep 2026), OFAC FAQ 1224, FesenkoLaw GL 131 tracker, Litasco SA statement (25 Feb 2026), SeeNews (4 Jun 2026), Bloomberg (6 Nov 2025). Leads here are for investigation, not findings of wrongdoing.</p>
+    <p><a href="https://ofac.treasury.gov/faqs/1224" target="_blank" rel="noopener">OFAC FAQ 1224</a> · <a href="https://graph.sayari.com/resource/entity/C5tO08uHjykNIy-iL5SHmQ" target="_blank" rel="noopener">Sayari: Lukoil International GmbH</a></p>
+  </footer>
+</div>
+
+<script>
+(function(){
+const SG = "https://graph.sayari.com/resource/entity/";
+/* ---------- ownership data ---------- */
+// flag = what that record shows by itself; truth = status once you follow ownership
+const NODES = [
+  {id:"alek", name:"Yusuf Alekperov", sub:"Founder · Russia", x:95, y:280, flag:"sdn", truth:"sdn", eid:"JSJn4RLb7z5w_rtVCSUmCg", ids:"OFAC SDN #51870 · RU INN 770300105897", note:"Lukoil's founder and a named shareholder of PAO Lukoil. On the US SDN list."},
+  {id:"pao", name:"PAO Lukoil", sub:"Moscow parent", x:295, y:230, flag:"sdn", truth:"sdn", eid:"eF5hsZhDO7_rfEX9aELqIg", ids:"Record in Cyrillic (ПАО \"ЛУКОЙЛ\")", note:"Designated by OFAC on 22 Oct 2025. This is the seller."},
+  {id:"pao2", name:"PAO \"LUKOIL\"", sub:"Duplicate record", x:295, y:340, flag:"clean", truth:"sdn", twin:"pao", eid:"i1jXEu0dxP424IovVTxgaw", ids:"Sparse identifiers · RUS / AUT", note:"A second record for the same parent, built from a different source. It carries no sanctions flag. A name search that lands here would pass."},
+  {id:"lig", name:"Lukoil Intl. GmbH", sub:"Vienna · for sale", x:495, y:280, flag:"block", truth:"block", eid:"C5tO08uHjykNIy-iL5SHmQ", ids:"LEI 5299007PQV6X4DPL9Y20 · FN 134399x", note:"The holding company Carlyle agreed to buy on 29 Jan 2026. Blocked because PAO Lukoil owns it."},
+  {id:"lit", name:"Litasco SA", sub:"Geneva trader", x:695, y:160, flag:"clean", truth:"block", eid:"q31vW51dTttv6DeqX7Y5yQ", ids:"Record from a Romanian source · CHE / ROU", note:"Lukoil's Geneva trading arm and a shareholder of both refineries. This record shows no flag, although it sits under a sanctioned parent. It filed a treaty dispute against Bulgaria on 19 Feb 2026."},
+  {id:"eur", name:"Lukoil Europe Hldgs", sub:"Dutch holding", x:695, y:390, flag:"clean", truth:"block", eid:"ywE2N_zWjtI2M9YX6ZU9cg", ids:"Netherlands", note:"Registry shareholder of Neftohim Burgas. No flag on this record."},
+  {id:"bur", name:"Neftohim Burgas", sub:"Refinery · Bulgaria", x:895, y:70, flag:"block", truth:"block", eid:"wGLU1TlXmkx7iZX1fScGFQ", ids:"LEI 485100TJJ5MAH4VCVF30 · BG UIC 812114069", note:"The largest refinery in Southeast Europe. Run by a state-appointed special manager since 17 Nov 2025."},
+  {id:"bur2", name:"Neftohim Burgas AD", sub:"Duplicate record", x:895, y:165, flag:"clean", truth:"block", twin:"bur", eid:"76axGNGs6DGLK680MES90w", ids:"BE enterprise no. 1005.040.853", note:"Same refinery, registered in Belgium's company register. No ownership flag on this record."},
+  {id:"pet", name:"Petrotel-Lukoil SA", sub:"Refinery · Romania", x:895, y:290, flag:"clean", truth:"block", eid:"l5NixcGEVn71SBNzryXVIg", ids:"LEI 7872006AZAFVTVIQ3G32 · RO 1350659", note:"About 20% of Romania's refining capacity. Owned through Litasco SA, but this record shows no sanctions flag."},
+  {id:"lme", name:"Litasco Middle East", sub:"Dubai trader", x:895, y:470, flag:"sdn", truth:"sdn", eid:"1W8xNhsgiBlMwm-zHMMCSQ", ids:"LEI 5493007XYP6TMCO8L243 · DMCC0117", note:"Sanctioned by the EU and UK. A likely route for crude and fuel trading after the deal: watch who buys and sells through it."}
+];
+const EDGES = [
+  ["alek","pao",""],["pao","lig",""],["lig","lit","dash"],["lig","eur","dash"],
+  ["lit","bur",""],["eur","bur",""],["lit","pet",""],["lig","lme","dash"],
+  ["pao2","pao","twin"],["bur2","bur","twin"]
+];
+const LABEL = {sdn:"SANCTIONED", block:"BLOCKED · OWNER", clean:"NO FLAG"};
+const W=170, H=62;
+let mode="name", selected="lig";
+const byId = Object.fromEntries(NODES.map(n=>[n.id,n]));
+const svgNS="http://www.w3.org/2000/svg";
+function el(tag, attrs, parent){const e=document.createElementNS(svgNS,tag); for(const k in attrs) e.setAttribute(k,attrs[k]); if(parent) parent.appendChild(e); return e;}
+function status(n){ return mode==="name" ? n.flag : n.truth; }
+function visible(n){ return mode==="name" || !n.twin; }
+
+function drawMap(){
+  const svg=document.getElementById("map"); svg.textContent="";
+  const eg=el("g",{},svg), ng=el("g",{},svg);
+  EDGES.forEach(([a,b,k])=>{
+    const A=byId[a], B=byId[b]; if(!visible(A)||!visible(B)) return;
+    let d;
+    if(k==="twin"){ d=`M${A.x} ${A.y-H/2} L${B.x} ${B.y+H/2}`; }
+    else if(a==="lig" && b==="lme"){ d=`M${A.x} ${A.y+H/2} C${A.x} ${B.y+30} ${B.x-200} ${B.y} ${B.x-W/2-6} ${B.y}`; }
+    else { const x1=A.x+W/2, x2=B.x-W/2, mx=(x1+x2)/2; d=`M${x1} ${A.y} C${mx} ${A.y} ${mx} ${B.y} ${x2-6} ${B.y}`; }
+    el("path",{d, class:"edge "+k},eg);
+    if(k!=="twin"){ el("path",{d:`M${B.x-W/2-8} ${B.y-5} L${B.x-W/2} ${B.y} L${B.x-W/2-8} ${B.y+5} Z`, fill:"var(--edge)"},eg); }
+  });
+  NODES.forEach(n=>{
+    if(!visible(n)) return;
+    const s=status(n);
+    const g=el("g",{class:"node"+(n.id===selected?" sel":""), tabindex:"0", role:"button", "aria-label":`${n.name}, ${LABEL[s].toLowerCase()}`},ng);
+    el("rect",{x:n.x-W/2, y:n.y-H/2, width:W, height:H, rx:9, fill:`var(--${s}-soft)`, stroke:`var(--${s})`},g);
+    const t1=el("text",{x:n.x-W/2+10, y:n.y-10, class:"nm"},g); t1.textContent=n.name;
+    const t2=el("text",{x:n.x-W/2+10, y:n.y+6, class:"sub"},g); t2.textContent=n.sub;
+    const t3=el("text",{x:n.x-W/2+10, y:n.y+22, class:"tag", fill:`var(--${s})`},g); t3.textContent=LABEL[s];
+    if(mode==="id" && NODES.some(m=>m.twin===n.id)){
+      const t4=el("text",{x:n.x+W/2-10, y:n.y+22, class:"tag", "text-anchor":"end", fill:"var(--clean)"},g); t4.textContent="2 RECORDS";
+    }
+    const pick=()=>{selected=n.id; drawMap(); drawDetail();};
+    g.addEventListener("click",pick);
+    g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault(); pick();} });
+  });
+}
+function drawDetail(){
+  let n=byId[selected]; if(!visible(n)) n=byId[n.twin];
+  const s=status(n), d=document.getElementById("detail");
+  const owners=EDGES.filter(e=>e[1]===n.id && e[2]!=="twin").map(e=>byId[e[0]].name);
+  const owns=EDGES.filter(e=>e[0]===n.id && e[2]!=="twin").map(e=>byId[e[1]].name);
+  const twin = NODES.find(m=>m.twin===n.id) || (n.twin?byId[n.twin]:null);
+  let call="";
+  if(mode==="name" && n.flag==="clean") call=`<p class="callout">Screened by name, this record passes. Follow the ownership and it is ${n.truth==="sdn"?"a sanctioned party":"blocked through its owner"}.</p>`;
+  else if(mode==="id" && twin) call=`<p class="callout okc">Matching on identifiers and owners merges the duplicate record, so the flag can't be missed.</p>`;
+  d.innerHTML=`
+    <p class="eyebrow">Selected record</p>
+    <h3>${n.name}</h3>
+    <p><span class="chip ${s}">${LABEL[s]}</span></p>
+    <p style="font-size:13.5px">${n.note}</p>
+    ${call}
+    <dl class="kv">
+      <dt>IDs</dt><dd class="mono" style="font-size:12px">${n.ids}</dd>
+      ${owners.length?`<dt>Owned by</dt><dd>${owners.join(", ")}</dd>`:""}
+      ${owns.length?`<dt>Holds</dt><dd>${owns.join(", ")}</dd>`:""}
+      ${twin?`<dt>Twin record</dt><dd>${twin.name}</dd>`:""}
+    </dl>
+    <a href="${SG+n.eid}" target="_blank" rel="noopener">Open in Sayari →</a>`;
+}
+function setMode(m){
+  mode=m;
+  document.getElementById("m-name").setAttribute("aria-pressed", m==="name");
+  document.getElementById("m-id").setAttribute("aria-pressed", m==="id");
+  drawMap(); drawDetail();
+}
+document.getElementById("m-name").onclick=()=>setMode("name");
+document.getElementById("m-id").onclick=()=>setMode("id");
+
+/* ---------- clock ---------- */
+const D=s=>new Date(s+"T00:00:00Z");
+const T0=D("2025-10-22"), T1=D("2026-10-22"), DAY=864e5;
+const LIC=[
+  ["131","2025-11-14","2025-12-13"],["131A","2025-12-10","2026-01-17"],["131B","2026-01-14","2026-02-28"],
+  ["131C","2026-02-26","2026-04-01"],["131D","2026-03-30","2026-05-01"],["131E","2026-04-29","2026-05-30"],
+  ["131F","2026-05-28","2026-06-27"],["131G","2026-06-25","2026-07-25"],["131H","2026-07-24","2026-08-22"],
+  ["131I","2026-08-20","2026-09-18",true],["131J","2026-09-18","2026-10-22"]
+];
+const EVENTS=[
+  ["2025-10-22","OFAC blocks Lukoil and Rosneft"],["2025-11-06","Gunvor drops its bid after Treasury calls it the \"Kremlin's puppet\""],
+  ["2025-11-17","Bulgaria's special manager takes over Burgas"],["2026-01-29","Lukoil agrees sale to Carlyle"],
+  ["2026-02-19","Litasco SA files treaty dispute against Bulgaria"],["2026-03-31","OFAC guidance: control counts, not just 50%"],
+  ["2026-06-04","Bulgaria puts Burgas asset sales under court control"],["2026-09-25","Today: deal still not closed"]
+];
+const X0=40, X1=980, span=(T1-T0);
+const xOf=t=>X0+(t-T0)/span*(X1-X0);
+const fmt=t=>t.toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});
+function drawGantt(sel){
+  const svg=document.getElementById("gantt"); svg.textContent="";
+  const defs=el("defs",{},svg); const pat=el("pattern",{id:"hatch",width:6,height:6,patternUnits:"userSpaceOnUse",patternTransform:"rotate(45)"},defs);
+  el("rect",{width:6,height:6,fill:"var(--surface-2)"},pat); el("line",{x1:0,y1:0,x2:0,y2:6,stroke:"var(--muted)","stroke-width":2},pat);
+  // months
+  for(let m=0;m<=12;m++){ const t=new Date(Date.UTC(2025,10+m,1)); if(t>T1) break; const x=xOf(t);
+    el("line",{x1:x,y1:20,x2:x,y2:170,stroke:"var(--line)"},svg);
+    const tx=el("text",{x:x+3,y:14},svg); tx.textContent=t.toLocaleDateString("en-GB",{month:"short",timeZone:"UTC"})+(t.getUTCMonth()===0?" '26":""); }
+  el("text",{x:X0-36,y:62,class:"lab"},svg).textContent="GL";
+  LIC.forEach(([n,a,b,unk],i)=>{
+    const xa=xOf(D(a)), xb=xOf(D(b)), y=i%2?60:36; const active = sel>=D(a) && sel<D(b);
+    el("rect",{x:xa,y,width:Math.max(2,xb-xa),height:20,rx:4,fill:unk?"url(#hatch)":(n==="131J"?"var(--sdn)":active?"var(--accent)":"var(--edge)"),opacity:unk?1:(active?1:.55)},svg);
+    const lt=el("text",{x:xa+3,y:y+14,class:"lab",fill:"#fff"},svg); lt.textContent=n; if(unk) lt.setAttribute("fill","var(--ink)"); else lt.setAttribute("style","fill:#fff");
+  });
+  el("text",{x:X0-36,y:128,class:"lab"},svg).textContent="Events";
+  EVENTS.forEach(([d,_],i)=>{ const x=xOf(D(d)); const past = D(d)<=sel;
+    el("circle",{cx:x,cy:124,r:6,fill:past?"var(--ink)":"var(--surface)",stroke:"var(--ink)","stroke-width":1.5},svg);
+    el("text",{x:x,y:150,"text-anchor":"middle"},svg).textContent=String(i+1);
+  });
+  const xs=xOf(sel); el("line",{x1:xs,y1:20,x2:xs,y2:170,stroke:"var(--accent)","stroke-width":2},svg);
+  el("text",{x:Math.min(xs+4,900),y:188,fill:"var(--accent)",style:"fill:var(--accent)"},svg).textContent=fmt(sel);
+}
+function updateClock(){
+  const v=+document.getElementById("ck-range").value; const sel=new Date(T0.getTime()+v*DAY);
+  const act=LIC.filter(([n,a,b])=>sel>=D(a)&&sel<D(b)); const cur=act[act.length-1];
+  document.getElementById("ck-date").textContent=fmt(sel);
+  if(sel<D(LIC[0][1])){ document.getElementById("ck-lic").textContent="None yet"; document.getElementById("ck-left").textContent="—"; }
+  else if(!cur){ document.getElementById("ck-lic").textContent="Expired"; document.getElementById("ck-left").textContent="0"; }
+  else { document.getElementById("ck-lic").textContent="GL "+cur[0]+(cur[3]?" (dates unconfirmed)":""); document.getElementById("ck-left").textContent=Math.round((D(cur[2])-sel)/DAY); }
+  drawGantt(sel);
+  document.getElementById("evlist").innerHTML="<ul>"+EVENTS.map(([d,t],i)=>`<li class="${D(d)<=sel?"on":""}"><span class="mono">${i+1} · ${fmt(D(d)).replace(/ 20\d\d/,"")}</span><span>${t}</span></li>`).join("")+"</ul>";
+}
+document.getElementById("ck-range").addEventListener("input",updateClock);
+document.getElementById("st-months").textContent = Math.floor((D("2026-09-25")-T0)/DAY/30.44);
+
+/* ---------- control test ---------- */
+const TESTS=[
+  {id:"people", w:3, t:"Lukoil-era people stay in charge", d:"Former Lukoil directors, managers or secondees keep roles at the refineries or the Vienna holding."},
+  {id:"buyback", w:3, t:"Lukoil can buy it back later", d:"A buyback option, earn-out or right of first refusal lets the seller take the keys back."},
+  {id:"money", w:3, t:"Sale money reaches Lukoil", d:"Proceeds are paid out, swapped or offset instead of frozen in a US account as OFAC requires."},
+  {id:"trade", w:2, t:"Oil still flows through Litasco", d:"Crude supply or fuel sales keep running through Lukoil's trading arms in Geneva or Dubai."},
+  {id:"resale", w:2, t:"Quiet resale without OFAC review", d:"The buyer passes a refinery or holding to another party without asking OFAC first."},
+  {id:"services", w:1, t:"Shared services continue", d:"IT, accounting or technical services still come from Lukoil entities, such as its Burgas and Prague branches."}
+];
+const tstate={services:true};
+function drawTests(){
+  document.getElementById("toggles").innerHTML=TESTS.map(x=>`
+    <label class="tg" for="t-${x.id}">
+      <input type="checkbox" id="t-${x.id}" ${tstate[x.id]?"checked":""}>
+      <span><b>${x.t}</b><small>${x.d}</small></span>
+      <span class="w">weight ${x.w}</span>
+    </label>`).join("");
+  TESTS.forEach(x=>document.getElementById("t-"+x.id).addEventListener("change",e=>{tstate[x.id]=e.target.checked; drawVerdict();}));
+  drawVerdict();
+}
+function drawVerdict(){
+  const score=TESTS.reduce((s,x)=>s+(tstate[x.id]?x.w:0),0), max=TESTS.reduce((s,x)=>s+x.w,0);
+  let v,c,txt;
+  if(score===0){v="Looks severed";c="ok";txt="No signs of retained control ticked. OFAC could approve on these facts, but keep checking after closing.";}
+  else if(score<4){v="Needs review";c="block";txt="Some ties remain. Each could be innocent, but together they are the kind of links OFAC's guidance asks you to explain.";}
+  else {v="Retained control likely";c="sdn";txt="Ownership changed on paper, but Lukoil still holds the keys. This is the sham-sale pattern OFAC warned about on 31 Mar 2026.";}
+  const hits=TESTS.filter(x=>tstate[x.id]).map(x=>`<li>${x.t}</li>`).join("");
+  const box=document.getElementById("verdict");
+  box.style.borderColor=`var(--${c})`; box.style.background=`var(--${c}-soft)`;
+  box.innerHTML=`<p class="eyebrow">Verdict</p><p class="big" style="color:var(--${c})">${v}</p>
+    <div class="meter" aria-label="Risk score ${score} of ${max}"><div style="width:${score/max*100}%; background:var(--${c})"></div></div>
+    <p class="mono" style="font-size:12px">Score ${score} / ${max}</p><p style="font-size:13.5px">${txt}</p>
+    ${hits?`<ul style="margin:0; padding-left:18px; font-size:13px">${hits}</ul>`:""}`;
+}
+
+/* ---------- watchlist (shared via db) ---------- */
+const WL=[
+  {id:"people", t:"People", d:"Directors, managers and secondees at Burgas, Petrotel and Vienna. Start with Evgeni Manyahin, listed beside Burgas's special manager."},
+  {id:"oil", t:"Oil in, fuel out", d:"Who supplies crude and who buys fuel. Watch Litasco SA (Geneva) and Litasco Middle East (Dubai)."},
+  {id:"terms", t:"Deal terms", d:"Buyback options, earn-outs, first-refusal rights in the Carlyle agreement."},
+  {id:"money", t:"Money trail", d:"Confirm the proceeds sit frozen in a US account. Look for side payments and fee deals."},
+  {id:"services", t:"Service contracts", d:"Shared IT, accounting and technical services, e.g. Lukoil Technology Services branches."},
+  {id:"resale", t:"Resales", d:"Any later sale of a refinery or holding. Watch registries in BG, RO, AT and NL."}
+];
+const STATUSES=[["todo","Not started"],["checking","Checking"],["issue","Found an issue"],["cleared","Cleared"]];
+let wstate={}; let docRef=null;
+function drawWL(){
+  const root=document.getElementById("wl");
+  const active=document.activeElement && root.contains(document.activeElement) ? document.activeElement.id : null;
+  root.innerHTML=WL.map(x=>{ const s=wstate[x.id]||{}; const st=s.status||"todo";
+    return `<article class="wi" data-s="${st}">
+      <h3>${x.t}</h3><p>${x.d}</p>
+      <label class="eyebrow" for="s-${x.id}">Status</label>
+      <select id="s-${x.id}">${STATUSES.map(([k,l])=>`<option value="${k}" ${k===st?"selected":""}>${l}</option>`).join("")}</select>
+      <label class="eyebrow" for="n-${x.id}">Notes</label>
+      <textarea id="n-${x.id}" placeholder="What you found, with sources"></textarea>
+    </article>`;}).join("");
+  WL.forEach(x=>{
+    const ta=document.getElementById("n-"+x.id); ta.value=(wstate[x.id]||{}).note||"";
+    document.getElementById("s-"+x.id).addEventListener("change",e=>save(x.id,{status:e.target.value}));
+    ta.addEventListener("change",e=>save(x.id,{note:e.target.value}));
+  });
+  if(active){ const a=document.getElementById(active); if(a) a.focus(); }
+}
+async function save(id, patch){
+  wstate[id]={...(wstate[id]||{}), ...patch, updatedAt:new Date().toISOString()};
+  drawWL();
+  if(!docRef) return;
+  try{ await docRef.set({items:wstate}); setSync("Saved. Everyone who opens this page sees the same list."); }
+  catch(e){ setSync("Couldn't save that change. Check your connection and try again."); }
+}
+function setSync(t){ document.getElementById("sync").textContent=t; }
+async function initDb(){
+  const db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+  if(!db){ setSync("Shared saving isn't available here, so changes stay on this screen."); return; }
+  docRef=db.doc("tracker/watchlist");
+  setSync("Shared list. Changes save for everyone who opens this page.");
+  docRef.onSnapshot(snap=>{
+    const data=snap.exists?snap.data():null;
+    if(data && data.items){ wstate=JSON.parse(JSON.stringify(data.items)); }
+    const busy=document.activeElement && document.activeElement.tagName==="TEXTAREA";
+    if(!busy) drawWL();
+  }, ()=>setSync("Lost the connection to the shared list. Reload to reconnect."));
+}
+
+/* ---------- tabs ---------- */
+const TABS=["map","clock","test","watch"];
+function show(k){
+  TABS.forEach(t=>{ document.getElementById("tab-"+t).setAttribute("aria-selected",t===k); document.getElementById("p-"+t).hidden = t!==k; });
+  try{ localStorage.setItem("lct-tab",k); }catch(e){}
+}
+TABS.forEach(t=>document.getElementById("tab-"+t).addEventListener("click",()=>show(t)));
+let start="map"; const h=location.hash.replace("#",""); if(TABS.includes(h)) start=h;
+else { try{ const s=localStorage.getItem("lct-tab"); if(TABS.includes(s)) start=s; }catch(e){} }
+
+drawMap(); drawDetail(); updateClock(); drawTests(); drawWL(); show(start); initDb();
+})();
+</script>
+
+</body></html>
