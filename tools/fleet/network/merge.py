@@ -107,6 +107,8 @@ for fp in sorted(_files.values()):
         if m1: e['date'] = '%s-%02d-%02d' % (m1.group(3), int(m1.group(2)), int(m1.group(1)))
         if e.get('type') == 'designated_by' and s.startswith('gov:') and not t.startswith('gov:'):
             e['source'], e['target'] = t, s; s, t = t, s
+        if e.get('type') in ('owns', 'manages', 'operates', 'formerly_operated') and s.startswith('IMO') and not t.startswith('IMO'):
+            e['source'], e['target'] = t, s; s, t = t, s
         if e.get('type') in ('managed_by', 'owned_by', 'operated_by'):
             e['type'] = e['type'].replace('_by', 's').replace('manageds', 'manages').replace('owneds', 'owns').replace('operateds', 'operates')
             e['source'], e['target'] = e['target'], e['source']; s, t = t, s
@@ -181,6 +183,8 @@ for e in edges:
         roles[e['source']].add(ROLE_WORDS[e['type']])
     if e['type'] in FLEET_ROLES:
         fleet_actor[e['source']] = True
+    if e['source'].startswith('IMO') or e['target'].startswith('IMO'):
+        fleet_actor[e['source']] = True; fleet_actor[e['target']] = True
     if any(is_official(s['url']) or s['angle'] == 'lists' for s in e['sources']):
         official_named[e['source']] = True; official_named[e['target']] = True
 for nid, n in nodes.items():
@@ -229,6 +233,19 @@ if hidden:
     for e in edges:
         e['source'] = ren.get(e['source'], e['source']); e['target'] = ren.get(e['target'], e['target'])
 print('scrubbed generic firms:', len(hidden))
+
+# ---- history entries name firms from Ukraine's database: keep a name only if it is a node we show by name ----
+SHOWN = {norm_co(n['name']) for n in nodes.values() if n.get('type') == 'company' and n.get('name_policy') == 'show'}
+SHOWN |= {norm_co(a) for n in nodes.values() if n.get('type') == 'company' and n.get('name_policy') == 'show' for a in n.get('aliases', [])}
+COMPANYISH = re.compile(r'(ltd|llc|l\.l\.c|inc|corp|co\.|company|shipping|marine|maritime|lines|management|shipmanagement|pvt|fze|fzco|dmcc|s\.a|limited|trading|navigation|tankers?|holding)', re.I)
+withheld = 0
+for hl in histories.values():
+    for h in hl:
+        for k in ('from', 'to'):
+            v = (h.get(k) or '').strip()
+            if v and COMPANYISH.search(v) and norm_co(v) not in SHOWN:
+                h[k] = 'an unlisted company'; withheld += 1
+print('history names withheld:', withheld)
 
 # ---- ship facts ----
 for nid, n in nodes.items():

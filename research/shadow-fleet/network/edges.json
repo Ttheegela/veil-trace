@@ -174326,7 +174326,7 @@
   "id": "e7293"
  },
  {
-  "source": "co:unlisted-011",
+  "source": "co:unlisted-017",
   "target": "IMO9282481",
   "type": "manages",
   "date": "",
@@ -174348,7 +174348,7 @@
   "id": "e7294"
  },
  {
-  "source": "co:unlisted-011",
+  "source": "co:unlisted-017",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174370,7 +174370,7 @@
   "id": "e7295"
  },
  {
-  "source": "co:unlisted-004",
+  "source": "co:unlisted-007",
   "target": "IMO9439541",
   "type": "manages",
   "date": "",
@@ -174392,7 +174392,7 @@
   "id": "e7296"
  },
  {
-  "source": "co:unlisted-004",
+  "source": "co:unlisted-007",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174414,7 +174414,7 @@
   "id": "e7297"
  },
  {
-  "source": "co:unlisted-003",
+  "source": "co:unlisted-006",
   "target": "IMO9408695",
   "type": "manages",
   "date": "",
@@ -174436,7 +174436,7 @@
   "id": "e7298"
  },
  {
-  "source": "co:unlisted-003",
+  "source": "co:unlisted-006",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174458,7 +174458,7 @@
   "id": "e7299"
  },
  {
-  "source": "co:unlisted-009",
+  "source": "co:unlisted-015",
   "target": "IMO9387279",
   "type": "owns",
   "date": "",
@@ -174480,7 +174480,7 @@
   "id": "e7300"
  },
  {
-  "source": "co:unlisted-009",
+  "source": "co:unlisted-015",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174502,7 +174502,7 @@
   "id": "e7301"
  },
  {
-  "source": "co:unlisted-007",
+  "source": "co:unlisted-013",
   "target": "IMO9413004",
   "type": "owns",
   "date": "",
@@ -174524,7 +174524,7 @@
   "id": "e7302"
  },
  {
-  "source": "co:unlisted-007",
+  "source": "co:unlisted-013",
   "target": "co:fleet-tanqo",
   "type": "sister_shell_of",
   "date": "",
@@ -174546,7 +174546,7 @@
   "id": "e7303"
  },
  {
-  "source": "co:unlisted-012",
+  "source": "co:unlisted-019",
   "target": "IMO9291262",
   "type": "manages",
   "date": "",
@@ -174568,7 +174568,7 @@
   "id": "e7304"
  },
  {
-  "source": "co:unlisted-012",
+  "source": "co:unlisted-019",
   "target": "co:fleet-tanqo",
   "type": "sister_shell_of",
   "date": "",
@@ -174590,7 +174590,7 @@
   "id": "e7305"
  },
  {
-  "source": "co:unlisted-010",
+  "source": "co:unlisted-016",
   "target": "IMO9252955",
   "type": "owns",
   "date": "",
@@ -174612,7 +174612,7 @@
   "id": "e7306"
  },
  {
-  "source": "co:unlisted-010",
+  "source": "co:unlisted-016",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -175016,7 +175016,7 @@
   "id": "e7324"
  },
  {
-  "source": "co:unlisted-008",
+  "source": "co:unlisted-014",
   "target": "IMO9308065",
   "type": "manages",
   "date": "2025-12",
@@ -177416,7 +177416,7 @@
   "id": "e7432"
  },
  {
-  "source": "co:unlisted-013",
+  "source": "co:unlisted-020",
   "target": "IMO9809538",
   "type": "manages",
   "date": "",
@@ -177438,7 +177438,7 @@
   "id": "e7433"
  },
  {
-  "source": "co:unlisted-006",
+  "source": "co:unlisted-011",
   "target": "IMO9809538",
   "type": "owns",
   "date": "",
@@ -177460,7 +177460,7 @@
   "id": "e7434"
  },
  {
-  "source": "co:unlisted-005",
+  "source": "co:unlisted-008",
   "target": "IMO8984848",
   "type": "manages",
   "date": "",
@@ -177526,7 +177526,7 @@
   "id": "e7437"
  },
  {
-  "source": "co:unlisted-002",
+  "source": "co:unlisted-005",
   "target": "IMO1031537",
   "type": "manages",
   "date": "",
@@ -177548,7 +177548,7 @@
   "id": "e7438"
  },
  {
-  "source": "co:unlisted-015",
+  "source": "co:unlisted-023",
   "target": "IMO1064493",
   "type": "manages",
   "date": "",
@@ -177614,8 +177614,8 @@
   "id": "e7441"
  },
  {
-  "source": "IMO9408695",
-  "target": "co:zulu-ships-management-and-operation-l-l-c",
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9408695",
   "type": "manages",
   "date": "2024-09-09",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/485",
@@ -177636,20 +177636,20 @@
   "id": "e7442"
  },
  {
-  "source": "IMO9408695",
-  "target": "co:tassos-international",
+  "source": "co:unlisted-022",
+  "target": "IMO9408695",
   "type": "owns",
   "date": "2024-10-10",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/485",
   "source_file": "pulls\\tavily\\20260925T170530127888Z_16336_extract.json",
-  "quote": "Ship Owner ... Tassos International Ltd c/o the Zulu Ships Management (10.10.2024)",
+  "quote": "Ship Owner ... [unlisted United Arab Emirates ship owner] c/o the Zulu Ships Management (10.10.2024)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/485",
     "file": "pulls\\tavily\\20260925T170530127888Z_16336_extract.json",
-    "quote": "Ship Owner ... Tassos International Ltd c/o the Zulu Ships Management (10.10.2024)",
+    "quote": "Ship Owner ... [unlisted United Arab Emirates ship owner] c/o the Zulu Ships Management (10.10.2024)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177659,7 +177659,7 @@
  },
  {
   "source": "IMO9408695",
-  "target": "co:unlisted-003",
+  "target": "co:unlisted-006",
   "type": "sold_to",
   "date": "2023-02",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/485",
@@ -177680,8 +177680,8 @@
   "id": "e7444"
  },
  {
-  "source": "IMO9282481",
-  "target": "co:zulu-ships-management-and-operation-l-l-c",
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9282481",
   "type": "owns",
   "date": "2025-07-30",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/580",
@@ -177702,8 +177702,8 @@
   "id": "e7445"
  },
  {
-  "source": "IMO9282481",
-  "target": "co:zulu-ships-management-and-operation-l-l-c",
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9282481",
   "type": "manages",
   "date": "2024-12-08",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/580",
@@ -177724,20 +177724,20 @@
   "id": "e7446"
  },
  {
-  "source": "IMO9388027",
-  "target": "co:fleet-armada",
+  "source": "co:unlisted-010",
+  "target": "IMO9388027",
   "type": "owns",
   "date": "2025-10-03",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
   "source_file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json",
-  "quote": "Ship Owner (IMO/Country/Date) Fleet Armada Pvt Ltd (India / 03.10.2025)",
+  "quote": "Ship Owner (IMO/Country/Date) [unlisted India ship manager] (India / 03.10.2025)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
     "file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json",
-    "quote": "Ship Owner (IMO/Country/Date) Fleet Armada Pvt Ltd (India / 03.10.2025)",
+    "quote": "Ship Owner (IMO/Country/Date) [unlisted India ship manager] (India / 03.10.2025)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177746,20 +177746,20 @@
   "id": "e7447"
  },
  {
-  "source": "IMO9388027",
-  "target": "co:fleet-armada",
+  "source": "co:unlisted-010",
+  "target": "IMO9388027",
   "type": "manages",
   "date": "2025-10-03",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
   "source_file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json",
-  "quote": "Commercial ship manager Fleet Armada Pvt Ltd (India / 03.10.2025)",
+  "quote": "Commercial ship manager [unlisted India ship manager] (India / 03.10.2025)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
     "file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json",
-    "quote": "Commercial ship manager Fleet Armada Pvt Ltd (India / 03.10.2025)",
+    "quote": "Commercial ship manager [unlisted India ship manager] (India / 03.10.2025)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177768,8 +177768,8 @@
   "id": "e7448"
  },
  {
-  "source": "IMO9422988",
-  "target": "co:britney-ryder",
+  "source": "co:britney-ryder",
+  "target": "IMO9422988",
   "type": "owns",
   "date": "2022-08-12",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/521",
@@ -177790,8 +177790,8 @@
   "id": "e7449"
  },
  {
-  "source": "IMO9422988",
-  "target": "co:jetee",
+  "source": "co:jetee",
+  "target": "IMO9422988",
   "type": "manages",
   "date": "2022-08-12",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/521",
@@ -177812,8 +177812,8 @@
   "id": "e7450"
  },
  {
-  "source": "IMO9294331",
-  "target": "co:confident-apex",
+  "source": "co:confident-apex",
+  "target": "IMO9294331",
   "type": "owns",
   "date": "2025-01-03",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/786",
@@ -177834,20 +177834,20 @@
   "id": "e7451"
  },
  {
-  "source": "IMO9294331",
-  "target": "co:qilin-shipping",
+  "source": "co:unlisted-018",
+  "target": "IMO9294331",
   "type": "manages",
   "date": "2025-01-03",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/786",
   "source_file": "pulls\\tavily\\20260925T170538616669Z_6364_extract.json",
-  "quote": "Ship Safety Management Manager Qilin Shipping Ltd (Hong Kong / 03.01.2025)",
+  "quote": "Ship Safety Management Manager [unlisted Hong Kong ship manager] (Hong Kong / 03.01.2025)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/786",
     "file": "pulls\\tavily\\20260925T170538616669Z_6364_extract.json",
-    "quote": "Ship Safety Management Manager Qilin Shipping Ltd (Hong Kong / 03.01.2025)",
+    "quote": "Ship Safety Management Manager [unlisted Hong Kong ship manager] (Hong Kong / 03.01.2025)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177856,8 +177856,8 @@
   "id": "e7452"
  },
  {
-  "source": "IMO9251810",
-  "target": "co:simona-marine-services",
+  "source": "co:simona-marine-services",
+  "target": "IMO9251810",
   "type": "owns",
   "date": "2025-11-11",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/378",
@@ -177878,20 +177878,20 @@
   "id": "e7453"
  },
  {
-  "source": "IMO9251810",
-  "target": "co:coraline-ship-management",
+  "source": "co:unlisted-009",
+  "target": "IMO9251810",
   "type": "manages",
   "date": "2026-01-19",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/378",
   "source_file": "pulls\\tavily\\20260925T170539109690Z_29568_extract.json",
-  "quote": "Ship Safety Management Manager Coraline Ship Management Pvt Ltd (India / 19.01.2026)",
+  "quote": "Ship Safety Management Manager [unlisted India ship manager] (India / 19.01.2026)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/378",
     "file": "pulls\\tavily\\20260925T170539109690Z_29568_extract.json",
-    "quote": "Ship Safety Management Manager Coraline Ship Management Pvt Ltd (India / 19.01.2026)",
+    "quote": "Ship Safety Management Manager [unlisted India ship manager] (India / 19.01.2026)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177900,20 +177900,20 @@
   "id": "e7454"
  },
  {
-  "source": "IMO9293155",
-  "target": "co:junia-shipping",
+  "source": "co:unlisted-012",
+  "target": "IMO9293155",
   "type": "owns",
   "date": "2025-04-29",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/510",
   "source_file": "pulls\\tavily\\20260925T182630709527Z_10052_search.json",
-  "quote": "Ship Owner Junia Shipping Inc c/o Elevate Marine Management (India / 29.04.2025)",
+  "quote": "Ship Owner [unlisted India ship owner] c/o Elevate Marine Management (India / 29.04.2025)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/510",
     "file": "pulls\\tavily\\20260925T182630709527Z_10052_search.json",
-    "quote": "Ship Owner Junia Shipping Inc c/o Elevate Marine Management (India / 29.04.2025)",
+    "quote": "Ship Owner [unlisted India ship owner] c/o Elevate Marine Management (India / 29.04.2025)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177922,8 +177922,8 @@
   "id": "e7455"
  },
  {
-  "source": "IMO9293155",
-  "target": "co:elevate-marine-management",
+  "source": "co:elevate-marine-management",
+  "target": "IMO9293155",
   "type": "manages",
   "date": "2025-05-02",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/510",
@@ -177944,8 +177944,8 @@
   "id": "e7456"
  },
  {
-  "source": "IMO9189146",
-  "target": "co:kylo-shipping",
+  "source": "co:kylo-shipping",
+  "target": "IMO9189146",
   "type": "owns",
   "date": "2024-05-22",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/575",
@@ -177966,20 +177966,20 @@
   "id": "e7457"
  },
  {
-  "source": "IMO9189146",
-  "target": "co:atma-shipping",
+  "source": "co:unlisted-004",
+  "target": "IMO9189146",
   "type": "manages",
   "date": "2024-10-24",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/575",
   "source_file": "pulls\\tavily\\20260925T182645965819Z_19224_search.json",
-  "quote": "Ship Safety Management Manager Atma Shipping FZE (UAE / 24.10.2024)",
+  "quote": "Ship Safety Management Manager [unlisted United Arab Emirates ship manager] (UAE / 24.10.2024)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/575",
     "file": "pulls\\tavily\\20260925T182645965819Z_19224_search.json",
-    "quote": "Ship Safety Management Manager Atma Shipping FZE (UAE / 24.10.2024)",
+    "quote": "Ship Safety Management Manager [unlisted United Arab Emirates ship manager] (UAE / 24.10.2024)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -177988,8 +177988,8 @@
   "id": "e7458"
  },
  {
-  "source": "IMO9304356",
-  "target": "co:backstreet-palm",
+  "source": "co:backstreet-palm",
+  "target": "IMO9304356",
   "type": "owns",
   "date": "2025-06",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/ships?f%5Bpub_id%5D=48&page=1&per-page=12",
@@ -178010,8 +178010,8 @@
   "id": "e7459"
  },
  {
-  "source": "IMO9308065",
-  "target": "co:koban-shipping",
+  "source": "co:koban-shipping",
+  "target": "IMO9308065",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/528",
@@ -178032,8 +178032,8 @@
   "id": "e7460"
  },
  {
-  "source": "IMO9308065",
-  "target": "co:wanta-shipping-fz",
+  "source": "co:wanta-shipping-fz",
+  "target": "IMO9308065",
   "type": "manages",
   "date": "2025-01-10",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/528",
@@ -178054,8 +178054,8 @@
   "id": "e7461"
  },
  {
-  "source": "IMO9284582",
-  "target": "co:sao-viet-petrol-transportation",
+  "source": "co:sao-viet-petrol-transportation",
+  "target": "IMO9284582",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/508",
@@ -178076,8 +178076,8 @@
   "id": "e7462"
  },
  {
-  "source": "IMO9257137",
-  "target": "co:anonymous-chinese-buyers-20-single-vessel-shells",
+  "source": "co:unlisted-002",
+  "target": "IMO9257137",
   "type": "owns",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/ships?f%5Bpub_id%5D=48&page=1&per-page=12",
@@ -178098,8 +178098,8 @@
   "id": "e7463"
  },
  {
-  "source": "IMO9208069",
-  "target": "co:yegua-trading",
+  "source": "co:yegua-trading",
+  "target": "IMO9208069",
   "type": "owns",
   "date": "2025-04-01",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/527",
@@ -178120,8 +178120,8 @@
   "id": "e7464"
  },
  {
-  "source": "IMO9208069",
-  "target": "co:elite-marine-shipmanagement",
+  "source": "co:elite-marine-shipmanagement",
+  "target": "IMO9208069",
   "type": "manages",
   "date": "2025-01-28",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/527",
@@ -178142,8 +178142,8 @@
   "id": "e7465"
  },
  {
-  "source": "IMO9168946",
-  "target": "co:elysian-horizon",
+  "source": "co:elysian-horizon",
+  "target": "IMO9168946",
   "type": "owns",
   "date": "2023-12-05",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/465",
@@ -178164,20 +178164,20 @@
   "id": "e7466"
  },
  {
-  "source": "IMO9168946",
-  "target": "co:aqualink-shipmanagement",
+  "source": "co:unlisted-003",
+  "target": "IMO9168946",
   "type": "manages",
   "date": "2024-01-12",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/465",
   "source_file": "pulls\\tavily\\20260925T182716043167Z_23136_search.json",
-  "quote": "Ship Safety Management Manager Aqualink Shipmanagement Corp (Kazakhstan / 12.01.2024)",
+  "quote": "Ship Safety Management Manager [unlisted Kazakhstan ship manager] (Kazakhstan / 12.01.2024)",
   "confidence": "Documented",
   "angle": "ship-histories",
   "sources": [
    {
     "url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/465",
     "file": "pulls\\tavily\\20260925T182716043167Z_23136_search.json",
-    "quote": "Ship Safety Management Manager Aqualink Shipmanagement Corp (Kazakhstan / 12.01.2024)",
+    "quote": "Ship Safety Management Manager [unlisted Kazakhstan ship manager] (Kazakhstan / 12.01.2024)",
     "record": "",
     "angle": "ship-histories",
     "confidence": "Documented"
@@ -178186,8 +178186,8 @@
   "id": "e7467"
  },
  {
-  "source": "IMO9268112",
-  "target": "co:aristos-maritime-incorporated-linked-to-vroom-marine-venture",
+  "source": "co:aristos-maritime-incorporated-linked-to-vroom-marine-venture",
+  "target": "IMO9268112",
   "type": "owns",
   "date": "2024-02-15",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/578",
@@ -178208,8 +178208,8 @@
   "id": "e7468"
  },
  {
-  "source": "IMO9400980",
-  "target": "co:fractal-marine",
+  "source": "co:fractal-marine",
+  "target": "IMO9400980",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/798",
@@ -178230,8 +178230,8 @@
   "id": "e7469"
  },
  {
-  "source": "IMO9387279",
-  "target": "co:fractal-marine",
+  "source": "co:fractal-marine",
+  "target": "IMO9387279",
   "type": "manages",
   "date": "2026-03-27",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/795",
@@ -178252,8 +178252,8 @@
   "id": "e7470"
  },
  {
-  "source": "IMO9247778",
-  "target": "co:meuse-shipping",
+  "source": "co:meuse-shipping",
+  "target": "IMO9247778",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/transport/shadow-fleet/1167",
@@ -178274,8 +178274,8 @@
   "id": "e7471"
  },
  {
-  "source": "IMO9299707",
-  "target": "co:unlisted-014",
+  "source": "co:unlisted-021",
+  "target": "IMO9299707",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/596",
@@ -178296,7 +178296,7 @@
   "id": "e7472"
  },
  {
-  "source": "co:unlisted-014",
+  "source": "co:unlisted-021",
   "target": "co:sovcomflot",
   "type": "linked_to",
   "date": "",
@@ -178318,8 +178318,8 @@
   "id": "e7473"
  },
  {
-  "source": "IMO9336490",
-  "target": "co:bpt-shipping",
+  "source": "co:bpt-shipping",
+  "target": "IMO9336490",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/793",
@@ -178340,8 +178340,8 @@
   "id": "e7474"
  },
  {
-  "source": "IMO9336490",
-  "target": "co:fractal-marine",
+  "source": "co:fractal-marine",
+  "target": "IMO9336490",
   "type": "manages",
   "date": "",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/793",
@@ -178362,8 +178362,8 @@
   "id": "e7475"
  },
  {
-  "source": "IMO9439541",
-  "target": "co:zulu-ships-management-and-operation-l-l-c",
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9439541",
   "type": "owns",
   "date": "2024-10-10",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/1171",
@@ -178384,8 +178384,8 @@
   "id": "e7476"
  },
  {
-  "source": "IMO9439541",
-  "target": "co:zulu-ships-management-and-operation-l-l-c",
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9439541",
   "type": "manages",
   "date": "2024-07-31",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/1171",
@@ -178406,8 +178406,8 @@
   "id": "e7477"
  },
  {
-  "source": "IMO9237412",
-  "target": "co:seasky-marine",
+  "source": "co:seasky-marine",
+  "target": "IMO9237412",
   "type": "owns",
   "date": "2024-05-07",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/516",
@@ -178428,8 +178428,8 @@
   "id": "e7478"
  },
  {
-  "source": "IMO9237412",
-  "target": "co:seasky-marine",
+  "source": "co:seasky-marine",
+  "target": "IMO9237412",
   "type": "manages",
   "date": "2024-05-28",
   "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/516",

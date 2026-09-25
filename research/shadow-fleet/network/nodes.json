@@ -14955,7 +14955,7 @@
     "date": "2024-01-12",
     "kind": "ism_manager",
     "from": "",
-    "to": "Aqualink Shipmanagement Corp",
+    "to": "[unlisted Kazakhstan ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/465",
     "source_file": "pulls\\tavily\\20260925T182716043167Z_23136_search.json"
    }
@@ -17837,7 +17837,7 @@
     "date": "2024-10-24",
     "kind": "ism_manager",
     "from": "",
-    "to": "Atma Shipping FZE",
+    "to": "[unlisted United Arab Emirates ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/575",
     "source_file": "pulls\\tavily\\20260925T182645965819Z_19224_search.json"
    }
@@ -31390,7 +31390,7 @@
     "date": "2026-01-19",
     "kind": "ism_manager",
     "from": "",
-    "to": "Coraline Ship Management Pvt Ltd",
+    "to": "[unlisted India ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/378",
     "source_file": "pulls\\tavily\\20260925T170539109690Z_29568_extract.json"
    }
@@ -47811,7 +47811,7 @@
     "date": "2025-04-29",
     "kind": "owner",
     "from": "",
-    "to": "Junia Shipping Inc c/o Elevate Marine Management Pvt Ltd",
+    "to": "[unlisted India ship owner] c/o Elevate Marine Management Pvt Ltd",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/510",
     "source_file": "pulls\\tavily\\20260925T182630709527Z_10052_search.json"
    },
@@ -48374,7 +48374,7 @@
     "date": "2025-01-03",
     "kind": "ism_manager",
     "from": "",
-    "to": "Qilin Shipping Ltd",
+    "to": "[unlisted Hong Kong ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/786",
     "source_file": "pulls\\tavily\\20260925T170538616669Z_6364_extract.json"
    }
@@ -70749,7 +70749,7 @@
     "date": "2025-10-03",
     "kind": "owner",
     "from": "",
-    "to": "Fleet Armada Pvt Ltd",
+    "to": "[unlisted India ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
     "source_file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json"
    },
@@ -70757,7 +70757,7 @@
     "date": "2025-10-03",
     "kind": "manager",
     "from": "",
-    "to": "Fleet Armada Pvt Ltd",
+    "to": "[unlisted India ship manager]",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/796",
     "source_file": "pulls\\tavily\\20260925T170531896158Z_14964_extract.json"
    },
@@ -73537,7 +73537,7 @@
     "date": "2024-10-10",
     "kind": "owner",
     "from": "",
-    "to": "Tassos International Ltd c/o the Zulu Ships Management & Operation",
+    "to": "[unlisted United Arab Emirates ship owner] c/o the Zulu Ships Management & Operation",
     "source_url": "https://war-sanctions.gur.gov.ua/en/transport/shadow-fleet/485",
     "source_file": "pulls\\tavily\\20260925T170530127888Z_16336_extract.json"
    }
@@ -93606,53 +93606,6 @@
   "program_group": "iran"
  },
  {
-  "id": "co:anonymous-chinese-buyers-20-single-vessel-shells",
-  "type": "company",
-  "name": "anonymous Chinese buyers (20 single-vessel shells)",
-  "angle": [
-   "ship-histories"
-  ],
-  "role": "buyer network (unnamed)",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "Lead only: source describes an unnamed shell-company buyer network, not a specific listed company; do not treat as a sanctioned entity."
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
-  "id": "co:aqualink-shipmanagement",
-  "type": "company",
-  "name": "Aqualink Shipmanagement Corp",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "kz",
-  "role": "ISM manager",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted Kazakhstan company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
   "id": "co:aquamarine-ship-management",
   "type": "company",
   "name": "Limited Liability Company “Aquamarine Ship Management”",
@@ -94405,30 +94358,6 @@
   "name_policy": "show",
   "generic_name": "unlisted Marshall Islands company linked to listed ships",
   "program_group": "terrorism"
- },
- {
-  "id": "co:atma-shipping",
-  "type": "company",
-  "name": "Atma Shipping FZE",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "ae",
-  "role": "ISM manager",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted United Arab Emirates company",
-  "program_group": "other",
-  "ship_count": 0
  },
  {
   "id": "co:atos-remote-solutions",
@@ -95469,8 +95398,8 @@
   "listed": true,
   "name_policy": "show",
   "generic_name": "unlisted United Arab Emirates company linked to listed ships",
-  "program_group": "other",
-  "ship_count": 0
+  "program_group": "both",
+  "ship_count": 1
  },
  {
   "id": "co:branch-saying-international-trading",
@@ -96746,30 +96675,6 @@
   "name_policy": "show",
   "generic_name": "unlisted Liberia company linked to listed ships",
   "program_group": "iran"
- },
- {
-  "id": "co:coraline-ship-management",
-  "type": "company",
-  "name": "Coraline Ship Management Pvt Ltd",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "in",
-  "role": "ISM manager",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted India company",
-  "program_group": "other",
-  "ship_count": 0
  },
  {
   "id": "co:corfu-maritime-and-trading-s-a",
@@ -99009,30 +98914,6 @@
   "program_group": "russia"
  },
  {
-  "id": "co:fleet-armada",
-  "type": "company",
-  "name": "Fleet Armada Pvt Ltd",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "in",
-  "role": "ship owner / manager",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted India company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
   "id": "co:fleet-tanqo",
   "type": "company",
   "name": "Fleet Tanqo Pvt Ltd",
@@ -99222,8 +99103,8 @@
   "listed": true,
   "name_policy": "show",
   "generic_name": "unlisted United Arab Emirates company linked to listed ships",
-  "program_group": "other",
-  "ship_count": 0
+  "program_group": "both",
+  "ship_count": 3
  },
  {
   "id": "co:frina-express",
@@ -102617,30 +102498,6 @@
   "program_group": "russia"
  },
  {
-  "id": "co:junia-shipping",
-  "type": "company",
-  "name": "Junia Shipping Inc",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "in",
-  "role": "ship owner",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted India company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
   "id": "co:just-marine",
   "type": "company",
   "name": "JUST MARINE LTD",
@@ -103142,8 +102999,8 @@
   "listed": true,
   "name_policy": "show",
   "generic_name": "unlisted United Arab Emirates company linked to listed ships",
-  "program_group": "other",
-  "ship_count": 0
+  "program_group": "both",
+  "ship_count": 1
  },
  {
   "id": "co:kohana",
@@ -108759,30 +108616,6 @@
   "program_group": "iran"
  },
  {
-  "id": "co:qilin-shipping",
-  "type": "company",
-  "name": "Qilin Shipping Ltd",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "hk",
-  "role": "ISM manager",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted Hong Kong company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
   "id": "co:qingdao-huitong-shipping",
   "type": "company",
   "name": "QINGDAO HUITONG SHIPPING CO",
@@ -112711,30 +112544,6 @@
   "ship_count": 0
  },
  {
-  "id": "co:tassos-international",
-  "type": "company",
-  "name": "Tassos International Ltd",
-  "angle": [
-   "ship-histories"
-  ],
-  "country": "ae",
-  "role": "ship owner",
-  "research_notes": [
-   {
-    "angle": "ship-histories",
-    "text": "unlisted (team sanctions checker found no confident list entry)"
-   }
-  ],
-  "listed_by": [],
-  "programs": [],
-  "aliases": [],
-  "listed": false,
-  "name_policy": "show",
-  "generic_name": "unlisted United Arab Emirates company",
-  "program_group": "other",
-  "ship_count": 0
- },
- {
   "id": "co:taurus-gas",
   "type": "company",
   "name": "TAURUS GAS COMPANY LIMITED",
@@ -114064,6 +113873,77 @@
  {
   "id": "co:unlisted-002",
   "type": "company",
+  "name": "unlisted ship owner",
+  "angle": [
+   "ship-histories"
+  ],
+  "role": "buyer network (unnamed)",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "Lead only: source describes an unnamed shell-company buyer network, not a specific listed company; do not treat as a sanctioned entity."
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted ship owner",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-003",
+  "type": "company",
+  "name": "unlisted Kazakhstan ship manager",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "kz",
+  "role": "ISM manager",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted Kazakhstan ship manager",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-004",
+  "type": "company",
+  "name": "unlisted United Arab Emirates ship manager",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "ae",
+  "role": "ISM manager",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted United Arab Emirates ship manager",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-005",
+  "type": "company",
   "name": "unlisted ship manager",
   "angle": [
    "service-providers"
@@ -114086,7 +113966,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-003",
+  "id": "co:unlisted-006",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114115,7 +113995,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-004",
+  "id": "co:unlisted-007",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114139,7 +114019,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-005",
+  "id": "co:unlisted-008",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114163,7 +114043,55 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-006",
+  "id": "co:unlisted-009",
+  "type": "company",
+  "name": "unlisted India ship manager",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "in",
+  "role": "ISM manager",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted India ship manager",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-010",
+  "type": "company",
+  "name": "unlisted India ship manager",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "in",
+  "role": "ship owner / manager",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted India ship manager",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-011",
   "type": "company",
   "name": "unlisted ship owner",
   "angle": [
@@ -114187,7 +114115,31 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-007",
+  "id": "co:unlisted-012",
+  "type": "company",
+  "name": "unlisted India ship owner",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "in",
+  "role": "ship owner",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted India ship owner",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-013",
   "type": "company",
   "name": "unlisted ship owner",
   "angle": [
@@ -114211,7 +114163,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-008",
+  "id": "co:unlisted-014",
   "type": "company",
   "name": "unlisted Marshall Islands ship manager",
   "angle": [
@@ -114235,7 +114187,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-009",
+  "id": "co:unlisted-015",
   "type": "company",
   "name": "unlisted ship owner",
   "angle": [
@@ -114259,7 +114211,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-010",
+  "id": "co:unlisted-016",
   "type": "company",
   "name": "unlisted ship owner",
   "angle": [
@@ -114283,7 +114235,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-011",
+  "id": "co:unlisted-017",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114307,7 +114259,31 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-012",
+  "id": "co:unlisted-018",
+  "type": "company",
+  "name": "unlisted Hong Kong ship manager",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "hk",
+  "role": "ISM manager",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted Hong Kong ship manager",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-019",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114331,7 +114307,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-013",
+  "id": "co:unlisted-020",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -114355,7 +114331,7 @@
   "ship_count": 1
  },
  {
-  "id": "co:unlisted-014",
+  "id": "co:unlisted-021",
   "type": "company",
   "name": "unlisted United Arab Emirates company linked to listed ships",
   "angle": [
@@ -114375,11 +114351,35 @@
   "listed": false,
   "name_policy": "generic",
   "generic_name": "unlisted United Arab Emirates company linked to listed ships",
-  "program_group": "other",
-  "ship_count": 0
+  "program_group": "both",
+  "ship_count": 1
  },
  {
-  "id": "co:unlisted-015",
+  "id": "co:unlisted-022",
+  "type": "company",
+  "name": "unlisted United Arab Emirates ship owner",
+  "angle": [
+   "ship-histories"
+  ],
+  "country": "ae",
+  "role": "ship owner",
+  "research_notes": [
+   {
+    "angle": "ship-histories",
+    "text": "unlisted (team sanctions checker found no confident list entry)"
+   }
+  ],
+  "listed_by": [],
+  "programs": [],
+  "aliases": [],
+  "listed": false,
+  "name_policy": "generic",
+  "generic_name": "unlisted United Arab Emirates ship owner",
+  "program_group": "both",
+  "ship_count": 1
+ },
+ {
+  "id": "co:unlisted-023",
   "type": "company",
   "name": "unlisted ship manager",
   "angle": [
@@ -115303,8 +115303,8 @@
   "listed": true,
   "name_policy": "show",
   "generic_name": "unlisted United Arab Emirates company linked to listed ships",
-  "program_group": "other",
-  "ship_count": 0
+  "program_group": "both",
+  "ship_count": 1
  },
  {
   "id": "co:wavecrest-maritime",
