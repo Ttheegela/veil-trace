@@ -11,6 +11,7 @@
 |---|---|
 | `demo/` | The 3-minute demo. Open `demo/index.html` in a browser (1920x1080). Arrow keys step through; **E** opens the sources behind every number; **V** is presenter view. `demo/SCRIPT.md` is the spoken script; `demo/screens/` has still images of each slide. |
 | `docs/RESEARCH_AND_SOURCES.md` | Our research in one file: data sources and their traps, official references for every listing date, findings beyond the demo, open leads. |
+| `research/lobbying/FINDINGS.md` | Lobbying around sanctions: who pays, through which clean names (parents, subsidiaries, law firms, governments), and what changed, with each effect graded documented / timing fits / contested. |
 | `docs/METHODS_LOG.md` | How we found things: discovery methods, checks, and the traps we fell into. |
 | `docs/sanctions-explained/` | A plain-language explainer: how sanctions work and how evasion works. |
 | `docs/shape-of-the-problem/` | Six diagrams of the system. |
