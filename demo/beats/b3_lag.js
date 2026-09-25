@@ -291,7 +291,7 @@
 
   var SAY1 = 'Four companies from these routes. The dark lines are their shipment records.';
   var SAY2 = 'Governments did list them. But at least 15 to 20 months after they first appeared.';
-  var SAY3 = 'By then, most had moved on: 4 of 5 listed shippers had already left these routes. RM Design left its route 24 days before its listing. A clean screen means not listed yet, not safe.';
+  var SAY3 = 'By then, most had moved on: 4 of 5 listed shippers had already left these routes. One, RM Design, kept shipping after it was sanctioned: 40 records. A clean screen means not listed yet, not safe.';
 
   window.DEMO.register({
     id: 'b3',
