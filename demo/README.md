@@ -78,7 +78,7 @@ Roles: Tarun speaks, Alex drives. Every "(click)" in the script is Alex pressing
 - `V3_PLAN.md`: the v3 storyboard (one point per screen, the motion per click); it wins over `DESIGN_SPEC.md` where they differ.
 - `DESIGN_SPEC.md`: the redesign spec (reading order, type sizes, colour rules).
 - `beats/`: one file per screen (b0 hook, b1 routes, b2 river, b3 lag, b4 chip, b5 honesty, b6 close).
-- `data/`: the data each screen draws, copied from the team's earlier views in `build/viz/` and the UN Comtrade aggregate files.
+- `data/`: the data each screen draws, copied from the team's earlier views (now in `research/russia-ukraine/viz/`) and the UN Comtrade aggregate files.
 
 ## Evidence check levels
 
@@ -98,7 +98,7 @@ Roles: Tarun speaks, Alex drives. Every "(click)" in the script is Alex pressing
 ## Credits
 
 - Sponsor data: Sayari and Tradeverifyd. UN Comtrade (countries' own trade reports). Official sanctions lists: US Treasury (OFAC), US Commerce (BIS), UK, EU; OpenSanctions. GUR, Ukraine's defence intelligence (a party to the war).
-- Map callout style adapted from God's Eye View, MIT License, (c) 2026 Bilawal Sidhu (github.com/bilawalsidhu/gods-eye-view). See `build/viz/THIRD_PARTY.md`.
+- Map callout style adapted from God's Eye View, MIT License, (c) 2026 Bilawal Sidhu (github.com/bilawalsidhu/gods-eye-view). See `research/russia-ukraine/viz/THIRD_PARTY.md`.
 - Country boundaries: Natural Earth 1:110m (public domain), via world-atlas (ISC).
 - Type: IBM Plex Sans, SIL Open Font License (`fonts/LICENSE-IBMPlexSans-OFL.txt`).
 - Look: the team's corporate theme (`hackathon-prep/day_kit/looks/corporate`).

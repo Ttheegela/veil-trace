@@ -11,6 +11,9 @@
 |---|---|
 | `demo/` | The 3-minute demo. Open `demo/index.html` in a browser (1920x1080). Arrow keys step through; **E** opens the sources behind every number; **V** is presenter view. `demo/SCRIPT.md` is the spoken script; `demo/screens/` has still images of each slide. |
 | `docs/RESEARCH_AND_SOURCES.md` | Our research in one file: data sources and their traps, official references for every listing date, findings beyond the demo, open leads. |
+| `research/shadow-fleet/network/shadow_fleet_map.html` | Shadow Fleet Network: interactive map of the tankers, companies, officially named people and countries behind Russia's and Iran's shadow fleet, joined by IMO hull number, with a source on every link. Open it in a browser (about 3 MB; the data files add about 8 MB). Data in `nodes.json` / `edges.json`; sources and rules in `METHOD.md`. |
+| `research/shadow-fleet/FINDINGS.md` | Tankers serving both Russia and Iran, matched by IMO number: overlap counts, listing order, name changes, manager churn. |
+| `research/russia-ukraine/` | Dual-use goods reaching Russia: routes, churn, listing lag, hubs, buyers, part numbers. Interactive views in `research/russia-ukraine/viz/`. |
 | `research/lobbying/FINDINGS.md` | Lobbying around sanctions: who pays, through which clean names (parents, subsidiaries, law firms, governments), and what changed, with each effect graded documented / timing fits / contested. |
 | `docs/METHODS_LOG.md` | How we found things: discovery methods, checks, and the traps we fell into. |
 | `docs/sanctions-explained/` | A plain-language explainer: how sanctions work and how evasion works. |
@@ -20,7 +23,7 @@
 | `tools/detect/` | Alias and ID cross-check, sibling finder (shared addresses), and its back-test. |
 | `tools/sponsors/` | One look-up across both sponsor data services. |
 
-**Branches:** `russia-ukraine` (dual-use goods reaching Russia: routes, churn, listing lag, hubs, buyers, part numbers) and `shadow-fleet` (tankers serving both Russia and Iran, matched by IMO number).
+**Branches:** `russia-ukraine` and `shadow-fleet` were merged into `main` on 25 Sep 2026; their work now lives under `research/` and `tools/`.
 
 ## Data
 
