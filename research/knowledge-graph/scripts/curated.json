@@ -1,0 +1,499 @@
+{
+ "_about": "Hand-checked additions for the knowledge graph (Claude's suggestion, unruled by Alex). Every status row was looked up in the local list files on 2026-09-25 (US consolidated screening list rows by entity number; UK list by unique ID). Every edge carries its source.",
+ "status": {
+  "co:sberbank": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "17018",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "RUS0256",
+     "01/03/2022"
+    ]
+   ]
+  },
+  "co:vtb-bank": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "17013",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "RUS0250",
+     "24/02/2022"
+    ]
+   ]
+  },
+  "co:gazprombank": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "17016",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "RUS1072",
+     "24/03/2022"
+    ]
+   ]
+  },
+  "co:nord-stream-2": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "31926",
+     "PEESA-EO14039; RUSSIA-EO14024"
+    ]
+   ]
+  },
+  "co:arctic-lng-2": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "46030",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "RUS2092",
+     "22/02/2024"
+    ]
+   ]
+  },
+  "p:oleg-deripaska": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "24283",
+     "UKRAINE-EO13661"
+    ],
+    [
+     "UK",
+     "RUS0269",
+     "10/03/2022"
+    ]
+   ]
+  },
+  "co:gazprom-neft": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "17143",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "RUS2383",
+     "10/01/2025"
+    ]
+   ]
+  },
+  "co:gazprom": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US sectoral (SSI) and menu-based (NS-MBS)",
+     "17250",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "US Commerce Entity List",
+     "",
+     "2014-09-17"
+    ]
+   ]
+  },
+  "co:novatek": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US sectoral (SSI)",
+     "17064",
+     "UKRAINE-EO13662"
+    ]
+   ]
+  },
+  "gov:russia": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US menu-based (NS-MBS): Ministry of Finance",
+     "31694",
+     "RUSSIA-EO14024"
+    ]
+   ]
+  },
+  "co:hangzhou-hikvision": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Chinese military companies (CMIC)",
+     "30946",
+     "CMIC-EO13959"
+    ],
+    [
+     "US Commerce Entity List",
+     "",
+     "2019-10-09"
+    ]
+   ]
+  },
+  "co:huawei": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Chinese military companies (CMIC)",
+     "30947",
+     "CMIC-EO13959"
+    ],
+    [
+     "US Commerce Entity List",
+     "",
+     "2019-05-21"
+    ]
+   ]
+  },
+  "co:smic": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Chinese military companies (CMIC)",
+     "30951",
+     "CMIC-EO13959"
+    ],
+    [
+     "US Commerce Entity List",
+     "",
+     "2020-12-18"
+    ]
+   ]
+  },
+  "co:dji": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Chinese military companies (CMIC): SZ DJI Technology",
+     "33111",
+     "CMIC-EO13959"
+    ],
+    [
+     "US Commerce Entity List",
+     "",
+     "2020-12-18"
+    ]
+   ]
+  },
+  "co:hytera": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Commerce Entity List",
+     "",
+     "2024-08-27"
+    ]
+   ]
+  },
+  "co:cetc": {
+   "level": "restricted",
+   "lists": [
+    [
+     "US Chinese military companies (CMIC)",
+     "30936",
+     "CMIC-EO13959"
+    ]
+   ]
+  },
+  "co:zara-shipholding": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "50524",
+     "RUSSIA-EO14024"
+    ]
+   ]
+  },
+  "co:skyhart-management-services": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "51967",
+     "RUSSIA-EO14024"
+    ]
+   ]
+  },
+  "co:sovcomflot": {
+   "level": "blocked",
+   "lists": [
+    [
+     "US SDN",
+     "34741",
+     "RUSSIA-EO14024"
+    ],
+    [
+     "UK",
+     "",
+     "24/03/2022"
+    ]
+   ]
+  }
+ },
+ "nodes": [
+  {
+   "id": "co:sberbank",
+   "type": "company",
+   "name": "Sberbank",
+   "group": "russia",
+   "role": "Russia's largest bank",
+   "layer": "lobby"
+  },
+  {
+   "id": "co:hangzhou-hikvision",
+   "type": "company",
+   "name": "Hangzhou Hikvision",
+   "group": "china",
+   "role": "Chinese surveillance-camera maker",
+   "layer": "lobby"
+  },
+  {
+   "id": "lf:mercury-public-affairs",
+   "type": "lobbyfirm",
+   "name": "Mercury Public Affairs",
+   "layer": "lobby"
+  },
+  {
+   "id": "lf:sidley-austin",
+   "type": "lobbyfirm",
+   "name": "Sidley Austin LLP",
+   "layer": "lobby"
+  },
+  {
+   "id": "co:zara-shipholding",
+   "type": "company",
+   "name": "ZARA SHIPHOLDING CO",
+   "group": "russia",
+   "layer": "fleet",
+   "role": "shipping company linked by OFAC to Arctic LNG 2"
+  },
+  {
+   "id": "co:skyhart-management-services",
+   "type": "company",
+   "name": "SKYHART MANAGEMENT SERVICES PRIVATE LIMITED",
+   "group": "russia",
+   "layer": "fleet",
+   "role": "shipping company linked by OFAC to Arctic LNG 2",
+   "country": "IN"
+  }
+ ],
+ "edges": [
+  {
+   "source": "co:gazprom",
+   "target": "co:gazprom-neft",
+   "type": "owns",
+   "confidence": "Documented",
+   "date": "2014-09-12",
+   "source_url": "https://home.treasury.gov/news/press-releases/jl2629",
+   "source_file": "pulls/tavily/20260925T184127949600Z_9368_search.json",
+   "quote": "Gazprom Neft is majority owned by Gazprom."
+  },
+  {
+   "source": "co:gazprom-neft",
+   "target": "co:gazpromneft-marine-bunker-liability",
+   "type": "owns",
+   "confidence": "Documented",
+   "date": "2025-01-10",
+   "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+   "source_file": "pulls/tavily/20260925T184101617058Z_26384_extract.json",
+   "quote": "Russia-based fleet and bunker operator Gazpromneft Marine Bunker ... a Gazprom Neft subsidiary"
+  },
+  {
+   "source": "co:gazprom",
+   "target": "co:gazpromexport",
+   "type": "owns",
+   "confidence": "Documented",
+   "date": "2005",
+   "source_url": "https://lda.senate.gov/filings/public/filing/a790e61d-e32a-4907-b827-b8112a617526/print/",
+   "quote": "Client: GAZPROMEXPORT LTD (FORMERLY GAZEXPORT LTD) A SUBSIDIARY OF OAO GAZPROM"
+  },
+  {
+   "source": "co:sberbank",
+   "target": "co:sberbank-cib-usa",
+   "type": "owns",
+   "confidence": "Lead",
+   "quote": "Inferred from the name and the Sberbank group holding companies listed as foreign entities on the filings; not stated on an official page we saved."
+  },
+  {
+   "source": "co:hangzhou-hikvision",
+   "target": "co:hikvision-usa",
+   "type": "owns",
+   "confidence": "Lead",
+   "quote": "US subsidiary of the Hangzhou parent (inferred from the name; the filings list CETC and CETHIK, the parent's state owners, as foreign entities)."
+  },
+  {
+   "source": "co:cetc",
+   "target": "co:hangzhou-hikvision",
+   "type": "owns",
+   "confidence": "Lead",
+   "quote": "The Hikvision USA filings list CETC as a foreign entity; control of the parent is widely reported but not re-checked here."
+  },
+  {
+   "source": "co:en-plus-group",
+   "target": "lf:mercury-public-affairs",
+   "type": "hired",
+   "confidence": "Documented",
+   "date": "2019-02",
+   "amount": 108500,
+   "amount_note": "US$ per month (FARA registration 6170)",
+   "source_url": "https://efile.fara.gov/docs/6170-Exhibit-AB-20200316-80.pdf",
+   "quote": "Foreign-agent (FARA) contract between Mercury Public Affairs and En+ Group, $108,500 per month, during the 2019 delisting."
+  },
+  {
+   "source": "co:hikvision-usa",
+   "target": "lf:sidley-austin",
+   "type": "foreign_agent_for",
+   "confidence": "Reported",
+   "date": "2025-04-30",
+   "source_url": "https://efile.fara.gov/docs/3731-Supplemental-Statement-20250430-53.pdf",
+   "quote": "Sidley Austin registered as a foreign agent (FARA 3731) for Hikvision USA; about $573,619 in one six-month period (not re-checked)."
+  },
+  {
+   "source": "gov:russia",
+   "target": "co:sovcomflot",
+   "type": "owns",
+   "confidence": "Documented",
+   "date": "2025-01-10",
+   "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+   "source_file": "pulls/tavily/20260925T194926777053Z_14684_search.json",
+   "quote": "Joint Stock Company Sovcomflot (Sovcomflot), Russia's state-owned shipping company and fleet operator"
+  },
+  {
+   "source": "co:gazprom-neft",
+   "target": "co:gazpromneft-shipping",
+   "type": "owns",
+   "confidence": "Lead",
+   "quote": "Inferred from the name; no official text we saved states the owner."
+  },
+  {
+   "source": "co:gazprom",
+   "target": "co:gazprom-flot",
+   "type": "owns",
+   "confidence": "Lead",
+   "quote": "Inferred from the name; no official text we saved states the owner (EU listed Gazprom Flot on 23 Apr 2026)."
+  },
+  {
+   "source": "co:ocean-speedstar-solutions",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 50521",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:zara-shipholding",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 50524",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:gotik-shipping",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 50626",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:plio-energy-cargo-shipping",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 50627",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:skyhart-management-services",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 51967",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:avision-shipping-services",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 51972",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  },
+  {
+   "source": "co:hongkong-yaqing-shipping",
+   "target": "co:arctic-lng-2",
+   "type": "linked_to",
+   "confidence": "Documented",
+   "source_url": "https://www.trade.gov/consolidated-screening-list",
+   "source_file": "us_csl/consolidated.csv",
+   "record": "OFAC ent_num 52250",
+   "quote": "US sanctions list entry: (Linked To: LIMITED LIABILITY COMPANY ARCTIC LNG 2)"
+  }
+ ],
+ "no_lobbying_found": {
+  "_about": "Searched the US Senate lobbying-disclosure API by client and foreign-entity name on 2026-09-25: zero filings. 'No filing found' is not proof of no influence (foreign lobbying can run through FARA, the EU or governments).",
+  "names": [
+   "Sovcomflot",
+   "Zulu Ships Management",
+   "Fleet Tanqo",
+   "Orchid Shipmanagement",
+   "Glory Shipping",
+   "Lukoil",
+   "Rosneft",
+   "Nayara",
+   "Litasco",
+   "Rusal",
+   "Megasan",
+   "Alrosa",
+   "Kaspersky",
+   "YMTC",
+   "CXMT",
+   "RM Design and Development",
+   "ELEM Group",
+   "Keremet Bank"
+  ],
+  "match": [
+   "co:sovcomflot",
+   "co:sovcomflot-sterling-shipmanagement",
+   "co:zulu-ships-management-and-operation-l-l-c",
+   "co:fleet-tanqo",
+   "co:lukoil-marinbunker",
+   "co:rosnefteflot"
+  ]
+ }
+}
