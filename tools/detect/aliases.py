@@ -29,9 +29,11 @@ import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(r".")
+# Paths: set CLIMATE_DAY_ROOT (the folder holding data/ and pulls/) and UK_SANCTIONS_CSV locally.
+# The default assumes this file sits in tools/detect/ below that root. Sponsor pulls are never in the public repo.
+ROOT = Path(os.environ.get("CLIMATE_DAY_ROOT", Path(__file__).resolve().parents[2]))
 OS_DIR = ROOT / "data" / "opensanctions"
-UK_CSV = Path(r"data\uk_sanctions_list\UK-Sanctions-List.csv")
+UK_CSV = Path(os.environ.get("UK_SANCTIONS_CSV", ROOT / "data" / "uk_sanctions_list" / "UK-Sanctions-List.csv"))
 PULLS = ROOT / "pulls" / "sayari"
 HERE = Path(__file__).resolve().parent
 PY = ROOT / ".venv" / "Scripts" / "python.exe"
@@ -294,8 +296,9 @@ def match(recs, ix: Index):
 
 # ---------------------------------------------------------------- live look-ups
 LEAD_NAMES = ["ELEM GROUP", "STRELOI", "STRELOY", "RM Design and Development", "ITIC", "Enkor", "Titan-Micro", "Sinno Electronics",
-              "Testkomplekt", "Flavic", "Orchid Shipmanagement", "Glory Shipping", "SUN Ship Management", "Sovcomflot",
-              "Naftna Industrija Srbije", "Belarusian Potash", "Belaruskali", "Boreray"]
+              "Testkomplekt", "Flavic", "SUN Ship Management", "Sovcomflot",
+              "Naftna Industrija Srbije", "Belarusian Potash", "Belaruskali"]
+# Public repo: seed names are listed parties only; add unlisted leads locally if an agency review needs them.
 
 
 def saved_calls():

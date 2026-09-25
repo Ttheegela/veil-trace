@@ -23,8 +23,8 @@ after those companies first showed up.
 | [FINDINGS.md](FINDINGS.md) | What the records show, by theme (new routes, company churn, listing lag, buyers, part numbers, Turkey, UAE, Hong Kong and China, machine tools, plywood and aluminium, payments, screening gaps, AI chips), each with numbers, dates, official sources and a solidity rating |
 | [OPEN_LEADS.md](OPEN_LEADS.md) | Open questions and the next test for each; unlisted firms are described, not named |
 | [SOCIAL.md](SOCIAL.md) | Short summary of the social side (forged paperwork, remittances, disinformation, enablers), checked items only |
-| `../../viz/` | The day's interactive views (open the HTML files in a browser) and the scripts that built their data |
-| `../../detect/` | Detection code: exact alias and ID cross-check, and a "sibling" finder (same address plus shared trading partner) |
+| `viz/` | The day's interactive views (open the HTML files in a browser) and the scripts that built their data |
+| `../../tools/detect/` | Detection code: exact alias and ID cross-check, and a "sibling" finder (same address plus shared trading partner) |
 
 **Solidity ratings:** H (high: re-derived by an independent checker, dates on official pages), M (medium),
 L (low). Every correction made on the day is listed at the end of FINDINGS.md.
@@ -67,7 +67,7 @@ answers that are not in this repository. To rebuild, run them locally where thos
 (environment variables `RIVER_UNLISTED_SUPPLIER_1` and `RIVER_UNLISTED_SUPPLIER_2`) from sponsor data. Never
 commit the regenerated files without re-running the naming check.
 
-## The detection code (`detect/`)
+## The detection code (`tools/detect/`)
 
 - `aliases.py`: finds sponsor records that share an **exact** alias or ID with a listed company but are
   flagged "not sanctioned". Set `CLIMATE_DAY_ROOT` (a folder holding `data/opensanctions/` and `pulls/sayari/`)

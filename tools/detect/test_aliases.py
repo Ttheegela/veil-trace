@@ -1,4 +1,9 @@
-"""Tests for aliases.py. Run: python test_aliases.py"""
+"""Tests for aliases.py. Run: python test_aliases.py
+
+Note: "RM DESIGN&DEVELOPMENT SIRKETI" is a spelling found on one sponsor record. It is an exact alias of the
+OFAC-listed Bishkek firm, so the matcher must flag it; whether that record is the same company is NOT verified
+(lead only). test_rm_design_example_found needs the local sponsor pulls and is skipped without them.
+"""
 import os
 import tempfile
 from pathlib import Path
@@ -39,6 +44,9 @@ def test_kpp_not_an_identifier_match():
 
 
 def test_rm_design_example_found():
+    if not A.PULLS.exists():
+        print("  skipped: sponsor pulls not present (public repo)")
+        return
     out = Path(tempfile.gettempdir()) / "b12_screen_gaps_test.csv"
     rows = A.run(0, out=out, quiet=True)
     os.remove(out)
