@@ -6,7 +6,7 @@ government jobs they disclose. Open `index.html` in a browser (needs internet fo
 cdn.jsdelivr.net; for local files, serve the folder, e.g. `python -m http.server 8792`).
 
 **Controls:** `/` search · **Find a path** between any two names · **Overview** (`0`) · arrow keys step through the
-8-step story · **Explore** hides it · filters for Russia, Iran, China and chips, Other, and Leads · click anything for its
+9-step story · **Explore** hides it · filters for Russia, Iran, China and chips, Other, and Leads · click anything for its
 records and source links.
 
 ## What the picture encodes

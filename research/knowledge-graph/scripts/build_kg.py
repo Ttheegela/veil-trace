@@ -83,11 +83,11 @@ def main() -> None:
     # ---- lobbying layer ----------------------------------------------------------------------
     for n in lobby["nodes"] + cur["nodes"]:
         nid = n["id"]
-        if nid in nodes:  # the same company already on the fleet side: mark it as a bridge
-            nodes[nid]["L"] = "bridge"
+        if nid in nodes:  # the same company already on the fleet side: it bridges the two sides
+            nodes[nid]["br"] = True
             continue
         info = {k: n[k] for k in ("role", "country", "title", "covered_positions", "lda_names") if n.get(k)}
-        nodes[nid] = {"id": nid, "t": n["type"], "n": n["name"], "L": "lobby", "g": n.get("group", ""),
+        nodes[nid] = {"id": nid, "t": n["type"], "n": n["name"], "L": n.get("layer", "lobby"), "g": n.get("group", ""),
                       "s": "", "lists": [], "info": info, "notes": []}
     for e in lobby["edges"]:
         yrs = e.get("years") or []
@@ -103,10 +103,14 @@ def main() -> None:
                 raise SystemExit("curated edge points at unknown node %s" % e[k])
         edges.append({"s": e["source"], "t": e["target"], "y": e["type"], "c": CONF[e["confidence"]],
                       "d": iso(e.get("date", "")), "u": e.get("source_url", ""), "f": e.get("source_file", ""),
-                      "q": e.get("quote", ""), "a": e.get("amount", 0), "an": e.get("amount_note", ""), "L": "bridge"})
-        for k in ("source", "target"):
-            if nodes[e[k]]["L"] == "fleet":
-                nodes[e[k]]["L"] = "bridge"
+                      "r": e.get("record", ""), "q": e.get("quote", ""), "a": e.get("amount", 0),
+                      "an": e.get("amount_note", ""), "L": "curated"})
+    # A bridge is any link with one end on the lobbying side and the other in the fleet.
+    for e in edges:
+        a, b = nodes[e["s"]]["L"], nodes[e["t"]]["L"]
+        if {a, b} == {"lobby", "fleet"}:
+            e["br"] = True
+            nodes[e["s"]]["br"] = nodes[e["t"]]["br"] = True
 
     for nid, st in cur["status"].items():
         if nid in nodes:

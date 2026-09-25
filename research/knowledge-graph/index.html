@@ -137,6 +137,7 @@ button{font:inherit;color:inherit}
       <span class="it"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#d95926" stroke-width="2" stroke-dasharray="5 3"/></svg>Hired ($)</span>
       <span class="it"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#199e70" stroke-width="1.5"/></svg>Lobbied / worked at</span>
       <span class="it"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#8a8f98" stroke-width="1.5" stroke-dasharray="1 3"/></svg>Lead (inferred)</span>
+      <span class="it" style="grid-column:1 / -1"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#f2f4f7" stroke-width="2.2"/></svg>Bridge: joins the lobbying side to the fleet</span>
     </div>
     <div class="counts" id="counts"></div>
   </div>
@@ -221,12 +222,11 @@ const LANES = [
 ];
 const GALAXY = {russia:{x:1000, y:-150, title:"Shadow fleet · Russia"}, iran:{x:2150, y:-150, title:"Shadow fleet · Iran"}, other:{x:1575, y:750, title:"Other programmes"}};
 function laneOf(n){
-  if (n.t === "government") return LANES[0];
+  if (n.t === "government") return /^gov:(us-|white-house)/.test(n.id) ? LANES[0] : LANES[5];
   if (n.t === "bill") return LANES[1];
   if (n.t === "person" && n.L === "lobby") return LANES[2];
   if (n.t === "lobbyfirm") return LANES[3];
   if (n.L === "lobby") return hires.has(n.id) ? LANES[4] : LANES[5];
-  if (n.L === "bridge") return LANES[6];
   return null;
 }
 nodes.forEach(n => {
@@ -298,7 +298,8 @@ function drawNode(n, ctx, scale){
 }
 function linkColor(l){
   if (hlLinks && !hlLinks.has(l.id)) return "rgba(120,128,140,0.025)";
-  if (l.c === "L") return "rgba(160,166,176,0.5)";
+  if (l.br && l.c !== "L") return hlLinks ? "rgba(255,255,255,0.95)" : "rgba(242,244,247,0.8)";
+  if (l.c === "L") return l.br ? "rgba(200,205,212,0.7)" : "rgba(160,166,176,0.5)";
   const on = !!hlLinks;
   switch (l.fam){
     case "money": return on ? "rgba(240,120,70,0.95)" : "rgba(217,89,38,0.7)";
@@ -311,6 +312,7 @@ function linkColor(l){
 function linkWidth(l){
   let w = l.fam === "money" ? 1 + Math.min(4, Math.log10(1 + (l.a || 0)) / 1.6) : l.fam === "staff" ? 0.5 : l.fam === "ctrl" ? 1.2 : 0.8;
   if (hlLinks && hlLinks.has(l.id)) w *= 1.8;
+  if (l.br) w = Math.max(w, 2.2);
   if (pathLinks && pathLinks.has(l.id)) w = 4;
   return w;
 }
@@ -380,7 +382,7 @@ const Graph = ForceGraph()(el)
   .linkWidth(linkWidth)
   .linkLineDash(l => l.c === "L" ? [1, 3] : l.fam === "money" ? [5, 3] : null)
   .linkCurvature(l => l.fam === "door" ? 0.2 : 0)
-  .linkDirectionalParticles(l => (l.fam === "money" && (!hlLinks || hlLinks.has(l.id))) || (pathLinks && pathLinks.has(l.id)) || (hlLinks && hlLinks.has(l.id) && hlLinks.size < 400 && l.fam !== "staff") ? 2 : 0)
+  .linkDirectionalParticles(l => (l.br && !hlLinks) || (l.fam === "money" && (!hlLinks || hlLinks.has(l.id))) || (pathLinks && pathLinks.has(l.id)) || (hlLinks && hlLinks.has(l.id) && hlLinks.size < 400 && l.fam !== "staff") ? 2 : 0)
   .linkDirectionalParticleWidth(l => l.fam === "money" ? 2.8 : 2.2)
   .linkDirectionalParticleSpeed(0.005)
   .linkDirectionalParticleColor(l => l.fam === "money" ? "#ffb28a" : l.fam === "gov" || l.fam === "door" ? "#7fe0bd" : "#b8d2f5")
@@ -560,6 +562,9 @@ const STEPS = [
   {t:"Their parent companies do", x:"Follow the chain. <b>Nord Stream 2</b> hired Washington firms on a 2017 Russia-sanctions bill (S.722); its filings name <b>Gazprom</b> as the foreign entity behind it. Treasury says Gazprom majority-owns <b>Gazprom Neft</b>, whose subsidiary Gazpromneft Marine Bunker runs listed tankers.",
    s:"Lobbying filings; Treasury press releases jl2629 (2014) and jy2777 (2025).",
    focus:["co:nord-stream-2", "co:gazprom", "co:gazprom-neft", "co:gazpromneft-marine-bunker-liability", "bill:s722", "co:gazpromexport"], hops:1, path:["bill:s722", "co:gazpromneft-marine-bunker-liability"]},
+  {t:"Where the two sides meet", x:"Only a few records join Washington's lobbying to the fleet, and each one is official. The <b>Russian state</b>, named on Nord Stream 2's filings as Gazprom's owner, owns <b>Sovcomflot</b> (Treasury). OFAC links seven shipping companies to <b>Arctic LNG 2</b>, which hired a Washington firm in 2023 on \"Export of gas turbines\". The white lines are those joins.",
+   s:"Treasury press releases jy2777 and jl2629; US sanctions list entries 50521, 50524, 50626, 50627, 51967, 51972, 52250; lobbying filing 94c50936.",
+   focus:() => nodes.filter(n => n.br).map(n => n.id), hops:1, fams:["ctrl", "money"]},
   {t:"Banks lobbied on the scope of sanctions", x:"After the 2014 sanctions, <b>Sberbank's US arm</b> hired Podesta Group, the Madison Group, SGR and Venable; one filing's stated issue is \"clarifying scope of sanctions imposed by Executive Order 13660\". <b>VTB</b> and <b>Gazprombank</b> hired firms on the same subject. All three banks are now fully blocked.",
    s:"Lobbying filings 8a5bd4fb, 59335ef1, 1b6d490c, 6837f722; US sanctions records 17018, 17013, 17016.",
    focus:["co:sberbank-cib-usa", "co:vtb-bank", "co:gazprombank", "bill:eo13660"], hops:1, fams:["money", "gov", "ctrl"]},
@@ -611,7 +616,7 @@ function shortestPath(a, b){
   const prev = new Map([[a, null]]), q = [a];
   while (q.length){ const x = q.shift(); if (x === b) break;
     // Government bodies and bills are hubs everyone touches: a path may start or end there, never pass through.
-    const xn = nodeById.get(x); if (x !== a && (xn.t === "government" || xn.t === "bill")) continue;
+    const xn = nodeById.get(x); if (x !== a && (xn.t === "bill" || /^gov:(us-|white-house)/.test(x))) continue;
     for (const l of adj.get(x) || []){ if (!linkVisible(l)) continue; const o = l.s === x ? l.t : l.s; if (!prev.has(o)){ prev.set(o, {from:x, link:l.id}); q.push(o); } } }
   if (!prev.has(b)) return null;
   const ns = [b], ls = []; let cur = b;
