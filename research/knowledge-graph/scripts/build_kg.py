@@ -38,6 +38,35 @@ def iso(d: str) -> str:
     return d if re.match(r"\d{4}", d) else ""
 
 
+# The shadow-fleet map now carries its own lobbying layer ("lob:" ids). Where it names the same organisation as
+# ours, it merges into our node; the rest joins the lobbying side with its own sources. Checked by hand 2026-09-25.
+LOB_ALIAS = {
+    "lob:akin_gump": "lf:akin-gump-strauss-hauer-feld", "lob:arctic_lng_2": "co:arctic-lng-2", "lob:avoq": "lf:avoq",
+    "lob:capitol_counsel": "lf:capitol-counsel", "lob:cetc": "co:cetc", "lob:dci_group": "lf:dci-group",
+    "lob:dji": "co:sz-dji-technology", "lob:dji_technology_inc": "co:dji", "lob:elevation_association": "lf:elevation-association",
+    "lob:en_plus": "co:en-plus-group", "lob:futurewei": "co:huawei", "lob:gazprom": "co:gazprom",
+    "lob:hikvision": "co:hangzhou-hikvision", "lob:hikvision_usa": "co:hikvision-usa", "lob:huawei": "co:huawei",
+    "lob:huawei_technologies_usa": "co:huawei", "lob:liberty_gov_affairs": "lf:liberty-government-affairs",
+    "lob:madison_group": "lf:madison-group", "lob:manatos_manatos": "lf:manatos-manatos",
+    "lob:mercury_public_affairs": "lf:mercury-public-affairs", "lob:nord_stream_2": "co:nord-stream-2",
+    "lob:novatek": "co:novatek", "lob:podesta_group": "lf:podesta-group", "lob:qorvis_geopols": "lf:qorvis-holding-geopols",
+    "lob:roberti_global": "lf:roberti-global-fka-roberti-white", "lob:russian_federation": "gov:russia",
+    "lob:russia_finance_ministry": "gov:russia", "lob:sberbank": "co:sberbank", "lob:sberbank_cib_usa": "co:sberbank-cib-usa",
+    "lob:scarinci_hollenbeck": "lf:scarinci-hollenbeck", "lob:sidley_austin": "lf:sidley-austin", "lob:smic": "co:smic",
+    "lob:squire_patton_boggs": "lf:squire-patton-boggs", "lob:union_oil_gas_ru": "co:union-oil-gas-producers-russia",
+    "lob:uscbc": "org:uscbc", "lob:vtb_bank": "co:vtb-bank",
+}
+LOB_TYPE = {  # teammate nodes are all typed "company"; give the rest their real kind
+    "lob:bell_pottinger": "lobbyfirm", "lob:brunswick_group": "lobbyfirm", "lob:porter_wright": "lobbyfirm",
+    "lob:sass_consulting_ag": "lobbyfirm", "lob:rumyantsev_partners": "lobbyfirm",
+    "lob:alliance_drone_innovation": "association", "lob:drone_mfrs_alliance": "association",
+    "lob:small_uav_coalition": "association", "lob:awdc": "association",
+    "lob:eu": "government", "lob:european_parliament": "government", "lob:us_congress": "government",
+    "lob:bulgaria": "government",
+}
+HUBS = {"lob:eu", "lob:european_parliament", "lob:us_congress"}  # bodies that are lobbied: never relay a path
+
+
 def main() -> None:
     fn, fe = load(os.path.join(FLEET, "nodes.json")), load(os.path.join(FLEET, "edges.json"))
     lobby = load(os.path.join(HERE, "data", "lobby.json"))
@@ -53,6 +82,8 @@ def main() -> None:
             listed_dates[e["source"]].setdefault(GOV_NAMES[e["target"]], iso(e.get("date", "")))
     for n in fn:
         if n["type"] in ("country", "government"):
+            continue
+        if n["id"] in LOB_ALIAS:
             continue
         lb = n.get("listed_by") or []
         info = {k: n[k] for k in ("imo", "aliases", "role", "ship_type", "year_built", "flag_now", "flags_before",
@@ -73,7 +104,15 @@ def main() -> None:
             "info": info, "notes": notes[:3],
             "unverified_person": n["type"] == "person" and not (n.get("named_by") or n.get("listed")),
         }
+        if n["id"].startswith("lob:"):
+            nodes[n["id"]].update({"L": "lobby", "t": LOB_TYPE.get(n["id"], n["type"]), "g": "",
+                                   "hub": n["id"] in HUBS, "src": "team lobbying research"})
+    deferred = []
     for e in fe:
+        s_id, t_id = LOB_ALIAS.get(e["source"], e["source"]), LOB_ALIAS.get(e["target"], e["target"])
+        if s_id.startswith(("lob:", "gov:", "co:", "lf:", "org:")) and (e["source"].startswith("lob:") or e["target"].startswith("lob:")):
+            deferred.append((s_id, t_id, e))
+            continue
         if e["type"] in DROP_EDGE_TYPES or e["source"] not in nodes or e["target"] not in nodes:
             continue
         edges.append({"s": e["source"], "t": e["target"], "y": e["type"], "c": CONF.get(e.get("confidence"), "D"),
@@ -105,6 +144,34 @@ def main() -> None:
                       "d": iso(e.get("date", "")), "u": e.get("source_url", ""), "f": e.get("source_file", ""),
                       "r": e.get("record", ""), "q": e.get("quote", ""), "a": e.get("amount", 0),
                       "an": e.get("amount_note", ""), "L": "curated"})
+    # Teammate lobbying links: add only where no link of ours already joins the same pair.
+    have = {frozenset((e["s"], e["t"])) for e in edges}
+    added = 0
+    for s_id, t_id, e in deferred:
+        if s_id == t_id or s_id not in nodes or t_id not in nodes or frozenset((s_id, t_id)) in have:
+            continue
+        y = e["type"]
+        if y == "linked_to" and nodes[t_id]["t"] == "lobbyfirm":
+            y = "hired"
+        elif y == "linked_to" and nodes[t_id].get("hub"):
+            y = "lobbied"
+        edges.append({"s": s_id, "t": t_id, "y": y, "c": CONF.get(e.get("confidence"), "D"), "d": iso(e.get("date", "")),
+                      "u": e.get("source_url", ""), "f": e.get("source_file", ""), "r": e.get("record", ""),
+                      "q": (e.get("quote") or "")[:240], "L": "team"})
+        have.add(frozenset((s_id, t_id))); added += 1
+    print("teammate lobbying links added:", added, "of", len(deferred))
+
+    # Ships seen live on the God's Eye globe (AIS snapshot), if a snapshot exists.
+    live_p = os.path.join(HERE, "data", "godseye_live.json")
+    live_meta = None
+    if os.path.exists(live_p):
+        live = load(live_p)
+        live_meta = {"taken_utc": live["taken_utc"], "count": len(live["ships"])}
+        for sh in live["ships"]:
+            nid = "IMO" + sh["imo"]
+            if nid in nodes:
+                nodes[nid]["live"] = {"area": sh["area"], "at": live["taken_utc"]}
+
     # A bridge is any link with one end on the lobbying side and the other in the fleet.
     for e in edges:
         a, b = nodes[e["s"]]["L"], nodes[e["t"]]["L"]
@@ -143,6 +210,7 @@ def main() -> None:
                    "ships_hidden_no_owner_link": orphan_ships,
                    "lda_filings_scanned": lobby["filings_scanned"], "lda_filings_kept": lobby["filings_kept"]},
         "no_lobbying_found": cur["no_lobbying_found"],
+        "live": live_meta,
     }
     out = {"meta": meta, "nodes": list(nodes.values()), "edges": edges}
     json.dump(out, open(os.path.join(HERE, "data", "kg.json"), "w", encoding="utf-8"), ensure_ascii=False)

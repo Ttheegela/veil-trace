@@ -33,7 +33,7 @@ button{font:inherit;color:inherit}
 .chips{display:flex;gap:6px;align-items:center;flex-wrap:nowrap}
 .chip{background:#141920;border:1px solid var(--rule-2);border-radius:999px;padding:4px 11px;font-size:12.5px;cursor:pointer;color:var(--ink-2);display:flex;align-items:center;gap:6px;white-space:nowrap}
 .chip[aria-pressed=true]{color:var(--ink);border-color:#58626f;background:#1c232d}
-.chip[aria-pressed=false]{opacity:.55;text-decoration:line-through}
+.chip[aria-pressed=false]:not(#liveBtn){opacity:.55;text-decoration:line-through}
 .chip i{width:8px;height:8px;border-radius:50%;display:inline-block}
 .sep{width:1px;height:24px;background:var(--rule-2)}
 .btn{background:#1a2029;border:1px solid var(--rule-2);color:var(--ink);border-radius:7px;padding:6px 11px;font:600 12.5px var(--sans);cursor:pointer;white-space:nowrap}
@@ -71,7 +71,7 @@ button{font:inherit;color:inherit}
 #side h3{margin:2px 0 4px;font-size:18px;line-height:1.25;padding-right:20px}
 #side .badge{display:inline-block;font:600 11px var(--mono);padding:2px 7px;border-radius:4px;margin:6px 6px 0 0}
 .b-blocked{border:1.5px solid var(--sanc);color:var(--sanc)} .b-restricted{border:1.5px dashed var(--sanc);color:var(--sanc)}
-.b-nolobby{border:1px solid var(--muted);color:var(--ink-2)} .b-unv{border:1px dotted var(--muted);color:var(--ink-2)}
+.b-nolobby{border:1px solid var(--muted);color:var(--ink-2)} .b-live{border:1px solid #7dffb2;color:#7dffb2} .b-unv{border:1px dotted var(--muted);color:var(--ink-2)}
 #side table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:10px}
 #side td{padding:4px 0;vertical-align:top;border-top:1px solid var(--rule)} #side td:first-child{color:var(--muted);width:100px;padding-right:8px}
 #side .grp{margin-top:14px;font:600 11px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
@@ -108,6 +108,7 @@ button{font:inherit;color:inherit}
     <button class="chip" data-prog="other" aria-pressed="true">Other</button>
     <div class="sep"></div>
     <button class="chip" data-vis="lead" aria-pressed="true" title="Links we inferred ourselves (dotted)">Leads</button>
+    <button class="chip" id="liveBtn" aria-pressed="false" title="Ships seen live on AIS in the God's Eye snapshot, and who runs them"><i style="background:#7dffb2"></i>Live on AIS</button>
   </div>
 </header>
 
@@ -132,6 +133,7 @@ button{font:inherit;color:inherit}
       <span class="it"><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#e66767" stroke-width="2"/></svg>Blocked</span>
       <span class="it"><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#e66767" stroke-width="1.6" stroke-dasharray="2 2"/></svg>Restricted</span>
       <span class="it" style="grid-column:1 / -1"><svg width="12" height="12"><rect x="1.5" y="1.5" width="9" height="9" rx="2" fill="none" stroke="#3987e5" stroke-width="2"/></svg>Hollow: runs listed ships, but on no list itself</span>
+      <span class="it" style="grid-column:1 / -1"><svg width="14" height="14"><circle cx="7" cy="7" r="3" fill="#3987e5"/><circle cx="7" cy="7" r="5.5" fill="none" stroke="#7dffb2" stroke-width="1.5"/></svg><span id="liveKey">Pulsing green: seen live on the God's Eye globe</span></span>
     </div>
     <div class="g">
       <span class="it"><svg width="24" height="8"><line x1="0" y1="4" x2="24" y2="4" stroke="#6b89b3" stroke-width="1.5"/></svg>Owns / runs</span>
@@ -167,7 +169,7 @@ button{font:inherit;color:inherit}
 (function(){
 "use strict";
 const KG = window.KG;
-const C = {corp:"#3987e5", infl:"#d95926", gov:"#199e70", sanc:"#e66767"};
+const C = {corp:"#3987e5", infl:"#d95926", gov:"#199e70", sanc:"#e66767", live:"#7dffb2"};
 const $ = id => document.getElementById(id);
 
 // ================= data =================
@@ -223,7 +225,7 @@ const LANES = [
 ];
 const GALAXY = {russia:{x:1000, y:-150, title:"Shadow fleet · Russia"}, iran:{x:2150, y:-150, title:"Shadow fleet · Iran"}, other:{x:1575, y:750, title:"Other programmes"}};
 function laneOf(n){
-  if (n.t === "government") return /^gov:(us-|white-house)/.test(n.id) ? LANES[0] : LANES[5];
+  if (n.t === "government") return (/^gov:(us-|white-house)/.test(n.id) || n.hub) ? LANES[0] : LANES[5];
   if (n.t === "bill") return LANES[1];
   if (n.t === "person" && n.L === "lobby") return LANES[2];
   if (n.t === "lobbyfirm") return LANES[3];
@@ -294,6 +296,13 @@ function drawNode(n, ctx, scale){
     ctx.lineWidth = 0.9; ctx.strokeStyle = "#cfd5dc"; ctx.stroke();
     ctx.beginPath(); ctx.moveTo(bx - br*.7, by + br*.7); ctx.lineTo(bx + br*.7, by - br*.7); ctx.stroke();
   }
+  if (n.live && !f){
+    const ph = (performance.now() / 1400) % 1;
+    ctx.beginPath(); ctx.arc(n.x, n.y, r + 3 + 2/scale, 0, 2*Math.PI); ctx.lineWidth = 1.6/scale; ctx.strokeStyle = C.live; ctx.stroke();
+    ctx.globalAlpha = (f ? 0.07 : 1) * (1 - ph);
+    ctx.beginPath(); ctx.arc(n.x, n.y, r + 3 + (4 + 14 * ph)/scale, 0, 2*Math.PI); ctx.lineWidth = 1.2/scale; ctx.stroke();
+    ctx.globalAlpha = f ? 0.07 : 1;
+  }
   if (n === selected || n === hover){ ctx.beginPath(); ctx.arc(n.x, n.y, r + 5 + 2/scale, 0, 2*Math.PI); ctx.lineWidth = 1.5/scale; ctx.strokeStyle = "#fff"; ctx.stroke(); }
   ctx.globalAlpha = 1;
 }
@@ -322,7 +331,7 @@ function linkWidth(l){
 const senior = /senator|member of congress|us ?congress|u\.s\. representative|representative,|representative for|ambassador|counselor to secretary|general counsel|assistant secretary|asst\.? sec|deputy asst|deputy assistant to the pres|dpty ast to pres|special asst\.? to potus|wh natl econ|national economic council/i;
 nodes.forEach(n => {
   n.seniorDoor = n.t === "person" && n.L === "lobby" && n.info.covered_positions && senior.test(n.info.covered_positions.join(" "));
-  n.base = n.t === "ship" ? 0 : n.k + (n.L !== "fleet" ? 30 : 0) + (n.s ? 20 : 0) + (n.seniorDoor ? 25 : 0) + (n.t === "government" ? 60 : 0) + (n.info && n.info.title ? 40 : 0);
+  n.base = n.t === "ship" ? (n.live ? 70 : 0) : n.k + (n.L !== "fleet" ? 30 : 0) + (n.s ? 20 : 0) + (n.seniorDoor ? 25 : 0) + (n.t === "government" ? 60 : 0) + (n.info && n.info.title ? 40 : 0);
 });
 function labelText(n){ let s = n.n.length > 34 ? n.n.slice(0, 32) + "…" : n.n; if (n.unverified_person) s += " (?)"; return s; }
 function drawLabels(ctx, scale){
@@ -521,6 +530,8 @@ function renderSide(n){
   let h = `<div class="kicker">${TYPE[n.t]}${n.L === "bridge" ? " · joins the two sides" : ""}</div><h3>${esc(n.n)}</h3>`;
   if (n.s) h += `<span class="badge b-${n.s}">${statusText(n)}</span>`;
   if (n.nolobby) h += `<span class="badge b-nolobby">No US lobbying filings found</span>`;
+  if (n.live) h += `<span class="badge b-live">Seen live on ship tracking (AIS): ${esc(n.live.area)}, ${esc(n.live.at.replace("T", " ").replace("Z", " UTC"))}</span>`;
+  if (n.src) h += `<span class="badge b-unv">From the team's lobbying research</span>`;
   if (!n.s && n.L !== "lobby" && (n.t === "company" || n.t === "person")) h += `<span class="badge b-unv">On no sanctions list we checked</span>`;
   if (n.unverified_person) h += `<span class="badge b-unv">Named in official text, not yet re-checked</span>`;
   if (n.t === "person" && n.L === "lobby") h += `<span class="badge b-nolobby">Named in US lobbying disclosures</span>`;
@@ -617,7 +628,7 @@ function shortestPath(a, b){
   const prev = new Map([[a, null]]), q = [a];
   while (q.length){ const x = q.shift(); if (x === b) break;
     // Government bodies and bills are hubs everyone touches: a path may start or end there, never pass through.
-    const xn = nodeById.get(x); if (x !== a && (xn.t === "bill" || /^gov:(us-|white-house)/.test(x))) continue;
+    const xn = nodeById.get(x); if (x !== a && (xn.t === "bill" || xn.hub || /^gov:(us-|white-house)/.test(x))) continue;
     for (const l of adj.get(x) || []){ if (!linkVisible(l)) continue; const o = l.s === x ? l.t : l.s; if (!prev.has(o)){ prev.set(o, {from:x, link:l.id}); q.push(o); } } }
   if (!prev.has(b)) return null;
   const ns = [b], ls = []; let cur = b;
@@ -642,6 +653,15 @@ function setAllProg(){ Object.keys(vis.prog).forEach(k => vis.prog[k] = true); d
 function refresh(){ Graph.linkVisibility(linkVisible); Graph.nodeVisibility(nodeVisible); }
 document.querySelectorAll("[data-prog]").forEach(b => b.onclick = () => { const k = b.dataset.prog; vis.prog[k] = !vis.prog[k]; b.setAttribute("aria-pressed", vis.prog[k]); refresh(); });
 document.querySelector("[data-vis=lead]").onclick = e => { vis.lead = !vis.lead; e.currentTarget.setAttribute("aria-pressed", vis.lead); refresh(); };
+$("liveBtn").onclick = () => {
+  const on = $("liveBtn").getAttribute("aria-pressed") !== "true";
+  $("liveBtn").setAttribute("aria-pressed", on);
+  if (!on){ clearFocus(); return; }
+  storyActive = false; showStory(false); selected = null; closeSide(); pathLinks = null;
+  const ids = nodes.filter(n => n.live).map(n => n.id);
+  const nb = neighborhood(ids, 1, ["ctrl"]); hlNodes = nb.ns; hlLinks = nb.ls;
+  setTimeout(() => flyTo([...hlNodes], 1), 0);
+};
 $("legBtn").onclick = () => { const l = $("legend"); l.classList.toggle("min"); $("legBtn").textContent = l.classList.contains("min") ? "show" : "hide"; };
 
 // ================= keyboard =================
@@ -656,6 +676,7 @@ addEventListener("keydown", e => {
 
 // ================= counts =================
 const m = KG.meta.counts;
+if (KG.meta.live) $("liveKey").textContent = `Pulsing green: seen live on AIS (God's Eye, ${KG.meta.live.taken_utc.replace("T", " ").replace("Z", " UTC")})`;
 $("counts").innerHTML = `${m.nodes.toLocaleString()} nodes · ${m.edges.toLocaleString()} links (${m.lead_edges} leads)<br>${m.lda_filings_kept.toLocaleString()} lobbying filings used · ${m.ships_hidden_no_owner_link} listed ships not drawn (no list names an owner)<br>People named only where an official list, release or their own lobbying disclosure names them.`;
 
 // ================= start =================
