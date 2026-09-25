@@ -1,6 +1,6 @@
-# Shadow fleet: leads
+# Shadow fleet: what the records show
 
-**Every item below is a lead, not a finding.** Each carries a confidence note (High, Medium or Low) and, where it matters, an innocent explanation. How the counts were made is in [METHOD.md](METHOD.md). Counts come from public list files unless another source is named.
+**Facts from official lists and government releases are stated as facts, with their source.** Where something is our own inference (timing, shared names, one-ship companies), it is marked **Lead**, with a confidence note and, where it matters, an innocent explanation. How the counts were made is in [METHOD.md](METHOD.md). Counts come from public list files unless another source is named.
 
 **Key to abbreviations**
 - **IMO number:** the seven-digit number a ship keeps for life, whatever its name.
@@ -12,7 +12,7 @@
 
 ## 1. The overlap: 42 tankers on both a Russia list and an Iran list
 
-**Lead (High, from list files).** Of the 625 ships on the UK's Russia sanctions list, **42** are also on a US Iran-programme list when matched by IMO number. The number depends on the filter:
+**Fact (official list files).** Of the 625 ships on the UK's Russia sanctions list, **42** are also on a US Iran-programme list when matched by IMO number. The number depends on the filter:
 
 | Filter | Count |
 |---|---|
@@ -25,11 +25,11 @@ No ship that the US listed only under its Russia programmes is inside the strict
 
 ## 2. Who listed first: usually the US, not always
 
-**Lead (High for UK dates, Medium for US dates).** Of the strict 42, the US Iran listing came first for **30** (71%) and the UK Russia listing for **12** (29%). The median gap is 209 days. That middle value is shaped by a group of **13** ships the US listed on 30 July 2025 and the UK on 24 February 2026. The spread runs from BODHI (UK first by 477 days) to BLUEBELL (US first by 501 days). Often, but not always, the US Iran listing came first.
+**Fact (UK dates from the UK list; US dates from OpenSanctions exports of the US list, checked against two Treasury releases).** Of the strict 42, the US Iran listing came first for **30** (71%) and the UK Russia listing for **12** (29%). The median gap is 209 days. That middle value is shaped by a group of **13** ships the US listed on 30 July 2025 and the UK on 24 February 2026. The spread runs from BODHI (UK first by 477 days) to BLUEBELL (US first by 501 days). Often, but not always, the US Iran listing came first.
 
 ## 3. Names change, the hull stays
 
-**Lead (High, from list files).** **16 of the 42** hulls carry a different name on the UK list than on the US list (13 if US alternative names count).
+**Fact (official list files).** **16 of the 42** hulls carry a different name on the UK list than on the US list (13 if US alternative names count).
 - The US listed NEW MILOS on 20 March 2025; the UK listed the same IMO number as VOLANS 50 days later.
 - JUNIA (UK) is BENEDICT (US); FIORA is GOLDEN EAGLE.
 - The UK listed LILY on 21 July 2025; the US listed the same hull as DANYA on 29 July 2026.
@@ -39,7 +39,7 @@ Across all sources, each hull had a median of 4 names (range 2 to 7). Ukraine's 
 
 ## 4. The managers: young companies, one ship each
 
-**Lead (High for counts; the "shell company" reading is not established).**
+**Fact for the counts; Lead for the "shell company" reading, which is not established.**
 - No manager of the 42 is UK-listed as a company; the UK lists the ships only. Zulu Ships Management is the only one on the EU list.
 - About **28 companies and one individual** are linked to the 42 in the US files (about 37 companies with UK-only managers).
 - Of **25** linked companies with a set-up date, **13** were set up in 2024 or 2025, 0 to 23 months before their ship's first listing (most 9 to 18 months). Several are named after their ship or one of its former names.
@@ -90,7 +90,7 @@ Treasury says these ships carried "more than 20 cargoes of Russian petroleum pro
 
 ## 6. The EU's July 2026 act
 
-**Lead (High, act text on EUR-Lex).**
+**Fact (act text on EUR-Lex).**
 - **Regulation (EU) 2026/1848** of 23 July 2026 (in force 24 July) adds **41 ships** (entries 652 to 692). By purpose: 27 oil, 6 stolen Ukrainian grain or cultural goods, **5 service ships**, 2 energy and 1 military cargo.
 - The service ships fall under a new rule for ships that refuel or tow listed ships: KUMANA, BILAL BEY, BEBEK-E, LADY JASMINE and OCEAN FORTUNE 18. The act gives ship-to-ship transfers as the reason.
 - **4** of the 41 were already on the UK Russia list (PORT OLYA-3, LAURYN, SORION, LUCH).

@@ -2,10 +2,7 @@
 
 Part of **Trace the Unseen** (Sanctions track, hackathon of 25 September 2026).
 
-**Status: leads, not findings.** Everything in this folder is a research lead built in one
-day from public sanctions lists, plus a small number of sponsor-data checks (Sayari) and
-press or think-tank reports. Each lead says how solid it is. None of it is an accusation
-against any company or ship, and none of it has been reviewed by a sanctions lawyer.
+**Status:** facts from official lists, government releases and EU law are stated as facts with their source. Our own inferences are marked **Lead** and say how solid they are. We describe conduct; we don't make legal findings.
 
 ## The idea in one paragraph
 
@@ -20,7 +17,7 @@ hull number keeps it.
 
 | File | What it holds |
 |---|---|
-| [FINDINGS.md](FINDINGS.md) | The leads: the Russia and Iran overlap, who listed first, renamed hulls, young one-ship managers, two manager case studies, the EU July 2026 act, and the climate link |
+| [FINDINGS.md](FINDINGS.md) | What the records show: the Russia and Iran overlap, who listed first, renamed hulls, young one-ship managers, two manager case studies, the EU July 2026 act, and the climate link |
 | [METHOD.md](METHOD.md) | How to join lists by IMO number, the filter trap that moves the count from 42 to 54, and why matching by name fails |
 | [../../tools/fleet/](../../tools/fleet/) | The three scripts that reproduce the counts from public list files you download yourself |
 
