@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Names Change, Need Doesn't</title>
+<meta name="description" content="A three-minute demo for Trace the Unseen: sanctions evasion leads from trade records, with every number linked to its evidence.">
+<script>
+  /* Theme: light by default (projector). ?theme=dark or ?theme=system to change. */
+  (function () {
+    try {
+      var t = new URLSearchParams(location.search).get('theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      if (t === 'system') document.documentElement.removeAttribute('data-theme');
+    } catch (e) {}
+  })();
+</script>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+<script src="shell.js"></script>
+</head>
+<body>
+<div id="screen">
+  <main id="stage" aria-live="polite"></main>
+
+  <div id="chrome" aria-label="Demo controls">
+    <nav id="rail" aria-label="Story steps">
+      <ol id="steps"></ol>
+      <span id="rail-compact" aria-live="polite"></span>
+      <button type="button" id="clock" title="Elapsed of 3:00. Click or press P to pause, T to restart.">0:00 / 3:00</button>
+    </nav>
+    <div id="bottom">
+      <p id="leads">Data: Sayari · Tradeverifyd · UN Comtrade · official US, UK and EU lists</p>
+      <div class="b-right">
+        <div id="navbtns">
+          <button type="button" id="btn-prev" aria-label="Back">&#8249;</button>
+          <button type="button" id="btn-next" aria-label="Next">&#8250;</button>
+        </div>
+        <button type="button" id="pill" aria-pressed="false" aria-controls="drawer">
+          <span class="pill-label">Sources and details</span><kbd>E</kbd><span class="pill-count" id="pill-count"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside id="presenter" aria-label="Presenter view">
+  <div class="pv-row">
+    <div>
+      <p class="pv-kicker" id="pv-pos"></p>
+      <p class="pv-now" id="pv-now"></p>
+    </div>
+    <div class="pv-clock" id="pv-clock">0:00<small id="pv-beat">0 / 0 s</small></div>
+  </div>
+  <div class="pv-sec">
+    <p class="pv-kicker">Say now</p>
+    <p class="pv-say" id="pv-say"></p>
+  </div>
+  <div class="pv-sec">
+    <p class="pv-kicker">Clicks on this screen</p>
+    <ol class="pv-list" id="pv-clicks"></ol>
+  </div>
+  <div class="pv-sec">
+    <p class="pv-kicker">Next screen</p>
+    <p class="pv-next" id="pv-next"></p>
+  </div>
+  <div class="pv-sec">
+    <p class="pv-kicker">Numbers on this screen, for questions</p>
+    <ul class="pv-ev" id="pv-ev"></ul>
+  </div>
+  <p class="pv-help">V leaves presenter view. ? shows all keys.</p>
+</aside>
+
+<aside id="notes" aria-label="Presenter notes" hidden>
+  <div class="notes-head"><span id="notes-title"></span><span class="notes-budget" id="notes-budget"></span></div>
+  <div class="notes-body" id="notes-body"></div>
+</aside>
+
+<aside id="drawer" aria-label="Sources and details" hidden>
+  <div class="drawer-head">
+    <div>
+      <div class="drawer-kicker">Sources and details</div>
+      <h2 id="drawer-title">This screen</h2>
+    </div>
+    <button type="button" id="drawer-close" aria-label="Close sources (Esc)">Close <kbd>Esc</kbd></button>
+  </div>
+  <div id="drawer-body"></div>
+  <div class="legend" aria-label="What the check levels mean">
+    <span class="chk chk-official">Official</span><span>read on a government page or official list</span>
+    <span class="chk chk-verified">Verified</span><span>re-derived by a second, separate check from the saved source data</span>
+    <span class="chk chk-approximate">Approximate</span><span>an estimate or a derived date; treat as a range</span>
+  </div>
+  <p class="drawer-foot">Documented facts are stated with their source; our own inferences are marked as leads. Shipment records, not dollar values. Declared countries, not physical routes.</p>
+</aside>
+
+<div id="help" role="dialog" aria-label="Keys" hidden>
+  <h2>Keys</h2>
+  <dl>
+    <dt><kbd>&#8594;</kbd> <kbd>Space</kbd></dt><dd>next click (reveal, then next screen)</dd>
+    <dt><kbd>&#8592;</kbd></dt><dd>back one click</dd>
+    <dt><kbd>1</kbd> to <kbd>7</kbd></dt><dd>jump to a screen</dd>
+    <dt><kbd>E</kbd></dt><dd>sources and details for this screen</dd>
+    <dt><kbd>V</kbd></dt><dd>presenter view (spoken line, clicks, timer)</dd>
+    <dt><kbd>N</kbd></dt><dd>presenter notes panel</dd>
+    <dt><kbd>P</kbd> / <kbd>T</kbd></dt><dd>pause the timer / restart it</dd>
+    <dt><kbd>Esc</kbd></dt><dd>close panels</dd>
+  </dl>
+</div>
+
+<!-- Data files (each sets window.DEMO_DATA.<beatId>). A missing file is skipped. -->
+<script src="data/b1_routes.js" onerror="DEMO.missing(this)"></script>
+<script src="data/b2_river.js" onerror="DEMO.missing(this)"></script>
+<script src="data/b3_lag.js" onerror="DEMO.missing(this)"></script>
+<script src="data/b4_chain.js" onerror="DEMO.missing(this)"></script>
+<script src="data/b5_honesty.js" onerror="DEMO.missing(this)"></script>
+
+<!-- Beats, in order. A missing beat is skipped with a console note. -->
+<script src="beats/b0_hook.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b1_routes.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b2_river.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b3_lag.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b4_chip.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b5_honesty.js" onerror="DEMO.missing(this)"></script>
+<script src="beats/b6_close.js" onerror="DEMO.missing(this)"></script>
+</body>
+</html>

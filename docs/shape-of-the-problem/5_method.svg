@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 760" role="img" aria-label="Our method. Agents find leads cheaply; a separate skeptic and an official page decide what can be shown." font-family='"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif'>
+<title>Our method</title>
+<style>
+svg{font-family:"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif}
+.bg{fill:#ffffff}
+.t{fill:#0f1b2d;font-size:16px;font-weight:500}
+.tb{fill:#0f1b2d;font-size:16px;font-weight:600}
+.th{fill:#0f1b2d;font-size:22px;font-weight:600}
+.ts{fill:#4a5a70;font-size:14px;font-weight:400}
+.tcap{fill:#4a5a70;font-size:16px;font-weight:400}
+.tacc{fill:#1f5fd1;font-size:15px;font-weight:600}
+.tteal{fill:#0f7c8c;font-size:15px;font-weight:600}
+.tamb{fill:#8f5600;font-size:15px;font-weight:600}
+.tpos{fill:#0f7a4a;font-size:15px;font-weight:600}
+.tinv{fill:#ffffff;font-size:15px;font-weight:600}
+.tnum{fill:#ffffff;font-size:15px;font-weight:700}
+.box{fill:#ffffff;stroke:#7d8ba1;stroke-width:1.3}
+.boxm{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1}
+.boxacc{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.8}
+.boxteal{fill:#e2f2f4;stroke:#0f7c8c;stroke-width:1.6}
+.boxamb{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6;stroke-dasharray:7 4}
+.boxambs{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6}
+.boxpos{fill:#e3f3ea;stroke:#0f7a4a;stroke-width:1.6}
+.zone{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1.2;stroke-dasharray:6 4}
+.lgoods{fill:none;stroke:#0f1b2d;stroke-width:2.6}
+.lmoney{fill:none;stroke:#0f7c8c;stroke-width:2.4;stroke-dasharray:9 6}
+.linfo{fill:none;stroke:#1f5fd1;stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+.lrisk{fill:none;stroke:#8f5600;stroke-width:2.4}
+.lharm{fill:none;stroke:#0f1b2d;stroke-width:2.4;stroke-dasharray:14 5 3 5}
+.ln{fill:none;stroke:#4a5a70;stroke-width:2}
+.lnthin{fill:none;stroke:#7d8ba1;stroke-width:1.2}
+.lamb{fill:none;stroke:#8f5600;stroke-width:2;stroke-dasharray:7 5}
+.lacc{fill:none;stroke:#1f5fd1;stroke-width:2.2}
+.lteal{fill:none;stroke:#0f7c8c;stroke-width:2.4}
+.fgoods{fill:#0f1b2d}
+.fmoney{fill:#0f7c8c}
+.finfo{fill:#1f5fd1}
+.frisk{fill:#8f5600}
+.fmfg{fill:#4a5a70}
+.fteal{fill:#0f7c8c}
+.facc{fill:#1f5fd1}
+.famb{fill:#8f5600}
+.fpos{fill:#0f7a4a}
+.fborder{fill:#7d8ba1}
+.band{fill:#1f5fd1}
+.bandL{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2;stroke-dasharray:4 3}
+.listband{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2}
+.barAmb{fill:#8f5600}
+.barMfg{fill:#4a5a70}
+.barTeal{fill:#0f7c8c}
+.hatchbg{fill:#eef2f7}
+.hatchln{stroke:#4a5a70;stroke-width:2}
+.hatchbox{stroke:#4a5a70;stroke-width:1.3;stroke-dasharray:5 3}
+@media (prefers-color-scheme: dark){
+.bg{fill:#121b2d}
+.t{fill:#e8eef7}
+.tb{fill:#e8eef7}
+.th{fill:#e8eef7}
+.ts{fill:#a3b1c6}
+.tcap{fill:#a3b1c6}
+.tacc{fill:#7fa8ff}
+.tteal{fill:#4fd1c5}
+.tamb{fill:#f2b84b}
+.tpos{fill:#4cc98a}
+.tinv{fill:#121b2d}
+.tnum{fill:#121b2d}
+.box{fill:#121b2d;stroke:#5f6e87}
+.boxm{fill:#1a2438;stroke:#5f6e87}
+.boxacc{fill:#17274a;stroke:#7fa8ff}
+.boxteal{fill:#10302f;stroke:#4fd1c5}
+.boxamb{fill:#2f2512;stroke:#f2b84b}
+.boxambs{fill:#2f2512;stroke:#f2b84b}
+.boxpos{fill:#10301f;stroke:#4cc98a}
+.zone{fill:#1a2438;stroke:#5f6e87}
+.lgoods{stroke:#e8eef7}
+.lmoney{stroke:#4fd1c5}
+.linfo{stroke:#7fa8ff}
+.lrisk{stroke:#f2b84b}
+.lharm{stroke:#e8eef7}
+.ln{stroke:#a3b1c6}
+.lnthin{stroke:#5f6e87}
+.lamb{stroke:#f2b84b}
+.lacc{stroke:#7fa8ff}
+.lteal{stroke:#4fd1c5}
+.fgoods{fill:#e8eef7}
+.fmoney{fill:#4fd1c5}
+.finfo{fill:#7fa8ff}
+.frisk{fill:#f2b84b}
+.fmfg{fill:#a3b1c6}
+.fteal{fill:#4fd1c5}
+.facc{fill:#7fa8ff}
+.famb{fill:#f2b84b}
+.fpos{fill:#4cc98a}
+.fborder{fill:#5f6e87}
+.band{fill:#7fa8ff}
+.bandL{fill:#17274a;stroke:#7fa8ff}
+.listband{fill:#17274a;stroke:#7fa8ff}
+.barAmb{fill:#f2b84b}
+.barMfg{fill:#a3b1c6}
+.barTeal{fill:#4fd1c5}
+.hatchbg{fill:#1a2438}
+.hatchln{stroke:#a3b1c6}
+.hatchbox{stroke:#a3b1c6}
+}
+</style>
+<defs><marker id="d5_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d5_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d5_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d5_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d5_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d5_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d5_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d5_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d5_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d5_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="-80" width="1200" height="760" rx="0" class="bg"/><text x="40" y="-34" class="th">Our method</text>
+<rect x="40" y="150" width="220" height="84" rx="8" class="box"/>
+<text x="150.0" y="187.5" class="tb" text-anchor="middle">Agents explore</text>
+<text x="150.0" y="206.5" class="ts" text-anchor="middle">sponsor and public data</text>
+<rect x="330" y="150" width="180" height="84" rx="8" class="box"/>
+<text x="420.0" y="187.5" class="tb" text-anchor="middle">Leads</text>
+<text x="420.0" y="206.5" class="ts" text-anchor="middle">a reason to look</text>
+<rect x="580" y="150" width="260" height="84" rx="8" class="boxacc"/>
+<text x="710.0" y="178.0" class="tb" text-anchor="middle">Independent skeptic</text>
+<text x="710.0" y="197.0" class="ts" text-anchor="middle">re-derives every number</text>
+<text x="710.0" y="216.0" class="ts" text-anchor="middle">from the raw data</text>
+<rect x="910" y="150" width="260" height="84" rx="8" class="boxacc"/>
+<text x="1040.0" y="187.5" class="tb" text-anchor="middle">Official page confirms</text>
+<text x="1040.0" y="206.5" class="ts" text-anchor="middle">listing dates and entries</text>
+<path d="M260 192 L326 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M510 192 L576 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M840 192 L906 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M650 234 C650 294, 420 294, 420 240" class="lamb" marker-end="url(#d5_amb)"/>
+<text x="535" y="304" class="tamb" text-anchor="middle">wrong: corrected or dropped</text>
+<rect x="910" y="400" width="260" height="84" rx="8" class="boxteal"/>
+<text x="1040.0" y="437.5" class="tb" text-anchor="middle">Receipt</text>
+<text x="1040.0" y="456.5" class="ts" text-anchor="middle">source, record, date</text>
+<path d="M1040 234 L1040 396" class="ln" marker-end="url(#d5_n)"/>
+<rect x="560" y="350" width="270" height="70" rx="8" class="boxpos"/>
+<text x="695.0" y="380.5" class="tb" text-anchor="middle">Public slide</text>
+<text x="695.0" y="399.5" class="ts" text-anchor="middle">officially listed companies only</text>
+<rect x="560" y="460" width="270" height="70" rx="8" class="boxamb"/>
+<text x="695.0" y="490.5" class="tb" text-anchor="middle">Agency-only</text>
+<text x="695.0" y="509.5" class="ts" text-anchor="middle">unlisted companies, sent privately</text>
+<path d="M910 430 L870 430 L870 385 L834 385" class="ln" marker-end="url(#d5_n)"/>
+<path d="M910 454 L870 454 L870 495 L834 495" class="ln" marker-end="url(#d5_n)"/>
+<rect x="40" y="400" width="220" height="84" rx="8" class="box"/>
+<text x="150.0" y="447.0" class="tb" text-anchor="middle">New questions</text>
+<path d="M560 385 L420 385 L420 430 L264 430" class="ln" marker-end="url(#d5_n)"/>
+<path d="M560 495 L420 495 L420 455 L264 455" class="ln" marker-end="url(#d5_n)"/>
+<path d="M150 400 L150 238" class="ln" marker-end="url(#d5_n)"/>
+<rect x="584" y="22" width="5" height="82" rx="2" class="famb"/>
+<text x="600" y="34" class="tamb" text-anchor="start">Caught: country totals counted twice</text>
+<text x="600" y="56" class="ts" text-anchor="start">($52M was really $13.1M)</text>
+<text x="600" y="78" class="tamb" text-anchor="start">Caught: 'former' ownership</text>
+<text x="600" y="100" class="ts" text-anchor="start">reported as current</text>
+<rect x="894" y="22" width="5" height="82" rx="2" class="famb"/>
+<text x="910" y="34" class="tamb" text-anchor="start">Caught: sponsor flag said</text>
+<text x="910" y="56" class="ts" text-anchor="start">'not sanctioned' for an OFAC-listed firm</text>
+<text x="910" y="78" class="tamb" text-anchor="start">Caught: a database start date</text>
+<text x="910" y="100" class="ts" text-anchor="start">posing as a listing date</text>
+<path d="M710 116 L710 146" class="lamb" marker-end="url(#d5_amb)"/>
+<path d="M1040 116 L1040 146" class="lamb" marker-end="url(#d5_amb)"/>
+<text x="40" y="60" class="tb" text-anchor="start">Every figure passes two</text>
+<text x="40" y="80" class="tb" text-anchor="start">checks before it is shown</text>
+<rect x="40" y="564" width="34" height="22" rx="5" class="boxacc"/>
+<text x="84" y="580" class="t" text-anchor="start">Check step</text>
+<rect x="208.0" y="564" width="34" height="22" rx="5" class="boxambs"/>
+<text x="252.0" y="580" class="t" text-anchor="start">Error caught today</text>
+<text x="40" y="646" class="tcap">Agents find leads cheaply; a separate skeptic and an official page decide what can be shown.</text>
+</svg>

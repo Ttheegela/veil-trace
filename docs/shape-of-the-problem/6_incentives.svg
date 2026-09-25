@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 820" role="img" aria-label="Who pays, who gains. The detour pays the middle, costs the careful, and its harm lands on people far from the deal." font-family='"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif'>
+<title>Who pays, who gains</title>
+<style>
+svg{font-family:"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif}
+.bg{fill:#ffffff}
+.t{fill:#0f1b2d;font-size:16px;font-weight:500}
+.tb{fill:#0f1b2d;font-size:16px;font-weight:600}
+.th{fill:#0f1b2d;font-size:22px;font-weight:600}
+.ts{fill:#4a5a70;font-size:14px;font-weight:400}
+.tcap{fill:#4a5a70;font-size:16px;font-weight:400}
+.tacc{fill:#1f5fd1;font-size:15px;font-weight:600}
+.tteal{fill:#0f7c8c;font-size:15px;font-weight:600}
+.tamb{fill:#8f5600;font-size:15px;font-weight:600}
+.tpos{fill:#0f7a4a;font-size:15px;font-weight:600}
+.tinv{fill:#ffffff;font-size:15px;font-weight:600}
+.tnum{fill:#ffffff;font-size:15px;font-weight:700}
+.box{fill:#ffffff;stroke:#7d8ba1;stroke-width:1.3}
+.boxm{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1}
+.boxacc{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.8}
+.boxteal{fill:#e2f2f4;stroke:#0f7c8c;stroke-width:1.6}
+.boxamb{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6;stroke-dasharray:7 4}
+.boxambs{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6}
+.boxpos{fill:#e3f3ea;stroke:#0f7a4a;stroke-width:1.6}
+.zone{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1.2;stroke-dasharray:6 4}
+.lgoods{fill:none;stroke:#0f1b2d;stroke-width:2.6}
+.lmoney{fill:none;stroke:#0f7c8c;stroke-width:2.4;stroke-dasharray:9 6}
+.linfo{fill:none;stroke:#1f5fd1;stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+.lrisk{fill:none;stroke:#8f5600;stroke-width:2.4}
+.lharm{fill:none;stroke:#0f1b2d;stroke-width:2.4;stroke-dasharray:14 5 3 5}
+.ln{fill:none;stroke:#4a5a70;stroke-width:2}
+.lnthin{fill:none;stroke:#7d8ba1;stroke-width:1.2}
+.lamb{fill:none;stroke:#8f5600;stroke-width:2;stroke-dasharray:7 5}
+.lacc{fill:none;stroke:#1f5fd1;stroke-width:2.2}
+.lteal{fill:none;stroke:#0f7c8c;stroke-width:2.4}
+.fgoods{fill:#0f1b2d}
+.fmoney{fill:#0f7c8c}
+.finfo{fill:#1f5fd1}
+.frisk{fill:#8f5600}
+.fmfg{fill:#4a5a70}
+.fteal{fill:#0f7c8c}
+.facc{fill:#1f5fd1}
+.famb{fill:#8f5600}
+.fpos{fill:#0f7a4a}
+.fborder{fill:#7d8ba1}
+.band{fill:#1f5fd1}
+.bandL{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2;stroke-dasharray:4 3}
+.listband{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2}
+.barAmb{fill:#8f5600}
+.barMfg{fill:#4a5a70}
+.barTeal{fill:#0f7c8c}
+.hatchbg{fill:#eef2f7}
+.hatchln{stroke:#4a5a70;stroke-width:2}
+.hatchbox{stroke:#4a5a70;stroke-width:1.3;stroke-dasharray:5 3}
+@media (prefers-color-scheme: dark){
+.bg{fill:#121b2d}
+.t{fill:#e8eef7}
+.tb{fill:#e8eef7}
+.th{fill:#e8eef7}
+.ts{fill:#a3b1c6}
+.tcap{fill:#a3b1c6}
+.tacc{fill:#7fa8ff}
+.tteal{fill:#4fd1c5}
+.tamb{fill:#f2b84b}
+.tpos{fill:#4cc98a}
+.tinv{fill:#121b2d}
+.tnum{fill:#121b2d}
+.box{fill:#121b2d;stroke:#5f6e87}
+.boxm{fill:#1a2438;stroke:#5f6e87}
+.boxacc{fill:#17274a;stroke:#7fa8ff}
+.boxteal{fill:#10302f;stroke:#4fd1c5}
+.boxamb{fill:#2f2512;stroke:#f2b84b}
+.boxambs{fill:#2f2512;stroke:#f2b84b}
+.boxpos{fill:#10301f;stroke:#4cc98a}
+.zone{fill:#1a2438;stroke:#5f6e87}
+.lgoods{stroke:#e8eef7}
+.lmoney{stroke:#4fd1c5}
+.linfo{stroke:#7fa8ff}
+.lrisk{stroke:#f2b84b}
+.lharm{stroke:#e8eef7}
+.ln{stroke:#a3b1c6}
+.lnthin{stroke:#5f6e87}
+.lamb{stroke:#f2b84b}
+.lacc{stroke:#7fa8ff}
+.lteal{stroke:#4fd1c5}
+.fgoods{fill:#e8eef7}
+.fmoney{fill:#4fd1c5}
+.finfo{fill:#7fa8ff}
+.frisk{fill:#f2b84b}
+.fmfg{fill:#a3b1c6}
+.fteal{fill:#4fd1c5}
+.facc{fill:#7fa8ff}
+.famb{fill:#f2b84b}
+.fpos{fill:#4cc98a}
+.fborder{fill:#5f6e87}
+.band{fill:#7fa8ff}
+.bandL{fill:#17274a;stroke:#7fa8ff}
+.listband{fill:#17274a;stroke:#7fa8ff}
+.barAmb{fill:#f2b84b}
+.barMfg{fill:#a3b1c6}
+.barTeal{fill:#4fd1c5}
+.hatchbg{fill:#1a2438}
+.hatchln{stroke:#a3b1c6}
+.hatchbox{stroke:#a3b1c6}
+}
+</style>
+<defs><marker id="d6_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d6_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d6_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d6_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d6_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d6_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d6_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d6_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d6_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d6_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="-80" width="1200" height="820" rx="0" class="bg"/><text x="40" y="-34" class="th">Who pays, who gains</text>
+<rect x="30" y="60" width="280" height="110" rx="8" class="box"/>
+<text x="170.0" y="101.0" class="tb" text-anchor="middle">Russian buyers</text>
+<text x="170.0" y="120.0" class="ts" text-anchor="middle">pay middlemen</text>
+<text x="170.0" y="139.0" class="ts" text-anchor="middle">for the detour</text>
+<rect x="460" y="60" width="290" height="110" rx="8" class="box"/>
+<text x="605.0" y="101.0" class="tb" text-anchor="middle">Middle firms and hubs</text>
+<text x="605.0" y="120.0" class="ts" text-anchor="middle">take a margin;</text>
+<text x="605.0" y="139.0" class="ts" text-anchor="middle">a new firm costs little</text>
+<rect x="900" y="60" width="270" height="110" rx="8" class="box"/>
+<text x="1035.0" y="101.0" class="tb" text-anchor="middle">Makers and distributors</text>
+<text x="1035.0" y="120.0" class="ts" text-anchor="middle">want the sale;</text>
+<text x="1035.0" y="139.0" class="ts" text-anchor="middle">checking buyers costs money</text>
+<path d="M310 115 L456 115" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="383" y="104" class="tteal" text-anchor="middle">margin</text>
+<path d="M750 115 L896 115" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="823" y="104" class="tteal" text-anchor="middle">payment</text>
+<rect x="460" y="290" width="290" height="100" rx="8" class="boxacc"/>
+<text x="605.0" y="326.0" class="tb" text-anchor="middle">Governments</text>
+<text x="605.0" y="345.0" class="ts" text-anchor="middle">need listings that hold up</text>
+<text x="605.0" y="364.0" class="ts" text-anchor="middle">in court, so they are slow</text>
+<rect x="900" y="290" width="270" height="100" rx="8" class="box"/>
+<text x="1035.0" y="326.0" class="tb" text-anchor="middle">Banks</text>
+<text x="1035.0" y="345.0" class="ts" text-anchor="middle">fear secondary sanctions:</text>
+<text x="1035.0" y="364.0" class="ts" text-anchor="middle">losing access to US dollars</text>
+<path d="M750 340 L896 340" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="823" y="328" class="tamb" text-anchor="middle">secondary</text>
+<text x="823" y="364" class="tamb" text-anchor="middle">sanctions</text>
+<path d="M735 290 L935 176" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="860" y="262" class="tamb" text-anchor="start">fines</text>
+<path d="M605 290 L605 176" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="615" y="236" class="tamb" text-anchor="start">lists them, months late</text>
+<text x="585" y="550" class="tb" text-anchor="middle">Who bears the cost</text>
+<rect x="30" y="490" width="420" height="110" rx="8" class="boxm"/>
+<text x="240.0" y="531.0" class="tb" text-anchor="middle">Civilians harmed by the weapons</text>
+<text x="240.0" y="550.0" class="ts" text-anchor="middle">foreign chips turn up in Russian</text>
+<text x="240.0" y="569.0" class="ts" text-anchor="middle">drones and missiles</text>
+<rect x="720" y="490" width="450" height="110" rx="8" class="boxm"/>
+<text x="945.0" y="531.0" class="tb" text-anchor="middle">Honest traders and families</text>
+<text x="945.0" y="550.0" class="ts" text-anchor="middle">clumsy refusals: medicine exports to Iran</text>
+<text x="945.0" y="569.0" class="ts" text-anchor="middle">fell about 35% (2017 to 2023) though exempt</text>
+<path d="M170 170 L170 484" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="182" y="330" class="t" text-anchor="start">weapons</text>
+<path d="M1035 390 L1035 484" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="1023" y="450" class="t" text-anchor="end">refuse whole regions</text>
+<path d="M40 640 L92 640" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="104" y="645" class="t" text-anchor="start">Money</text>
+<path d="M186.0 640 L238.0 640" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="250.0" y="645" class="t" text-anchor="start">Risk and pressure</text>
+<path d="M432.8 640 L484.8 640" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="496.8" y="645" class="t" text-anchor="start">Harm</text>
+<rect x="570.4" y="629" width="34" height="22" rx="5" class="boxacc"/>
+<text x="614.4" y="645" class="t" text-anchor="start">Sets the rules</text>
+<text x="40" y="706" class="tcap">The detour pays the middle, costs the careful, and its harm lands on people far from the deal.</text>
+</svg>

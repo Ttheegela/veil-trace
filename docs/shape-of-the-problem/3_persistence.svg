@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 660" role="img" aria-label="What changes fast and what doesn&#x27;t. Names last weeks, lists arrive after months, but the buyer and the part last years: track what persists." font-family='"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif'>
+<title>What changes fast and what doesn't</title>
+<style>
+svg{font-family:"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif}
+.bg{fill:#ffffff}
+.t{fill:#0f1b2d;font-size:16px;font-weight:500}
+.tb{fill:#0f1b2d;font-size:16px;font-weight:600}
+.th{fill:#0f1b2d;font-size:22px;font-weight:600}
+.ts{fill:#4a5a70;font-size:14px;font-weight:400}
+.tcap{fill:#4a5a70;font-size:16px;font-weight:400}
+.tacc{fill:#1f5fd1;font-size:15px;font-weight:600}
+.tteal{fill:#0f7c8c;font-size:15px;font-weight:600}
+.tamb{fill:#8f5600;font-size:15px;font-weight:600}
+.tpos{fill:#0f7a4a;font-size:15px;font-weight:600}
+.tinv{fill:#ffffff;font-size:15px;font-weight:600}
+.tnum{fill:#ffffff;font-size:15px;font-weight:700}
+.box{fill:#ffffff;stroke:#7d8ba1;stroke-width:1.3}
+.boxm{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1}
+.boxacc{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.8}
+.boxteal{fill:#e2f2f4;stroke:#0f7c8c;stroke-width:1.6}
+.boxamb{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6;stroke-dasharray:7 4}
+.boxambs{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6}
+.boxpos{fill:#e3f3ea;stroke:#0f7a4a;stroke-width:1.6}
+.zone{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1.2;stroke-dasharray:6 4}
+.lgoods{fill:none;stroke:#0f1b2d;stroke-width:2.6}
+.lmoney{fill:none;stroke:#0f7c8c;stroke-width:2.4;stroke-dasharray:9 6}
+.linfo{fill:none;stroke:#1f5fd1;stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+.lrisk{fill:none;stroke:#8f5600;stroke-width:2.4}
+.lharm{fill:none;stroke:#0f1b2d;stroke-width:2.4;stroke-dasharray:14 5 3 5}
+.ln{fill:none;stroke:#4a5a70;stroke-width:2}
+.lnthin{fill:none;stroke:#7d8ba1;stroke-width:1.2}
+.lamb{fill:none;stroke:#8f5600;stroke-width:2;stroke-dasharray:7 5}
+.lacc{fill:none;stroke:#1f5fd1;stroke-width:2.2}
+.lteal{fill:none;stroke:#0f7c8c;stroke-width:2.4}
+.fgoods{fill:#0f1b2d}
+.fmoney{fill:#0f7c8c}
+.finfo{fill:#1f5fd1}
+.frisk{fill:#8f5600}
+.fmfg{fill:#4a5a70}
+.fteal{fill:#0f7c8c}
+.facc{fill:#1f5fd1}
+.famb{fill:#8f5600}
+.fpos{fill:#0f7a4a}
+.fborder{fill:#7d8ba1}
+.band{fill:#1f5fd1}
+.bandL{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2;stroke-dasharray:4 3}
+.listband{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2}
+.barAmb{fill:#8f5600}
+.barMfg{fill:#4a5a70}
+.barTeal{fill:#0f7c8c}
+.hatchbg{fill:#eef2f7}
+.hatchln{stroke:#4a5a70;stroke-width:2}
+.hatchbox{stroke:#4a5a70;stroke-width:1.3;stroke-dasharray:5 3}
+@media (prefers-color-scheme: dark){
+.bg{fill:#121b2d}
+.t{fill:#e8eef7}
+.tb{fill:#e8eef7}
+.th{fill:#e8eef7}
+.ts{fill:#a3b1c6}
+.tcap{fill:#a3b1c6}
+.tacc{fill:#7fa8ff}
+.tteal{fill:#4fd1c5}
+.tamb{fill:#f2b84b}
+.tpos{fill:#4cc98a}
+.tinv{fill:#121b2d}
+.tnum{fill:#121b2d}
+.box{fill:#121b2d;stroke:#5f6e87}
+.boxm{fill:#1a2438;stroke:#5f6e87}
+.boxacc{fill:#17274a;stroke:#7fa8ff}
+.boxteal{fill:#10302f;stroke:#4fd1c5}
+.boxamb{fill:#2f2512;stroke:#f2b84b}
+.boxambs{fill:#2f2512;stroke:#f2b84b}
+.boxpos{fill:#10301f;stroke:#4cc98a}
+.zone{fill:#1a2438;stroke:#5f6e87}
+.lgoods{stroke:#e8eef7}
+.lmoney{stroke:#4fd1c5}
+.linfo{stroke:#7fa8ff}
+.lrisk{stroke:#f2b84b}
+.lharm{stroke:#e8eef7}
+.ln{stroke:#a3b1c6}
+.lnthin{stroke:#5f6e87}
+.lamb{stroke:#f2b84b}
+.lacc{stroke:#7fa8ff}
+.lteal{stroke:#4fd1c5}
+.fgoods{fill:#e8eef7}
+.fmoney{fill:#4fd1c5}
+.finfo{fill:#7fa8ff}
+.frisk{fill:#f2b84b}
+.fmfg{fill:#a3b1c6}
+.fteal{fill:#4fd1c5}
+.facc{fill:#7fa8ff}
+.famb{fill:#f2b84b}
+.fpos{fill:#4cc98a}
+.fborder{fill:#5f6e87}
+.band{fill:#7fa8ff}
+.bandL{fill:#17274a;stroke:#7fa8ff}
+.listband{fill:#17274a;stroke:#7fa8ff}
+.barAmb{fill:#f2b84b}
+.barMfg{fill:#a3b1c6}
+.barTeal{fill:#4fd1c5}
+.hatchbg{fill:#1a2438}
+.hatchln{stroke:#a3b1c6}
+.hatchbox{stroke:#a3b1c6}
+}
+</style>
+<defs><marker id="d3_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d3_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d3_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d3_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d3_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d3_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d3_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d3_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d3_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d3_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="-80" width="1200" height="660" rx="0" class="bg"/><text x="40" y="-34" class="th">What changes fast and what doesn't</text>
+<rect x="867.4185628441815" y="90" width="58.226674187717435" height="330" rx="4" class="listband"/>
+<text x="896.5318999380402" y="44" class="tacc" text-anchor="middle">Lists arrive here: 15 to 23 months after a firm appears</text>
+<text x="896.5318999380402" y="66" class="ts" text-anchor="middle">4 of 5 listed shippers on the new routes had already stopped</text>
+<text x="60" y="132" class="tb" text-anchor="start">Company name</text>
+<text x="60" y="152" class="ts" text-anchor="start">weeks</text>
+<rect x="300" y="118" width="236.79481972689587" height="40" rx="5" class="barAmb"/>
+<text x="550.7948197268959" y="134" class="ts" text-anchor="start">median firm active 40 days</text>
+<text x="550.7948197268959" y="152" class="ts" text-anchor="start">on the Kyrgyz chip route</text>
+<text x="60" y="210" class="tb" text-anchor="start">Route</text>
+<text x="60" y="230" class="ts" text-anchor="start">months</text>
+<rect x="300" y="196" width="604.7027669984138" height="40" rx="5" class="barMfg"/>
+<text x="314" y="222" class="tinv" text-anchor="start">Kyrgyz chip route: April 2022 through 2023</text>
+<text x="60" y="288" class="tb" text-anchor="start">Buyer</text>
+<text x="60" y="308" class="ts" text-anchor="start">years</text>
+<rect x="300" y="274" width="780.6006932305222" height="40" rx="5" class="barTeal"/>
+<text x="314" y="300" class="tinv" text-anchor="start">one buyer, one record, 2019 to 2025 (Testkomplekt)</text>
+<text x="60" y="366" class="tb" text-anchor="start">Part</text>
+<text x="60" y="386" class="ts" text-anchor="start">years</text>
+<rect x="300" y="352" width="840.0" height="40" rx="5" class="barTeal"/>
+<path d="M1138.0 348 L1162.0 372 L1138.0 396 z" class="fteal"/>
+<text x="314" y="378" class="tinv" text-anchor="start">same chip families before and after 2022</text>
+<path d="M44 270 L36 270 L36 396 L44 396" class="lteal"/>
+<text x="26" y="333" class="tteal" text-anchor="middle" transform="rotate(-90 26 333)">track these</text>
+<path d="M300 430 L1150 430" class="lnthin"/>
+<path d="M300.0 430 L300.0 438" class="lnthin"/>
+<text x="300.0" y="458" class="ts" text-anchor="middle">1 week</text>
+<path d="M497.71115698701306 430 L497.71115698701306 438" class="lnthin"/>
+<text x="497.71115698701306" y="458" class="ts" text-anchor="middle">1 month</text>
+<path d="M742.6356678425109 430 L742.6356678425109 438" class="lnthin"/>
+<text x="742.6356678425109" y="458" class="ts" text-anchor="middle">6 months</text>
+<path d="M837.1773814840506 430 L837.1773814840506 438" class="lnthin"/>
+<text x="837.1773814840506" y="458" class="ts" text-anchor="middle">1 year</text>
+<path d="M931.3463729795021 430 L931.3463729795021 438" class="lnthin"/>
+<text x="931.3463729795021" y="458" class="ts" text-anchor="middle">2 years</text>
+<path d="M1055.8310085045484 430 L1055.8310085045484 438" class="lnthin"/>
+<text x="1055.8310085045484" y="458" class="ts" text-anchor="middle">5 years</text>
+<path d="M1150.0 430 L1150.0 438" class="lnthin"/>
+<text x="1150.0" y="458" class="ts" text-anchor="middle">10 years</text>
+<text x="300" y="482" class="ts" text-anchor="start">how long each thing stays the same (log scale)</text>
+<text x="40" y="546" class="tcap">Names last weeks, lists arrive after months, but the buyer and the part last years: track what persists.</text>
+</svg>
