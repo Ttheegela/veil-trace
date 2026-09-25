@@ -38,8 +38,8 @@
 
 <section class="relative h-screen min-h-[640px] overflow-hidden">
   <div class="absolute inset-0">
-    <video class="w-full h-full object-cover" style="object-fit:cover" autoplay loop muted playsinline poster="../demo/screens/v3_b2_1920.png">
-      <source src="media/hero.mp4" type="video/mp4">
+    <video class="w-full h-full object-cover" style="object-fit:cover" autoplay loop muted playsinline poster="/demo/screens/v3_b2_1920.png">
+      <source src="/site/media/hero.mp4" type="video/mp4">
     </video>
     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"></div>
   </div>
@@ -65,13 +65,13 @@
       <h2 class="font-syne-xb text-3xl md:text-4xl">The knowledge graph</h2>
       <p class="opacity-60 mt-2 max-w-xl">Firms, filings and lobbying ties, joined into one graph — from the team's knowledge-graph research branch.</p>
     </div>
-    <a href="../research/knowledge-graph/index.html" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm font-medium hover:opacity-60 transition duration-300 whitespace-nowrap">
+    <a href="/research/knowledge-graph/index.html" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm font-medium hover:opacity-60 transition duration-300 whitespace-nowrap">
       Open full screen <i data-lucide="arrow-right" class="w-4 h-4"></i>
     </a>
   </div>
   <div class="rounded-2xl overflow-hidden border" style="border-color:rgba(26,24,22,0.1)">
     <iframe
-      src="../research/knowledge-graph/index.html"
+      src="/research/knowledge-graph/index.html"
       class="w-full h-[80vh]"
       loading="lazy"
       title="Veil Trace knowledge graph">
@@ -131,7 +131,7 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div class="md:col-span-2 relative rounded-2xl border-2 border-dashed overflow-hidden" style="border-color:rgba(26,24,22,0.2)">
-      <img src="../demo/screens/v3_b3_1920.png" class="w-full h-full object-cover" alt="">
+      <img src="/demo/screens/v3_b3_1920.png" class="w-full h-full object-cover" alt="">
       <div class="absolute right-6 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 flex flex-col gap-3">
         <i data-lucide="navigation" class="w-4 h-4"></i>
         <i data-lucide="sparkles" class="w-4 h-4"></i>
@@ -140,31 +140,14 @@
     </div>
     <div class="flex flex-col gap-4">
       <div class="rounded-xl overflow-hidden border" style="border-color:rgba(26,24,22,0.1)">
-        <img src="../demo/screens/v3_b1_1920.png" class="w-full h-full object-cover" alt="">
+        <img src="/demo/screens/v3_b1_1920.png" class="w-full h-full object-cover" alt="">
       </div>
       <div class="rounded-xl overflow-hidden border" style="border-color:rgba(26,24,22,0.1)">
-        <img src="../demo/screens/v3_b4_1920.png" class="w-full h-full object-cover" alt="">
+        <img src="/demo/screens/v3_b4_1920.png" class="w-full h-full object-cover" alt="">
       </div>
     </div>
   </div>
 </section>
-
-<footer id="sources" class="relative overflow-hidden pt-24 pb-8 text-white" style="background:#1A1816">
-  <div class="mask-fade">
-    <div class="font-serif-display font-medium leading-none text-center select-none" style="font-size:22vw">VEIL TRACE</div>
-  </div>
-  <div class="relative z-10 max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm uppercase tracking-widest text-neutral-500 mt-10">
-    <div class="flex flex-col gap-3"><span class="text-neutral-300">Product</span><a href="#terminal" class="hover:text-white transition">Terminal</a><a href="#solutions" class="hover:text-white transition">Solutions</a></div>
-    <div class="flex flex-col gap-3"><span class="text-neutral-300">Docs</span><a href="#" class="hover:text-white transition">Methods Log</a><a href="#" class="hover:text-white transition">Sources</a></div>
-    <div class="flex flex-col gap-3"><span class="text-neutral-300">Legal</span><a href="#" class="hover:text-white transition">Privacy</a><a href="#" class="hover:text-white transition">Terms</a></div>
-  </div>
-  <div class="relative z-10 max-w-5xl mx-auto px-6 flex items-center justify-between mt-16 pt-6 border-t border-neutral-800 text-neutral-500 text-sm">
-    <span>© 2026 Veil Trace — Trace the Unseen.</span>
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="border border-neutral-700 rounded-full p-3 hover:bg-white hover:text-black transition duration-300">
-      <i data-lucide="arrow-up" class="w-4 h-4"></i>
-    </button>
-  </div>
-</footer>
 
 <script>lucide.createIcons();</script>
 </body>
