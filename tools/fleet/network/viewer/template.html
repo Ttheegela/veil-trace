@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Shadow Fleet Network</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f; --panel:#10121a; --panel2:#151824; --line:#232838; --line2:#2e3548;
+  --text:#e6ebf2; --muted:#9aa5b8; --dim:#6c7689; --accent:#00d4ff; --accent-dim:rgba(0,212,255,.14);
+  --ru:#ff6b5a; --ir:#f5b83d; --both:#d86bff; --tr:#7aa7ff; --ve:#57d19b; --ot:#8a94a6;
+  --lead:#f5b83d; --doc:#57d19b;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --sans:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:#0a0a0f;color:var(--text);font:14px/1.45 var(--sans);overflow-x:hidden}
+button,input,select{font:inherit;color:inherit}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.app{height:100%;display:grid;grid-template-columns:320px minmax(0,1fr) 400px;grid-template-rows:minmax(0,1fr) auto}
+.app.panel-closed{grid-template-columns:320px minmax(0,1fr) 0}
+.rail,.side{background:var(--panel);min-height:0;overflow-y:auto;overflow-x:hidden}
+.rail{border-right:1px solid var(--line);padding:16px 16px 20px;display:flex;flex-direction:column;gap:16px}
+.side{border-left:1px solid var(--line);display:flex;flex-direction:column}
+.app.panel-closed .side{display:none}
+footer{grid-column:1/-1;border-top:1px solid var(--line);background:var(--panel);padding:6px 16px;font-size:13px;color:var(--muted);display:flex;gap:16px;justify-content:space-between;white-space:nowrap;overflow:hidden}
+footer #credits{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.hud{font:600 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+h1{font:600 21px/1.2 var(--sans);margin:4px 0 6px;letter-spacing:.01em}
+.sub{color:var(--muted);font-size:13.5px;margin:0}
+.brand{display:flex;align-items:center;gap:8px}
+.brand .dot{width:8px;height:8px;background:var(--accent);box-shadow:0 0 8px var(--accent);transform:rotate(45deg)}
+.section{display:flex;flex-direction:column;gap:8px}
+.presets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.btn{background:var(--panel2);border:1px solid var(--line2);border-radius:4px;padding:7px 9px;cursor:pointer;font-size:13px;text-align:left;line-height:1.25}
+.btn:hover{border-color:var(--accent);}
+.btn[aria-pressed=true]{border-color:var(--accent);background:var(--accent-dim);color:#fff}
+.btn.wide{grid-column:1/-1}
+.btn.small{padding:4px 8px;font-size:13px}
+.search{position:relative}
+.search input{width:100%;background:#0c0e15;border:1px solid var(--line2);border-radius:4px;padding:8px 10px;font-size:14px}
+.search input::placeholder{color:var(--dim)}
+.results{position:absolute;left:0;right:0;top:100%;margin-top:4px;background:var(--panel2);border:1px solid var(--line2);border-radius:4px;z-index:30;max-height:320px;overflow-y:auto;display:none}
+.results.open{display:block}
+.results button{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:7px 10px;cursor:pointer;font-size:13.5px}
+.results button:hover,.results button.act{background:var(--accent-dim)}
+.results .why{display:block;color:var(--muted);font-size:13px}
+.results .mono{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.tog{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--line2);border-radius:999px;padding:4px 10px 4px 8px;font-size:13px;cursor:pointer;user-select:none}
+.tog input{position:absolute;opacity:0;pointer-events:none}
+.tog .sw{width:10px;height:10px;border-radius:2px;border:1.5px solid currentColor;opacity:.9}
+.tog.on{border-color:#4a5572;color:#fff}
+.tog.on .sw{background:currentColor}
+.tog:not(.on){color:var(--dim)}
+.tog:focus-within{outline:2px solid var(--accent);outline-offset:1px}
+.slider-row{display:flex;align-items:center;gap:8px}
+.slider-row input[type=range]{flex:1;accent-color:var(--accent)}
+.asof{font:600 15px var(--mono);color:var(--accent);letter-spacing:0;text-transform:none}
+.play{width:34px;height:30px;display:grid;place-items:center;padding:0;text-align:center}
+.key{display:grid;grid-template-columns:22px 1fr 22px 1fr;gap:5px 8px;align-items:center;font-size:13px;color:var(--muted)}
+.key svg{display:block}
+.counts{font:13px var(--mono);color:var(--muted);display:grid;grid-template-columns:1fr auto;gap:2px 10px}
+.counts b{color:var(--text);font-weight:600;text-align:right}
+.stage{position:relative;min-width:0;min-height:0;background:radial-gradient(ellipse at 50% 40%,#0f1320 0%,#0a0a0f 70%)}
+#cy{position:absolute;inset:0}
+#overlay{position:absolute;inset:0;pointer-events:none}
+.stage-hud{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;pointer-events:none;flex-wrap:wrap}
+.stage-hud > *{pointer-events:auto}
+.viewtag{background:rgba(16,18,26,.85);border:1px solid var(--line2);border-radius:4px;padding:6px 10px;font-size:13px;display:flex;gap:10px;align-items:center}
+.viewtag .hud{color:var(--accent)}
+.zoombar{display:flex;gap:4px}
+.zoombar .btn{background:rgba(16,18,26,.85);width:32px;text-align:center;padding:5px 0}
+.busy{position:absolute;inset:0;display:none;place-items:center;background:rgba(10,10,15,.6);z-index:20}
+.busy.on{display:grid}
+.busy div{border:1px solid var(--accent);padding:10px 16px;font:600 13px var(--mono);letter-spacing:.14em;color:var(--accent);background:var(--bg)}
+.tip{position:absolute;z-index:25;pointer-events:none;background:rgba(12,14,21,.96);border:1px solid var(--line2);border-left:2px solid var(--accent);padding:6px 9px;font-size:13px;max-width:320px;display:none}
+.tip b{display:block;font-weight:600}
+.tip span{color:var(--muted)}
+.tabs{display:flex;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.tabs button{flex:1;background:none;border:0;border-bottom:2px solid transparent;padding:11px 6px 9px;cursor:pointer;font:600 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.tabs button[aria-selected=true]{color:var(--accent);border-bottom-color:var(--accent)}
+.tabs .x{flex:0 0 42px;font-size:16px;letter-spacing:0}
+.pane{padding:16px;display:none;flex-direction:column;gap:14px}
+.pane.on{display:flex}
+.chip{display:inline-block;font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line2);border-radius:3px;padding:4px 6px;color:var(--muted)}
+.chip.D{color:var(--doc);border-color:rgba(87,209,155,.5)}
+.chip.L{color:var(--lead);border-color:rgba(245,184,61,.55);border-style:dashed}
+.chip.prog{color:#0a0a0f;border:0}
+.dname{font:600 22px/1.2 var(--sans);margin:6px 0 2px;word-break:break-word}
+.idline{font:500 14px var(--mono);color:var(--accent)}
+.meta-line{color:var(--muted);font-size:13.5px}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font:600 12.5px var(--mono);border:1px solid #c9d3e3;border-radius:3px;padding:3px 7px;color:#fff;background:#141824}
+.badge small{font-weight:400;color:var(--muted);margin-left:6px}
+.badge.off{border-color:var(--line2);color:var(--dim);background:none}
+.box{border:1px solid var(--line);border-radius:4px;background:var(--panel2);padding:10px 12px}
+.box h3,.pane h3{margin:0 0 6px;font:600 11px/1.2 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3px}
+.names li{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.names li span{color:var(--muted);font-size:13px;text-align:right;max-width:55%}
+.names li > :first-child{}
+.note{font-size:13.5px;color:var(--text)}
+.note + .note{margin-top:8px}
+.note .hud{display:block;margin-bottom:2px}
+.group{border-top:1px solid var(--line);padding-top:8px}
+.group > h4{margin:0 0 6px;font:600 13px var(--sans);color:var(--muted)}
+.conn{padding:6px 0;border-bottom:1px dashed var(--line)}
+.conn:last-child{border-bottom:0}
+.conn-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.linkbtn{background:none;border:0;padding:0;color:var(--text);cursor:pointer;font-size:14px;text-align:left;text-decoration:underline;text-decoration-color:var(--line2);text-underline-offset:3px}
+.linkbtn:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.date{font:13px var(--mono);color:var(--muted)}
+details.src{margin-top:4px}
+details.src summary{cursor:pointer;color:var(--dim);font-size:13px}
+.srcitem{margin:6px 0 0 2px;padding-left:10px;border-left:2px solid var(--line2);font-size:13px}
+.srcitem .file{font:12.5px var(--mono);color:var(--muted);word-break:break-all}
+.srcitem q{display:block;font-style:italic;color:#c7cfdc;margin-top:3px;quotes:"\201C" "\201D"}
+.more{margin-top:6px}
+.empty{color:var(--muted);font-size:14px}
+.empty ol{padding-left:18px;margin:8px 0}
+.card{border:1px solid var(--line);border-radius:4px;background:var(--panel2);padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.card h2{margin:0;font:600 16px var(--sans)}
+.card p{margin:0;font-size:14px;color:#d3dae6}
+.card .btn{align-self:flex-start;border-color:var(--accent);color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{border-bottom:1px solid var(--line);padding:5px 4px;text-align:left;vertical-align:top}
+td.v{font-family:var(--mono);color:var(--accent);white-space:nowrap}
+dl.gloss{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13.5px}
+dl.gloss dt{font:600 13px var(--mono);color:var(--accent)}
+dl.gloss dd{margin:0}
+ul.plain{margin:0;padding-left:18px;font-size:13.5px;display:flex;flex-direction:column;gap:6px}
+abbr{text-decoration:underline dotted;cursor:help}
+.reopen{position:absolute;right:12px;bottom:12px;z-index:5}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:1500px){.app{grid-template-columns:290px minmax(0,1fr) 360px}.app.panel-closed{grid-template-columns:290px minmax(0,1fr) 0}}
+@media (max-height:820px){.rail{gap:11px;padding:12px 14px}.sub{font-size:13px}h1{font-size:19px;margin:2px 0 4px}.tog{padding:3px 9px 3px 7px}.btn{padding:6px 8px}.section{gap:6px}}
+@media (max-width:1500px){.viewtag #viewdesc{display:none}}
+@media (max-width:760px){
+  .app,.app.panel-closed{display:flex;flex-direction:column;height:auto;min-height:100%}
+  .rail,.side{overflow:visible;border:0;border-bottom:1px solid var(--line)}
+  .stage{height:520px;flex:none}
+  .app.panel-closed .side{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<script>/*__FLEET_DATA__*/</script>
+<div class="app" id="app">
+  <aside class="rail" aria-label="Controls">
+    <div>
+      <div class="brand"><span class="dot"></span><span class="hud">Sanctions network console</span></div>
+      <h1 id="title">Shadow Fleet Network</h1>
+      <p class="sub" id="subtitle"></p>
+    </div>
+    <div class="section">
+      <div class="hud">View</div>
+      <div class="presets" id="presets"></div>
+    </div>
+    <div class="section search">
+      <label class="hud" for="q">Find a ship or company</label>
+      <input id="q" type="search" autocomplete="off" placeholder="Name, former name or IMO number" aria-controls="results">
+      <div class="results" id="results" role="listbox"></div>
+    </div>
+    <div class="section">
+      <div class="hud">Time <span style="margin-left:6px">as of</span> <span class="asof" id="asof"></span></div>
+      <div class="slider-row">
+        <button class="btn play" id="play" aria-label="Play through time">&#9654;</button>
+        <input type="range" id="time" min="0" max="92" value="92" aria-label="As of month">
+      </div>
+      
+    </div>
+    <div class="section">
+      <div class="hud">Sanctions programme</div>
+      <div class="chips" id="f-prog"></div>
+    </div>
+    <div class="section">
+      <div class="hud">Sanctions status</div>
+      <div class="chips" id="f-gov"></div>
+    </div>
+    <div class="section">
+      <div class="hud">Show</div>
+      <div class="chips" id="f-type"></div>
+    </div>
+    <div class="section">
+      <div class="hud">On screen</div>
+      <div class="counts" id="counts"></div>
+    </div>
+    <div class="section">
+      <div class="hud">Key</div>
+      <div class="key" id="key"></div>
+    </div>
+  </aside>
+  <main class="stage" id="stage">
+    <div id="cy" aria-label="Network chart"></div>
+    <canvas id="overlay"></canvas>
+    <div class="stage-hud">
+      <div class="viewtag"><span class="hud" id="viewname">View</span><span id="viewdesc"></span><button class="btn small" id="back" hidden>Back</button></div>
+      <div class="zoombar">
+        <button class="btn" id="zin" aria-label="Zoom in">+</button>
+        <button class="btn" id="zout" aria-label="Zoom out">&minus;</button>
+        <button class="btn" id="zfit" aria-label="Fit to screen" title="Fit to screen">&#9635;</button>
+      </div>
+    </div>
+    <div class="tip" id="tip"></div>
+    <div class="busy" id="busy"><div>LAYING OUT&hellip;</div></div>
+    <button class="btn reopen" id="reopen" hidden>Open panel</button>
+  </main>
+  <aside class="side" id="side" aria-label="Details">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="t-detail" aria-selected="true" data-pane="p-detail">Details</button>
+      <button role="tab" id="t-pat" aria-selected="false" data-pane="p-pat">Patterns</button>
+      <button role="tab" id="t-about" aria-selected="false" data-pane="p-about">About</button>
+      <button class="x" id="close" aria-label="Close panel (Esc)" title="Close (Esc)">&times;</button>
+    </div>
+    <section class="pane on" id="p-detail" role="tabpanel"></section>
+    <section class="pane" id="p-pat" role="tabpanel"></section>
+    <section class="pane" id="p-about" role="tabpanel"></section>
+  </aside>
+  <footer><span id="credits"></span><span id="gen" class="date"></span></footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.30.2/cytoscape.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/layout-base@2.0.1/layout-base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cose-base@2.2.0/cose-base.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
+<script>
+(function(){
+'use strict';
+var D = window.FLEET_DATA || {nodes:[],edges:[],sources:[],quotes:[],meta:{}};
+var META = D.meta || {};
+var REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+var HAS_FCOSE = false;
+try{ if(window.cytoscapeFcose){ cytoscape.use(window.cytoscapeFcose); HAS_FCOSE = true; } }catch(e){}
+
+/* ---------- constants ---------- */
+var PCOL = {russia:'#ff6b5a', iran:'#f5b83d', both:'#d86bff', terrorism:'#7aa7ff', venezuela:'#57d19b', other:'#8a94a6'};
+var PNAME = {russia:'Russia', iran:'Iran', both:'Russia + Iran', terrorism:'Terrorism', venezuela:'Venezuela', other:'Other'};
+var COUNTRY_COL = '#5d7ea6', GOV_COL = '#c9d3e3';
+var TYPE_NAME = {ship:'Ship', company:'Company', person:'Person', country:'Country', government:'Government'};
+var GOV_NAME = {us:'United States', uk:'United Kingdom', eu:'European Union'};
+var ANGLE = {'lists':'Sanctions lists','company-anatomy':'Company records','enforcement':'Enforcement cases','eu-acts':'EU legal acts',
+  'russia-actions':'Russia sanctions actions','service-providers':'Service providers','studies':'Published studies','treasury-iran':'US Treasury, Iran actions'};
+/* verb from source side, verb from target side */
+var VERB = {
+  owns:['owns','owned by'], manages:['manages','managed by'], operates:['operates','operated by'],
+  linked_to:['OFAC links to','OFAC links to'], formerly_operated:['used to operate','formerly operated by'],
+  flagged_in:['flies the flag of','flag country for'], formerly_flagged_in:['was flagged in','former flag country for'],
+  registered_in:['registered in','home country of'], designated_by:['sanctioned by','sanctioned'],
+  sold_to:['sold to','bought from'], carried_cargo_for:['carried cargo for','had cargo carried by'],
+  controls:['controls','controlled by'], director_of:['director of','has as director'], insured_by:['insured by','insures'],
+  transferred_cargo_with:['transferred cargo with','transferred cargo with'], sister_shell_of:['sister shell of','sister shell of'],
+  seized_by:['seized by','seized'], charged_by:['charged by','charged'],
+  enforced_by:['action taken by','took action against'], master_of:['was master of','had as master']
+};
+function verb(y, fromSource){ var v = VERB[y]; if(!v){ return String(y||'linked').replace(/_/g,' '); } return fromSource ? v[0] : v[1]; }
+var HUB_TYPES = {country:1, government:1};
+var T0Y = 2019, TMAX = 92; /* month 0 = Jan 2019, 92 = Sep 2026 */
+var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+/* ---------- index ---------- */
+var byId = {}, adj = {}, edgeById = {};
+D.nodes.forEach(function(n){ byId[n.id] = n; adj[n.id] = []; });
+D.edges.forEach(function(e){
+  if(!byId[e.s] || !byId[e.t]) return;
+  edgeById[e.i] = e;
+  adj[e.s].push(e); adj[e.t].push(e);
+  e._m = parseMonth(e.d);
+});
+D.nodes.forEach(function(n){ n._m = parseMonth(n.first_listed); n._pg = n.program_group || (n.type==='ship'||n.type==='company'||n.type==='person' ? 'other' : null); if(n._pg && !PCOL[n._pg]) n._pg='other'; });
+
+var countryName = {};
+D.nodes.forEach(function(n){ if(n.type==='country' && n.country) countryName[String(n.country).toLowerCase()] = n.name; });
+var DN = null; try{ DN = new Intl.DisplayNames(['en'],{type:'region'}); }catch(e){}
+function cname(iso){ if(!iso) return ''; var k=String(iso).toLowerCase(); if(countryName[k]) return countryName[k]; if(k==='eu') return 'European Union'; try{ var r = DN && DN.of(k.toUpperCase()); if(r) return r; }catch(e){} return k.toUpperCase(); }
+
+/* NAMING RULE: generic companies show generic_name everywhere, and their hidden names are redacted from any text we render */
+function isGeneric(n){ return n && n.name_policy === 'generic'; }
+function dname(n){ if(!n) return ''; if(isGeneric(n)) return n.generic_name || 'unlisted company'; return n.name || n.id; }
+var hiddenNames = [];
+D.nodes.forEach(function(n){
+  if(!isGeneric(n)) return;
+  var g = n.generic_name || 'unlisted company';
+  [n.name].concat(n.aliases||[]).forEach(function(s){ if(s && String(s).trim().length >= 4) hiddenNames.push([String(s).trim(), g]); });
+});
+hiddenNames.sort(function(a,b){ return b[0].length - a[0].length; });
+var redactRe = null, redactMap = {};
+if(hiddenNames.length){
+  hiddenNames.forEach(function(p){ var k=p[0].toLowerCase(); if(!redactMap[k]) redactMap[k]=p[1]; });
+  redactRe = new RegExp('(' + hiddenNames.map(function(p){ return p[0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }).join('|') + ')', 'gi');
+}
+function redact(s){ if(s==null) return ''; s = String(s); if(!redactRe) return s; return s.replace(redactRe, function(m){ return 'an ' + (redactMap[m.toLowerCase()] || 'unlisted company'); }).replace(/\ban an\b/gi,'an').replace(/\ba an\b/gi,'an').replace(/\bthe an\b/gi,'an'); }
+function clean(s){ return redact(s).replace(/—/g, ', ').replace(/–/g,'-'); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function txt(s){ return esc(clean(s)); }
+/* prose: also soften internal tokens such as A_iran_programme */
+function prose(s){ return esc(clean(s).replace(/(^|[^A-Za-z])[A-C]_(?=[a-z])/g,'$1').replace(/([a-z])_(?=[a-z])/g,'$1 ')); }
+
+/* dates */
+function parseMonth(s){
+  if(!s) return null; s = String(s).trim(); var m;
+  if((m = s.match(/^(\d{4})-(\d{2})/))) return (+m[1]-T0Y)*12 + (+m[2]-1);
+  if((m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/))) return (+m[3]-T0Y)*12 + (+m[2]-1);
+  if((m = s.match(/^(\d{4})$/))) return (+m[1]-T0Y)*12;
+  return null;
+}
+function fmtDate(s){
+  if(!s) return ''; s = String(s).trim(); var m;
+  if((m = s.match(/^(\d{4})-(\d{2})-(\d{2})/))) return (+m[3]) + ' ' + MON[+m[2]-1] + ' ' + m[1];
+  if((m = s.match(/^(\d{4})-(\d{2})$/))) return MON[+m[2]-1] + ' ' + m[1];
+  if((m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/))) return (+m[1]) + ' ' + MON[+m[2]-1] + ' ' + m[3];
+  return s;
+}
+function monthLabel(i){ return MON[i%12] + ' ' + (T0Y + Math.floor(i/12)); }
+
+/* ---------- search index (visible names only) ---------- */
+var SIDX = [];
+D.nodes.forEach(function(n){
+  if(n.type === 'government') return;
+  var keys = [];
+  if(isGeneric(n)){ keys.push([dname(n),'name']); }
+  else{
+    keys.push([n.name,'name']);
+    (n.aliases||[]).forEach(function(a){ keys.push([a,'also known as']); });
+    (n.ua_former_names||[]).forEach(function(a){ keys.push([a,'former name']); });
+    var nbs = n.names_by_source||{}; Object.keys(nbs).forEach(function(k){ keys.push([nbs[k],'name on ' + k]); });
+  }
+  if(n.imo) keys.push(['IMO ' + n.imo, 'IMO'], [String(n.imo),'IMO']);
+  SIDX.push({n:n, keys:keys.filter(function(k){return k[0];}).map(function(k){ return [String(k[0]).toLowerCase(), k[0], k[1]]; })});
+});
+function searchNodes(q){
+  q = q.trim().toLowerCase(); if(q.length < 2) return [];
+  var out = [];
+  SIDX.forEach(function(r){
+    var best = null;
+    for(var i=0;i<r.keys.length;i++){
+      var k = r.keys[i], p = k[0].indexOf(q);
+      if(p < 0) continue;
+      var sc = (p===0?0:1) + (i===0?0:0.5) + (k[0].length-q.length)/100;
+      if(!best || sc < best.sc) best = {sc:sc, hit:k};
+    }
+    if(best){ var t = r.n.type; best.sc += (t==='ship'?0:t==='company'?0.1:t==='person'?0.1:0.3); out.push({n:r.n, sc:best.sc, hit:best.hit}); }
+  });
+  out.sort(function(a,b){ return a.sc - b.sc; });
+  return out.slice(0, 12);
+}
+
+/* ---------- view building ---------- */
+function flagCountries(ids){
+  var add = [];
+  ids.forEach(function(id){
+    if(byId[id].type !== 'ship') return;
+    adj[id].forEach(function(e){ if((e.y==='flagged_in'||e.y==='formerly_flagged_in') && e.s===id && byId[e.t].type==='country') add.push(e.t); });
+  });
+  add.forEach(function(x){ ids.add(x); });
+  return ids;
+}
+function hop(ids, n, types){
+  var frontier = Array.from(ids);
+  for(var h=0; h<n; h++){
+    var next = [];
+    frontier.forEach(function(id){
+      if(HUB_TYPES[byId[id].type] && h>0) return; /* never expand through countries or governments */
+      if(HUB_TYPES[byId[id].type] && adj[id].length > 60) return;
+      adj[id].forEach(function(e){
+        var o = e.s===id ? e.t : e.s; var on = byId[o];
+        if(on.type==='government') return;
+        if(on.type==='country' && e.y!=='flagged_in' && e.y!=='formerly_flagged_in') return;
+        if(types && !types[on.type]) return;
+        if(!ids.has(o)){ ids.add(o); next.push(o); }
+      });
+    });
+    frontier = next;
+  }
+  return ids;
+}
+var PRESETS = [
+  {id:'overlap', label:'Russia + Iran overlap', desc:'Tankers on both a Russia and an Iran sanctions list, with the firms and flags around them',
+    build:function(){ var s = new Set(); D.nodes.forEach(function(n){ if(n.type==='ship' && n.program_group==='both') s.add(n.id); });
+      var ships = Array.from(s);
+      ships.forEach(function(id){ adj[id].forEach(function(e){ var o = e.s===id?e.t:e.s; var t = byId[o].type; if(t==='company'||t==='person') s.add(o); }); });
+      return flagCountries(s); }},
+  {id:'big', label:'Big operators', desc:'Companies and people linked to five or more ships',
+    build:function(){ var s = new Set(); D.nodes.forEach(function(n){ if((n.type==='company'||n.type==='person') && (n.ship_count||0) >= 5) s.add(n.id); });
+      Array.from(s).forEach(function(id){ adj[id].forEach(function(e){ var o = e.s===id?e.t:e.s; if(byId[o].type==='ship') s.add(o); }); });
+      return s; }},
+  {id:'people', label:'Named people', desc:'People named on official lists, and two steps out from them',
+    build:function(){ var s = new Set(); D.nodes.forEach(function(n){ if(n.type==='person') s.add(n.id); }); return flagCountries(hop(s, 2)); }},
+  {id:'enforce', label:'Enforcement', desc:'Ships seized, detained or ruled on, their masters, and one step out',
+    build:function(){ var s = new Set(), hubs = new Set();
+      var ENF = {enforced_by:1, master_of:1, seized_by:1, charged_by:1};
+      D.edges.forEach(function(e){ if(!edgeById[e.i]) return; var enf = ENF[e.y] || (e.src||[]).some(function(r){ return r[3]==='enforcement'; });
+        if(enf){ [e.s, e.t].forEach(function(x){ (HUB_TYPES[byId[x].type] ? hubs : s).add(x); }); } });
+      D.nodes.forEach(function(n){ if(!HUB_TYPES[n.type] && (n.research_notes||[]).some(function(r){ return r.angle==='enforcement'; })) s.add(n.id); });
+      hop(s, 1);
+      hubs.forEach(function(x){ if(byId[x].type==='country') s.add(x); });
+      return s; }},
+  {id:'all', label:'Everything', desc:'Every ship, company and person (countries hidden)', wide:true, heavy:true,
+    build:function(){ var s = new Set(); D.nodes.forEach(function(n){ if(n.type==='ship'||n.type==='company'||n.type==='person') s.add(n.id); }); return s; }}
+];
+
+/* ---------- state ---------- */
+var S = {
+  preset:'overlap', view:null, viewIds:null, focusId:null,
+  prog:{russia:true, iran:true, both:true, other:true},
+  listed:{yes:true, no:true},
+  gov:{us:true, uk:true, eu:true},
+  types:{ship:true, company:true, person:true, country:true, government:false},
+  lead:true, t:TMAX, selected:null, highlight:null, placed:new Set()
+};
+
+/* ---------- cytoscape ---------- */
+function nodeSize(n){
+  if(n.type==='ship') return 16 + 4*Math.min(n.name_count||1, 9);
+  if(n.type==='company') return 18 + 7*Math.sqrt(Math.min(n.ship_count||0, 40));
+  if(n.type==='person') return 26;
+  if(n.type==='country') return 30;
+  return 40;
+}
+function nodeColor(n){
+  if(n.type==='country') return COUNTRY_COL;
+  if(n.type==='government') return GOV_COL;
+  return PCOL[n._pg] || PCOL.other;
+}
+function toEl(n){
+  var listed = !!n.listed;
+  var cls = [n.type, listed ? 'listed' : 'unlisted'];
+  if(n.type==='company' && (n.ship_count||0) <= 1) cls.push('minor');
+  return {group:'nodes', data:{id:n.id, label:dname(n), col:nodeColor(n), size:nodeSize(n), t:n.type}, classes:cls.join(' ')};
+}
+var cy = cytoscape({
+  container: document.getElementById('cy'),
+  minZoom: 0.05, maxZoom: 4, boxSelectionEnabled:false,
+  textureOnViewport: false, hideEdgesOnViewport: false, pixelRatio: 'auto',
+  style: [
+    {selector:'node', style:{
+      'width':'data(size)','height':'data(size)','background-color':'data(col)','border-color':'data(col)','border-width':1.5,
+      'label':'data(label)','color':'#cfd7e3','font-family':'IBM Plex Sans, sans-serif','font-size':13,'text-valign':'bottom','text-margin-y':4,
+      'text-outline-color':'#0a0a0f','text-outline-width':2.5,'text-max-width':'170px','text-wrap':'ellipsis','min-zoomed-font-size':8,
+      'overlay-opacity':0,'transition-property':'opacity','transition-duration':'150ms'}},
+    {selector:'node.ship', style:{'shape':'diamond','font-size':16}},
+    {selector:'node.company', style:{'shape':'round-rectangle','height':'mapData(size, 18, 60, 14, 34)','font-size':15.5}},
+    {selector:'node.person', style:{'shape':'ellipse','border-width':3,'border-style':'double','background-opacity':0.35,'font-size':17,'font-weight':600}},
+    {selector:'node.country', style:{'shape':'hexagon','background-color':'#18243a','border-color':COUNTRY_COL,'border-width':1.5,'color':'#8fb0d6','font-size':14,'text-valign':'center','text-margin-y':0,'text-transform':'uppercase','font-family':'JetBrains Mono, monospace'}},
+    {selector:'node.government', style:{'shape':'octagon','background-color':'#1c2230','border-color':GOV_COL,'border-width':2,'font-size':14,'font-weight':600,'color':'#fff'}},
+    {selector:'node.unlisted', style:{'background-opacity':0.06,'border-width':2}},
+    {selector:'node.person.unlisted', style:{'background-opacity':0.06}},
+    {selector:'node.nolabel', style:{'label':''}},
+    {selector:'node.minor.small', style:{'label':''}},
+    {selector:'edge', style:{'width':1.2,'line-color':'#4a5a78','opacity':0.7,'curve-style':'straight','target-arrow-shape':'none','overlay-opacity':0,'events':'yes'}},
+    {selector:'edge.flag', style:{'line-color':'#34496a','opacity':0.45,'width':1}},
+    {selector:'edge.gov', style:{'line-color':'#46506a','opacity':0.25}},
+    {selector:'edge.L', style:{'line-style':'dashed','line-dash-pattern':[5,4],'line-color':'#8a7340','opacity':0.6}},
+    {selector:'node.future', style:{'opacity':0.12}},
+    {selector:'edge.future', style:{'display':'none'}},
+    {selector:'.hid', style:{'display':'none'}},
+    {selector:'.dim', style:{'opacity':0.14,'text-opacity':0.45}},
+    {selector:'node.future.dim', style:{'opacity':0.06}},
+    {selector:'edge.hl', style:{'line-color':'#00d4ff','opacity':0.95,'width':2,'z-index':9}},
+    {selector:'edge.hl.L', style:{'line-color':'#f5b83d'}},
+    {selector:'node.hl', style:{'opacity':1,'z-index':9,'color':'#fff','label':'data(label)'}},
+    {selector:'node.pat', style:{'border-color':'#00d4ff','border-width':4,'z-index':10,'label':'data(label)','color':'#fff','font-size':14,'font-weight':600}},
+    {selector:'node:selected', style:{'border-color':'#00d4ff','border-width':3,'z-index':11,'label':'data(label)','color':'#fff','font-weight':600,'font-size':18}},
+    {selector:'edge:selected', style:{'line-color':'#00d4ff','width':3,'opacity':1}},
+    {selector:'node.hover', style:{'border-color':'#ffffff','border-width':2.5,'label':'data(label)','color':'#fff'}}
+  ]
+});
+
+function setBusy(on){ document.getElementById('busy').classList.toggle('on', !!on); }
+
+/* connected components via union-find (cytoscape's own is slow on 2,700 nodes) */
+function fastComponents(eles){
+  var nodes = eles.nodes(), idx = {}, par = [];
+  for(var i = 0; i < nodes.length; i++){ idx[nodes[i].id()] = i; par[i] = i; }
+  function find(a){ while(par[a] !== a){ par[a] = par[par[a]]; a = par[a]; } return a; }
+  eles.edges().forEach(function(e){ var a = idx[e.data('source')], b = idx[e.data('target')]; if(a == null || b == null) return; a = find(a); b = find(b); if(a !== b) par[a] = b; });
+  var groups = {};
+  for(var j = 0; j < nodes.length; j++){ var r = find(j); (groups[r] = groups[r] || []).push(nodes[j]); }
+  return Object.keys(groups).map(function(k){ var c = cy.collection(groups[k]); return c.union(c.edgesWith(c)); });
+}
+/* Big views have hundreds of small disconnected groups; fcose's own packing is slow there,
+   so lay out each group separately and shelf-pack the groups ourselves. */
+function packLayout(eles, done, comps){
+  var boxes = [], PAD = 50, tA = Date.now();
+  cy.startBatch();
+  comps.forEach(function(c){
+    var nodes = c.nodes(), k = nodes.length;
+    if(k > 4 && HAS_FCOSE){
+      c.layout({name:'fcose', quality:'default', randomize:true, animate:false, fit:false, packComponents:false,
+        nodeRepulsion:function(){ return 4500; }, idealEdgeLength:function(e){ return e.hasClass('flag') ? 110 : 40; },
+        edgeElasticity:function(e){ return e.hasClass('flag') ? 0.05 : 0.45; }, gravity:0.4, gravityRange:2.8, numIter: k > 300 ? 1200 : 2000, nodeSeparation:55}).run();
+    } else {
+      var hub = nodes.max(function(n){ return n.degree(); }).ele, others = nodes.not(hub);
+      hub.position({x:0, y:0});
+      others.forEach(function(n, i){ var a = 2*Math.PI*i/Math.max(others.length,1); n.position({x:Math.cos(a)*45, y:Math.sin(a)*45}); });
+    }
+    boxes.push({c:nodes, bb:nodes.boundingBox({includeLabels:false, includeOverlays:false})});
+  });
+  cy.endBatch();
+  S.packMs = Date.now() - tA;
+  boxes.sort(function(a,b){ return (b.c.length - a.c.length) || (b.bb.h - a.bb.h); });
+  var area = 0; boxes.forEach(function(b){ area += (b.bb.w+PAD)*(b.bb.h+PAD); });
+  var rowW = Math.max(boxes.length ? boxes[0].bb.w + PAD : 0, Math.sqrt(area*1.5));
+  var x = 0, y = 0, rowH = 0, shift = {}, tB = Date.now();
+  boxes.forEach(function(b){
+    var w = b.bb.w + PAD, h = b.bb.h + PAD;
+    if(x > 0 && x + w > rowW){ x = 0; y += rowH; rowH = 0; }
+    var d = [x - b.bb.x1, y - b.bb.y1];
+    for(var i = 0; i < b.c.length; i++) shift[b.c[i].id()] = d;
+    x += w; rowH = Math.max(rowH, h);
+  });
+  eles.nodes().positions(function(n){ var p = n.position(), d = shift[n.id()] || [0,0]; return {x:p.x+d[0], y:p.y+d[1]}; });
+  S.shelfMs = Date.now() - tB;
+  done && done();
+}
+function runLayout(eles, opts, done){
+  opts = opts || {};
+  var n = eles.nodes().length;
+  if(n > 400){ var tc = Date.now(), comps = fastComponents(eles); S.compMs = Date.now() - tc; if(comps.length > 40){ packLayout(eles, done, comps); return; } }
+  var lay;
+  if(HAS_FCOSE){
+    lay = eles.layout({name:'fcose', quality: n > 1000 ? 'draft' : 'default', randomize: opts.randomize !== false, animate:false, fit:false,
+      nodeDimensionsIncludeLabels:false, packComponents:true, tile:true, tilingPaddingVertical:14, tilingPaddingHorizontal:14,
+      nodeRepulsion: function(){ return n > 1000 ? 4500 : 4500; }, idealEdgeLength: function(e){ return e.hasClass('flag') ? 110 : 40; },
+      edgeElasticity: function(e){ return e.hasClass('flag') ? 0.05 : 0.45; }, gravity: 0.4, gravityRange: 2.8, numIter: n > 1500 ? 1500 : 2500, nodeSeparation: 55});
+  } else {
+    lay = eles.layout({name:'cose', animate:false, fit:false, randomize:true, nodeRepulsion: function(){ return 9000; }, idealEdgeLength: function(){ return 60; }, numIter: 1000});
+  }
+  lay.one('layoutstop', function(){ done && done(); });
+  lay.run();
+}
+
+function edgeClasses(e){
+  var c = [e.c==='L' ? 'L' : 'D'];
+  if(e.y==='flagged_in' || e.y==='formerly_flagged_in' || e.y==='registered_in') c.push('flag');
+  if(e.y==='designated_by') c.push('gov');
+  return c.join(' ');
+}
+function edgeEl(e){ return {group:'edges', data:{id:e.i, source:e.s, target:e.t, y:e.y}, classes:edgeClasses(e)}; }
+
+function loadView(ids, meta){
+  S.view = meta; S.viewIds = ids; S.placed = new Set();
+  clearSelection(true);
+  var els = [];
+  ids.forEach(function(id){ els.push(toEl(byId[id])); });
+  var seen = {};
+  ids.forEach(function(id){ adj[id].forEach(function(e){ if(seen[e.i]) return; if(ids.has(e.s) && ids.has(e.t)){ seen[e.i]=1; els.push(edgeEl(e)); } }); });
+  document.getElementById('viewname').textContent = meta.label;
+  document.getElementById('viewdesc').textContent = meta.desc || '';
+  document.getElementById('back').hidden = !meta.focus;
+  var heavy = ids.size > 900;
+  setBusy(true);
+  setTimeout(function(){
+    cy.batch(function(){
+      cy.elements().remove();
+      cy.add(els);
+      if(meta.nolabelShips) cy.nodes('.ship').addClass('nolabel');
+    });
+    if(S.types.government) addGovernments(true);
+    applyFilters(true);
+    var vis = cy.elements().not('.hid'), tL = Date.now();
+    runLayout(vis, {}, function(){
+      S.lastLayoutMs = Date.now() - tL;
+      vis.nodes().forEach(function(n){ S.placed.add(n.id()); });
+      placeGovernments();
+      cy.fit(cy.elements().not('.hid'), 40);
+      smallMode = null; syncMinor();
+      setBusy(false);
+      if(meta.after) meta.after();
+      if(S._after){ var a = S._after; S._after = null; a(); }
+      drawOverlay();
+    });
+  }, heavy ? 60 : 10);
+}
+
+function presetView(pid){
+  var p = PRESETS.filter(function(x){ return x.id===pid; })[0];
+  S.preset = pid; S.focusId = null;
+  document.querySelectorAll('#presets .btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.id===pid)); });
+  if(pid==='all'){ setType('country', false, true); }
+  else if(!S.types.country && S._countryAuto){ setType('country', true, true); }
+  S._countryAuto = pid==='all';
+  loadView(p.build(), {label:p.label, desc:p.desc, nolabelShips: pid==='all'});
+}
+
+function focusNode(id){
+  var s = new Set([id]); hop(s, 2); flagCountries(s);
+  if(s.size > 700){ s = new Set([id]); hop(s, 1); flagCountries(s); }
+  S.focusId = id;
+  document.querySelectorAll('#presets .btn').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+  if(!S.types.country && S._countryAuto){ setType('country', true, true); S._countryAuto=false; }
+  loadView(s, {label:'Focus', desc:dname(byId[id]) + ' and two steps out', focus:true, after:function(){ selectNode(id, true); }});
+}
+
+/* governments as optional nodes */
+function addGovernments(silent){
+  var govs = D.nodes.filter(function(n){ return n.type==='government'; });
+  var present = new Set(cy.nodes().map(function(n){ return n.id(); }));
+  var els = [];
+  govs.forEach(function(g){ if(!present.has(g.id)) els.push(toEl(g)); });
+  cy.add(els);
+  var ids = new Set(cy.nodes().map(function(n){ return n.id(); }));
+  var add = [];
+  govs.forEach(function(g){ adj[g.id].forEach(function(e){ if(ids.has(e.s) && ids.has(e.t) && !cy.getElementById(e.i).length) add.push(edgeEl(e)); }); });
+  cy.add(add);
+  if(!silent) placeGovernments();
+}
+function removeGovernments(){ cy.nodes('.government').remove(); }
+function placeGovernments(){
+  var g = cy.nodes('.government'); if(!g.length) return;
+  var bb = cy.elements().not('.government').not('.hid').boundingBox();
+  var w = bb.w || 400; var n = g.length;
+  g.forEach(function(node, i){ node.position({x: bb.x1 + w*(i+1)/(n+1), y: bb.y1 - Math.max(120, bb.h*0.12)}); });
+}
+function placeNew(){
+  cy.nodes().not('.hid').forEach(function(n){
+    if(S.placed.has(n.id()) || n.hasClass('government')) return;
+    var pts = n.neighborhood('node').filter(function(m){ return S.placed.has(m.id()); });
+    if(pts.length){ var x=0,y=0; pts.forEach(function(m){ var p=m.position(); x+=p.x; y+=p.y; }); n.position({x:x/pts.length + (Math.random()-.5)*40, y:y/pts.length + (Math.random()-.5)*40}); }
+    S.placed.add(n.id());
+  });
+}
+
+/* ---------- filters + time ---------- */
+function progKey(n){ var g = n._pg; if(g==='russia'||g==='iran'||g==='both') return g; return 'other'; }
+function nodePasses(n){
+  if(!S.types[n.type]) return false;
+  if(n.type==='ship'||n.type==='company'||n.type==='person'){
+    if(!S.prog[progKey(n)]) return false;
+    if(n.listed){ if(!S.listed.yes) return false;
+      var lb = n.listed_by||[]; if(lb.length && !lb.some(function(g){ return S.gov[g]; })) return false; }
+    else if(!S.listed.no) return false;
+  }
+  return true;
+}
+function applyFilters(noPlace){
+  cy.batch(function(){
+    cy.nodes().forEach(function(el){
+      var n = byId[el.id()];
+      el.toggleClass('hid', !nodePasses(n));
+      el.toggleClass('future', n._m != null && n._m > S.t);
+    });
+    cy.edges().forEach(function(el){
+      var e = edgeById[el.id()];
+      el.toggleClass('hid', (!S.lead && e.c==='L'));
+      el.toggleClass('future', e._m != null && e._m > S.t);
+    });
+  });
+  if(!noPlace) placeNew();
+  updateCounts();
+  drawOverlay();
+}
+function updateCounts(){
+  var vis = cy.nodes().not('.hid');
+  var c = {ship:0, company:0, person:0, country:0, government:0}, active = 0;
+  vis.forEach(function(n){ c[n.data('t')]++; var d = byId[n.id()]; if(d.listed && (d._m == null || d._m <= S.t) && (d.type==='ship'||d.type==='company'||d.type==='person')) active++; });
+  var ve = cy.edges().filter(function(e){ return !e.hasClass('hid') && !e.hasClass('future') && !e.source().hasClass('hid') && !e.target().hasClass('hid'); });
+  var lead = ve.filter('.L').length;
+  var html = '';
+  [['Ships','ship'],['Companies','company'],['People','person'],['Countries','country'],['Governments','government']].forEach(function(r){ if(c[r[1]] || r[1]==='ship') html += '<span>'+r[0]+'</span><b>'+c[r[1]].toLocaleString('en-US')+'</b>'; });
+  html += '<span>Sanctioned by '+esc(monthLabel(S.t))+'</span><b>'+active.toLocaleString('en-US')+'</b>';
+  html += '<span>Links (documented)</span><b>'+(ve.length-lead).toLocaleString('en-US')+'</b>';
+  html += '<span>Links (lead)</span><b>'+lead.toLocaleString('en-US')+'</b>';
+  document.getElementById('counts').innerHTML = html;
+}
+
+/* ---------- selection + highlighting ---------- */
+function clearHL(){ cy.elements().removeClass('hl dim pat'); S.highlight = null; }
+function clearSelection(silent){
+  cy.elements().unselect(); clearHL(); S.selected = null;
+  if(!silent) renderEmpty();
+  drawOverlay();
+}
+function selectNode(id, center){
+  var el = cy.getElementById(id);
+  clearHL();
+  cy.elements().unselect();
+  S.selected = {kind:'node', id:id};
+  if(el.length){
+    el.select();
+    var nb = el.closedNeighborhood();
+    cy.batch(function(){ cy.elements().addClass('dim'); nb.removeClass('dim').addClass('hl'); });
+    if(center){ var z = Math.max(cy.zoom(), 0.9); if(REDUCED) { cy.zoom(z); cy.center(el); } else cy.animate({center:{eles:el}, zoom:z, duration:350}); }
+  }
+  renderNode(byId[id]);
+  openPanel('p-detail');
+  drawOverlay();
+}
+function selectEdge(id){
+  var el = cy.getElementById(id);
+  clearHL(); cy.elements().unselect();
+  S.selected = {kind:'edge', id:id};
+  if(el.length){ el.select(); cy.batch(function(){ cy.elements().addClass('dim'); el.union(el.connectedNodes()).removeClass('dim').addClass('hl'); }); }
+  renderEdge(edgeById[id]);
+  openPanel('p-detail');
+  drawOverlay();
+}
+
+cy.on('tap', 'node', function(ev){ selectNode(ev.target.id(), false); });
+cy.on('tap', 'edge', function(ev){ selectEdge(ev.target.id()); });
+cy.on('tap', function(ev){ if(ev.target === cy){ clearSelection(); } });
+cy.on('dbltap', 'node', function(ev){ var id = ev.target.id(); if(byId[id].type!=='country' && byId[id].type!=='government') focusNode(id); });
+
+/* tooltip */
+var tip = document.getElementById('tip');
+function oneLine(n){
+  if(n.type==='ship'){
+    var p = [n.ship_type || 'Ship']; if(n.imo) p.push('IMO ' + n.imo);
+    p.push(n.listed && (n.listed_by||[]).length ? 'sanctioned by ' + (n.listed_by||[]).map(function(g){ return g.toUpperCase(); }).join(', ') : 'not on a list we hold');
+    return p.join(' · ');
+  }
+  if(n.type==='company'||n.type==='person'){
+    var r = clean(n.role || TYPE_NAME[n.type]); r = r.replace(/\(UK list\)/,'(named on the UK list)');
+    var q = [r]; if(n.ship_count) q.push(n.ship_count + (n.ship_count===1?' ship':' ships'));
+    if(n.country && n.type==='company') q.push(cname(n.country));
+    q.push(n.listed ? 'sanctioned' : 'not itself sanctioned');
+    return q.join(' · ');
+  }
+  if(n.type==='country') return 'Country. A ship’s flag is the country it is registered in.';
+  return 'Government that issues sanctions';
+}
+cy.on('mouseover', 'node', function(ev){
+  var n = byId[ev.target.id()]; ev.target.addClass('hover');
+  tip.innerHTML = '<b>'+esc(dname(n))+'</b><span>'+esc(oneLine(n))+'</span>';
+  tip.style.display = 'block'; moveTip(ev.renderedPosition);
+  document.getElementById('cy').style.cursor = 'pointer';
+});
+cy.on('mouseover', 'edge', function(ev){
+  var e = edgeById[ev.target.id()];
+  tip.innerHTML = '<b>'+esc(dname(byId[e.s]))+' '+esc(verb(e.y,true))+' '+esc(dname(byId[e.t]))+'</b><span>'+(e.c==='L'?'Lead: a question, not a finding':'Documented by an official source')+(e.d?' · '+esc(fmtDate(e.d)):'')+'</span>';
+  tip.style.display = 'block'; moveTip(ev.renderedPosition);
+});
+cy.on('mousemove', function(ev){ if(tip.style.display==='block') moveTip(ev.renderedPosition); });
+cy.on('mouseout', 'node, edge', function(ev){ ev.target.removeClass('hover'); tip.style.display='none'; document.getElementById('cy').style.cursor=''; });
+function moveTip(p){ if(!p) return; var st = document.getElementById('stage'); var w = st.clientWidth; var x = p.x + 14, y = p.y + 14; if(x + 330 > w) x = p.x - 330; tip.style.left = Math.max(4,x) + 'px'; tip.style.top = y + 'px'; }
+
+/* ---------- overlay: sanction badges + selection ID box ---------- */
+var ov = document.getElementById('overlay'), octx = ov.getContext('2d'), ovPending = false;
+function drawOverlay(){ if(ovPending) return; ovPending = true; requestAnimationFrame(function(){ ovPending = false; paintOverlay(); }); }
+function paintOverlay(){
+  var st = document.getElementById('stage'), W = st.clientWidth, H = st.clientHeight, dpr = window.devicePixelRatio || 1;
+  if(ov.width !== Math.round(W*dpr) || ov.height !== Math.round(H*dpr)){ ov.width = Math.round(W*dpr); ov.height = Math.round(H*dpr); ov.style.width = W+'px'; ov.style.height = H+'px'; }
+  octx.setTransform(dpr,0,0,dpr,0,0); octx.clearRect(0,0,W,H);
+  var z = cy.zoom();
+  var nodes = cy.nodes().not('.hid');
+  var allBadges = z >= 0.9 && nodes.length < 1600;
+  if(z >= 0.3){
+    octx.font = '600 9px JetBrains Mono, Consolas, monospace'; octx.textBaseline = 'middle';
+    nodes.forEach(function(el){
+      var focusMode = !!(S.selected || S.highlight);
+      if(focusMode ? !(el.hasClass('hl') || el.hasClass('pat') || el.hasClass('hover')) : (!allBadges && !el.hasClass('hover'))) return;
+      var n = byId[el.id()]; var lb = n.listed_by; if(!lb || !lb.length) return;
+      var dimmed = el.hasClass('dim') || el.hasClass('future');
+      var p = el.renderedPosition(), h = el.renderedHeight();
+      if(p.x < -20 || p.y < -20 || p.x > W+20 || p.y > H+20) return;
+      var order = ['us','uk','eu'].filter(function(g){ return lb.indexOf(g) >= 0; });
+      var bw = 17, gap = 2, tw = order.length*bw + (order.length-1)*gap;
+      var x = p.x - tw/2, y = p.y - h/2 - 9;
+      octx.globalAlpha = dimmed ? 0.12 : 0.95;
+      order.forEach(function(g, i){
+        var bx = x + i*(bw+gap);
+        octx.fillStyle = '#0a0a0f'; octx.fillRect(bx, y-5.5, bw, 11);
+        octx.strokeStyle = '#aab6c9'; octx.lineWidth = 0.8; octx.strokeRect(bx+.5, y-5, bw-1, 10);
+        octx.fillStyle = '#e6ebf2'; octx.textAlign = 'center'; octx.fillText(g.toUpperCase(), bx + bw/2, y+0.5);
+      });
+    });
+    octx.globalAlpha = 1;
+  }
+  if(S.selected && S.selected.kind==='node'){
+    var el = cy.getElementById(S.selected.id);
+    if(el.length && !el.hasClass('hid')){
+      var p = el.renderedPosition(), s = Math.max(el.renderedWidth(), el.renderedHeight())/2 + 12, L = Math.min(12, s*0.6);
+      octx.strokeStyle = '#00d4ff'; octx.lineWidth = 1.5; octx.beginPath();
+      [[-1,-1],[1,-1],[1,1],[-1,1]].forEach(function(c){
+        var cx = p.x + c[0]*s, cyy = p.y + c[1]*s;
+        octx.moveTo(cx - c[0]*L, cyy); octx.lineTo(cx, cyy); octx.lineTo(cx, cyy - c[1]*L);
+      });
+      octx.stroke();
+      var n = byId[S.selected.id];
+      var tag = n.imo ? 'IMO ' + n.imo : (TYPE_NAME[n.type]||'').toUpperCase();
+      octx.font = '600 11px JetBrains Mono, Consolas, monospace'; octx.textAlign='left'; octx.textBaseline='middle';
+      var tw2 = octx.measureText(tag).width + 12, tx = p.x + s + 6, ty = p.y - s;
+      if(tx + tw2 > W) tx = p.x - s - 6 - tw2;
+      octx.fillStyle = 'rgba(0,212,255,.14)'; octx.fillRect(tx, ty-9, tw2, 18);
+      octx.strokeStyle = '#00d4ff'; octx.lineWidth = 1; octx.strokeRect(tx+.5, ty-8.5, tw2-1, 17);
+      octx.fillStyle = '#00d4ff'; octx.fillText(tag, tx+6, ty+0.5);
+    }
+  }
+}
+cy.on('render', drawOverlay);
+/* one-ship companies keep their labels only when zoomed in, to cut clutter */
+var smallMode = null;
+function syncMinor(){ var m = cy.zoom() < 1.05; if(m === smallMode) return; smallMode = m; cy.batch(function(){ cy.nodes('.minor').toggleClass('small', m); }); }
+cy.on('zoom', syncMinor);
+window.addEventListener('resize', drawOverlay);
+
+/* ---------- detail panel rendering ---------- */
+var pane = document.getElementById('p-detail');
+function progChip(n){ if(!n._pg || n.type==='country' || n.type==='government') return ''; return '<span class="chip prog" style="background:'+PCOL[n._pg]+'">'+esc(PNAME[n._pg])+'</span>'; }
+function dchip(c){ return c==='L' ? '<span class="chip L" title="Our own inference or a non-official source. Treat as a question, not a finding.">Lead</span>' : '<span class="chip D" title="Stated by an official list, government release or court record">Documented</span>'; }
+function sourceBlock(e){
+  var rows = (e.src||[]).map(function(r){
+    var s = D.sources[r[0]] || ['',''], q = r[1]!=null ? D.quotes[r[1]] : '';
+    var url = s[0], file = s[1], rec = r[2];
+    var h = '<div class="srcitem">';
+    if(url){ var host = ''; try{ host = new URL(url).hostname.replace(/^www\./,''); }catch(x){ host = url; } h += '<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">'+esc(host)+'</a> '; }
+    h += dchip(r[4]);
+    if(r[3] && ANGLE[r[3]]) h += ' <span class="date">'+esc(ANGLE[r[3]])+'</span>';
+    if(file) h += '<div class="file">'+txt(file)+(rec ? ' · record '+txt(rec) : '')+'</div>';
+    else if(rec) h += '<div class="file">record '+txt(rec)+'</div>';
+    if(q) h += '<q>'+txt(q)+'</q>';
+    return h + '</div>';
+  });
+  return rows.join('') || '<div class="srcitem empty">No source recorded.</div>';
+}
+function nodeLink(id){ var n = byId[id]; return '<button class="linkbtn" data-go="'+esc(id)+'">'+esc(dname(n))+'</button>'; }
+function renderNode(n){
+  var h = '';
+  var typeLabel = (n.type==='company' && /network/i.test(n.role||'')) ? 'Network' : (TYPE_NAME[n.type]||n.type);
+  h += '<div><div class="chips"><span class="chip">'+esc(typeLabel)+'</span>'+progChip(n)+(n.type!=='country'&&n.type!=='government'?(n.listed?'<span class="chip" style="color:#fff">Sanctioned</span>':'<span class="chip">Not on a list we hold</span>'):'')+'</div>';
+  h += '<div class="dname">'+esc(dname(n))+'</div>';
+  if(n.imo) h += '<div class="idline"><abbr title="International Maritime Organization number: a 7-digit hull number that stays with the ship for life, whatever its name or flag">IMO</abbr> '+esc(n.imo)+'</div>';
+  var ml = [];
+  if(n.ship_type) ml.push(esc(n.ship_type)); if(n.year_built) ml.push('built '+esc(n.year_built));
+  if(n.role && n.type!=='ship') ml.push(txt(n.role));
+  if(n.type==='company' && n.country) ml.push('based in '+esc(cname(n.country)));
+  if(n.ship_count) ml.push('<span class="date">'+n.ship_count+'</span> ship'+(n.ship_count===1?'':'s')+' linked');
+  if(ml.length) h += '<div class="meta-line">'+ml.join(' · ')+'</div>';
+  h += '</div>';
+  if(isGeneric(n)) h += '<div class="box note">This company is not on a sanctions list we hold, so we do not show its name. '+(n.name_note?txt(n.name_note):'')+'</div>';
+  if(n.type!=='country' && n.type!=='government'){
+    var ld = n.listing_dates || {}, lb = n.listed_by || [];
+    h += '<div class="box"><h3>Sanctioned by</h3><div class="badges">';
+    ['us','uk','eu'].forEach(function(g){ var on = lb.indexOf(g)>=0; h += '<span class="badge'+(on?'':' off')+'" title="'+esc(GOV_NAME[g])+'">'+g.toUpperCase()+(on&&ld[g]?'<small>'+esc(fmtDate(ld[g]))+'</small>':(on?'':'<small>no</small>'))+'</span>'; });
+    h += '</div>';
+    if(n.gap_days_us_minus_uk!=null){ var gd = n.gap_days_us_minus_uk; h += '<div class="meta-line" style="margin-top:6px">The US listed it <span class="date">'+Math.abs(gd)+'</span> days '+(gd>=0?'after':'before')+' the UK did.</div>'; }
+    if(n.programs && n.programs.length) h += '<div class="meta-line" style="margin-top:6px">Programmes: '+n.programs.map(function(p){ return esc(PNAME[p]||p); }).join(', ')+'</div>';
+    h += '</div>';
+  }
+  if(n.type==='ship'){
+    var names = [], seen = {};
+    function addName(nm, why){ if(!nm) return; var k = String(nm).toLowerCase().trim(); if(seen[k]){ if(why && seen[k].why.indexOf(why)<0) seen[k].why.push(why); return; } seen[k] = {nm:String(nm), why: why?[why]:[]}; names.push(seen[k]); }
+    var nbs = n.names_by_source || {}; Object.keys(nbs).forEach(function(k){ addName(nbs[k], k); });
+    addName(n.name, 'current record');
+    (n.aliases||[]).forEach(function(a){ addName(a, ''); });
+    (n.ua_former_names||[]).forEach(function(a){ addName(a, 'Ukraine database'); });
+    h += '<div class="box"><h3>Every name this hull has carried</h3><ul class="names">';
+    names.forEach(function(x){ h += '<li>'+txt(x.nm)+'<span>'+esc(x.why.join(', '))+'</span></li>'; });
+    h += '</ul></div>';
+    var fl = [];
+    if(n.flag_now) fl.push('<li>'+esc(cname(n.flag_now))+'<span>now (Ukraine database)</span></li>');
+    if(n.flag_us && n.flag_us !== n.flag_now) fl.push('<li>'+esc(cname(n.flag_us))+'<span>on the US list</span></li>');
+    (n.flags_before||[]).forEach(function(f){ fl.push('<li>'+esc(cname(f))+'<span>before</span></li>'); });
+    if(fl.length) h += '<div class="box"><h3><abbr title="A ship’s flag is the country it is registered in; that country is responsible for checking it">Flags</abbr></h3><ul class="names">'+fl.join('')+'</ul></div>';
+  }
+  if(n.history && n.history.length){
+    h += '<div class="box"><h3>History</h3><ul class="names">';
+    n.history.slice().sort(function(a,b){ return String(a.date).localeCompare(String(b.date)); }).forEach(function(x){
+      var kind = cap(String(x.kind||'change').replace(/_/g,' ').replace(/^ism /i,'ISM safety '));
+      h += '<li><span class="date" style="text-align:left;max-width:none">'+esc(fmtDate(x.date))+'</span><span style="flex:1;text-align:left;color:var(--text);font-size:13.5px;max-width:none">'+txt(kind)+': '+(x.from?txt(x.from)+' → ':'')+txt(x.to||'')+(x.source_url?' <a href="'+esc(x.source_url)+'" target="_blank" rel="noopener noreferrer">source</a>':'')+'</li>';
+    });
+    h += '</ul></div>';
+  }
+  if(n.research_notes && n.research_notes.length){
+    h += '<div class="box"><h3>Research notes</h3>';
+    n.research_notes.forEach(function(r){ h += '<div class="note"><span class="hud">'+esc(ANGLE[r.angle]||'Note')+'</span>'+prose(r.text)+'</div>'; });
+    h += '</div>';
+  }
+  if(n.sources && n.sources.length){
+    h += '<div class="box"><h3>Sources for this record</h3>';
+    n.sources.forEach(function(s){ h += '<div class="srcitem">'+(s.url?'<a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">'+txt(s.label||s.url)+'</a>':txt(s.label||''))+(s.file?'<div class="file">'+txt(s.file)+'</div>':'')+'</div>'; });
+    h += '</div>';
+  }
+  /* connections grouped by verb */
+  var groups = {}, order = [];
+  adj[n.id].forEach(function(e){
+    if(!S.lead && e.c==='L') return;
+    var fromS = e.s===n.id, other = fromS ? e.t : e.s, v = verb(e.y, fromS);
+    if(!groups[v]){ groups[v] = []; order.push(v); }
+    groups[v].push({e:e, other:other});
+  });
+  var rank = function(v){ return /sanction/.test(v) ? 9 : /flag|registered|home/.test(v) ? 5 : 0; };
+  order.sort(function(a,b){ return rank(a)-rank(b) || groups[b].length - groups[a].length; });
+  if(order.length){
+    h += '<div><h3 class="hud" style="margin:0 0 6px">Connections</h3>';
+    order.forEach(function(v){
+      var list = groups[v].sort(function(a,b){ return (b.e._m||-999) - (a.e._m||-999); });
+      h += '<div class="group"><h4>'+esc(cap(v))+' <span class="date">('+list.length+')</span></h4>';
+      list.forEach(function(x, i){
+        h += '<div class="conn"'+(i>=25?' data-more hidden':'')+'><div class="conn-top">'+nodeLink(x.other)+(x.e.d?'<span class="date">'+esc(fmtDate(x.e.d))+'</span>':'')+dchip(x.e.c)+'</div>'+
+             '<details class="src"><summary>Sources ('+(x.e.src||[]).length+')</summary>'+sourceBlock(x.e)+'</details></div>';
+      });
+      if(list.length > 25) h += '<button class="btn small more" data-showmore>Show all '+list.length+'</button>';
+      h += '</div>';
+    });
+    h += '</div>';
+  }
+  if(n.type!=='country' && n.type!=='government') h += '<button class="btn" data-focus="'+esc(n.id)+'">Focus on this and two steps out</button>';
+  pane.innerHTML = h; pane.scrollTop = 0; document.getElementById('side').scrollTop = 0;
+}
+function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
+function renderEdge(e){
+  var h = '<div><div class="chips"><span class="chip">Link</span>'+dchip(e.c)+'</div>';
+  h += '<div class="dname" style="font-size:19px">'+nodeLink(e.s)+' <span style="color:var(--muted);font-weight:400">'+esc(verb(e.y,true))+'</span> '+nodeLink(e.t)+'</div>';
+  if(e.d) h += '<div class="idline">'+esc(fmtDate(e.d))+(e.n?' <span class="meta-line">'+txt(e.n)+'</span>':'')+'</div>';
+  h += '</div>';
+  if(e.c==='L') h += '<div class="box note">This link is a lead: our own inference or a non-official source. Treat it as a question, not a finding.</div>';
+  h += '<div class="box"><h3>Sources</h3>'+sourceBlock(e)+'</div>';
+  pane.innerHTML = h;
+}
+function renderEmpty(){
+  pane.innerHTML = '<div class="empty"><h3 class="hud" style="margin:0 0 8px">How to read this map</h3>'+
+    '<p style="margin:0 0 8px">Each shape is a ship, company, person or country. Lines are relationships taken from sanctions lists and government records.</p><ol>'+
+    '<li>Click a shape to see who it is, every name the ship has used, and the sources.</li>'+
+    '<li>Double-click to focus on it and everything two steps away.</li>'+
+    '<li>Drag the time slider to see the network as it was on a past date.</li>'+
+    '<li>Open <b>Patterns</b> for the five evasion tricks this data shows.</li></ol>'+
+    '<p style="margin:0">A solid line is <b>documented</b> by an official source. A dashed line is a <b>lead</b>: a question worth asking, not a finding.</p></div>';
+}
+function cleanTitle(s){ return clean(s); }
+document.getElementById('side').addEventListener('click', function(ev){
+  var go = ev.target.closest('[data-go]'); if(go){ var id = go.dataset.go; if(cy.getElementById(id).length && !cy.getElementById(id).hasClass('hid')) selectNode(id, true); else focusNode(id); return; }
+  var f = ev.target.closest('[data-focus]'); if(f){ focusNode(f.dataset.focus); return; }
+  var m = ev.target.closest('[data-showmore]'); if(m){ m.parentNode.querySelectorAll('[data-more]').forEach(function(x){ x.hidden = false; }); m.remove(); return; }
+  var p = ev.target.closest('[data-pattern]'); if(p){ showPattern(p.dataset.pattern); return; }
+});
+
+/* ---------- patterns + about ---------- */
+function renderPatterns(){
+  var h = '<p class="meta-line" style="margin:0">Five ways the shadow fleet stays at sea, as the records show them. Press <b>Show me</b> to light up an example on the map.</p>';
+  (META.patterns||[]).forEach(function(p, i){
+    h += '<div class="card"><span class="hud">Pattern '+(i+1)+'</span><h2>'+txt(p.title)+'</h2><p>'+txt(p.text)+'</p>'+
+      ((p.examples||[]).length ? '<button class="btn" data-pattern="'+esc(p.id)+'">Show me</button>' : '')+'</div>';
+  });
+  document.getElementById('p-pat').innerHTML = h;
+}
+function showPattern(pid){
+  var p = (META.patterns||[]).filter(function(x){ return x.id===pid; })[0]; if(!p) return;
+  var ex = (p.examples||[]).filter(function(id){ return byId[id]; });
+  var go = function(){
+    clearHL(); cy.elements().unselect(); S.selected = null;
+    var els = cy.collection();
+    ex.forEach(function(id){ var el = cy.getElementById(id); if(el.length) els = els.union(el); });
+    if(!els.length) return;
+    var nb = els.closedNeighborhood();
+    cy.batch(function(){ cy.elements().addClass('dim'); nb.removeClass('dim').addClass('hl'); els.addClass('pat'); });
+    var fitTo = els.length === 1 && byId[ex[0]].type!=='country' ? nb : els;
+    if(REDUCED) cy.fit(fitTo, 80); else cy.animate({fit:{eles:fitTo, padding:80}, duration:450});
+    S.highlight = pid; drawOverlay();
+  };
+  var inView = ex.every(function(id){ return cy.getElementById(id).length && !cy.getElementById(id).hasClass('hid'); });
+  if(inView){ go(); return; }
+  /* ensure every filter that would hide examples is relaxed */
+  ex.forEach(function(id){ var n = byId[id]; if(!S.types[n.type]) setType(n.type, true, true); });
+  var overlap = PRESETS[0].build();
+  if(ex.every(function(id){ return overlap.has(id); })){
+    S.preset='overlap'; document.querySelectorAll('#presets .btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.id==='overlap')); });
+    loadView(overlap, {label:PRESETS[0].label, desc:PRESETS[0].desc, after:go});
+  } else {
+    var s = new Set(ex); hop(s, 1);
+    loadView(s, {label:'Pattern', desc:cleanTitle(p.title), focus:true, after:go});
+  }
+}
+function renderAbout(){
+  var c = META.counts || {};
+  var h = '<div><h3>What this is</h3><p class="note" style="margin:0">'+txt(META.subtitle||'')+'. It joins government sanctions lists from the United States, the United Kingdom and the European Union by each ship’s permanent hull number.</p></div>';
+  h += '<div class="box"><h3>Words used here</h3><dl class="gloss">'+
+    '<dt>IMO</dt><dd>International Maritime Organization number. A 7-digit number welded into the hull. It stays for life, even when the name and flag change.</dd>'+
+    '<dt>OFAC</dt><dd>Office of Foreign Assets Control, the part of the US Treasury that keeps the US sanctions list.</dd>'+
+    '<dt>Flag</dt><dd>The country a ship is registered in. That country is responsible for inspecting it.</dd>'+
+    '<dt>Sanctioned</dt><dd>Named on a government list that bars dealings with the ship, firm or person.</dd>'+
+    '<dt>Documented</dt><dd>Stated by an official list, government release or court record. Solid line.</dd>'+
+    '<dt>Lead</dt><dd>Our own inference or a non-official source. A question, not a finding. Dashed line.</dd>'+
+    '<dt>Unlisted company</dt><dd>A firm that is not on any sanctions list we hold. We show its role, not its name.</dd></dl></div>';
+  if((META.coverage||[]).length){ h += '<div class="box"><h3>What the data covers</h3><ul class="plain">'; META.coverage.forEach(function(x){ h += '<li>'+txt(x)+'</li>'; }); h += '</ul></div>'; }
+  var cl = [['Ships','ships'],['Companies','companies'],['People','people'],['Countries','countries'],['Links','edges'],['Documented links','documented_edges'],['Lead links','lead_edges'],['Ships on both a Russia and an Iran list','ships_russia_and_iran']];
+  h += '<div class="box"><h3>Counts</h3><table>'; cl.forEach(function(r){ if(c[r[1]]!=null) h += '<tr><td>'+r[0]+'</td><td class="v">'+Number(c[r[1]]).toLocaleString('en-US')+'</td></tr>'; }); h += '</table></div>';
+  var va = META.verified_angles || [];
+  h += '<div class="box"><h3>Checked by a second reader</h3><p class="note" style="margin:0">'+(va.length ? va.map(function(a){ return esc(ANGLE[a]||a); }).join(', ') : 'No research strand has had a second, independent check yet. Treat research notes accordingly.')+'</p></div>';
+  var sc = META.study_counts || [];
+  if(sc.length){
+    h += '<div class="box"><h3>What studies and records say</h3><table><thead><tr><th>Finding</th><th>Count</th><th></th></tr></thead><tbody>';
+    sc.forEach(function(r){ h += '<tr><td>'+prose(r.what)+'</td><td class="v">'+txt(r.value)+'</td><td>'+(r.source_url?'<a href="'+esc(r.source_url)+'" target="_blank" rel="noopener noreferrer">source</a>':'')+'</td></tr>'; });
+    h += '</tbody></table></div>';
+  }
+  if(META.credits) h += '<div class="box"><h3>Credits</h3><p class="note" style="margin:0">'+txt(META.credits)+'</p></div>';
+  document.getElementById('p-about').innerHTML = h;
+}
+
+/* ---------- panel open/close + tabs ---------- */
+var app = document.getElementById('app');
+function openPanel(paneId){
+  app.classList.remove('panel-closed'); document.getElementById('reopen').hidden = true;
+  if(paneId){ document.querySelectorAll('.tabs [role=tab]').forEach(function(t){ var on = t.dataset.pane===paneId; t.setAttribute('aria-selected', String(on)); document.getElementById(t.dataset.pane).classList.toggle('on', on); }); }
+  setTimeout(function(){ cy.resize(); drawOverlay(); }, 0);
+}
+function closePanel(){ app.classList.add('panel-closed'); document.getElementById('reopen').hidden = false; clearSelection(true); renderEmpty(); setTimeout(function(){ cy.resize(); drawOverlay(); }, 0); }
+document.querySelectorAll('.tabs [role=tab]').forEach(function(t){ t.addEventListener('click', function(){ openPanel(t.dataset.pane); }); });
+document.getElementById('close').addEventListener('click', closePanel);
+document.getElementById('reopen').addEventListener('click', function(){ openPanel(); });
+document.addEventListener('keydown', function(ev){
+  if(ev.key === 'Escape'){
+    if(resBox.classList.contains('open')){ resBox.classList.remove('open'); return; }
+    if(S.selected || S.highlight){ clearSelection(); }
+    closePanel();
+  }
+});
+
+/* ---------- rail controls ---------- */
+var presetsEl = document.getElementById('presets');
+PRESETS.forEach(function(p){
+  var b = document.createElement('button'); b.className = 'btn' + (p.wide ? ' wide' : ''); b.dataset.id = p.id; b.textContent = p.label; b.title = p.desc;
+  b.setAttribute('aria-pressed', 'false');
+  b.addEventListener('click', function(){ presetView(p.id); });
+  presetsEl.appendChild(b);
+});
+document.getElementById('back').addEventListener('click', function(){ presetView(S.preset || 'overlap'); });
+
+function makeToggle(host, label, color, get, set, title){
+  var l = document.createElement('label'); l.className = 'tog'; if(color) l.style.color = color; if(title) l.title = title;
+  var i = document.createElement('input'); i.type = 'checkbox'; i.checked = get();
+  var sw = document.createElement('span'); sw.className = 'sw';
+  var t = document.createElement('span'); t.textContent = label; t.style.color = 'var(--text)';
+  l.append(i, sw, t); l.classList.toggle('on', i.checked);
+  i.addEventListener('change', function(){ l.classList.toggle('on', i.checked); set(i.checked); });
+  l._input = i; host.appendChild(l); return l;
+}
+var fp = document.getElementById('f-prog');
+[['russia','Russia'],['iran','Iran'],['both','Both'],['other','Other']].forEach(function(r){
+  makeToggle(fp, r[1], PCOL[r[0]], function(){ return S.prog[r[0]]; }, function(v){ S.prog[r[0]] = v; applyFilters(); },
+    r[0]==='other' ? 'Other programmes: terrorism, Venezuela and more' : null);
+});
+var fg = document.getElementById('f-gov');
+makeToggle(fg, 'Listed', '#e6ebf2', function(){ return S.listed.yes; }, function(v){ S.listed.yes = v; applyFilters(); }, 'Filled shapes: on a sanctions list');
+makeToggle(fg, 'Not listed', '#8a94a6', function(){ return S.listed.no; }, function(v){ S.listed.no = v; applyFilters(); }, 'Hollow shapes: not on a list we hold');
+[['us','US'],['uk','UK'],['eu','EU']].forEach(function(r){
+  makeToggle(fg, r[1], '#c9d3e3', function(){ return S.gov[r[0]]; }, function(v){ S.gov[r[0]] = v; applyFilters(); }, 'Listed by the ' + GOV_NAME[r[0]]);
+});
+var ft = document.getElementById('f-type'), typeTog = {};
+[['ship','Ships'],['company','Companies'],['person','People'],['country','Countries'],['government','Governments']].forEach(function(r){
+  typeTog[r[0]] = makeToggle(ft, r[1], '#c9d3e3', function(){ return S.types[r[0]]; }, function(v){ setType(r[0], v); },
+    r[0]==='government' ? 'Off by default: sanctions show as US / UK / EU badges on each shape instead' : null);
+});
+makeToggle(ft, 'Lead links', '#f5b83d', function(){ return S.lead; }, function(v){ S.lead = v; applyFilters(); if(S.selected && S.selected.kind==='node') renderNode(byId[S.selected.id]); }, 'Dashed lines: our inferences, not official findings');
+function setType(t, v, quiet){
+  S.types[t] = v;
+  if(typeTog[t]){ typeTog[t]._input.checked = v; typeTog[t].classList.toggle('on', v); }
+  if(quiet) return;
+  if(t==='government'){ if(v){ addGovernments(true); applyFilters(); placeGovernments(); } else { removeGovernments(); applyFilters(); } return; }
+  if(t==='country' && v && S.viewIds){
+    var have = new Set(cy.nodes().map(function(n){ return n.id(); }));
+    var s = new Set(have); flagCountries(s);
+    var add = [], seen = {};
+    s.forEach(function(id){ if(!have.has(id)) add.push(toEl(byId[id])); });
+    cy.add(add);
+    s.forEach(function(id){ if(have.has(id)) return; adj[id].forEach(function(e){ if(!seen[e.i] && s.has(e.s) && s.has(e.t) && !cy.getElementById(e.i).length){ seen[e.i]=1; cy.add(edgeEl(e)); } }); });
+  }
+  applyFilters();
+}
+
+/* time */
+var slider = document.getElementById('time'), asof = document.getElementById('asof'), playBtn = document.getElementById('play'), timer = null;
+function setTime(v){ S.t = +v; slider.value = S.t; asof.textContent = monthLabel(S.t); applyFilters(true); }
+slider.addEventListener('input', function(){ setTime(slider.value); });
+function stopPlay(){ if(timer){ clearInterval(timer); timer = null; } playBtn.innerHTML = '&#9654;'; playBtn.setAttribute('aria-label','Play through time'); }
+playBtn.addEventListener('click', function(){
+  if(timer){ stopPlay(); return; }
+  if(S.t >= TMAX) setTime(0);
+  playBtn.innerHTML = '&#10074;&#10074;'; playBtn.setAttribute('aria-label','Pause');
+  timer = setInterval(function(){ if(S.t >= TMAX){ stopPlay(); return; } setTime(S.t + 1); }, REDUCED ? 600 : 280);
+});
+
+/* search */
+var qEl = document.getElementById('q'), resBox = document.getElementById('results'), act = -1, lastRes = [];
+function renderResults(){
+  lastRes = searchNodes(qEl.value); act = lastRes.length ? 0 : -1;
+  if(!qEl.value.trim() || qEl.value.trim().length < 2){ resBox.classList.remove('open'); return; }
+  if(!lastRes.length){ resBox.innerHTML = '<div class="empty" style="padding:8px 10px">No match among visible names.</div>'; resBox.classList.add('open'); return; }
+  resBox.innerHTML = lastRes.map(function(r, i){
+    var n = r.n, why = r.hit[2]==='name' ? '' : (r.hit[2]==='IMO' ? '' : esc(r.hit[2]) + ': ' + txt(r.hit[1]));
+    return '<button role="option" data-i="'+i+'" class="'+(i===act?'act':'')+'">'+esc(dname(n))+' <span class="mono">'+esc(TYPE_NAME[n.type])+(n.imo?' · IMO '+esc(n.imo):'')+(n.type==='company'&&n.country?' · '+esc(cname(n.country)):'')+(n.type==='company'&&n.ship_count?' · '+n.ship_count+(n.ship_count===1?' ship':' ships'):'')+'</span>'+(why?'<span class="why">'+why+'</span>':'')+'</button>';
+  }).join('');
+  resBox.classList.add('open');
+}
+function pick(i){ var r = lastRes[i]; if(!r) return; resBox.classList.remove('open'); qEl.value = dname(r.n); var n = r.n; if(n.type==='country'){ var el = cy.getElementById(n.id); if(el.length){ selectNode(n.id, true); return; } } focusNode(n.id); }
+qEl.addEventListener('input', renderResults);
+qEl.addEventListener('keydown', function(ev){
+  if(ev.key==='ArrowDown'){ act = Math.min(act+1, lastRes.length-1); ev.preventDefault(); }
+  else if(ev.key==='ArrowUp'){ act = Math.max(act-1, 0); ev.preventDefault(); }
+  else if(ev.key==='Enter'){ pick(Math.max(act,0)); ev.preventDefault(); return; }
+  else return;
+  resBox.querySelectorAll('button').forEach(function(b, i){ b.classList.toggle('act', i===act); });
+});
+resBox.addEventListener('click', function(ev){ var b = ev.target.closest('button[data-i]'); if(b) pick(+b.dataset.i); });
+document.addEventListener('click', function(ev){ if(!ev.target.closest('.search')) resBox.classList.remove('open'); });
+
+/* zoom */
+document.getElementById('zin').addEventListener('click', function(){ cy.zoom({level:cy.zoom()*1.3, renderedPosition:{x:cy.width()/2, y:cy.height()/2}}); });
+document.getElementById('zout').addEventListener('click', function(){ cy.zoom({level:cy.zoom()/1.3, renderedPosition:{x:cy.width()/2, y:cy.height()/2}}); });
+document.getElementById('zfit').addEventListener('click', function(){ cy.fit(cy.elements().not('.hid'), 40); });
+
+/* key */
+function keySvg(shape, col, hollow, dashed){
+  var f = hollow ? 'none' : col, s = col;
+  var inner = {
+    diamond:'<polygon points="11,2 20,11 11,20 2,11" fill="'+f+'" stroke="'+s+'" stroke-width="1.6"/>',
+    rect:'<rect x="3" y="6" width="16" height="10" rx="3" fill="'+f+'" stroke="'+s+'" stroke-width="1.6"/>',
+    ring:'<circle cx="11" cy="11" r="7.5" fill="'+(hollow?'none':col)+'" fill-opacity=".35" stroke="'+s+'" stroke-width="1.4"/><circle cx="11" cy="11" r="9.5" fill="none" stroke="'+s+'" stroke-width="1"/>',
+    hex:'<polygon points="6,3 16,3 21,11 16,19 6,19 1,11" fill="#18243a" stroke="'+s+'" stroke-width="1.6"/>',
+    line:'<line x1="1" y1="11" x2="21" y2="11" stroke="'+s+'" stroke-width="2" '+(dashed?'stroke-dasharray="4 3"':'')+'/>',
+    dot:'<rect x="4" y="4" width="14" height="14" rx="2" fill="'+f+'" stroke="'+s+'" stroke-width="1.6"/>',
+    badge:'<rect x="1.5" y="6" width="19" height="10" fill="#0a0a0f" stroke="#aab6c9" stroke-width=".8"/><text x="11" y="13.8" font-size="7.5" font-family="JetBrains Mono,monospace" font-weight="700" fill="#e6ebf2" text-anchor="middle">US</text>'
+  }[shape];
+  return '<svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">'+inner+'</svg>';
+}
+(function(){
+  var k = '';
+  var rows = [
+    [keySvg('diamond','#c9d3e3'),'Ship (size = names used)'],
+    [keySvg('rect','#c9d3e3'),'Company (size = ships)'],
+    [keySvg('ring','#c9d3e3'),'Person'],
+    [keySvg('hex',COUNTRY_COL),'Country (<abbr title="The country a ship is registered in, which is responsible for checking it">flag</abbr>)'],
+    [keySvg('dot',PCOL.both),'<b style="color:'+PCOL.both+'">Russia + Iran</b>'],
+    [keySvg('dot',PCOL.russia),'Russia programme'],
+    [keySvg('dot',PCOL.iran),'Iran programme'],
+    [keySvg('dot',PCOL.other),'Other (terrorism, Venezuela, other)'],
+    [keySvg('dot','#c9d3e3',true),'Hollow = not on a list we hold'],
+    [keySvg('badge'),'Sanctioned by US, UK or EU'],
+    [keySvg('line','#7d8aa6'),'Documented link'],
+    [keySvg('line','#c79a3c',false,true),'Lead: a question, not a finding']
+  ];
+  rows.forEach(function(r){ k += r[0] + '<span>' + r[1] + '</span>'; });
+  document.getElementById('key').innerHTML = k;
+})();
+
+/* ---------- boot ---------- */
+document.getElementById('title').textContent = clean(META.title || 'Shadow Fleet Network');
+document.getElementById('subtitle').textContent = clean(META.subtitle || '');
+document.getElementById('credits').textContent = clean(META.credits || '');
+if(META.generated){ document.getElementById('gen').textContent = 'Data built ' + String(META.generated).replace('T',' '); }
+asof.textContent = monthLabel(S.t);
+renderEmpty(); renderPatterns(); renderAbout();
+/* optional deep link: #view=big&select=IMO9282792&tab=patterns&pattern=names */
+var HP = {}; String(location.hash||'').replace(/^#/,'').split('&').forEach(function(kv){ var i = kv.indexOf('='); if(i>0) HP[decodeURIComponent(kv.slice(0,i))] = decodeURIComponent(kv.slice(i+1)); });
+var bootView = PRESETS.some(function(p){ return p.id===HP.view; }) ? HP.view : 'overlap';
+S._after = function(){
+  if(HP.select && byId[HP.select] && cy.getElementById(HP.select).length) selectNode(HP.select, HP.zoom === '1');
+  if(HP.pattern) showPattern(HP.pattern);
+  if(HP.tab==='patterns') openPanel('p-pat'); else if(HP.tab==='about') openPanel('p-about');
+  document.documentElement.setAttribute('data-ready','1');
+};
+if(HP.focus && byId[HP.focus]) focusNode(HP.focus); else presetView(bootView);
+window.__fleet = {cy:cy, S:S, byId:byId, selectNode:selectNode, focusNode:focusNode, showPattern:showPattern, presetView:presetView, dname:dname, redact:redact};
+})();
+</script>
+</body>
+</html>

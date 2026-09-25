@@ -1,0 +1,59 @@
+{
+ "title": "Shadow Fleet Network",
+ "subtitle": "Who owns, runs, flags and sanctions the tankers moving Russian and Iranian oil, joined by each ship's permanent hull number",
+ "patterns": [
+  {
+   "id": "names",
+   "title": "New name, same hull",
+   "text": "A ship's name can be changed with paperwork. Its IMO number, a 7-digit hull number issued by the International Maritime Organization, stays for life. 16 of the 42 tankers on both the UK Russia list and a US Iran list carry a different name on each list. IMO 9282792 was listed by the UK as CLYDE NOBLE and later by the US as AQUA LIVE.",
+   "examples": [
+    "IMO9282792",
+    "IMO9422988",
+    "IMO9236248"
+   ]
+  },
+  {
+   "id": "shells",
+   "title": "One ship, one company",
+   "text": "Many owners and managers run a single tanker and are named after it. Of 25 US-listed manager firms with a set-up date, 13 were set up in 2024 or 2025, most 9 to 18 months before their ship was listed. One-ship companies are also normal in legal shipping, so on its own this is a pattern, not proof.",
+   "examples": [
+    "IMO9282792",
+    "IMO9388027"
+   ]
+  },
+  {
+   "id": "managers",
+   "title": "Managers shuffle after a listing",
+   "text": "Treasury says the Shamkhani network's firms \"regularly shuffle in and out of management and operator roles\". The UK list named Clyde Chartering as manager of CLYDE NOBLE in May 2025; that company closed the next month, and the US later listed the same hull as AQUA LIVE. The EU listed three of Zulu Ships Management's tankers about 9 months before it froze Zulu itself.",
+   "examples": [
+    "co:zulu-ships-management-and-operation",
+    "IMO9282792"
+   ]
+  },
+  {
+   "id": "flags",
+   "title": "Flag hopping",
+   "text": "A ship's flag is the country it is registered in, which is responsible for checking it. When a registry drops a listed ship, it moves to another. OFAC recorded Panama or Liberia for Zulu's 11 tankers when it listed them; ship-tracking IDs now point to Cameroon, Guinea and Madagascar.",
+   "examples": [
+    "cc:cm",
+    "cc:pa"
+   ]
+  },
+  {
+   "id": "overlap",
+   "title": "One fleet, two programmes",
+   "text": "The same hulls appear in both sanctions stories. 54 tankers are on a Russia ship list (UK or EU) and also on a US list under an Iran-related programme. Using the UK list alone gives 46; the strict filter in our published analysis gives 42. For 39 of the 54, the US Iran listing came first. Treasury says Fleet Tanqo's tankers carried more than 20 cargoes of Russian oil products in 2025 for an Iran-linked network.",
+   "examples": [
+    "co:fleet-tanqo"
+   ]
+  }
+ ],
+ "coverage": [
+  "Ships and companies come from the UK sanctions list (report of 21 Sep 2026), the US OFAC list and US Consolidated Screening List, and the EU Official Journal ship list and EU financial-sanctions file (OpenSanctions exports, downloaded 25 Sep 2026). All are joined by IMO number.",
+  "US listing dates are the date the ship first appeared on the OFAC list in the OpenSanctions export; they match Treasury's releases on the dates we checked.",
+  "Ukraine's War and Sanctions database (run by Ukraine's military intelligence) supplies former names and flag history. It is a government database, not a sanctions list.",
+  "No line between two points does not mean no relationship. Our sources cover listed ships and firms, and the companies named next to them.",
+  "Documented = stated by an official list, government release or court record. Lead = our own inference or a non-official source; treat as a question, not a finding."
+ ],
+ "credits": "Visual style after God's Eye View by Bilawal Sidhu (MIT licence). Data: UK FCDO/OFSI, US Treasury OFAC, US trade.gov, EU, OpenSanctions exports, Ukraine GUR War and Sanctions database, Sayari (sponsor), studies as cited."
+}
