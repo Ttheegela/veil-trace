@@ -174326,7 +174326,7 @@
   "id": "e7293"
  },
  {
-  "source": "co:unlisted-017",
+  "source": "co:unlisted-018",
   "target": "IMO9282481",
   "type": "manages",
   "date": "",
@@ -174348,7 +174348,7 @@
   "id": "e7294"
  },
  {
-  "source": "co:unlisted-017",
+  "source": "co:unlisted-018",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174458,7 +174458,7 @@
   "id": "e7299"
  },
  {
-  "source": "co:unlisted-015",
+  "source": "co:unlisted-016",
   "target": "IMO9387279",
   "type": "owns",
   "date": "",
@@ -174480,7 +174480,7 @@
   "id": "e7300"
  },
  {
-  "source": "co:unlisted-015",
+  "source": "co:unlisted-016",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -174502,7 +174502,7 @@
   "id": "e7301"
  },
  {
-  "source": "co:unlisted-013",
+  "source": "co:unlisted-014",
   "target": "IMO9413004",
   "type": "owns",
   "date": "",
@@ -174524,7 +174524,7 @@
   "id": "e7302"
  },
  {
-  "source": "co:unlisted-013",
+  "source": "co:unlisted-014",
   "target": "co:fleet-tanqo",
   "type": "sister_shell_of",
   "date": "",
@@ -174546,7 +174546,7 @@
   "id": "e7303"
  },
  {
-  "source": "co:unlisted-019",
+  "source": "co:unlisted-022",
   "target": "IMO9291262",
   "type": "manages",
   "date": "",
@@ -174568,7 +174568,7 @@
   "id": "e7304"
  },
  {
-  "source": "co:unlisted-019",
+  "source": "co:unlisted-022",
   "target": "co:fleet-tanqo",
   "type": "sister_shell_of",
   "date": "",
@@ -174590,7 +174590,7 @@
   "id": "e7305"
  },
  {
-  "source": "co:unlisted-016",
+  "source": "co:unlisted-017",
   "target": "IMO9252955",
   "type": "owns",
   "date": "",
@@ -174612,7 +174612,7 @@
   "id": "e7306"
  },
  {
-  "source": "co:unlisted-016",
+  "source": "co:unlisted-017",
   "target": "co:zulu-ships-management-and-operation-l-l-c",
   "type": "sister_shell_of",
   "date": "",
@@ -175016,7 +175016,7 @@
   "id": "e7324"
  },
  {
-  "source": "co:unlisted-014",
+  "source": "co:unlisted-015",
   "target": "IMO9308065",
   "type": "manages",
   "date": "2025-12",
@@ -176124,28 +176124,1908 @@
   "id": "e7374"
  },
  {
-  "source": "co:gazprom-neft",
-  "target": "gov:us",
-  "type": "designated_by",
-  "date": "2025-01-10",
-  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
-  "source_file": "pulls\\tavily\\20260925T182052314637Z_26740_search.json",
-  "quote": "OFAC designated two of Russia's most significant oil producers and exporters pursuant to E.O. 14024",
+  "source": "lob:hikvision",
+  "target": "lob:hikvision_usa",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live against lda.senate.gov API 2026-09-25) | [lda-known-listed] efile.fara.gov reg 3731; prior team research: chinese-entity-list-firms.md",
+  "quote": "issue: export controls/homeland security/science-tech | export controls, homeland security; amount: 573618.62 (one period); period: 2022-Q2 | 2018-2025",
   "confidence": "Documented",
-  "angle": "russia-actions",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
   "sources": [
    {
-    "url": "https://home.treasury.gov/news/press-releases/jy2777",
-    "file": "pulls\\tavily\\20260925T182052314637Z_26740_search.json",
-    "quote": "OFAC designated two of Russia's most significant oil producers and exporters pursuant to E.O. 14024",
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live against lda.senate.gov API 2026-09-25) | [lda-known-listed] efile.fara.gov reg 3731; prior team research: chinese-entity-list-firms.md",
+    "quote": "issue: export controls/homeland security/science-tech | export controls, homeland security; amount: 573618.62 (one period); period: 2022-Q2 | 2018-2025",
     "record": "",
-    "angle": "russia-actions",
+    "angle": "lobbying",
     "confidence": "Documented"
    }
   ],
   "id": "e7375"
  },
  {
+  "source": "lob:cetc",
+  "target": "lob:hikvision_usa",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live); foreign entity name \"China Electronics Technology Group Co., Ltd (a wholly state-owned Chinese company)\" matches CSL entry \"China Electronics Technology Group Corporation\" (alias CETC), CMIC-EO13959",
+  "quote": "issue: export controls/homeland security/science-tech; period: 2022-Q2",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live); foreign entity name \"China Electronics Technology Group Co., Ltd (a wholly state-owned Chinese company)\" matches CSL entry \"China Electronics Technology Group Corporation\" (alias CETC), CMIC-EO13959",
+    "quote": "issue: export controls/homeland security/science-tech; period: 2022-Q2",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7376"
+ },
+ {
+  "source": "lob:hikvision_usa",
+  "target": "lob:elevation_association",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live)",
+  "quote": "period: 2022-Q2",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live)",
+    "quote": "period: 2022-Q2",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7377"
+ },
+ {
+  "source": "lob:elevation_association",
+  "target": "lob:us_congress",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live)",
+  "quote": "issue: DEF, FOR, HOM, INT, SCI; period: 2022-Q2",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "lobbied",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 5929b87d-2cee-4128-9aa5-abc35980cd13 (verified live)",
+    "quote": "issue: DEF, FOR, HOM, INT, SCI; period: 2022-Q2",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7378"
+ },
+ {
+  "source": "lob:huawei",
+  "target": "lob:futurewei",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing e7429017-7938-42b7-9d37-4dd2da5b4a04 (verified live)",
+  "quote": "issue: COM, CPI, CPT, HOM, SCI, TEC, TRD; period: 2022-Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing e7429017-7938-42b7-9d37-4dd2da5b4a04 (verified live)",
+    "quote": "issue: COM, CPI, CPT, HOM, SCI, TEC, TRD; period: 2022-Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7379"
+ },
+ {
+  "source": "lob:futurewei",
+  "target": "lob:us_congress",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing e7429017-7938-42b7-9d37-4dd2da5b4a04 (verified live)",
+  "quote": "issue: COM, CPI, CPT, HOM, SCI, TEC, TRD; period: 2022-Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "lobbied",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing e7429017-7938-42b7-9d37-4dd2da5b4a04 (verified live)",
+    "quote": "issue: COM, CPI, CPT, HOM, SCI, TEC, TRD; period: 2022-Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7380"
+ },
+ {
+  "source": "lob:huawei",
+  "target": "lob:huawei_technologies_usa",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filings 2b98c14b-82a7-48d0-9c9d-fd2d3950a316 / f0290a38-0288-461d-aab5-61435f2cb557 (both verified live)",
+  "quote": "issue: COM, HOM, TEC, TRD; period: 2022-Q1",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filings 2b98c14b-82a7-48d0-9c9d-fd2d3950a316 / f0290a38-0288-461d-aab5-61435f2cb557 (both verified live)",
+    "quote": "issue: COM, HOM, TEC, TRD; period: 2022-Q1",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7381"
+ },
+ {
+  "source": "lob:huawei_technologies_usa",
+  "target": "lob:squire_patton_boggs",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filings 2b98c14b-82a7-48d0-9c9d-fd2d3950a316 / f0290a38-0288-461d-aab5-61435f2cb557 (both verified live)",
+  "quote": "period: 2022-Q1",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filings 2b98c14b-82a7-48d0-9c9d-fd2d3950a316 / f0290a38-0288-461d-aab5-61435f2cb557 (both verified live)",
+    "quote": "period: 2022-Q1",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7382"
+ },
+ {
+  "source": "lob:dji",
+  "target": "lob:dji_technology_inc",
+  "type": "linked_to",
+  "date": "2021",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 1bf15c20-f57c-45f8-87be-1729b884f3c3 (verified live) -- disclosed foreign entities are \"DJI Company Limited\"/\"DJI International Company Limited\", not \"SZ DJI Technology Co., Ltd.\" verbatim; \"DJI Company Limited\" only matches the BIS Entity List row via its short ali",
+  "quote": "issue: SCI | drone/UAV regulation, export controls; period: 2021-Q1 | 2016-2024",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 1bf15c20-f57c-45f8-87be-1729b884f3c3 (verified live) -- disclosed foreign entities are \"DJI Company Limited\"/\"DJI International Company Limited\", not \"SZ DJI Technology Co., Ltd.\" verbatim; \"DJI Company Limited\" only matches the BIS Entity List row via its short ali",
+    "quote": "issue: SCI | drone/UAV regulation, export controls; period: 2021-Q1 | 2016-2024",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7383"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:squire_patton_boggs",
+  "type": "linked_to",
+  "date": "2021",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 1bf15c20-f57c-45f8-87be-1729b884f3c3 (verified live) | [lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2021 Q1, 2022 Q1)",
+  "quote": "issue: drone regulation; period: 2021-Q1 | 2021-2022",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 1bf15c20-f57c-45f8-87be-1729b884f3c3 (verified live) | [lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2021 Q1, 2022 Q1)",
+    "quote": "issue: drone regulation; period: 2021-Q1 | 2021-2022",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7384"
+ },
+ {
+  "source": "lob:arctic_lng_2",
+  "target": "lob:scarinci_hollenbeck",
+  "type": "linked_to",
+  "date": "2023",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-foreign-entities] LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08 (verified live) -- note: listed entity filed as client directly, no clean intermediary observed here | [fara-principals] lda.senate.gov filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08",
+  "quote": "issue: ENG, TRD | Export of gas turbines; period: 2023-Q1 | 2023 (effective 2023-02-17)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-foreign-entities] LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08 (verified live) -- note: listed entity filed as client directly, no clean intermediary observed here | [fara-principals] lda.senate.gov filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08",
+    "quote": "issue: ENG, TRD | Export of gas turbines; period: 2023-Q1 | 2023 (effective 2023-02-17)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7385"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:avoq",
+  "type": "linked_to",
+  "date": "2023",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2023 Q3)",
+  "quote": "issue: drone regulation; period: 2023",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2023 Q3)",
+    "quote": "issue: drone regulation; period: 2023",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7386"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:porter_wright",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2024 Q1) | [fara-principals] lda.senate.gov filing c2c08c25-46cb-420d-9e82-a0b284a31d3e",
+  "quote": "issue: drone regulation; period: 2024 | 2024-03 (effective 2024-03-19)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[lda-known-listed] lda.senate.gov filings API, foreign_entity_name=DJI (2024 Q1) | [fara-principals] lda.senate.gov filing c2c08c25-46cb-420d-9e82-a0b284a31d3e",
+    "quote": "issue: drone regulation; period: 2024 | 2024-03 (effective 2024-03-19)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7387"
+ },
+ {
+  "source": "lob:dji",
+  "target": "lob:small_uav_coalition",
+  "type": "linked_to",
+  "date": "2014",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, client=Small UAV Coalition, registrant=Akin Gump/McGuireWoods, fe=DJI",
+  "quote": "issue: UAV rulemaking; period: 2014-2017",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "funds",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, client=Small UAV Coalition, registrant=Akin Gump/McGuireWoods, fe=DJI",
+    "quote": "issue: UAV rulemaking; period: 2014-2017",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7388"
+ },
+ {
+  "source": "lob:small_uav_coalition",
+  "target": "lob:akin_gump",
+  "type": "linked_to",
+  "date": "2016",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API",
+  "quote": "issue: UAV rulemaking; amount: 230000; period: 2016 Q1",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API",
+    "quote": "issue: UAV rulemaking; amount: 230000; period: 2016 Q1",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7389"
+ },
+ {
+  "source": "lob:dji",
+  "target": "lob:drone_mfrs_alliance",
+  "type": "linked_to",
+  "date": "2016",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, registrant=Franklin Square Group",
+  "quote": "issue: drone rules; period: 2016",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "funds",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, registrant=Franklin Square Group",
+    "quote": "issue: drone rules; period: 2016",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7390"
+ },
+ {
+  "source": "lob:dji",
+  "target": "lob:alliance_drone_innovation",
+  "type": "linked_to",
+  "date": "2018",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, registrant=Thorn Run Partners",
+  "quote": "issue: drone rules; period: 2018",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "funds",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, registrant=Thorn Run Partners",
+    "quote": "issue: drone rules; period: 2018",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7391"
+ },
+ {
+  "source": "lob:sberbank",
+  "target": "lob:sberbank_cib_usa",
+  "type": "linked_to",
+  "date": "2016",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, fe=Sberbank of Russia, Troika Dialog Group Ltd, SBGB Cyprus Ltd, SB International S.a.r.l.",
+  "quote": "issue: financial services/sanctions-adjacent; period: 2016",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, fe=Sberbank of Russia, Troika Dialog Group Ltd, SBGB Cyprus Ltd, SB International S.a.r.l.",
+    "quote": "issue: financial services/sanctions-adjacent; period: 2016",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7392"
+ },
+ {
+  "source": "lob:sberbank_cib_usa",
+  "target": "lob:madison_group",
+  "type": "linked_to",
+  "date": "2016",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API (2016 Q1-Q4, 2017 Q1)",
+  "quote": "issue: financial services; amount: 50000-105000; period: 2016-2017",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API (2016 Q1-Q4, 2017 Q1)",
+    "quote": "issue: financial services; amount: 50000-105000; period: 2016-2017",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7393"
+ },
+ {
+  "source": "lob:sberbank_cib_usa",
+  "target": "lob:podesta_group",
+  "type": "linked_to",
+  "date": "2016",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API",
+  "quote": "issue: financial services; amount: 20000-110000; period: 2016 Q1-Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API",
+    "quote": "issue: financial services; amount: 20000-110000; period: 2016 Q1-Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7394"
+ },
+ {
+  "source": "lob:nord_stream_2",
+  "target": "lob:gazprom",
+  "type": "linked_to",
+  "date": "2017",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+  "quote": "issue: pipeline/energy policy; amount: 50% of NS2 operating budget; period: 2017 Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+    "quote": "issue: pipeline/energy policy; amount: 50% of NS2 operating budget; period: 2017 Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7395"
+ },
+ {
+  "source": "lob:russian_federation",
+  "target": "lob:gazprom",
+  "type": "owns",
+  "date": "2017",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, fe disclosure text",
+  "quote": "amount: 38% ownership; period: 2017 Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, fe disclosure text",
+    "quote": "amount: 38% ownership; period: 2017 Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7396"
+ },
+ {
+  "source": "lob:nord_stream_2",
+  "target": "lob:capitol_counsel",
+  "type": "linked_to",
+  "date": "2017",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API",
+  "quote": "issue: pipeline permitting; period: 2017 Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API",
+    "quote": "issue: pipeline permitting; period: 2017 Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7397"
+ },
+ {
+  "source": "lob:nord_stream_2",
+  "target": "lob:roberti_global",
+  "type": "linked_to",
+  "date": "2017",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API",
+  "quote": "issue: pipeline permitting; period: 2017 Q3",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API",
+    "quote": "issue: pipeline permitting; period: 2017 Q3",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7398"
+ },
+ {
+  "source": "lob:vtb_bank",
+  "target": "lob:manatos_manatos",
+  "type": "linked_to",
+  "date": "2015",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings API (continuous 2015 Q2-2018 Q2)",
+  "quote": "issue: banking/finance; period: 2015-2018",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings API (continuous 2015 Q2-2018 Q2)",
+    "quote": "issue: banking/finance; period: 2015-2018",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7399"
+ },
+ {
+  "source": "lob:russia_finance_ministry",
+  "target": "lob:vtb_bank",
+  "type": "linked_to",
+  "date": "2015",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filings, fe=Ministry of Finance of the Russian Federation",
+  "quote": "period: 2015",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filings, fe=Ministry of Finance of the Russian Federation",
+    "quote": "period: 2015",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7400"
+ },
+ {
+  "source": "lob:en_plus",
+  "target": "lob:rusal",
+  "type": "owns",
+  "date": "2019",
+  "source_url": "",
+  "source_file": "[lda-known-listed] prior team research: rusal-en-plus-delisting.md | [ownership-bridges] public reporting (En+ Group annual report/prospectus); no Sayari find_beneficial_owners pull for Rusal exists in this session's raw files (sonnet-graph/), so not confirmed via an official record this pass",
+  "quote": "issue: aluminum tariffs/trade; amount: reported ~48%-57% stake (varies by year/source); period: 2019-2025",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] prior team research: rusal-en-plus-delisting.md | [ownership-bridges] public reporting (En+ Group annual report/prospectus); no Sayari find_beneficial_owners pull for Rusal exists in this session's raw files (sonnet-graph/), so not confirmed via an official record this pass",
+    "quote": "issue: aluminum tariffs/trade; amount: reported ~48%-57% stake (varies by year/source); period: 2019-2025",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7401"
+ },
+ {
+  "source": "lob:en_plus",
+  "target": "lob:mercury_public_affairs",
+  "type": "linked_to",
+  "date": "2019",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[lda-known-listed] efile.fara.gov reg 6170 | [ownership-bridges] efile.fara.gov reg 6170, Exhibit AB 20200316-80; fee cut and termination per climate-day/ideas/lobbying/rusal-en-plus-delisting.md, cross-checked in _checks.md",
+  "quote": "issue: aluminum trade | foreign principal representation; amount: 108500 then 54250/month | $108,500/month (2/2019-12/2019), reduced to $54,250/month from 1/1/2020; period: 2019-2022 | 2019-02 to 2022-02-24",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[lda-known-listed] efile.fara.gov reg 6170 | [ownership-bridges] efile.fara.gov reg 6170, Exhibit AB 20200316-80; fee cut and termination per climate-day/ideas/lobbying/rusal-en-plus-delisting.md, cross-checked in _checks.md",
+    "quote": "issue: aluminum trade | foreign principal representation; amount: 108500 then 54250/month | $108,500/month (2/2019-12/2019), reduced to $54,250/month from 1/1/2020; period: 2019-2022 | 2019-02 to 2022-02-24",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7402"
+ },
+ {
+  "source": "lob:en_plus",
+  "target": "lob:dci_group",
+  "type": "linked_to",
+  "date": "2021",
+  "source_url": "",
+  "source_file": "[lda-known-listed] lda.senate.gov filing 016bd45e-bce1-4a61-8537-0e0daabdf056 | [ownership-bridges] lda.senate.gov filing 016bd45e-bce1-4a61-8537-0e0daabdf056; confirmed in _checks.md against lda_raw/combo_q0.json",
+  "quote": "issue: low-carbon aluminum, Section 232 tariffs | low-carbon aluminum / Section 232 tariffs; amount: 10000-40000/quarter | $10,000-$40,000/qtr; period: 2021-2025 | 2021-Q2 to 2025-Q1",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] lda.senate.gov filing 016bd45e-bce1-4a61-8537-0e0daabdf056 | [ownership-bridges] lda.senate.gov filing 016bd45e-bce1-4a61-8537-0e0daabdf056; confirmed in _checks.md against lda_raw/combo_q0.json",
+    "quote": "issue: low-carbon aluminum, Section 232 tariffs | low-carbon aluminum / Section 232 tariffs; amount: 10000-40000/quarter | $10,000-$40,000/qtr; period: 2021-2025 | 2021-Q2 to 2025-Q1",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7403"
+ },
+ {
+  "source": "lob:bulgaria",
+  "target": "lob:lukoil",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[lda-known-listed] politico.eu, prior team research: oil-majors.md (Bulgaria denied acting for Lukoil)",
+  "quote": "issue: EU sanctions exemption for Neftochim Burgas refinery; period: 2022-2025",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "lobbies_for",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] politico.eu, prior team research: oil-majors.md (Bulgaria denied acting for Lukoil)",
+    "quote": "issue: EU sanctions exemption for Neftochim Burgas refinery; period: 2022-2025",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7404"
+ },
+ {
+  "source": "lob:hikvision_usa",
+  "target": "lob:sidley_austin",
+  "type": "linked_to",
+  "date": "2018",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[lda-known-listed] lda.senate.gov filing 98f3217a-5f02-4c9f-8803-e80213fe5d0b | [fara-principals] FARA reg #3731, efile.fara.gov/docs/3731-Supplemental-Statement-20250430-53.pdf; foreign principal of record is 'Hikvision USA, Inc.' itself | [ownership-bridges] lda.senate.gov filing 98f3217a-5f02-4c9",
+  "quote": "issue: export controls | export controls / FARA foreign-agent representation | export controls, foreign relations, homeland security; amount: 500000/quarter (peak) | $573,618.62 (as reported; PDF unreadable via automated extraction this pass; amount unverified) | $500,000/qtr; pe",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[lda-known-listed] lda.senate.gov filing 98f3217a-5f02-4c9f-8803-e80213fe5d0b | [fara-principals] FARA reg #3731, efile.fara.gov/docs/3731-Supplemental-Statement-20250430-53.pdf; foreign principal of record is 'Hikvision USA, Inc.' itself | [ownership-bridges] lda.senate.gov filing 98f3217a-5f02-4c9",
+    "quote": "issue: export controls | export controls / FARA foreign-agent representation | export controls, foreign relations, homeland security; amount: 500000/quarter (peak) | $573,618.62 (as reported; PDF unreadable via automated extraction this pass; amount unverified) | $500,000/qtr; pe",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7405"
+ },
+ {
+  "source": "lob:smic",
+  "target": "lob:akin_gump",
+  "type": "linked_to",
+  "date": "2020",
+  "source_url": "",
+  "source_file": "[lda-known-listed] prior team research: chinese-entity-list-firms.md | [ownership-bridges] lda.senate.gov, client name 'AKIN GUMP ON BEHALF OF SEMICONDUCTOR MANUFACTURING INTERNATIONAL CORPORATION'; confirmed in _checks.md (chinese-entity-list-firms) | [associations-thinktanks] lda.senate.gov filing",
+  "quote": "issue: semiconductor export eligibility | export control eligibility for US-origin semiconductor goods | Export control eligibility for US-origin semiconductor goods; amount: 50000-140000/quarter | $50,000-$140,000/qtr; period: 2020-2022 | 2020-Q3 through 2022-Q1 (last filing obs",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[lda-known-listed] prior team research: chinese-entity-list-firms.md | [ownership-bridges] lda.senate.gov, client name 'AKIN GUMP ON BEHALF OF SEMICONDUCTOR MANUFACTURING INTERNATIONAL CORPORATION'; confirmed in _checks.md (chinese-entity-list-firms) | [associations-thinktanks] lda.senate.gov filing",
+    "quote": "issue: semiconductor export eligibility | export control eligibility for US-origin semiconductor goods | Export control eligibility for US-origin semiconductor goods; amount: 50000-140000/quarter | $50,000-$140,000/qtr; period: 2020-2022 | 2020-Q3 through 2022-Q1 (last filing obs",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7406"
+ },
+ {
+  "source": "lob:novatek",
+  "target": "lob:arctic_lng_2",
+  "type": "owns",
+  "date": "2023",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "[fara-principals] lda.senate.gov filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08, foreign_entities[0] | [lda-foreign-entities] LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08 (verified live)",
+  "quote": "issue: ENG, TRD; amount: 60% equity ownership; period: 2023 (effective 2023-02-17) | 2023-Q1",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "[fara-principals] lda.senate.gov filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08, foreign_entities[0] | [lda-foreign-entities] LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08 (verified live)",
+    "quote": "issue: ENG, TRD; amount: 60% equity ownership; period: 2023 (effective 2023-02-17) | 2023-Q1",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7407"
+ },
+ {
+  "source": "lob:union_oil_gas_ru",
+  "target": "lob:novatek",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filing 6ffc9525-2752-4b9f-953b-0340c438e6f3 (foreign entity misspelled 'NOVATECH' in this original filing) corrected by amendment f8516f8c-de77-4fd3-a320-8fa3208bbde2 ('NOVATEK (PUBLICLY TRADED COMPANY ON MOSCOW STOCK EXCHANGE)')",
+  "quote": "issue: represents member/foreign-entity interest; amount: contribution $50,000 (orig.)/$24,000 (amended); 0% ownership disclosed; period: 2024 (effective 2024-12-16)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "affiliated_with",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filing 6ffc9525-2752-4b9f-953b-0340c438e6f3 (foreign entity misspelled 'NOVATECH' in this original filing) corrected by amendment f8516f8c-de77-4fd3-a320-8fa3208bbde2 ('NOVATEK (PUBLICLY TRADED COMPANY ON MOSCOW STOCK EXCHANGE)')",
+    "quote": "issue: represents member/foreign-entity interest; amount: contribution $50,000 (orig.)/$24,000 (amended); 0% ownership disclosed; period: 2024 (effective 2024-12-16)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7408"
+ },
+ {
+  "source": "lob:union_oil_gas_ru",
+  "target": "lob:qorvis_geopols",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filings 6ffc9525-2752-4b9f-953b-0340c438e6f3, f8516f8c-de77-4fd3-a320-8fa3208bbde2",
+  "quote": "issue: LNG, sanctions compliance; period: 2024 (effective 2024-12-16)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filings 6ffc9525-2752-4b9f-953b-0340c438e6f3, f8516f8c-de77-4fd3-a320-8fa3208bbde2",
+    "quote": "issue: LNG, sanctions compliance; period: 2024 (effective 2024-12-16)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7409"
+ },
+ {
+  "source": "lob:qorvis_geopols",
+  "target": "lob:us_congress",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filings 6ffc9525-2752-4b9f-953b-0340c438e6f3, f8516f8c-de77-4fd3-a320-8fa3208bbde2, lobbying_activities[]",
+  "quote": "issue: LNG, sanctions compliance (issue codes ENG/CDT/FUE); no specific government_entities named in filing; period: 2024",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "lobbied",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filings 6ffc9525-2752-4b9f-953b-0340c438e6f3, f8516f8c-de77-4fd3-a320-8fa3208bbde2, lobbying_activities[]",
+    "quote": "issue: LNG, sanctions compliance (issue codes ENG/CDT/FUE); no specific government_entities named in filing; period: 2024",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7410"
+ },
+ {
+  "source": "lob:futurewei",
+  "target": "lob:huawei",
+  "type": "linked_to",
+  "date": "2023",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filings 100f4a85-3300-4e3a-b68b-3da44d32e2cf (2023), 2be92317-3bb6-44c3-adf5-261b8899428f (amendment), 7e5dda67-97fb-497e-b194-65b6bb0d68b4 (2024, self-registered)",
+  "quote": "amount: ~99.7% (Huawei Technologies Co., Ltd.) / 100% (Huawei Investment & Holding Co., Ltd.); period: 2023-04-19 to 2024-01-22",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filings 100f4a85-3300-4e3a-b68b-3da44d32e2cf (2023), 2be92317-3bb6-44c3-adf5-261b8899428f (amendment), 7e5dda67-97fb-497e-b194-65b6bb0d68b4 (2024, self-registered)",
+    "quote": "amount: ~99.7% (Huawei Technologies Co., Ltd.) / 100% (Huawei Investment & Holding Co., Ltd.); period: 2023-04-19 to 2024-01-22",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7411"
+ },
+ {
+  "source": "lob:futurewei",
+  "target": "lob:squire_patton_boggs",
+  "type": "linked_to",
+  "date": "2023",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filing 100f4a85-3300-4e3a-b68b-3da44d32e2cf",
+  "quote": "period: 2023-04-19",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filing 100f4a85-3300-4e3a-b68b-3da44d32e2cf",
+    "quote": "period: 2023-04-19",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7412"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:dji",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filings c2c08c25-46cb-420d-9e82-a0b284a31d3e, 8b480092-2764-44c3-95c2-6a3e32598a2c, 58ceb53f-d2ff-49fb-a408-d95c4b08e850; disclosed foreign-entity names do not literally match BIS Entity List name/aliases for the sanctioned Shenzhen entity; corporate-chain identity n",
+  "quote": "amount: 100% (DJI Co. Ltd/DJI Intl Co. Ltd/DJI Europe/iFlight); 44% Wangdragona Inc./Wang Tao per 4Q2024 report; period: 2024",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filings c2c08c25-46cb-420d-9e82-a0b284a31d3e, 8b480092-2764-44c3-95c2-6a3e32598a2c, 58ceb53f-d2ff-49fb-a408-d95c4b08e850; disclosed foreign-entity names do not literally match BIS Entity List name/aliases for the sanctioned Shenzhen entity; corporate-chain identity n",
+    "quote": "amount: 100% (DJI Co. Ltd/DJI Intl Co. Ltd/DJI Europe/iFlight); 44% Wangdragona Inc./Wang Tao per 4Q2024 report; period: 2024",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7413"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:liberty_gov_affairs",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filing 8b480092-2764-44c3-95c2-6a3e32598a2c",
+  "quote": "period: 2024-03 (effective 2024-03-19)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filing 8b480092-2764-44c3-95c2-6a3e32598a2c",
+    "quote": "period: 2024-03 (effective 2024-03-19)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7414"
+ },
+ {
+  "source": "lob:dji_technology_inc",
+  "target": "lob:sidley_austin",
+  "type": "linked_to",
+  "date": "2024",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] lda.senate.gov filing 3c0ed2d1-f087-4c77-8ce7-3c594d275d58, client=DJI TECHNOLOGY INC, registrant=SIDLEY AUSTIN LLP",
+  "quote": "period: 2024-03 (effective 2024-03-19)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] lda.senate.gov filing 3c0ed2d1-f087-4c77-8ce7-3c594d275d58, client=DJI TECHNOLOGY INC, registrant=SIDLEY AUSTIN LLP",
+    "quote": "period: 2024-03 (effective 2024-03-19)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7415"
+ },
+ {
+  "source": "lob:hikvision_usa",
+  "target": "lob:hikvision",
+  "type": "linked_to",
+  "date": "2018",
+  "source_url": "https://efile.fara.gov",
+  "source_file": "[fara-principals] C:/Projects/climate-day/ideas/lobbying/chinese-entity-list-firms.md; team's own research note, not an official corporate/regulatory record verified this pass | [ownership-bridges] Sayari entity dNBSaGUNeHKjDIMsiDeFTA / CF2ca8pzwEMGmKrENIifNA, find_beneficial_owners path (bo_hikvisi",
+  "quote": "period: 2018-2025",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "https://efile.fara.gov",
+    "file": "[fara-principals] C:/Projects/climate-day/ideas/lobbying/chinese-entity-list-firms.md; team's own research note, not an official corporate/regulatory record verified this pass | [ownership-bridges] Sayari entity dNBSaGUNeHKjDIMsiDeFTA / CF2ca8pzwEMGmKrENIifNA, find_beneficial_owners path (bo_hikvisi",
+    "quote": "period: 2018-2025",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7416"
+ },
+ {
+  "source": "lob:litasco",
+  "target": "lob:lukoil",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[ownership-bridges] Sayari find_beneficial_owners on entity rBQ7x2ur5iqFMcwQAzOqLQ (Litasco SA), result entity i1jXEu0dxP424IovVTxgaw \"PAO LUKOIL\", path_length=2 (bo_litasco.json)",
+  "quote": "",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[ownership-bridges] Sayari find_beneficial_owners on entity rBQ7x2ur5iqFMcwQAzOqLQ (Litasco SA), result entity i1jXEu0dxP424IovVTxgaw \"PAO LUKOIL\", path_length=2 (bo_litasco.json)",
+    "quote": "",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   },
+   {
+    "url": "https://sayari.com",
+    "file": "Sayari find_beneficial_owners, bo_litasco.json",
+    "quote": "Sayari find_beneficial_owners on entity rBQ7x2ur5iqFMcwQAzOqLQ (Litasco SA), result entity i1jXEu0dxP424IovVTxgaw \"PAO LUKOIL\", path_length=2",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7418"
+ },
+ {
+  "source": "lob:neftochim_burgas",
+  "target": "lob:lukoil",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[ownership-bridges] Sayari find_beneficial_owners on entity wGLU1TlXmkx7iZX1fScGFQ (LUKOIL Neftohim Burgas), via LUKOIL Europe Holdings B.V. (entity ywE2N_zWjtI2M9YX6ZU9cg, path_length=1) to PAO LUKOIL (entity i1jXEu0dxP424IovVTxgaw, path_length=2); corrected from original report, which mislabeled t",
+  "quote": "",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[ownership-bridges] Sayari find_beneficial_owners on entity wGLU1TlXmkx7iZX1fScGFQ (LUKOIL Neftohim Burgas), via LUKOIL Europe Holdings B.V. (entity ywE2N_zWjtI2M9YX6ZU9cg, path_length=1) to PAO LUKOIL (entity i1jXEu0dxP424IovVTxgaw, path_length=2); corrected from original report, which mislabeled t",
+    "quote": "",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   },
+   {
+    "url": "https://sayari.com",
+    "file": "Sayari find_beneficial_owners, bo_neftochim.json",
+    "quote": "via LUKOIL Europe Holdings B.V. (path_length=1) to PAO LUKOIL (path_length=2)",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7419"
+ },
+ {
+  "source": "lob:bulgaria",
+  "target": "lob:neftochim_burgas",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[ownership-bridges] politico.eu 'Russia's Lukoil struggle to escape the grip' (press reporting, not a lobbying-register filing); Sofia denies lobbying \"for Lukoil\" per same article; flagged CAN'T VERIFY in climate-day/ideas/lobbying/_checks.md (oil-majors)",
+  "quote": "issue: EU seaborne-crude sanctions derogation",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "lobbies_for",
+  "sources": [
+   {
+    "url": "",
+    "file": "[ownership-bridges] politico.eu 'Russia's Lukoil struggle to escape the grip' (press reporting, not a lobbying-register filing); Sofia denies lobbying \"for Lukoil\" per same article; flagged CAN'T VERIFY in climate-day/ideas/lobbying/_checks.md (oil-majors)",
+    "quote": "issue: EU seaborne-crude sanctions derogation",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7420"
+ },
+ {
+  "source": "lob:nayara_energy",
+  "target": "lob:rosneft",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[ownership-bridges] public reporting; not confirmed in Sayari find_beneficial_owners pull (entity wHmvb1g8SCDyl5NYw5tBfw / bo_nayara.json); top result was Ashok Kumar Damani, an Indian shareholder",
+  "quote": "amount: ~49% reported stake",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "affiliated_with",
+  "sources": [
+   {
+    "url": "",
+    "file": "[ownership-bridges] public reporting; not confirmed in Sayari find_beneficial_owners pull (entity wHmvb1g8SCDyl5NYw5tBfw / bo_nayara.json); top result was Ashok Kumar Damani, an Indian shareholder",
+    "quote": "amount: ~49% reported stake",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   },
+   {
+    "url": "https://lda.senate.gov / Sayari",
+    "file": "bo_nayara.json",
+    "quote": "~49% reported stake -- public reporting; not confirmed in Sayari find_beneficial_owners pull (top result was Ashok Kumar Damani, an Indian shareholder)",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7421"
+ },
+ {
+  "source": "lob:smic",
+  "target": "lob:capitol_counsel",
+  "type": "linked_to",
+  "date": "2020",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] lda.senate.gov filings API, client_name=SMIC, saved smic2.json; Capitol Counsel LLC registration filing (2020 Q4), foreign_entities field lists Semiconductor Manufacturing International Corporation, China",
+  "quote": "issue: Export control eligibility for US-origin semiconductor goods; period: 2020-Q4 to 2021-Q2 (terminated 2021-04-01)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "foreign_entity_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] lda.senate.gov filings API, client_name=SMIC, saved smic2.json; Capitol Counsel LLC registration filing (2020 Q4), foreign_entities field lists Semiconductor Manufacturing International Corporation, China",
+    "quote": "issue: Export control eligibility for US-origin semiconductor goods; period: 2020-Q4 to 2021-Q2 (terminated 2021-04-01)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7422"
+ },
+ {
+  "source": "lob:uscbc",
+  "target": "lob:akin_gump",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] lda.senate.gov filings API, client_name='US-China Business Council', saved q1_uscbc.json",
+  "quote": "issue: Export controls, Section 301 tariff exclusion process, outbound investment screening, permanent normal trade relations (PNTR) status; period: 2022-Q1 to 2026-Q1 (terminated)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] lda.senate.gov filings API, client_name='US-China Business Council', saved q1_uscbc.json",
+    "quote": "issue: Export controls, Section 301 tariff exclusion process, outbound investment screening, permanent normal trade relations (PNTR) status; period: 2022-Q1 to 2026-Q1 (terminated)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7423"
+ },
+ {
+  "source": "lob:uscbc",
+  "target": "lob:us_congress",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] q1_uscbc.json",
+  "quote": "issue: Export controls / PNTR status; period: 2022-2026",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "lobbied",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] q1_uscbc.json",
+    "quote": "issue: Export controls / PNTR status; period: 2022-2026",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7424"
+ },
+ {
+  "source": "lob:smic",
+  "target": "lob:uscbc",
+  "type": "linked_to",
+  "date": "2020",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] Inference from smic2.json + q1_uscbc.json; no funding link established",
+  "quote": "issue: Same firm serves listed entity and then, concurrently/immediately after, an adjacent clean trade association on overlapping export-control/China-trade issues; period: 2020-2026 (SMIC engagement ends ~2022-Q1; USCBC engagement runs 2022-Q1 to 2026-Q1, essentially back-to-ba",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "same_firm_overlap",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] Inference from smic2.json + q1_uscbc.json; no funding link established",
+    "quote": "issue: Same firm serves listed entity and then, concurrently/immediately after, an adjacent clean trade association on overlapping export-control/China-trade issues; period: 2020-2026 (SMIC engagement ends ~2022-Q1; USCBC engagement runs 2022-Q1 to 2026-Q1, essentially back-to-ba",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7425"
+ },
+ {
+  "source": "lob:awdc",
+  "target": "lob:alrosa",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] Brussels Times, brusselstimes.com/207876",
+  "quote": "issue: Renewed AWDC-Alrosa trade agreement; period: 2022-04",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "affiliated_with",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] Brussels Times, brusselstimes.com/207876",
+    "quote": "issue: Renewed AWDC-Alrosa trade agreement; period: 2022-04",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   },
+   {
+    "url": "",
+    "file": "[associations-thinktanks] Inferred from timing of Reuters 2022-09 article vs Brussels Times 2022-04 partnership announcement",
+    "quote": "issue: AWDC's anti-sanctions lobbying framed as protecting Antwerp trade, not explicitly framed as protecting Alrosa; period: 2022-09",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7426"
+ },
+ {
+  "source": "lob:awdc",
+  "target": "lob:eu",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[associations-thinktanks] Reuters, reuters.com/article/ukraine-crisis-eu-sanctions-diamonds-idCAKBN2QQ0EL",
+  "quote": "issue: Argued against including diamonds in Russia sanctions package (cited ~30% hit to Antwerp trade); period: 2022-09",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "lobbied",
+  "sources": [
+   {
+    "url": "",
+    "file": "[associations-thinktanks] Reuters, reuters.com/article/ukraine-crisis-eu-sanctions-diamonds-idCAKBN2QQ0EL",
+    "quote": "issue: Argued against including diamonds in Russia sanctions package (cited ~30% hit to Antwerp trade); period: 2022-09",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7427"
+ },
+ {
+  "source": "lob:nord_stream_ag",
+  "target": "lob:sass_consulting_ag",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "issue: energy/pipeline interests",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "issue: energy/pipeline interests",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7428"
+ },
+ {
+  "source": "lob:jsc_russian_railways",
+  "target": "lob:sass_consulting_ag",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "issue: rail/transport interests",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "issue: rail/transport interests",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7429"
+ },
+ {
+  "source": "lob:jsc_rusatom_overseas",
+  "target": "lob:sass_consulting_ag",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "issue: nuclear/energy interests",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "issue: nuclear/energy interests",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7430"
+ },
+ {
+  "source": "lob:nord_stream_ag",
+  "target": "lob:brunswick_group",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "issue: EU public/regulatory affairs (register text just says 'Nord Stream', unqualified; treated as Nord Stream AG per the fuller wording in the adjacent Sass Consulting entry of the same register)",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "issue: EU public/regulatory affairs (register text just says 'Nord Stream', unqualified; treated as Nord Stream AG per the fuller wording in the adjacent Sass Consulting entry of the same register)",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7431"
+ },
+ {
+  "source": "lob:bell_pottinger",
+  "target": "lob:gazprom_ep_international",
+  "type": "linked_to",
+  "date": "2015",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "issue: natural resources, gas export, tariff setting, import quotas; period: 2015-10 to 2015-12",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "client_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "issue: natural resources, gas export, tariff setting, import quotas; period: 2015-10 to 2015-12",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7432"
+ },
+ {
+  "source": "lob:gazprom_ep_international",
+  "target": "lob:gazprom",
+  "type": "linked_to",
+  "date": "",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+  "quote": "",
+  "confidence": "Documented",
+  "angle": "lobbying",
+  "type_raw": "subsidiary_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.aalep.eu/russian-interest-representation-eu",
+    "quote": "",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7433"
+ },
+ {
+  "source": "lob:european_parliament",
+  "target": "lob:phosagro",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+  "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "proposed_deregistration_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+    "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7434"
+ },
+ {
+  "source": "lob:european_parliament",
+  "target": "lob:acron",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+  "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "proposed_deregistration_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+    "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7435"
+ },
+ {
+  "source": "lob:european_parliament",
+  "target": "lob:rumyantsev_partners",
+  "type": "linked_to",
+  "date": "2022",
+  "source_url": "",
+  "source_file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+  "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+  "confidence": "Lead",
+  "angle": "lobbying",
+  "type_raw": "proposed_deregistration_of",
+  "sources": [
+   {
+    "url": "",
+    "file": "[eu-uk-registers] https://www.ftm.eu/articles/european-parliament-ban-russian-lobbyists-france-not-cooperating",
+    "quote": "issue: MEP Katarina Barley proposed EU Transparency Register suspension of Russian-HQ registrants; register now shows this org deregistered; period: 2022",
+    "record": "",
+    "angle": "lobbying",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7436"
+ },
+ {
+  "source": "IMO9252955",
+  "target": "co:unlisted-021",
+  "type": "carried_cargo_for",
+  "date": "2025-06-09",
+  "source_url": "",
+  "source_file": "pulls\\sayari\\20260925T193702305176Z_17328_search_shipments.json",
+  "quote": "supplier MT BRIONT; Waste Oils of petroleum; arrival country IND",
+  "confidence": "Lead",
+  "notes": "vessel named as a party in a customs record; not linked by IMO",
+  "angle": "manifests",
+  "sources": [
+   {
+    "url": "",
+    "file": "pulls\\sayari\\20260925T193702305176Z_17328_search_shipments.json",
+    "quote": "supplier MT BRIONT; Waste Oils of petroleum; arrival country IND",
+    "record": "",
+    "angle": "manifests",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7437"
+ },
+ {
+  "source": "co:unlisted-020",
+  "target": "IMO9282481",
+  "type": "transferred_cargo_with",
+  "date": "2026-02-21",
+  "source_url": "",
+  "source_file": "pulls\\sayari\\20260925T193511869793Z_12556_search_shipments.json",
+  "quote": "buyer MASTER OF MT TAGOR/ MT CAUVERI/ MT...; product description names FLEET TANQO PRIVATE LIMITED ops email",
+  "confidence": "Lead",
+  "notes": "vessel named as a party in a customs record; not linked by IMO",
+  "angle": "manifests",
+  "sources": [
+   {
+    "url": "",
+    "file": "pulls\\sayari\\20260925T193511869793Z_12556_search_shipments.json",
+    "quote": "buyer MASTER OF MT TAGOR/ MT CAUVERI/ MT...; product description names FLEET TANQO PRIVATE LIMITED ops email",
+    "record": "",
+    "angle": "manifests",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7438"
+ },
+ {
+  "source": "co:zulu-ships-management-and-operation-l-l-c",
+  "target": "IMO9252955",
+  "type": "manages",
+  "date": "",
+  "source_url": "",
+  "source_file": "out\\ship_profiles.json",
+  "quote": "operator on ship_profiles.json (from prior UK/US list join, not a new pull)",
+  "confidence": "Documented",
+  "angle": "manifests",
+  "sources": [
+   {
+    "url": "",
+    "file": "out\\ship_profiles.json",
+    "quote": "operator on ship_profiles.json (from prior UK/US list join, not a new pull)",
+    "record": "",
+    "angle": "manifests",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7439"
+ },
+ {
+  "source": "co:fleet-tanqo",
+  "target": "IMO9291262",
+  "type": "manages",
+  "date": "",
+  "source_url": "",
+  "source_file": "out\\ship_profiles.json",
+  "quote": "operator on ship_profiles.json (from prior UK/US list join, not a new pull)",
+  "confidence": "Documented",
+  "angle": "manifests",
+  "sources": [
+   {
+    "url": "",
+    "file": "out\\ship_profiles.json",
+    "quote": "operator on ship_profiles.json (from prior UK/US list join, not a new pull)",
+    "record": "",
+    "angle": "manifests",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7440"
+ },
+ {
+  "source": "IMO9304667",
+  "target": "gov:us",
+  "type": "designated_by",
+  "date": "2022-11-03",
+  "source_url": "https://www.justice.gov/opa/pr/united-states-seeks-forfeiture-oil-tanker-and-18m-barrels-crude-oil-supported-iran-and",
+  "source_file": "pulls\\tavily\\20260925T193853783810Z_5992_search.json",
+  "quote": "on Nov. 3, 2022, the U.S. Department of the Treasury's OFAC sanctioned the Skipper (then named the Adisa)",
+  "confidence": "Documented",
+  "notes": "date corrected on verification: source text says OFAC designation was 2022-11-03, not 2025-11-03 as originally drafted.",
+  "angle": "manifests",
+  "sources": [
+   {
+    "url": "https://www.justice.gov/opa/pr/united-states-seeks-forfeiture-oil-tanker-and-18m-barrels-crude-oil-supported-iran-and",
+    "file": "pulls\\tavily\\20260925T193853783810Z_5992_search.json",
+    "quote": "on Nov. 3, 2022, the U.S. Department of the Treasury's OFAC sanctioned the Skipper (then named the Adisa)",
+    "record": "",
+    "angle": "manifests",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7441"
+ },
+ {
+  "source": "lob:rosneft",
+  "target": "co:rosnefteflot",
+  "type": "controls",
+  "date": "2025-01-10",
+  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+  "source_file": "pulls\\tavily\\20260925T193336140521Z_24988_extract.json",
+  "quote": "Russia-based Joint Stock Company Rosnefteflot (Rosnefteflot) is the marine transportation arm of Russian oil company Open Joint-Stock Company Rosneft Oil Company (Rosneft)",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/jy2777",
+    "file": "pulls\\tavily\\20260925T193336140521Z_24988_extract.json",
+    "quote": "Russia-based Joint Stock Company Rosnefteflot (Rosnefteflot) is the marine transportation arm of Russian oil company Open Joint-Stock Company Rosneft Oil Company (Rosneft)",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7442"
+ },
+ {
+  "source": "co:gazprom-neft",
+  "target": "co:gazpromneft-marine-bunker-liability",
+  "type": "controls",
+  "date": "2025-01-10",
+  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+  "source_file": "pulls\\tavily\\20260925T193336140521Z_24988_extract.json",
+  "quote": "Gazpromneft Marine Bunker Limited Liability Company (Gazpromneft Marine Bunker), a Gazprom Neft subsidiary",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/jy2777",
+    "file": "pulls\\tavily\\20260925T193336140521Z_24988_extract.json",
+    "quote": "Gazpromneft Marine Bunker Limited Liability Company (Gazpromneft Marine Bunker), a Gazprom Neft subsidiary",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7443"
+ },
+ {
+  "source": "co:gazprom-neft",
+  "target": "co:gazpromneft-shipping",
+  "type": "controls",
+  "date": "",
+  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+  "source_file": "",
+  "quote": "OFAC's 10 Jan 2025 release lists a 'Gazprom Neft Subsidiaries' annex naming entities designated for being owned or controlled by Gazprom Neft, but the chunked extract we pulled did not return the annex line for Gazpromneft Shipping by name -- inferred from the shared name, not independently confirmed",
+  "confidence": "Lead",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/jy2777",
+    "file": "",
+    "quote": "OFAC's 10 Jan 2025 release lists a 'Gazprom Neft Subsidiaries' annex naming entities designated for being owned or controlled by Gazprom Neft, but the chunked extract we pulled did not return the annex line for Gazpromneft Shipping by name -- inferred from the shared name, not independently confirmed",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7444"
+ },
+ {
+  "source": "lob:gazprom",
+  "target": "co:gazprom-neft",
+  "type": "owns",
+  "date": "",
+  "source_url": "https://en.wikipedia.org/wiki/Gazprom_Neft",
+  "source_file": "pulls\\tavily\\20260925T193646030383Z_29100_search.json",
+  "quote": "It is a subsidiary of Gazprom, which owns about 96% of its shares",
+  "confidence": "Lead",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://en.wikipedia.org/wiki/Gazprom_Neft",
+    "file": "pulls\\tavily\\20260925T193646030383Z_29100_search.json",
+    "quote": "It is a subsidiary of Gazprom, which owns about 96% of its shares",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7445"
+ },
+ {
+  "source": "lob:lukoil",
+  "target": "co:lukoil-bunker",
+  "type": "controls",
+  "date": "",
+  "source_url": "https://www.lukoil.com/Products/business/forvessels",
+  "source_file": "pulls\\tavily\\20260925T193516708111Z_10452_search.json",
+  "quote": "OOO LUKOIL-BUNKER provides marine fuel bunkering services",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://www.lukoil.com/Products/business/forvessels",
+    "file": "pulls\\tavily\\20260925T193516708111Z_10452_search.json",
+    "quote": "OOO LUKOIL-BUNKER provides marine fuel bunkering services",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7446"
+ },
+ {
+  "source": "lob:lukoil",
+  "target": "co:lukoil-marinbunker",
+  "type": "controls",
+  "date": "",
+  "source_url": "https://en.portnews.ru/news/291299",
+  "source_file": "pulls\\tavily\\20260925T193516708111Z_10452_search.json",
+  "quote": "LUKOIL-MarineBunker acquires two bunkering tankers ... (100% subsidiary of LUKOIL)",
+  "confidence": "Lead",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://en.portnews.ru/news/291299",
+    "file": "pulls\\tavily\\20260925T193516708111Z_10452_search.json",
+    "quote": "LUKOIL-MarineBunker acquires two bunkering tankers ... (100% subsidiary of LUKOIL)",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7447"
+ },
+ {
+  "source": "lob:russian_federation",
+  "target": "co:sovcomflot",
+  "type": "controls",
+  "date": "2025-01-10",
+  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+  "source_file": "pulls\\tavily\\20260925T194334666494Z_27196_extract.json",
+  "quote": "Joint Stock Company Sovcomflot (Sovcomflot), Russia's state-owned shipping company and fleet operator",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/jy2777",
+    "file": "pulls\\tavily\\20260925T194334666494Z_27196_extract.json",
+    "quote": "Joint Stock Company Sovcomflot (Sovcomflot), Russia's state-owned shipping company and fleet operator",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7448"
+ },
+ {
+  "source": "lob:russian_federation",
+  "target": "co:state-transportation-leasing",
+  "type": "controls",
+  "date": "2022-04-21",
+  "source_url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+  "source_file": "UK-Sanctions-List.csv (report 21-Sep-2026), Unique ID RUS1358",
+  "quote": "GTLK JSC is a Russian leasing company ... They are a state-owned company directly controlled by the Government of the Russian Federation",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://www.gov.uk/government/publications/the-uk-sanctions-list",
+    "file": "UK-Sanctions-List.csv (report 21-Sep-2026), Unique ID RUS1358",
+    "quote": "GTLK JSC is a Russian leasing company ... They are a state-owned company directly controlled by the Government of the Russian Federation",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7449"
+ },
+ {
+  "source": "co:unlisted-010",
+  "target": "co:sakhalin-shipping",
+  "type": "owns",
+  "date": "2023-11-10",
+  "source_url": "https://tadviser.com/index.php/Company:Sakhalin_Shipping_Company",
+  "source_file": "pulls\\tavily\\20260925T193417699721Z_25096_search.json",
+  "quote": "[unlisted ship owner] of Companies bought the Sakhalin Shipping Company (SASCO), the largest cargo carrier in the Far East",
+  "confidence": "Lead",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://tadviser.com/index.php/Company:Sakhalin_Shipping_Company",
+    "file": "pulls\\tavily\\20260925T193417699721Z_25096_search.json",
+    "quote": "[unlisted ship owner] of Companies bought the Sakhalin Shipping Company (SASCO), the largest cargo carrier in the Far East",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7450"
+ },
+ {
+  "source": "co:national-iranian-tanker",
+  "target": "co:national-iranian-oil",
+  "type": "linked_to",
+  "date": "2020-10-26",
+  "source_url": "https://home.treasury.gov/news/press-releases/sm1165",
+  "source_file": "pulls\\tavily\\20260925T193341176989Z_15164_extract.json",
+  "quote": "designating the Iranian Ministry of Petroleum, the National Iranian Oil Company (NIOC), and the National Iranian Tanker Company (NITC) ... for their financial support to Iran's Islamic Revolutionary Guard Corps-Qods Force",
+  "confidence": "Documented",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/sm1165",
+    "file": "pulls\\tavily\\20260925T193341176989Z_15164_extract.json",
+    "quote": "designating the Iranian Ministry of Petroleum, the National Iranian Oil Company (NIOC), and the National Iranian Tanker Company (NITC) ... for their financial support to Iran's Islamic Revolutionary Guard Corps-Qods Force",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7451"
+ },
+ {
+  "source": "lob:russian_federation",
+  "target": "lob:gazprom",
+  "type": "linked_to",
+  "date": "2017-Q3",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "lda.senate.gov filings, fe disclosure text (clean-names-graph edges.json)",
+  "quote": "38% ownership -- lda.senate.gov filings, fe disclosure text",
+  "confidence": "Documented",
+  "type_raw": "owns",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "lda.senate.gov filings, fe disclosure text (clean-names-graph edges.json)",
+    "quote": "38% ownership -- lda.senate.gov filings, fe disclosure text",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7452"
+ },
+ {
+  "source": "lob:nord_stream_2",
+  "target": "lob:gazprom",
+  "type": "linked_to",
+  "date": "2017-Q3",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+  "quote": "50% of NS2 operating budget -- lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+  "confidence": "Documented",
+  "type_raw": "subsidiary_of",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+    "quote": "50% of NS2 operating budget -- lda.senate.gov filings, fe=Public Joint Stock Company Gazprom (Roberti Global filing)",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7453"
+ },
+ {
+  "source": "lob:bulgaria",
+  "target": "lob:lukoil",
+  "type": "linked_to",
+  "date": "2022-2025",
+  "source_url": "https://politico.eu",
+  "source_file": "politico.eu, prior team research: oil-majors.md (Bulgaria denied acting for Lukoil)",
+  "quote": "EU sanctions exemption for Neftochim Burgas refinery",
+  "confidence": "Lead",
+  "type_raw": "lobbies_for",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://politico.eu",
+    "file": "politico.eu, prior team research: oil-majors.md (Bulgaria denied acting for Lukoil)",
+    "quote": "EU sanctions exemption for Neftochim Burgas refinery",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Lead"
+   }
+  ],
+  "id": "e7454"
+ },
+ {
+  "source": "lob:novatek",
+  "target": "lob:arctic_lng_2",
+  "type": "linked_to",
+  "date": "2023-02-17",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08",
+  "quote": "60% equity ownership -- foreign_entities[0]",
+  "confidence": "Documented",
+  "type_raw": "owns",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "LDA filing 94c50936-34e6-4f6f-b4fd-61fe518d8d08",
+    "quote": "60% equity ownership -- foreign_entities[0]",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7455"
+ },
+ {
+  "source": "lob:union_oil_gas_ru",
+  "target": "lob:novatek",
+  "type": "linked_to",
+  "date": "2024-12-16",
+  "source_url": "https://lda.senate.gov",
+  "source_file": "lda.senate.gov filing 6ffc9525-2752-4b9f-953b-0340c438e6f3, corrected by amendment f8516f8c-de77-4fd3-a320-8fa3208bbde2",
+  "quote": "contribution $50,000 (orig.)/$24,000 (amended); 0% ownership disclosed -- represents member/foreign-entity interest",
+  "confidence": "Documented",
+  "type_raw": "affiliated_with",
+  "angle": "parent-groups",
+  "sources": [
+   {
+    "url": "https://lda.senate.gov",
+    "file": "lda.senate.gov filing 6ffc9525-2752-4b9f-953b-0340c438e6f3, corrected by amendment f8516f8c-de77-4fd3-a320-8fa3208bbde2",
+    "quote": "contribution $50,000 (orig.)/$24,000 (amended); 0% ownership disclosed -- represents member/foreign-entity interest",
+    "record": "",
+    "angle": "parent-groups",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7456"
+ },
+ {
+  "source": "co:gazprom-neft",
+  "target": "gov:us",
+  "type": "designated_by",
+  "date": "2025-01-10",
+  "source_url": "https://home.treasury.gov/news/press-releases/jy2777",
+  "source_file": "pulls\\tavily\\20260925T182052314637Z_26740_search.json",
+  "quote": "OFAC designated two of Russia's most significant oil producers and exporters pursuant to E.O. 14024",
+  "confidence": "Documented",
+  "angle": "russia-actions",
+  "sources": [
+   {
+    "url": "https://home.treasury.gov/news/press-releases/jy2777",
+    "file": "pulls\\tavily\\20260925T182052314637Z_26740_search.json",
+    "quote": "OFAC designated two of Russia's most significant oil producers and exporters pursuant to E.O. 14024",
+    "record": "",
+    "angle": "russia-actions",
+    "confidence": "Documented"
+   }
+  ],
+  "id": "e7457"
+ },
+ {
   "source": "co:surgutneftegas",
   "target": "gov:us",
   "type": "designated_by",
@@ -176165,7 +178045,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7376"
+  "id": "e7458"
  },
  {
   "source": "co:gazprom-neft",
@@ -176187,7 +178067,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7377"
+  "id": "e7459"
  },
  {
   "source": "co:surgutneftegas",
@@ -176209,7 +178089,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7378"
+  "id": "e7460"
  },
  {
   "source": "co:sovcomflot",
@@ -176231,7 +178111,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7379"
+  "id": "e7461"
  },
  {
   "source": "co:fornax-shipmanagement",
@@ -176253,7 +178133,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7380"
+  "id": "e7462"
  },
  {
   "source": "co:stream-shipmanagement",
@@ -176275,7 +178155,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7381"
+  "id": "e7463"
  },
  {
   "source": "co:black-pearl-energy-trading",
@@ -176297,7 +178177,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7382"
+  "id": "e7464"
  },
  {
   "source": "co:conmar-maritime",
@@ -176319,7 +178199,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7383"
+  "id": "e7465"
  },
  {
   "source": "p:denis-deryushkin",
@@ -176341,7 +178221,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7384"
+  "id": "e7466"
  },
  {
   "source": "p:alexander-nemirovskiy",
@@ -176363,7 +178243,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7385"
+  "id": "e7467"
  },
  {
   "source": "co:arctos-shipping-and-trade",
@@ -176385,7 +178265,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7386"
+  "id": "e7468"
  },
  {
   "source": "co:demex-trading",
@@ -176407,7 +178287,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7387"
+  "id": "e7469"
  },
  {
   "source": "co:eterra-crude-oil-abroad-trading",
@@ -176429,7 +178309,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7388"
+  "id": "e7470"
  },
  {
   "source": "co:sunrise-x-trading",
@@ -176451,7 +178331,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7389"
+  "id": "e7471"
  },
  {
   "source": "co:zion-trade",
@@ -176473,7 +178353,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7390"
+  "id": "e7472"
  },
  {
   "source": "co:alfastrakhovanie",
@@ -176503,7 +178383,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7391"
+  "id": "e7473"
  },
  {
   "source": "co:ingosstrakh",
@@ -176533,7 +178413,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7392"
+  "id": "e7474"
  },
  {
   "source": "co:welltech",
@@ -176555,7 +178435,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7393"
+  "id": "e7475"
  },
  {
   "source": "p:yusuf-alekperov",
@@ -176577,7 +178457,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7394"
+  "id": "e7476"
  },
  {
   "source": "p:aleksandr-dyukov",
@@ -176599,7 +178479,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7395"
+  "id": "e7477"
  },
  {
   "source": "p:peter-bobylev",
@@ -176621,7 +178501,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7396"
+  "id": "e7478"
  },
  {
   "source": "p:vladimir-chernov",
@@ -176643,7 +178523,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7397"
+  "id": "e7479"
  },
  {
   "source": "p:aleksandr-dyukov",
@@ -176665,7 +178545,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7398"
+  "id": "e7480"
  },
  {
   "source": "co:2rivers-group",
@@ -176687,7 +178567,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7399"
+  "id": "e7481"
  },
  {
   "source": "p:tahir-garayev",
@@ -176709,7 +178589,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7400"
+  "id": "e7482"
  },
  {
   "source": "p:tahir-garayev",
@@ -176731,7 +178611,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7401"
+  "id": "e7483"
  },
  {
   "source": "co:arctos-shipping-and-trade",
@@ -176753,7 +178633,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7402"
+  "id": "e7484"
  },
  {
   "source": "co:venturia-shipping",
@@ -176775,7 +178655,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7403"
+  "id": "e7485"
  },
  {
   "source": "co:rockoil-trading",
@@ -176797,7 +178677,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7404"
+  "id": "e7486"
  },
  {
   "source": "co:arctos-shipping-and-trade",
@@ -176819,7 +178699,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7405"
+  "id": "e7487"
  },
  {
   "source": "co:venturia-shipping",
@@ -176841,7 +178721,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7406"
+  "id": "e7488"
  },
  {
   "source": "co:rockoil-trading",
@@ -176863,7 +178743,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7407"
+  "id": "e7489"
  },
  {
   "source": "co:oil-tankers-scf-management",
@@ -176885,7 +178765,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7408"
+  "id": "e7490"
  },
  {
   "source": "co:k-and-o-ship-management",
@@ -176907,7 +178787,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7409"
+  "id": "e7491"
  },
  {
   "source": "co:radiating-world-shipping",
@@ -176929,7 +178809,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7410"
+  "id": "e7492"
  },
  {
   "source": "co:star-voyages-shipping",
@@ -176951,7 +178831,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7411"
+  "id": "e7493"
  },
  {
   "source": "co:beks-ship-management-and-trading",
@@ -176973,7 +178853,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7412"
+  "id": "e7494"
  },
  {
   "source": "co:azia-shipping-company",
@@ -176995,7 +178875,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7413"
+  "id": "e7495"
  },
  {
   "source": "co:white-fox-shipmanagement",
@@ -177017,7 +178897,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7414"
+  "id": "e7496"
  },
  {
   "source": "co:rhodania-shipping",
@@ -177039,7 +178919,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7415"
+  "id": "e7497"
  },
  {
   "source": "co:intershipping-services-llc",
@@ -177061,7 +178941,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7416"
+  "id": "e7498"
  },
  {
   "source": "co:frion-ship-management",
@@ -177083,7 +178963,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7417"
+  "id": "e7499"
  },
  {
   "source": "co:frion-ship-management",
@@ -177105,7 +178985,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7418"
+  "id": "e7500"
  },
  {
   "source": "co:oboronlogistics",
@@ -177127,7 +179007,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7419"
+  "id": "e7501"
  },
  {
   "source": "co:fornax-shipmanagement",
@@ -177149,7 +179029,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7420"
+  "id": "e7502"
  },
  {
   "source": "co:stream-shipmanagement",
@@ -177171,7 +179051,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7421"
+  "id": "e7503"
  },
  {
   "source": "p:aleksejs-halavins",
@@ -177193,7 +179073,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7422"
+  "id": "e7504"
  },
  {
   "source": "p:aleksejs-halavins",
@@ -177215,7 +179095,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7423"
+  "id": "e7505"
  },
  {
   "source": "co:ingosstrakh",
@@ -177237,7 +179117,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7424"
+  "id": "e7506"
  },
  {
   "source": "co:alfastrakhovanie",
@@ -177259,7 +179139,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7425"
+  "id": "e7507"
  },
  {
   "source": "co:russian-maritime-register-of-shipping",
@@ -177281,7 +179161,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7426"
+  "id": "e7508"
  },
  {
   "source": "co:russian-maritime-register-of-shipping",
@@ -177303,7 +179183,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7427"
+  "id": "e7509"
  },
  {
   "source": "IMO9809538",
@@ -177325,7 +179205,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7428"
+  "id": "e7510"
  },
  {
   "source": "IMO8984848",
@@ -177347,7 +179227,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7429"
+  "id": "e7511"
  },
  {
   "source": "IMO7808401",
@@ -177369,7 +179249,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7430"
+  "id": "e7512"
  },
  {
   "source": "IMO1031537",
@@ -177391,7 +179271,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7431"
+  "id": "e7513"
  },
  {
   "source": "IMO1064493",
@@ -177413,10 +179293,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7432"
+  "id": "e7514"
  },
  {
-  "source": "co:unlisted-020",
+  "source": "co:unlisted-023",
   "target": "IMO9809538",
   "type": "manages",
   "date": "",
@@ -177435,10 +179315,10 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7433"
+  "id": "e7515"
  },
  {
-  "source": "co:unlisted-011",
+  "source": "co:unlisted-012",
   "target": "IMO9809538",
   "type": "owns",
   "date": "",
@@ -177457,7 +179337,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7434"
+  "id": "e7516"
  },
  {
   "source": "co:unlisted-008",
@@ -177479,7 +179359,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7435"
+  "id": "e7517"
  },
  {
   "source": "co:unlisted-001",
@@ -177501,7 +179381,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7436"
+  "id": "e7518"
  },
  {
   "source": "co:unlisted-000",
@@ -177523,7 +179403,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7437"
+  "id": "e7519"
  },
  {
   "source": "co:unlisted-005",
@@ -177545,10 +179425,10 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7438"
+  "id": "e7520"
  },
  {
-  "source": "co:unlisted-023",
+  "source": "co:unlisted-026",
   "target": "IMO1064493",
   "type": "manages",
   "date": "",
@@ -177567,7 +179447,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7439"
+  "id": "e7521"
  },
  {
   "source": "IMO9208069",
@@ -177589,7 +179469,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7440"
+  "id": "e7522"
  },
  {
   "source": "IMO9208069",
@@ -177611,7 +179491,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7441"
+  "id": "e7523"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -177633,10 +179513,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7442"
+  "id": "e7524"
  },
  {
-  "source": "co:unlisted-022",
+  "source": "co:unlisted-025",
   "target": "IMO9408695",
   "type": "owns",
   "date": "2024-10-10",
@@ -177655,7 +179535,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7443"
+  "id": "e7525"
  },
  {
   "source": "IMO9408695",
@@ -177677,7 +179557,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7444"
+  "id": "e7526"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -177699,7 +179579,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7445"
+  "id": "e7527"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -177721,10 +179601,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7446"
+  "id": "e7528"
  },
  {
-  "source": "co:unlisted-010",
+  "source": "co:unlisted-011",
   "target": "IMO9388027",
   "type": "owns",
   "date": "2025-10-03",
@@ -177743,10 +179623,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7447"
+  "id": "e7529"
  },
  {
-  "source": "co:unlisted-010",
+  "source": "co:unlisted-011",
   "target": "IMO9388027",
   "type": "manages",
   "date": "2025-10-03",
@@ -177765,7 +179645,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7448"
+  "id": "e7530"
  },
  {
   "source": "co:britney-ryder",
@@ -177787,7 +179667,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7449"
+  "id": "e7531"
  },
  {
   "source": "co:jetee",
@@ -177809,7 +179689,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7450"
+  "id": "e7532"
  },
  {
   "source": "co:confident-apex",
@@ -177831,10 +179711,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7451"
+  "id": "e7533"
  },
  {
-  "source": "co:unlisted-018",
+  "source": "co:unlisted-019",
   "target": "IMO9294331",
   "type": "manages",
   "date": "2025-01-03",
@@ -177853,7 +179733,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7452"
+  "id": "e7534"
  },
  {
   "source": "co:simona-marine-services",
@@ -177875,7 +179755,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7453"
+  "id": "e7535"
  },
  {
   "source": "co:unlisted-009",
@@ -177897,10 +179777,10 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7454"
+  "id": "e7536"
  },
  {
-  "source": "co:unlisted-012",
+  "source": "co:unlisted-013",
   "target": "IMO9293155",
   "type": "owns",
   "date": "2025-04-29",
@@ -177919,7 +179799,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7455"
+  "id": "e7537"
  },
  {
   "source": "co:elevate-marine-management",
@@ -177941,7 +179821,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7456"
+  "id": "e7538"
  },
  {
   "source": "co:kylo-shipping",
@@ -177963,7 +179843,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7457"
+  "id": "e7539"
  },
  {
   "source": "co:unlisted-004",
@@ -177985,7 +179865,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7458"
+  "id": "e7540"
  },
  {
   "source": "co:backstreet-palm",
@@ -178007,7 +179887,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7459"
+  "id": "e7541"
  },
  {
   "source": "co:koban-shipping",
@@ -178029,7 +179909,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7460"
+  "id": "e7542"
  },
  {
   "source": "co:wanta-shipping-fz",
@@ -178051,7 +179931,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7461"
+  "id": "e7543"
  },
  {
   "source": "co:sao-viet-petrol-transportation",
@@ -178073,7 +179953,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7462"
+  "id": "e7544"
  },
  {
   "source": "co:unlisted-002",
@@ -178095,7 +179975,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7463"
+  "id": "e7545"
  },
  {
   "source": "co:yegua-trading",
@@ -178117,7 +179997,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7464"
+  "id": "e7546"
  },
  {
   "source": "co:elite-marine-shipmanagement",
@@ -178139,7 +180019,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7465"
+  "id": "e7547"
  },
  {
   "source": "co:elysian-horizon",
@@ -178161,7 +180041,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7466"
+  "id": "e7548"
  },
  {
   "source": "co:unlisted-003",
@@ -178183,7 +180063,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7467"
+  "id": "e7549"
  },
  {
   "source": "co:aristos-maritime-incorporated-linked-to-vroom-marine-venture",
@@ -178205,7 +180085,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7468"
+  "id": "e7550"
  },
  {
   "source": "co:fractal-marine",
@@ -178227,7 +180107,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7469"
+  "id": "e7551"
  },
  {
   "source": "co:fractal-marine",
@@ -178249,7 +180129,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7470"
+  "id": "e7552"
  },
  {
   "source": "co:meuse-shipping",
@@ -178271,10 +180151,10 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7471"
+  "id": "e7553"
  },
  {
-  "source": "co:unlisted-021",
+  "source": "co:unlisted-024",
   "target": "IMO9299707",
   "type": "manages",
   "date": "",
@@ -178293,10 +180173,10 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7472"
+  "id": "e7554"
  },
  {
-  "source": "co:unlisted-021",
+  "source": "co:unlisted-024",
   "target": "co:sovcomflot",
   "type": "linked_to",
   "date": "",
@@ -178315,7 +180195,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7473"
+  "id": "e7555"
  },
  {
   "source": "co:bpt-shipping",
@@ -178337,7 +180217,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7474"
+  "id": "e7556"
  },
  {
   "source": "co:fractal-marine",
@@ -178359,7 +180239,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7475"
+  "id": "e7557"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178381,7 +180261,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7476"
+  "id": "e7558"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178403,7 +180283,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7477"
+  "id": "e7559"
  },
  {
   "source": "co:seasky-marine",
@@ -178425,7 +180305,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7478"
+  "id": "e7560"
  },
  {
   "source": "co:seasky-marine",
@@ -178447,7 +180327,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7479"
+  "id": "e7561"
  },
  {
   "source": "IMO9318022",
@@ -178469,7 +180349,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7480"
+  "id": "e7562"
  },
  {
   "source": "IMO9318022",
@@ -178491,7 +180371,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7481"
+  "id": "e7563"
  },
  {
   "source": "IMO9318022",
@@ -178513,7 +180393,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7482"
+  "id": "e7564"
  },
  {
   "source": "p:shamkhani-mohammad-hossein",
@@ -178535,7 +180415,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7483"
+  "id": "e7565"
  },
  {
   "source": "co:fractal-marine",
@@ -178557,7 +180437,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7484"
+  "id": "e7566"
  },
  {
   "source": "co:fractal-marine",
@@ -178579,7 +180459,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7485"
+  "id": "e7567"
  },
  {
   "source": "co:fractal-marine",
@@ -178601,7 +180481,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7486"
+  "id": "e7568"
  },
  {
   "source": "IMO9251822",
@@ -178623,7 +180503,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7487"
+  "id": "e7569"
  },
  {
   "source": "IMO9251822",
@@ -178645,7 +180525,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7488"
+  "id": "e7570"
  },
  {
   "source": "IMO9251822",
@@ -178667,7 +180547,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7489"
+  "id": "e7571"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178689,7 +180569,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7490"
+  "id": "e7572"
  },
  {
   "source": "IMO9328170",
@@ -178711,7 +180591,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7491"
+  "id": "e7573"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178733,7 +180613,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7492"
+  "id": "e7574"
  },
  {
   "source": "IMO9433016",
@@ -178755,7 +180635,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7493"
+  "id": "e7575"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178777,7 +180657,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7494"
+  "id": "e7576"
  },
  {
   "source": "IMO9252955",
@@ -178799,7 +180679,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7495"
+  "id": "e7577"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178821,7 +180701,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7496"
+  "id": "e7578"
  },
  {
   "source": "IMO9387279",
@@ -178843,7 +180723,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7497"
+  "id": "e7579"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178865,7 +180745,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7498"
+  "id": "e7580"
  },
  {
   "source": "IMO9388027",
@@ -178887,7 +180767,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7499"
+  "id": "e7581"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178909,7 +180789,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7500"
+  "id": "e7582"
  },
  {
   "source": "IMO9332315",
@@ -178931,7 +180811,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7501"
+  "id": "e7583"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178953,7 +180833,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7502"
+  "id": "e7584"
  },
  {
   "source": "IMO9336490",
@@ -178975,7 +180855,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7503"
+  "id": "e7585"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -178997,7 +180877,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7504"
+  "id": "e7586"
  },
  {
   "source": "IMO9282481",
@@ -179019,7 +180899,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7505"
+  "id": "e7587"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -179041,7 +180921,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7506"
+  "id": "e7588"
  },
  {
   "source": "IMO9298492",
@@ -179063,7 +180943,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7507"
+  "id": "e7589"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -179085,7 +180965,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7508"
+  "id": "e7590"
  },
  {
   "source": "IMO9439541",
@@ -179107,7 +180987,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7509"
+  "id": "e7591"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -179129,7 +181009,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7510"
+  "id": "e7592"
  },
  {
   "source": "IMO9408695",
@@ -179151,7 +181031,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7511"
+  "id": "e7593"
  },
  {
   "source": "p:shamkhani-mohammad-hossein",
@@ -179173,7 +181053,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7512"
+  "id": "e7594"
  },
  {
   "source": "co:wanta-shipping-fz",
@@ -179195,7 +181075,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7513"
+  "id": "e7595"
  },
  {
   "source": "co:wanta-shipping-fz",
@@ -179217,7 +181097,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7514"
+  "id": "e7596"
  },
  {
   "source": "co:algae-ship-charter",
@@ -179239,7 +181119,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7515"
+  "id": "e7597"
  },
  {
   "source": "co:marvise",
@@ -179261,7 +181141,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7516"
+  "id": "e7598"
  },
  {
   "source": "co:armada-global-shipping",
@@ -179283,7 +181163,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7517"
+  "id": "e7599"
  },
  {
   "source": "co:armada-global-shipping",
@@ -179305,7 +181185,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7518"
+  "id": "e7600"
  },
  {
   "source": "co:koban-shipping",
@@ -179327,7 +181207,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7519"
+  "id": "e7601"
  },
  {
   "source": "co:koban-shipping",
@@ -179349,7 +181229,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7520"
+  "id": "e7602"
  },
  {
   "source": "co:crios-shipping",
@@ -179371,7 +181251,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7521"
+  "id": "e7603"
  },
  {
   "source": "co:crios-shipping",
@@ -179393,7 +181273,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7522"
+  "id": "e7604"
  },
  {
   "source": "co:fractal-marine",
@@ -179415,7 +181295,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7523"
+  "id": "e7605"
  },
  {
   "source": "co:fractal-marine",
@@ -179437,7 +181317,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7524"
+  "id": "e7606"
  },
  {
   "source": "co:draco-buren-shipping",
@@ -179459,7 +181339,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7525"
+  "id": "e7607"
  },
  {
   "source": "co:draco-buren-shipping",
@@ -179481,7 +181361,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7526"
+  "id": "e7608"
  },
  {
   "source": "co:reel-shipping-l-l-c",
@@ -179503,7 +181383,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7527"
+  "id": "e7609"
  },
  {
   "source": "co:progwin-shipping",
@@ -179525,7 +181405,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7528"
+  "id": "e7610"
  },
  {
   "source": "co:progwin-shipping",
@@ -179547,7 +181427,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7529"
+  "id": "e7611"
  },
  {
   "source": "co:bpt-shipping",
@@ -179569,7 +181449,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7530"
+  "id": "e7612"
  },
  {
   "source": "co:bpt-shipping",
@@ -179591,7 +181471,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7531"
+  "id": "e7613"
  },
  {
   "source": "co:westanker-denizcilik-ve-ticaret",
@@ -179613,7 +181493,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7532"
+  "id": "e7614"
  },
  {
   "source": "co:westanker-denizcilik-ve-ticaret",
@@ -179635,7 +181515,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7533"
+  "id": "e7615"
  },
  {
   "source": "co:westanker",
@@ -179657,7 +181537,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7534"
+  "id": "e7616"
  },
  {
   "source": "co:westanker",
@@ -179679,7 +181559,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7535"
+  "id": "e7617"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -179701,7 +181581,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7536"
+  "id": "e7618"
  },
  {
   "source": "co:gmcg-shipping",
@@ -179723,7 +181603,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7537"
+  "id": "e7619"
  },
  {
   "source": "co:gmcg-shipping",
@@ -179745,7 +181625,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7538"
+  "id": "e7620"
  },
  {
   "source": "co:gmcg-ltd",
@@ -179767,7 +181647,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7539"
+  "id": "e7621"
  },
  {
   "source": "co:gmcg-ltd",
@@ -179789,7 +181669,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7540"
+  "id": "e7622"
  },
  {
   "source": "co:international-shipping-bureau",
@@ -179811,7 +181691,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7541"
+  "id": "e7623"
  },
  {
   "source": "co:international-shipping-bureau",
@@ -179833,7 +181713,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7542"
+  "id": "e7624"
  },
  {
   "source": "co:teodor-shipping",
@@ -179855,7 +181735,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7543"
+  "id": "e7625"
  },
  {
   "source": "co:teodor-shipping",
@@ -179877,7 +181757,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7544"
+  "id": "e7626"
  },
  {
   "source": "co:cober-fzco",
@@ -179899,7 +181779,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7545"
+  "id": "e7627"
  },
  {
   "source": "co:cober-fzco",
@@ -179921,7 +181801,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7546"
+  "id": "e7628"
  },
  {
   "source": "co:wanta-shipping-fz",
@@ -179943,7 +181823,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7547"
+  "id": "e7629"
  },
  {
   "source": "co:zulu-ships-management-and-operation-l-l-c",
@@ -179965,7 +181845,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7548"
+  "id": "e7630"
  },
  {
   "source": "co:nest-wise-petroleum",
@@ -179987,7 +181867,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7549"
+  "id": "e7631"
  },
  {
   "source": "co:milavous-group",
@@ -180009,7 +181889,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7550"
+  "id": "e7632"
  },
  {
   "source": "co:ocean-leonid-investments-ltd",
@@ -180031,7 +181911,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7551"
+  "id": "e7633"
  },
  {
   "source": "co:ocean-leonid-investments-ag",
@@ -180053,7 +181933,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7552"
+  "id": "e7634"
  },
  {
   "source": "co:oenergy-commodities",
@@ -180075,7 +181955,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7553"
+  "id": "e7635"
  },
  {
   "source": "co:nest-wise-petroleum",
@@ -180097,7 +181977,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7554"
+  "id": "e7636"
  },
  {
   "source": "co:nest-wise-petroleum",
@@ -180119,7 +181999,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7555"
+  "id": "e7637"
  },
  {
   "source": "co:nest-wise-petroleum",
@@ -180141,7 +182021,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7556"
+  "id": "e7638"
  },
  {
   "source": "co:milavous-group",
@@ -180163,7 +182043,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7557"
+  "id": "e7639"
  },
  {
   "source": "co:ocean-leonid-investments-ltd",
@@ -180185,7 +182065,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7558"
+  "id": "e7640"
  },
  {
   "source": "co:ocean-leonid-investments-ag",
@@ -180207,7 +182087,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7559"
+  "id": "e7641"
  },
  {
   "source": "co:oenergy-commodities",
@@ -180229,7 +182109,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7560"
+  "id": "e7642"
  },
  {
   "source": "co:nest-wise-trading-srl",
@@ -180251,7 +182131,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7561"
+  "id": "e7643"
  },
  {
   "source": "co:nest-wise-trading-pte",
@@ -180273,7 +182153,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7562"
+  "id": "e7644"
  },
  {
   "source": "co:aura-lines",
@@ -180295,7 +182175,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7563"
+  "id": "e7645"
  },
  {
   "source": "IMO9274563",
@@ -180317,7 +182197,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7564"
+  "id": "e7646"
  },
  {
   "source": "co:aura-lines",
@@ -180339,7 +182219,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7565"
+  "id": "e7647"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180361,7 +182241,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7566"
+  "id": "e7648"
  },
  {
   "source": "IMO9413004",
@@ -180383,7 +182263,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7567"
+  "id": "e7649"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180405,7 +182285,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7568"
+  "id": "e7650"
  },
  {
   "source": "IMO9379301",
@@ -180427,7 +182307,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7569"
+  "id": "e7651"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180449,7 +182329,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7570"
+  "id": "e7652"
  },
  {
   "source": "IMO9326885",
@@ -180471,7 +182351,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7571"
+  "id": "e7653"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180493,7 +182373,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7572"
+  "id": "e7654"
  },
  {
   "source": "IMO9321677",
@@ -180515,7 +182395,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7573"
+  "id": "e7655"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180537,7 +182417,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7574"
+  "id": "e7656"
  },
  {
   "source": "IMO9291262",
@@ -180559,7 +182439,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7575"
+  "id": "e7657"
  },
  {
   "source": "co:fleet-tanqo",
@@ -180581,7 +182461,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7576"
+  "id": "e7658"
  },
  {
   "source": "co:hapuka-marine",
@@ -180603,7 +182483,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7577"
+  "id": "e7659"
  },
  {
   "source": "IMO9282508",
@@ -180625,7 +182505,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7578"
+  "id": "e7660"
  },
  {
   "source": "co:nardie-international-s-a",
@@ -180647,7 +182527,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7579"
+  "id": "e7661"
  },
  {
   "source": "IMO9332614",
@@ -180669,7 +182549,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7580"
+  "id": "e7662"
  },
  {
   "source": "co:anika-lines",
@@ -180691,7 +182571,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7581"
+  "id": "e7663"
  },
  {
   "source": "IMO9417464",
@@ -180713,7 +182593,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7582"
+  "id": "e7664"
  },
  {
   "source": "p:rahbar-madani-mohammad-reza",
@@ -180735,7 +182615,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7583"
+  "id": "e7665"
  },
  {
   "source": "p:rahbar-madani-mohammad-reza",
@@ -180757,7 +182637,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7584"
+  "id": "e7666"
  },
  {
   "source": "p:hossein-ghorbani-zahed",
@@ -180779,7 +182659,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7585"
+  "id": "e7667"
  },
  {
   "source": "p:hossein-ghorbani-zahed",
@@ -180801,7 +182681,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7586"
+  "id": "e7668"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -180823,7 +182703,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7587"
+  "id": "e7669"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -180845,7 +182725,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7588"
+  "id": "e7670"
  },
  {
   "source": "p:asghar-aghili-dehkordi",
@@ -180867,7 +182747,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7589"
+  "id": "e7671"
  },
  {
   "source": "p:asghar-aghili-dehkordi",
@@ -180889,7 +182769,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7590"
+  "id": "e7672"
  },
  {
   "source": "p:maksim-tsernosjov",
@@ -180911,7 +182791,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7591"
+  "id": "e7673"
  },
  {
   "source": "p:maksim-tsernosjov",
@@ -180933,7 +182813,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7592"
+  "id": "e7674"
  },
  {
   "source": "p:gautam-vishavdeep",
@@ -180955,7 +182835,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7593"
+  "id": "e7675"
  },
  {
   "source": "p:gautam-vishavdeep",
@@ -180977,7 +182857,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7594"
+  "id": "e7676"
  },
  {
   "source": "p:behzad-moghadas",
@@ -180999,7 +182879,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7595"
+  "id": "e7677"
  },
  {
   "source": "p:behzad-moghadas",
@@ -181021,7 +182901,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7596"
+  "id": "e7678"
  },
  {
   "source": "p:jijin-george",
@@ -181043,7 +182923,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7597"
+  "id": "e7679"
  },
  {
   "source": "p:jijin-george",
@@ -181065,7 +182945,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7598"
+  "id": "e7680"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -181087,7 +182967,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7599"
+  "id": "e7681"
  },
  {
   "source": "co:al-kina-commercial-broker",
@@ -181109,7 +182989,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7600"
+  "id": "e7682"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -181131,7 +183011,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7601"
+  "id": "e7683"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -181153,7 +183033,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7602"
+  "id": "e7684"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -181175,7 +183055,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7603"
+  "id": "e7685"
  },
  {
   "source": "p:ali-rakhbarmadani",
@@ -181197,7 +183077,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7604"
+  "id": "e7686"
  },
  {
   "source": "p:shamkhani-mohammad-hossein",
@@ -181219,7 +183099,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7605"
+  "id": "e7687"
  },
  {
   "source": "co:sea-lead-shipping",
@@ -181241,7 +183121,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7606"
+  "id": "e7688"
  },
  {
   "source": "co:sea-lead-shipping",
@@ -181263,7 +183143,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7607"
+  "id": "e7689"
  },
  {
   "source": "co:dezera-shipping",
@@ -181285,7 +183165,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7608"
+  "id": "e7690"
  },
  {
   "source": "co:dezera-shipping",
@@ -181307,7 +183187,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7609"
+  "id": "e7691"
  },
  {
   "source": "co:glavos-shipping",
@@ -181329,7 +183209,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7610"
+  "id": "e7692"
  },
  {
   "source": "co:glavos-shipping",
@@ -181351,7 +183231,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7611"
+  "id": "e7693"
  },
  {
   "source": "co:dezera-shipping",
@@ -181373,7 +183253,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7612"
+  "id": "e7694"
  },
  {
   "source": "p:martin-austin-kaalund",
@@ -181395,7 +183275,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7613"
+  "id": "e7695"
  },
  {
   "source": "p:alessandra-ronco",
@@ -181417,7 +183297,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7614"
+  "id": "e7696"
  },
  {
   "source": "p:martin-austin-kaalund",
@@ -181439,7 +183319,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7615"
+  "id": "e7697"
  },
  {
   "source": "p:alessandra-ronco",
@@ -181461,7 +183341,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7616"
+  "id": "e7698"
  },
  {
   "source": "co:house-of-shipping-investment",
@@ -181483,7 +183363,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7617"
+  "id": "e7699"
  },
  {
   "source": "co:house-of-shipping-investment",
@@ -181505,7 +183385,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7618"
+  "id": "e7700"
  },
  {
   "source": "p:asghar-aghili-dehkordi",
@@ -181527,7 +183407,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7619"
+  "id": "e7701"
  },
  {
   "source": "IMO9263215",
@@ -181549,7 +183429,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7620"
+  "id": "e7702"
  },
  {
   "source": "IMO9294240",
@@ -181571,7 +183451,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7621"
+  "id": "e7703"
  },
  {
   "source": "IMO9174397",
@@ -181593,7 +183473,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7622"
+  "id": "e7704"
  },
  {
   "source": "co:lisboa-shipping",
@@ -181615,7 +183495,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7623"
+  "id": "e7705"
  },
  {
   "source": "IMO9257711",
@@ -181637,7 +183517,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7624"
+  "id": "e7706"
  },
  {
   "source": "IMO9257711",
@@ -181659,7 +183539,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7625"
+  "id": "e7707"
  },
  {
   "source": "co:hengli-petrochemical-dalian-refinery",
@@ -181681,7 +183561,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7626"
+  "id": "e7708"
  },
  {
   "source": "co:lisboa-shipping",
@@ -181703,7 +183583,7 @@
     "confidence": "Lead"
    }
   ],
-  "id": "e7627"
+  "id": "e7709"
  },
  {
   "source": "co:jiandi-hk",
@@ -181725,7 +183605,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7628"
+  "id": "e7710"
  },
  {
   "source": "co:max-honor-international-trade",
@@ -181747,7 +183627,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7629"
+  "id": "e7711"
  },
  {
   "source": "co:blanca-goods-wholesaler",
@@ -181769,7 +183649,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7630"
+  "id": "e7712"
  },
  {
   "source": "co:universal-fortune-trading",
@@ -181791,7 +183671,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7631"
+  "id": "e7713"
  },
  {
   "source": "co:universal-fortune-trading",
@@ -181813,7 +183693,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7632"
+  "id": "e7714"
  },
  {
   "source": "co:jiandi-hk",
@@ -181835,7 +183715,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7633"
+  "id": "e7715"
  },
  {
   "source": "co:max-honor-international-trade",
@@ -181857,7 +183737,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7634"
+  "id": "e7716"
  },
  {
   "source": "co:blanca-goods-wholesaler",
@@ -181879,7 +183759,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7635"
+  "id": "e7717"
  },
  {
   "source": "co:universal-fortune-trading",
@@ -181901,7 +183781,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7636"
+  "id": "e7718"
  },
  {
   "source": "co:hong-kong-blue-ocean",
@@ -181923,7 +183803,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7637"
+  "id": "e7719"
  },
  {
   "source": "co:qi-hang-shipmanagement",
@@ -181945,7 +183825,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7638"
+  "id": "e7720"
  },
  {
   "source": "IMO9321938",
@@ -181967,7 +183847,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7639"
+  "id": "e7721"
  },
  {
   "source": "co:qi-hang-shipmanagement",
@@ -181989,7 +183869,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7640"
+  "id": "e7722"
  },
  {
   "source": "co:wanta-shipping-fz",
@@ -182011,7 +183891,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7641"
+  "id": "e7723"
  },
  {
   "source": "co:armada-global-shipping",
@@ -182033,7 +183913,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7642"
+  "id": "e7724"
  },
  {
   "source": "co:koban-shipping",
@@ -182055,7 +183935,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7643"
+  "id": "e7725"
  },
  {
   "source": "co:crios-shipping",
@@ -182077,7 +183957,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7644"
+  "id": "e7726"
  },
  {
   "source": "co:fractal-marine",
@@ -182099,7 +183979,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7645"
+  "id": "e7727"
  },
  {
   "source": "co:draco-buren-shipping",
@@ -182121,7 +184001,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7646"
+  "id": "e7728"
  },
  {
   "source": "co:bpt-shipping",
@@ -182143,7 +184023,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7647"
+  "id": "e7729"
  },
  {
   "source": "co:westanker-denizcilik-ve-ticaret",
@@ -182165,7 +184045,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7648"
+  "id": "e7730"
  },
  {
   "source": "co:gmcg-shipping",
@@ -182187,7 +184067,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7649"
+  "id": "e7731"
  },
  {
   "source": "co:international-shipping-bureau",
@@ -182209,7 +184089,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7650"
+  "id": "e7732"
  },
  {
   "source": "co:teodor-shipping",
@@ -182231,7 +184111,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7651"
+  "id": "e7733"
  },
  {
   "source": "co:cober-fzco",
@@ -182253,7 +184133,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7652"
+  "id": "e7734"
  },
  {
   "source": "co:nest-wise-petroleum",
@@ -182275,7 +184155,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7653"
+  "id": "e7735"
  },
  {
   "source": "co:nest-wise-trading-srl",
@@ -182297,7 +184177,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7654"
+  "id": "e7736"
  },
  {
   "source": "co:nest-wise-trading-pte",
@@ -182319,7 +184199,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7655"
+  "id": "e7737"
  },
  {
   "source": "co:oenergy-commodities",
@@ -182341,7 +184221,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7656"
+  "id": "e7738"
  },
  {
   "source": "co:al-kina-commercial-broker",
@@ -182363,7 +184243,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7657"
+  "id": "e7739"
  },
  {
   "source": "co:sea-lead-shipping",
@@ -182385,7 +184265,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7658"
+  "id": "e7740"
  },
  {
   "source": "co:sea-lead-shipping",
@@ -182407,7 +184287,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7659"
+  "id": "e7741"
  },
  {
   "source": "co:sea-lead-shipping",
@@ -182429,7 +184309,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7660"
+  "id": "e7742"
  },
  {
   "source": "co:glavos-shipping",
@@ -182451,7 +184331,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7661"
+  "id": "e7743"
  },
  {
   "source": "co:dezera-shipping",
@@ -182473,7 +184353,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7662"
+  "id": "e7744"
  },
  {
   "source": "co:house-of-shipping-investment",
@@ -182495,7 +184375,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7663"
+  "id": "e7745"
  },
  {
   "source": "co:evorit-strategy-consulting",
@@ -182517,7 +184397,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7664"
+  "id": "e7746"
  },
  {
   "source": "co:hengli-petrochemical-dalian-refinery",
@@ -182539,7 +184419,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7665"
+  "id": "e7747"
  },
  {
   "source": "co:jiandi-hk",
@@ -182561,7 +184441,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7666"
+  "id": "e7748"
  },
  {
   "source": "co:max-honor-international-trade",
@@ -182583,7 +184463,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7667"
+  "id": "e7749"
  },
  {
   "source": "co:blanca-goods-wholesaler",
@@ -182605,7 +184485,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7668"
+  "id": "e7750"
  },
  {
   "source": "co:universal-fortune-trading",
@@ -182627,7 +184507,7 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7669"
+  "id": "e7751"
  },
  {
   "source": "co:hong-kong-blue-ocean",
@@ -182649,6 +184529,6 @@
     "confidence": "Documented"
    }
   ],
-  "id": "e7670"
+  "id": "e7752"
  }
 ]

@@ -1,9 +1,12 @@
 {
- "generated": "2026-09-25T15:29",
+ "generated": "2026-09-25T15:49",
  "angles": [
   "company-anatomy",
   "enforcement",
   "eu-acts",
+  "lobbying",
+  "manifests",
+  "parent-groups",
   "russia-actions",
   "service-providers",
   "ship-histories",
@@ -14,6 +17,9 @@
   "company-anatomy",
   "enforcement",
   "eu-acts",
+  "lobbying",
+  "manifests",
+  "parent-groups",
   "russia-actions",
   "service-providers",
   "ship-histories",
@@ -22,12 +28,12 @@
  ],
  "counts": {
   "ships": 1724,
-  "companies": 959,
+  "companies": 1024,
   "people": 25,
   "countries": 74,
-  "edges": 7671,
-  "documented_edges": 7611,
-  "lead_edges": 60,
+  "edges": 7752,
+  "documented_edges": 7674,
+  "lead_edges": 78,
   "ships_russia_and_iran": 54
  },
  "findings": [

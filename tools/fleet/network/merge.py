@@ -11,7 +11,7 @@ import json, os, glob, re, collections, datetime
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'out'); os.makedirs(OUT, exist_ok=True)
 OFFICIAL_HOSTS = ('treasury.gov', 'ofac', 'gov.uk', 'europa.eu', 'justice.gov', 'federalregister.gov', 'state.gov',
-                  'uscourts.gov', 'courtlistener', 'consilium', 'eur-lex', 'bis.gov', 'trade.gov', 'imo.org', 'gc.ca', 'dfat.gov.au')
+                  'uscourts.gov', 'courtlistener', 'lda.senate.gov', 'fara.gov', 'consilium', 'eur-lex', 'bis.gov', 'trade.gov', 'imo.org', 'gc.ca', 'dfat.gov.au')
 ROLE_WORDS = {'manages': 'ship manager', 'operates': 'ship operator', 'owns': 'ship owner', 'linked_to': 'company linked to listed ships',
               'formerly_operated': 'former ship operator', 'insured_by': 'insurer'}
 EDGE_TYPES = {'owns', 'manages', 'operates', 'flagged_in', 'formerly_flagged_in', 'registered_in', 'designated_by', 'sold_to',
@@ -129,6 +129,29 @@ for fp in sorted(_files.values()):
     for f in d.get('findings', []) or []: findings.append({'angle': ang, 'text': f})
     for c in d.get('counts', []) or []: c = dict(c); c['angle'] = ang; counts.append(c)
 
+# ---- unify lobbying-graph ids (lob:) with fleet company ids (co:) naming the same firm ----
+uni = {}
+for lid_, ln in list(nodes.items()):
+    if not lid_.startswith('lob:'): continue
+    cand = 'co:' + lid_[4:].replace('_', '-')
+    k = _key(ln['name'])
+    hits = [cand] if cand in nodes else [i for i, n in nodes.items() if i.startswith('co:') and n.get('type') == 'company' and k and (_key(n['name']) == k or _key(i[3:]) == _key(lid_[4:].replace('_', ' ')))]
+    if len(hits) >= 1:
+        uni[lid_] = hits[0]
+for old_, new_ in uni.items():
+    o = nodes.pop(old_); t = nodes[new_]
+    for a in [o['name']] + o.get('aliases', []):
+        if a and a not in t.setdefault('aliases', []) and a != t['name']: t['aliases'].append(a)
+    for k2 in ('angle', 'research_notes'):
+        for x in o.get(k2, []) or []:
+            if x not in t.setdefault(k2, []): t[k2].append(x)
+    t['lobbying_graph'] = True
+for e in edges:
+    e['source'] = uni.get(e['source'], e['source']); e['target'] = uni.get(e['target'], e['target'])
+for i, n in nodes.items():
+    if i.startswith('lob:'): n['lobbying_graph'] = True
+print('lobbying ids unified:', len(uni))
+
 # ---- de-duplicate edges (same source, target, type, date keeps every source in a list) ----
 merged = {}
 for e in edges:
@@ -189,8 +212,8 @@ for e in edges:
         official_named[e['source']] = True; official_named[e['target']] = True
 for nid, n in nodes.items():
     if n.get('type') != 'company': continue
-    if n['listed']:
-        n['name_policy'] = 'show'
+    if n['listed'] or n.get('lobbying_graph'):
+        n['name_policy'] = 'show'   # lobbying-graph organisations are named in US lobbying/FARA filings (official records)
     elif not fleet_actor[nid]:
         n['name_policy'] = 'show'   # not a fleet actor (e.g. a research organisation or registry named in a source)
     elif official_named[nid]:
