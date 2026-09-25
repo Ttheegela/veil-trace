@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Veil Trace — Ownership &amp; Trade-Path Risk</title>
+<link rel="icon" type="image/svg+xml" href="/site/icons/icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/site/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/site/icons/favicon-16.png">
+<link rel="apple-touch-icon" href="/site/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site/manifest.json">
+<meta name="theme-color" content="#1A1816">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Veil Trace">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,6 +157,39 @@
     </div>
   </div>
 </section>
+
+<footer class="text-white" style="background:#1A1816">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16 grid grid-cols-2 md:grid-cols-5 gap-10">
+    <div class="col-span-2">
+      <div class="font-serif-display text-2xl mb-3">Veil Trace</div>
+      <p class="text-sm text-neutral-400 max-w-xs">An AI-native terminal that traces ownership and trade-path risk — built for sanctions and trade-compliance teams.</p>
+    </div>
+    <div class="flex flex-col gap-3 text-sm">
+      <span class="uppercase tracking-widest text-neutral-500 text-xs mb-1">Product</span>
+      <a href="#terminal" class="text-neutral-300 hover:text-white transition duration-300">Terminal</a>
+      <a href="#" class="text-neutral-300 hover:text-white transition duration-300">Knowledge Graph</a>
+    </div>
+    <div class="flex flex-col gap-3 text-sm">
+      <span class="uppercase tracking-widest text-neutral-500 text-xs mb-1">Sources</span>
+      <span class="text-neutral-300">OFAC · US BIS</span>
+      <span class="text-neutral-300">UN Comtrade</span>
+      <span class="text-neutral-300">Sayari · Tradeverifyd</span>
+    </div>
+    <div class="flex flex-col gap-3 text-sm">
+      <span class="uppercase tracking-widest text-neutral-500 text-xs mb-1">Team</span>
+      <span class="text-neutral-300">Trace the Unseen</span>
+      <span class="text-neutral-300">Build day, 2026</span>
+    </div>
+  </div>
+  <div class="border-t border-neutral-800">
+    <div class="max-w-6xl mx-auto px-6 md:px-10 py-6 flex items-center justify-between text-sm text-neutral-500">
+      <span>© 2026 Veil Trace</span>
+      <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="flex items-center gap-2 border border-neutral-700 rounded-full px-4 py-2 hover:bg-white hover:text-black transition duration-300">
+        Back to top <i data-lucide="arrow-up" class="w-4 h-4"></i>
+      </button>
+    </div>
+  </div>
+</footer>
 
 <script>lucide.createIcons();</script>
 </body>
