@@ -5,6 +5,8 @@ bought by their parent companies, and to the people involved: officially named i
 government jobs they disclose. Open `index.html` in a browser (needs internet for the graph library from
 cdn.jsdelivr.net; for local files, serve the folder, e.g. `python -m http.server 8792`).
 
+**Methods and sources, in plain language:** [`methods.html`](methods.html).
+
 **Controls:** `/` search · **Find a path** between any two names · **Overview** (`0`) · arrow keys step through the
 9-step story · **Explore** hides it · filters for Russia, Iran, China and chips, Other, and Leads · click anything for its
 records and source links.
