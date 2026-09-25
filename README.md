@@ -33,6 +33,22 @@ https://veiltrace-psi.vercel.app/
 - **Sayari:** shipment records (mostly Russia's own import records), company and ownership records, watchlists.
 - **Tradeverifyd:** company-to-company trade links, supply-chain risk paths, dated sanctions flags.
 - **UN Comtrade** (countries' own reported trade), **official US, UK and EU sanctions and export-control lists**, **Ukraine's GUR weapon-components database** (a party to the war), and web sources found with **Tavily**.
+- **US lobbying disclosures** ([lda.gov](https://lda.gov)) and **foreign-agent (FARA) filings**, for the Sanctions Influence Network.
+
+## Tech stack
+
+| Layer | What we used |
+|---|---|
+| **Languages** | Python 3.12 (data pulls, joins, checks, graph builds; mostly the standard library, plus `mcp`, `httpx` and `pytest`) · JavaScript, HTML and CSS for every interactive view (hand-written, no build step) · Node.js for the globe |
+| **Visualisation** | [force-graph](https://github.com/vasturiano/force-graph) 1.51.4 (knowledge graph) · [Cytoscape.js](https://js.cytoscape.org) 3.30.2 with the fcose layout (shadow-fleet map) · hand-written SVG and Canvas (demo, routes, river, listing lag, coverage map) · Natural Earth 1:110m boundaries via world-atlas · Inter, JetBrains Mono and IBM Plex Sans fonts |
+| **3D globe** | [God's Eye View](https://github.com/bilawalsidhu/gods-eye-view) (MIT) with our sanctions watchlist layer · CesiumJS · Vite · live ship positions (AIS) from [aisstream.io](https://aisstream.io) |
+| **Sponsor data (MCP)** | Sayari and Tradeverifyd through the Model Context Protocol (read-only tools only) |
+| **Public data** | UK, US (SDN list and Consolidated Screening List), EU and UN sanctions lists · US Lobbying Disclosure Act database · FARA filings · US Treasury press releases, Federal Register, eCFR · UN Comtrade · Ukraine's GUR war-sanctions database |
+| **Research and AI** | Claude Code (Anthropic) agents for research, cross-checking and building, with independent verifier agents, under human direction · Tavily web search and extraction |
+| **Provenance** | Every raw API answer saved with its call time (Sayari, Tradeverifyd, Tavily, Comtrade, lobbying database) so each number traces to a record |
+| **Collaboration and hosting** | Git and GitHub (per-person branches merged into `main`) · Vercel for the project site · a shared task board |
+
+Microsoft Power BI and Fabric were available at the event; nothing in this repo was built on them.
 
 ## How we state things
 
