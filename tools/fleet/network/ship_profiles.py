@@ -48,9 +48,11 @@ def parents_of(i, depth=0):
 def lobbying_of(i):
     res = []
     for e in out_e[i] + in_e[i]:
-        if 'lobby' in (e.get('angle', '') + ' '.join(s.get('angle', '') for s in e.get('sources', []))) or (e.get('type_raw') or '').startswith(('lobb', 'client', 'foreign_entity', 'hired', 'registrant', 'funds', 'member')):
+        angs = {e.get('angle', '')} | {s.get('angle', '') for s in e.get('sources', [])}
+        how = e.get('type_raw') or ''
+        if angs & {'lobbying', 'parent-groups'} and how in ('client_of', 'lobbied', 'funds', 'lobbies_for', 'foreign_entity_of', 'proposed_deregistration_of'):
             o = e['target'] if e['source'] == i else e['source']
-            res.append({'with': N.get(o, {}).get('name', o), 'how': (e.get('type_raw') or e['type']).replace('_', ' '), **src1(e)})
+            res.append({'with': N.get(o, {}).get('name', o), 'how': how.replace('_', ' '), **src1(e)})
     return res
 
 def op_card(i, ship):
@@ -59,6 +61,17 @@ def op_card(i, ship):
     regs = [CN.get(e['target'][3:], '') for e in out_e[i] if e['type'] == 'registered_in']
     par = parents_of(i)
     lob = lobbying_of(i) + [l for p in par for l in lobbying_of(p['id'])]
+    # one step further: lobbying done by the parent's own subsidiaries/affiliates (e.g. Gazprom -> Nord Stream 2 -> lobbying firm)
+    for p in par:
+        for e in in_e[p['id']]:
+            if (e.get('type_raw') or '') in ('subsidiary_of', 'affiliated_with') or (e['type'] in ('controls', 'owns') and False):
+                for l in lobbying_of(e['source']):
+                    l = dict(l); l['via'] = N.get(e['source'], {}).get('name', ''); lob.append(l)
+        for e in out_e[p['id']]:
+            if e['type'] in ('owns', 'controls') or (e.get('type_raw') or '') == 'owns':
+                for l in lobbying_of(e['target']):
+                    l = dict(l); l['via'] = N.get(e['target'], {}).get('name', ''); lob.append(l)
+    seen = set(); lob = [l for l in lob if not ((l['with'], l['how'], l.get('via', '')) in seen or seen.add((l['with'], l['how'], l.get('via', ''))))]
     return {'name': n['name'], 'type': n['type'], 'country': CN.get(n.get('country', ''), '') or (regs[0] if regs else ''),
             'listed_by': n.get('listed_by', []), 'listing_dates': n.get('listing_dates', {}), 'ship_count': len(ships_of(i)),
             'sister_ships': sis[:6], 'people': people_of(i)[:4], 'parents': [{k: v for k, v in p.items() if k != 'id'} for p in par][:4],

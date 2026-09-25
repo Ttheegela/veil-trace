@@ -81,6 +81,24 @@ Every line carries its type, date where known, one or more sources (link and sav
 - Cargo: we show "carried cargo for" only where an official release says so; we hold no voyage or cargo data.
 - One-ship companies, frequent renaming and flag changes are also common in lawful shipping. They are patterns, not proof.
 
+## Parent groups, lobbying and cargo (added 25 Sep 2026, afternoon)
+
+- **Parent groups.** A ninth research angle linked big operators to their parent groups from official texts: Treasury calls
+  Rosnefteflot Rosneft's "marine transportation arm", Gazpromneft Marine Bunker "a Gazprom Neft subsidiary" and Sovcomflot
+  "Russia's state-owned shipping company"; the UK statement of reasons says the state leasing company GTLK is directly
+  controlled by the Russian government. Gazprom Neft to Gazprom rests on non-official sources and is a Lead.
+- **Lobbying.** The team's verified lobbying graph (US lobbying and foreign-agent filings) is joined in. A ship card shows a
+  lobbying line only when the ship's operator, its parent group, or a subsidiary of that parent appears in those filings;
+  13 listed ships trace that far (Gazprom Neft and Lukoil tankers). For Sovcomflot, Zulu, Fleet Tanqo, Rosneft, Lukoil,
+  Litasco and Nayara, no US lobbying filing was found under their own names in our search. State operators such as IRISL,
+  PDVSA and GTLK were not checked. Lobbying is legal; nothing here says any lobbying was unlawful.
+- **Cargo and manifests.** Neither sponsor tool searches shipments by ship name or IMO number. 0 of the 54 Russia and Iran
+  overlap ships have a manifest we can see; two (BRIONT, TAGOR) appear as a named party in an Indian customs record for
+  ship supplies, a Lead not tied to the hull by IMO. The one official cargo record is the Justice Department's: SKIPPER
+  (listed by OFAC as ADISA, IMO 9304667) carried about 3 million barrels of Iranian crude to Syria in 2024 and was seized
+  with about 1.8 million barrels in December 2025. These tankers move oil through ship-to-ship transfers to non-US buyers,
+  which customs data rarely covers.
+
 ## Reproduce
 
 ```
