@@ -1,1 +1,31 @@
-x
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fleet Control Tracer · VeilTrace</title>
+</head>
+<body>
+<p style="font:14px system-ui;padding:24px;color:#556">Loading Fleet Control Tracer…</p>
+<script src="fleet_control_tracer.part0.js"></script>
+<script src="fleet_control_tracer.part1.js"></script>
+<script src="fleet_control_tracer.part2.js"></script>
+<script src="fleet_control_tracer.part3.js"></script>
+<script src="fleet_control_tracer.part4.js"></script>
+<script src="fleet_control_tracer.part5.js"></script>
+<script src="fleet_control_tracer.part6.js"></script>
+<script>
+(function(){
+  var parts = window.__FCT_PARTS || [];
+  if (!parts.length) {
+    document.body.textContent = "Missing tracer parts. Open this file from research/shadow-fleet/viz/ next to the part scripts.";
+    return;
+  }
+  var html = parts.join("");
+  document.open();
+  document.write(html);
+  document.close();
+})();
+</script>
+</body>
+</html>
