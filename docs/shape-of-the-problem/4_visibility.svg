@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 890" role="img" aria-label="Who can see which leg. Each source sees a few legs; the gaps between them are where evasion lives." font-family='"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif'>
+<title>Who can see which leg</title>
+<style>
+svg{font-family:"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif}
+.bg{fill:#ffffff}
+.t{fill:#0f1b2d;font-size:16px;font-weight:500}
+.tb{fill:#0f1b2d;font-size:16px;font-weight:600}
+.th{fill:#0f1b2d;font-size:22px;font-weight:600}
+.ts{fill:#4a5a70;font-size:14px;font-weight:400}
+.tcap{fill:#4a5a70;font-size:16px;font-weight:400}
+.tacc{fill:#1f5fd1;font-size:15px;font-weight:600}
+.tteal{fill:#0f7c8c;font-size:15px;font-weight:600}
+.tamb{fill:#8f5600;font-size:15px;font-weight:600}
+.tpos{fill:#0f7a4a;font-size:15px;font-weight:600}
+.tinv{fill:#ffffff;font-size:15px;font-weight:600}
+.tnum{fill:#ffffff;font-size:15px;font-weight:700}
+.box{fill:#ffffff;stroke:#7d8ba1;stroke-width:1.3}
+.boxm{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1}
+.boxacc{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.8}
+.boxteal{fill:#e2f2f4;stroke:#0f7c8c;stroke-width:1.6}
+.boxamb{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6;stroke-dasharray:7 4}
+.boxambs{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6}
+.boxpos{fill:#e3f3ea;stroke:#0f7a4a;stroke-width:1.6}
+.zone{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1.2;stroke-dasharray:6 4}
+.lgoods{fill:none;stroke:#0f1b2d;stroke-width:2.6}
+.lmoney{fill:none;stroke:#0f7c8c;stroke-width:2.4;stroke-dasharray:9 6}
+.linfo{fill:none;stroke:#1f5fd1;stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+.lrisk{fill:none;stroke:#8f5600;stroke-width:2.4}
+.lharm{fill:none;stroke:#0f1b2d;stroke-width:2.4;stroke-dasharray:14 5 3 5}
+.ln{fill:none;stroke:#4a5a70;stroke-width:2}
+.lnthin{fill:none;stroke:#7d8ba1;stroke-width:1.2}
+.lamb{fill:none;stroke:#8f5600;stroke-width:2;stroke-dasharray:7 5}
+.lacc{fill:none;stroke:#1f5fd1;stroke-width:2.2}
+.lteal{fill:none;stroke:#0f7c8c;stroke-width:2.4}
+.fgoods{fill:#0f1b2d}
+.fmoney{fill:#0f7c8c}
+.finfo{fill:#1f5fd1}
+.frisk{fill:#8f5600}
+.fmfg{fill:#4a5a70}
+.fteal{fill:#0f7c8c}
+.facc{fill:#1f5fd1}
+.famb{fill:#8f5600}
+.fpos{fill:#0f7a4a}
+.fborder{fill:#7d8ba1}
+.band{fill:#1f5fd1}
+.bandL{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2;stroke-dasharray:4 3}
+.listband{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2}
+.barAmb{fill:#8f5600}
+.barMfg{fill:#4a5a70}
+.barTeal{fill:#0f7c8c}
+.hatchbg{fill:#eef2f7}
+.hatchln{stroke:#4a5a70;stroke-width:2}
+.hatchbox{stroke:#4a5a70;stroke-width:1.3;stroke-dasharray:5 3}
+@media (prefers-color-scheme: dark){
+.bg{fill:#121b2d}
+.t{fill:#e8eef7}
+.tb{fill:#e8eef7}
+.th{fill:#e8eef7}
+.ts{fill:#a3b1c6}
+.tcap{fill:#a3b1c6}
+.tacc{fill:#7fa8ff}
+.tteal{fill:#4fd1c5}
+.tamb{fill:#f2b84b}
+.tpos{fill:#4cc98a}
+.tinv{fill:#121b2d}
+.tnum{fill:#121b2d}
+.box{fill:#121b2d;stroke:#5f6e87}
+.boxm{fill:#1a2438;stroke:#5f6e87}
+.boxacc{fill:#17274a;stroke:#7fa8ff}
+.boxteal{fill:#10302f;stroke:#4fd1c5}
+.boxamb{fill:#2f2512;stroke:#f2b84b}
+.boxambs{fill:#2f2512;stroke:#f2b84b}
+.boxpos{fill:#10301f;stroke:#4cc98a}
+.zone{fill:#1a2438;stroke:#5f6e87}
+.lgoods{stroke:#e8eef7}
+.lmoney{stroke:#4fd1c5}
+.linfo{stroke:#7fa8ff}
+.lrisk{stroke:#f2b84b}
+.lharm{stroke:#e8eef7}
+.ln{stroke:#a3b1c6}
+.lnthin{stroke:#5f6e87}
+.lamb{stroke:#f2b84b}
+.lacc{stroke:#7fa8ff}
+.lteal{stroke:#4fd1c5}
+.fgoods{fill:#e8eef7}
+.fmoney{fill:#4fd1c5}
+.finfo{fill:#7fa8ff}
+.frisk{fill:#f2b84b}
+.fmfg{fill:#a3b1c6}
+.fteal{fill:#4fd1c5}
+.facc{fill:#7fa8ff}
+.famb{fill:#f2b84b}
+.fpos{fill:#4cc98a}
+.fborder{fill:#5f6e87}
+.band{fill:#7fa8ff}
+.bandL{fill:#17274a;stroke:#7fa8ff}
+.listband{fill:#17274a;stroke:#7fa8ff}
+.barAmb{fill:#f2b84b}
+.barMfg{fill:#a3b1c6}
+.barTeal{fill:#4fd1c5}
+.hatchbg{fill:#1a2438}
+.hatchln{stroke:#a3b1c6}
+.hatchbox{stroke:#a3b1c6}
+}
+</style>
+<defs><marker id="d4_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d4_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d4_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d4_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d4_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d4_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d4_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d4_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d4_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d4_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="-80" width="1200" height="890" rx="0" class="bg"/><text x="40" y="-34" class="th">Who can see which leg</text>
+<rect x="300.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="365.0" y="63.0" class="tb" text-anchor="middle">Maker</text>
+<rect x="450.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="515.0" y="63.0" class="tb" text-anchor="middle">Distributor</text>
+<rect x="600.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="665.0" y="63.0" class="tb" text-anchor="middle">Middle firm</text>
+<text x="665.0" y="106" class="ts" text-anchor="middle">e.g. Hong Kong</text>
+<rect x="750.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="815.0" y="63.0" class="tb" text-anchor="middle">Hub country</text>
+<text x="815.0" y="106" class="ts" text-anchor="middle">e.g. Kyrgyzstan</text>
+<rect x="900.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="965.0" y="63.0" class="tb" text-anchor="middle">Russian buyer</text>
+<rect x="1050.0" y="30" width="130" height="56" rx="8" class="zone"/>
+<text x="1115.0" y="63.0" class="tb" text-anchor="middle">In a weapon</text>
+<path d="M430.0 58 L446.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M580.0 58 L596.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M730.0 58 L746.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M880.0 58 L896.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M1030.0 58 L1046.0 58" class="lamb" marker-end="url(#d4_amb)"/>
+<text x="40" y="64" class="tb" text-anchor="start">The same journey</text>
+<path d="M365.0 120 L365.0 515" class="lnthin"/>
+<path d="M515.0 120 L515.0 515" class="lnthin"/>
+<path d="M665.0 120 L665.0 515" class="lnthin"/>
+<path d="M815.0 120 L815.0 515" class="lnthin"/>
+<path d="M965.0 120 L965.0 515" class="lnthin"/>
+<path d="M1115.0 120 L1115.0 515" class="lnthin"/>
+<text x="40" y="158" class="tb" text-anchor="start">Sayari</text>
+<text x="40" y="178" class="ts" text-anchor="start">trade records, mostly Russia's</text>
+<text x="40" y="196" class="ts" text-anchor="start">own imports; thin after late 2023</text>
+<text x="40" y="234" class="tb" text-anchor="start">UN Comtrade</text>
+<text x="40" y="254" class="ts" text-anchor="start">countries' own statistics:</text>
+<text x="40" y="272" class="ts" text-anchor="start">declared totals, no company names</text>
+<text x="40" y="310" class="tb" text-anchor="start">Company registries</text>
+<text x="40" y="330" class="ts" text-anchor="start">who a company is,</text>
+<text x="40" y="348" class="ts" text-anchor="start">not what it ships</text>
+<text x="40" y="386" class="tb" text-anchor="start">Sanctions lists</text>
+<text x="40" y="406" class="ts" text-anchor="start">official names,</text>
+<text x="40" y="424" class="ts" text-anchor="start">often months late</text>
+<text x="40" y="462" class="tb" text-anchor="start">Ukraine's GUR</text>
+<text x="40" y="482" class="ts" text-anchor="start">weapon-parts database;</text>
+<text x="40" y="500" class="ts" text-anchor="start">a party to the war</text>
+<text x="40" y="538" class="tamb" text-anchor="start">Dark zones</text>
+<text x="40" y="558" class="ts" text-anchor="start">nobody in our set</text>
+<text x="40" y="576" class="ts" text-anchor="start">sees these well</text>
+<rect x="475.0" y="152" width="330.0" height="30" rx="5" class="bandL"/>
+<text x="640.0" y="172" class="tacc" text-anchor="middle">partners' records, patchy</text>
+<rect x="805.0" y="152" width="225.0" height="30" rx="5" class="band"/>
+<text x="917.5" y="172" class="tinv" text-anchor="middle">Russia's imports</text>
+<rect x="325.0" y="228" width="705.0" height="30" rx="5" class="bandL"/>
+<text x="677.5" y="248" class="tacc" text-anchor="middle">country-to-country totals, per year</text>
+<rect x="310.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="365.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="460.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="515.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="610.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="665.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="910.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="965.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="610.0" y="380" width="110.0" height="30" rx="5" class="band"/>
+<text x="665.0" y="400" class="tinv" text-anchor="middle">if listed</text>
+<rect x="910.0" y="380" width="110.0" height="30" rx="5" class="band"/>
+<text x="965.0" y="400" class="tinv" text-anchor="middle">if listed</text>
+<rect x="310.0" y="456" width="110.0" height="30" rx="5" class="band"/>
+<text x="365.0" y="476" class="tinv" text-anchor="middle">part maker</text>
+<rect x="1060.0" y="456" width="110.0" height="30" rx="5" class="band"/>
+<text x="1115.0" y="476" class="tinv" text-anchor="middle">the weapon</text>
+<rect x="745.0" y="532" width="140" height="30" rx="5" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="975.0" y="532" width="200.0" height="30" rx="5" class="hatchbox" fill="url(#d4_hatch)"/>
+<text x="815.0" y="582" class="ts" text-anchor="middle">inside the customs union</text>
+<text x="1070.0" y="582" class="ts" text-anchor="middle">which chip reached which weapon</text>
+<text x="40" y="672" class="tamb" text-anchor="start">Off this map entirely</text>
+<rect x="300" y="650" width="206.2" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="308" y="657" width="190.2" height="22" rx="4" class="bg"/>
+<text x="403.1" y="673" class="t" text-anchor="middle">Ship positions at sea</text>
+<rect x="522.2" y="650" width="214.39999999999998" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="530.2" y="657" width="198.39999999999998" height="22" rx="4" class="bg"/>
+<text x="629.4000000000001" y="673" class="t" text-anchor="middle">Cloud computing access</text>
+<rect x="752.6" y="650" width="189.79999999999998" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="760.6" y="657" width="173.79999999999998" height="22" rx="4" class="bg"/>
+<text x="847.5" y="673" class="t" text-anchor="middle">Payments and crypto</text>
+<rect x="958.4" y="650" width="99.6" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="966.4" y="657" width="83.6" height="22" rx="4" class="bg"/>
+<text x="1008.1999999999999" y="673" class="t" text-anchor="middle">Services</text>
+<text x="40" y="776" class="tcap">Each source sees a few legs; the gaps between them are where evasion lives.</text>
+</svg>

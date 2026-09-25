@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shape of the Problem</title>
+<meta name="description" content="Six concept diagrams of sanctions evasion: the system, the tricks, what persists, who sees what, our method, and who pays.">
+<link rel="stylesheet" href="tokens.css">
+<script>
+  (function () {
+    var t = null;
+    try { t = new URLSearchParams(location.search).get("theme") || localStorage.getItem("diagrams-theme"); } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<style>
+  @font-face { font-family: "IBM Plex Sans Variable"; font-style: normal; font-display: swap; font-weight: 100 700;
+    src: url("fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2"); }
+  body { background: var(--bg); color: var(--fg); font-size: var(--text-2); line-height: 1.6; }
+  .wrap { max-width: 76rem; margin: 0 auto; padding-inline: 16px; }
+  .hero { padding: var(--space-5) 0 var(--space-4); }
+  .hero .top { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+  .kicker { font-size: var(--text-1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0; }
+  .hero h1 { font: var(--display-weight, 600) var(--text-5)/1.08 var(--font-display); letter-spacing: var(--display-tracking); margin: 0 0 var(--space-3); }
+  .lede { font-size: var(--text-3); line-height: 1.45; margin: 0 0 var(--space-3); max-width: 42em; }
+  .meta { font-size: var(--text-1); color: var(--muted-fg); margin: 0; }
+  .theme-btn { font-size: var(--text-1); min-height: 2.25rem; padding: 0 .8rem; border-radius: var(--radius-control); background: transparent; color: inherit; border: 1px solid var(--border); cursor: pointer; }
+  nav.toc ol { margin: var(--space-4) 0 0; padding: var(--space-3) var(--space-3) var(--space-3) 2.2rem; background: var(--muted); border-radius: var(--radius-lg); font-size: var(--text-1); columns: 3 14rem; }
+  nav.toc a { color: var(--fg); }
+  section { padding-top: var(--space-5); }
+  h2 { font-size: var(--text-4); font-weight: var(--display-weight); letter-spacing: var(--display-tracking); line-height: 1.15; margin: 0 0 var(--space-2); }
+  .num { color: var(--accent); font-size: var(--text-1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+  .takeaway { font-size: var(--text-3); line-height: 1.4; margin: 0 0 var(--space-3); max-width: 40em; }
+  figure { margin: 0 0 var(--space-3); background: var(--surface); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: var(--space-3); }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  figure svg { display: block; width: 100%; height: auto; font-family: var(--font-sans); }
+  .hint { display: none; font-size: var(--text-1); color: var(--muted-fg); margin: var(--space-2) 0 0; }
+  @media (max-width: 48rem) { figure { padding: var(--space-2); } figure svg { min-width: 760px; } .hint { display: block; } }
+  figcaption { font-size: var(--text-1); color: var(--muted-fg); margin-top: var(--space-2); }
+  figcaption a { color: var(--accent); }
+  ul.pts { margin: 0; padding-left: 1.2rem; max-width: 46em; }
+  ul.pts li { margin-bottom: var(--space-1); }
+  footer { padding: var(--space-5) 0 var(--space-4); }
+  footer p { font-size: var(--text-1); color: var(--muted-fg); max-width: 50em; }
+svg.dg .bg{fill:light-dark(#ffffff, #121b2d)}
+svg.dg .t{fill:light-dark(#0f1b2d, #e8eef7);font-size:16px;font-weight:500}
+svg.dg .tb{fill:light-dark(#0f1b2d, #e8eef7);font-size:16px;font-weight:600}
+svg.dg .th{fill:light-dark(#0f1b2d, #e8eef7);font-size:22px;font-weight:600}
+svg.dg .ts{fill:light-dark(#4a5a70, #a3b1c6);font-size:14px;font-weight:400}
+svg.dg .tcap{fill:light-dark(#4a5a70, #a3b1c6);font-size:16px;font-weight:400}
+svg.dg .tacc{fill:light-dark(#1f5fd1, #7fa8ff);font-size:15px;font-weight:600}
+svg.dg .tteal{fill:light-dark(#0f7c8c, #4fd1c5);font-size:15px;font-weight:600}
+svg.dg .tamb{fill:light-dark(#8f5600, #f2b84b);font-size:15px;font-weight:600}
+svg.dg .tpos{fill:light-dark(#0f7a4a, #4cc98a);font-size:15px;font-weight:600}
+svg.dg .tinv{fill:light-dark(#ffffff, #121b2d);font-size:15px;font-weight:600}
+svg.dg .tnum{fill:light-dark(#ffffff, #121b2d);font-size:15px;font-weight:700}
+svg.dg .box{fill:light-dark(#ffffff, #121b2d);stroke:light-dark(#7d8ba1, #5f6e87);stroke-width:1.3}
+svg.dg .boxm{fill:light-dark(#eef2f7, #1a2438);stroke:light-dark(#7d8ba1, #5f6e87);stroke-width:1}
+svg.dg .boxacc{fill:light-dark(#e8effc, #17274a);stroke:light-dark(#1f5fd1, #7fa8ff);stroke-width:1.8}
+svg.dg .boxteal{fill:light-dark(#e2f2f4, #10302f);stroke:light-dark(#0f7c8c, #4fd1c5);stroke-width:1.6}
+svg.dg .boxamb{fill:light-dark(#fbf0de, #2f2512);stroke:light-dark(#8f5600, #f2b84b);stroke-width:1.6;stroke-dasharray:7 4}
+svg.dg .boxambs{fill:light-dark(#fbf0de, #2f2512);stroke:light-dark(#8f5600, #f2b84b);stroke-width:1.6}
+svg.dg .boxpos{fill:light-dark(#e3f3ea, #10301f);stroke:light-dark(#0f7a4a, #4cc98a);stroke-width:1.6}
+svg.dg .zone{fill:light-dark(#eef2f7, #1a2438);stroke:light-dark(#7d8ba1, #5f6e87);stroke-width:1.2;stroke-dasharray:6 4}
+svg.dg .lgoods{fill:none;stroke:light-dark(#0f1b2d, #e8eef7);stroke-width:2.6}
+svg.dg .lmoney{fill:none;stroke:light-dark(#0f7c8c, #4fd1c5);stroke-width:2.4;stroke-dasharray:9 6}
+svg.dg .linfo{fill:none;stroke:light-dark(#1f5fd1, #7fa8ff);stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+svg.dg .lrisk{fill:none;stroke:light-dark(#8f5600, #f2b84b);stroke-width:2.4}
+svg.dg .lharm{fill:none;stroke:light-dark(#0f1b2d, #e8eef7);stroke-width:2.4;stroke-dasharray:14 5 3 5}
+svg.dg .ln{fill:none;stroke:light-dark(#4a5a70, #a3b1c6);stroke-width:2}
+svg.dg .lnthin{fill:none;stroke:light-dark(#7d8ba1, #5f6e87);stroke-width:1.2}
+svg.dg .lamb{fill:none;stroke:light-dark(#8f5600, #f2b84b);stroke-width:2;stroke-dasharray:7 5}
+svg.dg .lacc{fill:none;stroke:light-dark(#1f5fd1, #7fa8ff);stroke-width:2.2}
+svg.dg .lteal{fill:none;stroke:light-dark(#0f7c8c, #4fd1c5);stroke-width:2.4}
+svg.dg .fgoods{fill:light-dark(#0f1b2d, #e8eef7)}
+svg.dg .fmoney{fill:light-dark(#0f7c8c, #4fd1c5)}
+svg.dg .finfo{fill:light-dark(#1f5fd1, #7fa8ff)}
+svg.dg .frisk{fill:light-dark(#8f5600, #f2b84b)}
+svg.dg .fmfg{fill:light-dark(#4a5a70, #a3b1c6)}
+svg.dg .fteal{fill:light-dark(#0f7c8c, #4fd1c5)}
+svg.dg .facc{fill:light-dark(#1f5fd1, #7fa8ff)}
+svg.dg .famb{fill:light-dark(#8f5600, #f2b84b)}
+svg.dg .fpos{fill:light-dark(#0f7a4a, #4cc98a)}
+svg.dg .fborder{fill:light-dark(#7d8ba1, #5f6e87)}
+svg.dg .band{fill:light-dark(#1f5fd1, #7fa8ff)}
+svg.dg .bandL{fill:light-dark(#e8effc, #17274a);stroke:light-dark(#1f5fd1, #7fa8ff);stroke-width:1.2;stroke-dasharray:4 3}
+svg.dg .listband{fill:light-dark(#e8effc, #17274a);stroke:light-dark(#1f5fd1, #7fa8ff);stroke-width:1.2}
+svg.dg .barAmb{fill:light-dark(#8f5600, #f2b84b)}
+svg.dg .barMfg{fill:light-dark(#4a5a70, #a3b1c6)}
+svg.dg .barTeal{fill:light-dark(#0f7c8c, #4fd1c5)}
+svg.dg .hatchbg{fill:light-dark(#eef2f7, #1a2438)}
+svg.dg .hatchln{stroke:light-dark(#4a5a70, #a3b1c6);stroke-width:2}
+svg.dg .hatchbox{stroke:light-dark(#4a5a70, #a3b1c6);stroke-width:1.3;stroke-dasharray:5 3}
+</style>
+</head>
+<body>
+<header class="hero on-dark">
+  <div class="wrap">
+    <div class="top">
+      <p class="kicker">Six concept diagrams</p>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Change colour theme">Theme: system</button>
+    </div>
+    <h1>The Shape of the Problem</h1>
+    <p class="lede">How sanctions are meant to work, how they are evaded, what anyone can see, and who pays. One idea per diagram; each should read in thirty seconds.</p>
+    <p class="meta">Trace the Unseen climate build day, 25 September 2026. Companies are named only where an official list names them. Leads, not findings.</p>
+  </div>
+</header>
+<main class="wrap">
+<nav class="toc" aria-label="Contents"><ol>
+  <li><a href="#system">The sanctions system</a></li>
+  <li><a href="#playbook">The evasion playbook</a></li>
+  <li><a href="#persistence">What changes fast and what doesn't</a></li>
+  <li><a href="#visibility">Who can see which leg</a></li>
+  <li><a href="#method">Our method</a></li>
+  <li><a href="#incentives">Who pays, who gains</a></li>
+</ol></nav>
+<section id="system">
+  <p class="num">Diagram 1</p>
+  <h2>The sanctions system</h2>
+  <p class="takeaway">A list is a signal: it bites only when a bank, a distributor or a shipper recognises the name and refuses.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-label="The sanctions system. A list is a signal: it bites only when a bank, a distributor or a shipper recognises the name and refuses.">
+<defs><marker id="d1_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d1_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d1_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d1_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d1_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d1_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d1_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d1_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d1_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d1_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="640" rx="0" class="bg"/>
+<rect x="330" y="20" width="540" height="118" rx="8" class="boxacc"/>
+<text x="600" y="50" class="tb" text-anchor="middle">Governments and their lists</text>
+<rect x="320.0" y="68" width="56" height="32" rx="6" class="box"/>
+<text x="348.0" y="89" class="t" text-anchor="middle">UN</text>
+<rect x="386.0" y="68" width="176" height="32" rx="6" class="box"/>
+<text x="474.0" y="89" class="t" text-anchor="middle">US Treasury (OFAC)</text>
+<rect x="572.0" y="68" width="176" height="32" rx="6" class="box"/>
+<text x="660.0" y="89" class="t" text-anchor="middle">US Commerce (BIS)</text>
+<rect x="758.0" y="68" width="56" height="32" rx="6" class="box"/>
+<text x="786.0" y="89" class="t" text-anchor="middle">UK</text>
+<rect x="824.0" y="68" width="56" height="32" rx="6" class="box"/>
+<text x="852.0" y="89" class="t" text-anchor="middle">EU</text>
+<text x="600" y="124" class="ts" text-anchor="middle">name companies, people, ships</text>
+<text x="900" y="50" class="tacc" text-anchor="start">Lists stop nothing on their own.</text>
+<text x="900" y="69" class="ts" text-anchor="start">They work only when a refuser</text>
+<text x="900" y="88" class="ts" text-anchor="start">recognises the name and says no.</text>
+<rect x="445" y="225" width="220" height="70" rx="8" class="boxacc"/>
+<text x="555.0" y="255.5" class="tb" text-anchor="middle">Banks</text>
+<text x="555.0" y="274.5" class="ts" text-anchor="middle">refuse to move money</text>
+<rect x="745" y="225" width="280" height="70" rx="8" class="boxacc"/>
+<text x="885.0" y="255.5" class="tb" text-anchor="middle">Shippers and insurers</text>
+<text x="885.0" y="274.5" class="ts" text-anchor="middle">refuse to carry or cover</text>
+<text x="40" y="238" class="tacc" text-anchor="start">The refusers</text>
+<text x="40" y="257" class="ts" text-anchor="start">check every deal against</text>
+<text x="40" y="276" class="ts" text-anchor="start">the lists</text>
+<rect x="560" y="360" width="270" height="170" rx="12" class="zone"/>
+<text x="695" y="518" class="ts" text-anchor="middle">Middle country, e.g. Kyrgyzstan, UAE</text>
+<rect x="30" y="395" width="190" height="84" rx="8" class="box"/>
+<text x="125.0" y="432.5" class="tb" text-anchor="middle">Makers</text>
+<text x="125.0" y="451.5" class="ts" text-anchor="middle">e.g. chip makers</text>
+<rect x="290" y="395" width="210" height="84" rx="8" class="boxacc"/>
+<text x="395" y="425" class="tb" text-anchor="middle">Exporters and</text>
+<text x="395" y="445" class="tb" text-anchor="middle">distributors</text>
+<text x="395" y="465" class="ts" text-anchor="middle">refuse to sell</text>
+<rect x="590" y="395" width="210" height="84" rx="8" class="box"/>
+<text x="695.0" y="432.5" class="tb" text-anchor="middle">Middle firm</text>
+<text x="695.0" y="451.5" class="ts" text-anchor="middle">buys and passes on</text>
+<rect x="960" y="395" width="210" height="84" rx="8" class="box"/>
+<text x="1065.0" y="432.5" class="tb" text-anchor="middle">Russian buyer</text>
+<text x="1065.0" y="451.5" class="ts" text-anchor="middle">e.g. a weapons-industry firm</text>
+<path d="M220 423 L286 423" class="lgoods" marker-end="url(#d1_goods)"/>
+<path d="M500 423 L586 423" class="lgoods" marker-end="url(#d1_goods)"/>
+<path d="M800 423 L956 423" class="lgoods" marker-end="url(#d1_goods)"/>
+<path d="M956 455 L804 455" class="lmoney" marker-end="url(#d1_money)"/>
+<path d="M586 455 L504 455" class="lmoney" marker-end="url(#d1_money)"/>
+<path d="M286 455 L224 455" class="lmoney" marker-end="url(#d1_money)"/>
+<path d="M420 138 L400 391" class="linfo" marker-end="url(#d1_info)"/>
+<path d="M555 138 L555 221" class="linfo" marker-end="url(#d1_info)"/>
+<path d="M800 138 L860 221" class="linfo" marker-end="url(#d1_info)"/>
+<text x="396" y="300" class="tacc" text-anchor="end">lists</text>
+<path d="M555 295 L555 447" class="lacc"/>
+<rect x="545" y="447" width="20" height="16" rx="3" class="boxacc"/>
+<path d="M885 295 L885 415" class="lacc"/>
+<rect x="875" y="415" width="20" height="16" rx="3" class="boxacc"/>
+<text x="565" y="330" class="ts" text-anchor="start">checks the payment</text>
+<text x="895" y="330" class="ts" text-anchor="start">checks the cargo</text>
+<text x="40" y="560" class="tamb" text-anchor="start">The gap: a middle firm that is new or unlisted gives the refusers no name to match.</text>
+<path d="M40 605 L92 605" class="lgoods" marker-end="url(#d1_goods)"/>
+<text x="104" y="610" class="t" text-anchor="start">Goods</text>
+<path d="M186.0 605 L238.0 605" class="lmoney" marker-end="url(#d1_money)"/>
+<text x="250.0" y="610" class="t" text-anchor="start">Money</text>
+<path d="M332.0 605 L384.0 605" class="linfo" marker-end="url(#d1_info)"/>
+<text x="396.0" y="610" class="t" text-anchor="start">Information: lists</text>
+<rect x="587.2" y="594" width="34" height="22" rx="5" class="boxacc"/>
+<text x="631.2" y="610" class="t" text-anchor="start">Refuser</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="1_system.svg">1_system.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>Governments (UN, US Treasury OFAC, US Commerce BIS, UK, EU) publish lists of names. The lists themselves stop nothing.</li>
+    <li>The stopping is done by private refusers: banks decline the payment, exporters and distributors decline the sale, shippers and insurers decline the cargo.</li>
+    <li>If a middle firm is new or unlisted, the refusers have no name to match, and goods and money flow through.</li>
+  </ul>
+</section>
+<section id="playbook">
+  <p class="num">Diagram 2</p>
+  <h2>The evasion playbook</h2>
+  <p class="takeaway">Every trick breaks the match between a listed name and a transaction.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 670" role="img" aria-label="The evasion playbook. Every trick breaks the match between a listed name and a transaction.">
+<defs><marker id="d2_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d2_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d2_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d2_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d2_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d2_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d2_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d2_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d2_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d2_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="670" rx="0" class="bg"/>
+<rect x="750" y="165" width="440" height="135" rx="12" class="zone"/>
+<rect x="30" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="115.0" y="233.5" class="tb" text-anchor="middle">Maker</text>
+<text x="115.0" y="252.5" class="ts" text-anchor="middle">e.g. a chip maker</text>
+<rect x="270" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="355.0" y="233.5" class="tb" text-anchor="middle">Distributor</text>
+<text x="355.0" y="252.5" class="ts" text-anchor="middle">sells on</text>
+<rect x="510" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="595.0" y="233.5" class="tb" text-anchor="middle">Middle firm</text>
+<text x="595.0" y="252.5" class="ts" text-anchor="middle">e.g. Hong Kong, Turkey</text>
+<rect x="770" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="855.0" y="233.5" class="tb" text-anchor="middle">Hub country</text>
+<text x="855.0" y="252.5" class="ts" text-anchor="middle">e.g. Kyrgyzstan</text>
+<rect x="1010" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="1095.0" y="233.5" class="tb" text-anchor="middle">Russian buyer</text>
+<text x="1095.0" y="252.5" class="ts" text-anchor="middle">final customer</text>
+<path d="M200 238.0 L266 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M440 238.0 L506 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M680 238.0 L766 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M940 238.0 L1006 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<text x="30" y="40" class="tb" text-anchor="start">A part's journey, and where each trick acts</text>
+<text x="30" y="62" class="ts" text-anchor="start">Goods move left to right. Amber numbers mark the tricks.</text>
+<circle cx="595" cy="200" r="14" class="famb"/>
+<text x="595" y="205" class="tnum" text-anchor="middle">1</text>
+<text x="480" y="95" class="tamb" text-anchor="start">New company name</text>
+<text x="480" y="114" class="ts" text-anchor="start">firms registered 18 and 21 days</text>
+<text x="480" y="133" class="ts" text-anchor="start">after the invasion (ELEM GROUP,</text>
+<text x="480" y="152" class="ts" text-anchor="start">RM Design and Development)</text>
+<circle cx="990" cy="238.0" r="14" class="famb"/>
+<text x="990" y="243.0" class="tnum" text-anchor="middle">4</text>
+<text x="780" y="95" class="tamb" text-anchor="start">No border inside a customs union</text>
+<text x="780" y="114" class="ts" text-anchor="start">Kazakhstan, Kyrgyzstan, Armenia and Russia</text>
+<text x="780" y="133" class="ts" text-anchor="start">share one customs area: no customs check</text>
+<text x="780" y="152" class="ts" text-anchor="start">on the way in</text>
+<text x="764" y="292" class="ts" text-anchor="start">customs union</text>
+<circle cx="475" cy="238.0" r="14" class="famb"/>
+<text x="475" y="243.0" class="tnum" text-anchor="middle">2</text>
+<text x="290" y="330" class="tamb" text-anchor="start">Relabelled goods</text>
+<text x="290" y="349" class="ts" text-anchor="start">a generic description or a</text>
+<text x="290" y="368" class="ts" text-anchor="start">different product code on</text>
+<text x="290" y="387" class="ts" text-anchor="start">the customs form</text>
+<rect x="1010" y="350" width="170" height="60" rx="8" class="boxamb"/>
+<text x="1095" y="376" class="tb" text-anchor="middle">Listed owner</text>
+<text x="1095" y="396" class="ts" text-anchor="middle">(behind the buyer)</text>
+<path d="M1095 350 L1095 280" class="lamb" marker-end="url(#d2_amb)"/>
+<circle cx="1010" cy="350" r="14" class="famb"/>
+<text x="1010" y="355" class="tnum" text-anchor="middle">3</text>
+<text x="640" y="330" class="tamb" text-anchor="start">Hidden owner</text>
+<text x="640" y="349" class="ts" text-anchor="start">a stake under 50%, or an unlisted company</text>
+<text x="640" y="368" class="ts" text-anchor="start">in between, is not blocked automatically</text>
+<text x="640" y="387" class="ts" text-anchor="start">e.g. Gazprom Neft's 44.85% of NIS (Serbia)</text>
+<text x="30" y="475" class="tb" text-anchor="start">Oil runs the other way,</text>
+<text x="30" y="495" class="tb" text-anchor="start">out of Russia by sea:</text>
+<rect x="270" y="448" width="170" height="54" rx="8" class="box"/>
+<text x="355.0" y="480.0" class="tb" text-anchor="middle">Russian port</text>
+<rect x="510" y="448" width="220" height="54" rx="8" class="boxambs"/>
+<text x="620.0" y="480.0" class="tb" text-anchor="middle">Tanker, false flag</text>
+<rect x="800" y="448" width="200" height="54" rx="8" class="boxambs"/>
+<text x="900.0" y="480.0" class="tb" text-anchor="middle">Second tanker</text>
+<path d="M440 475 L506 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M730 475 L796 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M1000 475 L1066 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<text x="1076" y="480" class="t" text-anchor="start">buyer</text>
+<circle cx="765" cy="475" r="14" class="famb"/>
+<text x="765" y="480" class="tnum" text-anchor="middle">5</text>
+<text x="510" y="528" class="ts" text-anchor="start">Ship-to-ship transfer at sea, false flags: 113 tankers under false flags carried</text>
+<text x="510" y="547" class="ts" text-anchor="start">EUR 4.7bn of Russian oil in the first nine months of 2025 (CREA)</text>
+<circle cx="44" cy="630" r="14" class="famb"/>
+<text x="44" y="635" class="tnum" text-anchor="middle">6</text>
+<text x="70" y="635" class="tamb" text-anchor="start">Trade before the list catches up</text>
+<rect x="470" y="618" width="520" height="24" rx="5" class="boxambs"/>
+<text x="730" y="635" class="t" text-anchor="middle">trading window: 15 to 23 months in every case we checked</text>
+<text x="460" y="635" class="ts" text-anchor="end">firm appears</text>
+<path d="M990 610 L990 650" class="lacc"/>
+<text x="1000" y="635" class="tacc" text-anchor="start">list arrives</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="2_playbook.svg">2_playbook.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>A part passes through several hands; each hand is a place to change a name, a label or an owner.</li>
+    <li>Inside the customs union there is no customs border, so the last leg into Russia has no customs check.</li>
+    <li>Oil uses the sea: ship-to-ship transfers and false flags hide where a cargo came from.</li>
+  </ul>
+</section>
+<section id="persistence">
+  <p class="num">Diagram 3</p>
+  <h2>What changes fast and what doesn't</h2>
+  <p class="takeaway">Names last weeks, lists arrive after months, but the buyer and the part last years: track what persists.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-label="What changes fast and what doesn&#x27;t. Names last weeks, lists arrive after months, but the buyer and the part last years: track what persists.">
+<defs><marker id="d3_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d3_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d3_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d3_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d3_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d3_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d3_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d3_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d3_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d3_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="500" rx="0" class="bg"/>
+<rect x="867.4185628441815" y="90" width="58.226674187717435" height="330" rx="4" class="listband"/>
+<text x="896.5318999380402" y="44" class="tacc" text-anchor="middle">Lists arrive here: 15 to 23 months after a firm appears</text>
+<text x="896.5318999380402" y="66" class="ts" text-anchor="middle">4 of 5 listed shippers on the new routes had already stopped</text>
+<text x="60" y="132" class="tb" text-anchor="start">Company name</text>
+<text x="60" y="152" class="ts" text-anchor="start">weeks</text>
+<rect x="300" y="118" width="236.79481972689587" height="40" rx="5" class="barAmb"/>
+<text x="550.7948197268959" y="134" class="ts" text-anchor="start">median firm active 40 days</text>
+<text x="550.7948197268959" y="152" class="ts" text-anchor="start">on the Kyrgyz chip route</text>
+<text x="60" y="210" class="tb" text-anchor="start">Route</text>
+<text x="60" y="230" class="ts" text-anchor="start">months</text>
+<rect x="300" y="196" width="604.7027669984138" height="40" rx="5" class="barMfg"/>
+<text x="314" y="222" class="tinv" text-anchor="start">Kyrgyz chip route: April 2022 through 2023</text>
+<text x="60" y="288" class="tb" text-anchor="start">Buyer</text>
+<text x="60" y="308" class="ts" text-anchor="start">years</text>
+<rect x="300" y="274" width="780.6006932305222" height="40" rx="5" class="barTeal"/>
+<text x="314" y="300" class="tinv" text-anchor="start">one buyer, one record, 2019 to 2025 (Testkomplekt)</text>
+<text x="60" y="366" class="tb" text-anchor="start">Part</text>
+<text x="60" y="386" class="ts" text-anchor="start">years</text>
+<rect x="300" y="352" width="840.0" height="40" rx="5" class="barTeal"/>
+<path d="M1138.0 348 L1162.0 372 L1138.0 396 z" class="fteal"/>
+<text x="314" y="378" class="tinv" text-anchor="start">same chip families before and after 2022</text>
+<path d="M44 270 L36 270 L36 396 L44 396" class="lteal"/>
+<text x="26" y="333" class="tteal" text-anchor="middle" transform="rotate(-90 26 333)">track these</text>
+<path d="M300 430 L1150 430" class="lnthin"/>
+<path d="M300.0 430 L300.0 438" class="lnthin"/>
+<text x="300.0" y="458" class="ts" text-anchor="middle">1 week</text>
+<path d="M497.71115698701306 430 L497.71115698701306 438" class="lnthin"/>
+<text x="497.71115698701306" y="458" class="ts" text-anchor="middle">1 month</text>
+<path d="M742.6356678425109 430 L742.6356678425109 438" class="lnthin"/>
+<text x="742.6356678425109" y="458" class="ts" text-anchor="middle">6 months</text>
+<path d="M837.1773814840506 430 L837.1773814840506 438" class="lnthin"/>
+<text x="837.1773814840506" y="458" class="ts" text-anchor="middle">1 year</text>
+<path d="M931.3463729795021 430 L931.3463729795021 438" class="lnthin"/>
+<text x="931.3463729795021" y="458" class="ts" text-anchor="middle">2 years</text>
+<path d="M1055.8310085045484 430 L1055.8310085045484 438" class="lnthin"/>
+<text x="1055.8310085045484" y="458" class="ts" text-anchor="middle">5 years</text>
+<path d="M1150.0 430 L1150.0 438" class="lnthin"/>
+<text x="1150.0" y="458" class="ts" text-anchor="middle">10 years</text>
+<text x="300" y="482" class="ts" text-anchor="start">how long each thing stays the same (log scale)</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="3_persistence.svg">3_persistence.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>On the Kyrgyz chip route the median firm was active 40 days, while the route itself kept flowing.</li>
+    <li>One buyer kept the same record from 2019 to 2025, and the same chip families kept arriving under new shipper names.</li>
+    <li>Lists arrived 15 to 23 months after a firm first appeared; most listed shippers had already stopped.</li>
+  </ul>
+</section>
+<section id="visibility">
+  <p class="num">Diagram 4</p>
+  <h2>Who can see which leg</h2>
+  <p class="takeaway">Each source sees a few legs; the gaps between them are where evasion lives.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 730" role="img" aria-label="Who can see which leg. Each source sees a few legs; the gaps between them are where evasion lives.">
+<defs><marker id="d4_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d4_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d4_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d4_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d4_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d4_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d4_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d4_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d4_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d4_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="730" rx="0" class="bg"/>
+<rect x="300.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="365.0" y="63.0" class="tb" text-anchor="middle">Maker</text>
+<rect x="450.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="515.0" y="63.0" class="tb" text-anchor="middle">Distributor</text>
+<rect x="600.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="665.0" y="63.0" class="tb" text-anchor="middle">Middle firm</text>
+<text x="665.0" y="106" class="ts" text-anchor="middle">e.g. Hong Kong</text>
+<rect x="750.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="815.0" y="63.0" class="tb" text-anchor="middle">Hub country</text>
+<text x="815.0" y="106" class="ts" text-anchor="middle">e.g. Kyrgyzstan</text>
+<rect x="900.0" y="30" width="130" height="56" rx="8" class="box"/>
+<text x="965.0" y="63.0" class="tb" text-anchor="middle">Russian buyer</text>
+<rect x="1050.0" y="30" width="130" height="56" rx="8" class="zone"/>
+<text x="1115.0" y="63.0" class="tb" text-anchor="middle">In a weapon</text>
+<path d="M430.0 58 L446.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M580.0 58 L596.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M730.0 58 L746.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M880.0 58 L896.0 58" class="lgoods" marker-end="url(#d4_goods)"/>
+<path d="M1030.0 58 L1046.0 58" class="lamb" marker-end="url(#d4_amb)"/>
+<text x="40" y="64" class="tb" text-anchor="start">The same journey</text>
+<path d="M365.0 120 L365.0 515" class="lnthin"/>
+<path d="M515.0 120 L515.0 515" class="lnthin"/>
+<path d="M665.0 120 L665.0 515" class="lnthin"/>
+<path d="M815.0 120 L815.0 515" class="lnthin"/>
+<path d="M965.0 120 L965.0 515" class="lnthin"/>
+<path d="M1115.0 120 L1115.0 515" class="lnthin"/>
+<text x="40" y="158" class="tb" text-anchor="start">Sayari</text>
+<text x="40" y="178" class="ts" text-anchor="start">trade records, mostly Russia's</text>
+<text x="40" y="196" class="ts" text-anchor="start">own imports; thin after late 2023</text>
+<text x="40" y="234" class="tb" text-anchor="start">UN Comtrade</text>
+<text x="40" y="254" class="ts" text-anchor="start">countries' own statistics:</text>
+<text x="40" y="272" class="ts" text-anchor="start">declared totals, no company names</text>
+<text x="40" y="310" class="tb" text-anchor="start">Company registries</text>
+<text x="40" y="330" class="ts" text-anchor="start">who a company is,</text>
+<text x="40" y="348" class="ts" text-anchor="start">not what it ships</text>
+<text x="40" y="386" class="tb" text-anchor="start">Sanctions lists</text>
+<text x="40" y="406" class="ts" text-anchor="start">official names,</text>
+<text x="40" y="424" class="ts" text-anchor="start">often months late</text>
+<text x="40" y="462" class="tb" text-anchor="start">Ukraine's GUR</text>
+<text x="40" y="482" class="ts" text-anchor="start">weapon-parts database;</text>
+<text x="40" y="500" class="ts" text-anchor="start">a party to the war</text>
+<text x="40" y="538" class="tamb" text-anchor="start">Dark zones</text>
+<text x="40" y="558" class="ts" text-anchor="start">nobody in our set</text>
+<text x="40" y="576" class="ts" text-anchor="start">sees these well</text>
+<rect x="475.0" y="152" width="330.0" height="30" rx="5" class="bandL"/>
+<text x="640.0" y="172" class="tacc" text-anchor="middle">partners' records, patchy</text>
+<rect x="805.0" y="152" width="225.0" height="30" rx="5" class="band"/>
+<text x="917.5" y="172" class="tinv" text-anchor="middle">Russia's imports</text>
+<rect x="325.0" y="228" width="705.0" height="30" rx="5" class="bandL"/>
+<text x="677.5" y="248" class="tacc" text-anchor="middle">country-to-country totals, per year</text>
+<rect x="310.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="365.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="460.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="515.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="610.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="665.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="910.0" y="304" width="110.0" height="30" rx="5" class="band"/>
+<text x="965.0" y="324" class="tinv" text-anchor="middle">identity</text>
+<rect x="610.0" y="380" width="110.0" height="30" rx="5" class="band"/>
+<text x="665.0" y="400" class="tinv" text-anchor="middle">if listed</text>
+<rect x="910.0" y="380" width="110.0" height="30" rx="5" class="band"/>
+<text x="965.0" y="400" class="tinv" text-anchor="middle">if listed</text>
+<rect x="310.0" y="456" width="110.0" height="30" rx="5" class="band"/>
+<text x="365.0" y="476" class="tinv" text-anchor="middle">part maker</text>
+<rect x="1060.0" y="456" width="110.0" height="30" rx="5" class="band"/>
+<text x="1115.0" y="476" class="tinv" text-anchor="middle">the weapon</text>
+<rect x="745.0" y="532" width="140" height="30" rx="5" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="975.0" y="532" width="200.0" height="30" rx="5" class="hatchbox" fill="url(#d4_hatch)"/>
+<text x="815.0" y="582" class="ts" text-anchor="middle">inside the customs union</text>
+<text x="1070.0" y="582" class="ts" text-anchor="middle">which chip reached which weapon</text>
+<text x="40" y="672" class="tamb" text-anchor="start">Off this map entirely</text>
+<rect x="300" y="650" width="206.2" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="308" y="657" width="190.2" height="22" rx="4" class="bg"/>
+<text x="403.1" y="673" class="t" text-anchor="middle">Ship positions at sea</text>
+<rect x="522.2" y="650" width="214.39999999999998" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="530.2" y="657" width="198.39999999999998" height="22" rx="4" class="bg"/>
+<text x="629.4000000000001" y="673" class="t" text-anchor="middle">Cloud computing access</text>
+<rect x="752.6" y="650" width="189.79999999999998" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="760.6" y="657" width="173.79999999999998" height="22" rx="4" class="bg"/>
+<text x="847.5" y="673" class="t" text-anchor="middle">Payments and crypto</text>
+<rect x="958.4" y="650" width="99.6" height="36" rx="6" class="hatchbox" fill="url(#d4_hatch)"/>
+<rect x="966.4" y="657" width="83.6" height="22" rx="4" class="bg"/>
+<text x="1008.1999999999999" y="673" class="t" text-anchor="middle">Services</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="4_visibility.svg">4_visibility.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>Our main trade data is mostly Russia's own import records, which thin out after late 2023.</li>
+    <li>Countries' own statistics show declared totals but no company names; registries and lists show names but not flows.</li>
+    <li>Some things are off the map entirely: ship positions, cloud access, payments and services.</li>
+  </ul>
+</section>
+<section id="method">
+  <p class="num">Diagram 5</p>
+  <h2>Our method</h2>
+  <p class="takeaway">Agents find leads cheaply; a separate skeptic and an official page decide what can be shown.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-label="Our method. Agents find leads cheaply; a separate skeptic and an official page decide what can be shown.">
+<defs><marker id="d5_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d5_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d5_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d5_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d5_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d5_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d5_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d5_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d5_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d5_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="600" rx="0" class="bg"/>
+<rect x="40" y="150" width="220" height="84" rx="8" class="box"/>
+<text x="150.0" y="187.5" class="tb" text-anchor="middle">Agents explore</text>
+<text x="150.0" y="206.5" class="ts" text-anchor="middle">sponsor and public data</text>
+<rect x="330" y="150" width="180" height="84" rx="8" class="box"/>
+<text x="420.0" y="187.5" class="tb" text-anchor="middle">Leads</text>
+<text x="420.0" y="206.5" class="ts" text-anchor="middle">a reason to look</text>
+<rect x="580" y="150" width="260" height="84" rx="8" class="boxacc"/>
+<text x="710.0" y="178.0" class="tb" text-anchor="middle">Independent skeptic</text>
+<text x="710.0" y="197.0" class="ts" text-anchor="middle">re-derives every number</text>
+<text x="710.0" y="216.0" class="ts" text-anchor="middle">from the raw data</text>
+<rect x="910" y="150" width="260" height="84" rx="8" class="boxacc"/>
+<text x="1040.0" y="187.5" class="tb" text-anchor="middle">Official page confirms</text>
+<text x="1040.0" y="206.5" class="ts" text-anchor="middle">listing dates and entries</text>
+<path d="M260 192 L326 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M510 192 L576 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M840 192 L906 192" class="ln" marker-end="url(#d5_n)"/>
+<path d="M650 234 C650 294, 420 294, 420 240" class="lamb" marker-end="url(#d5_amb)"/>
+<text x="535" y="304" class="tamb" text-anchor="middle">wrong: corrected or dropped</text>
+<rect x="910" y="400" width="260" height="84" rx="8" class="boxteal"/>
+<text x="1040.0" y="437.5" class="tb" text-anchor="middle">Receipt</text>
+<text x="1040.0" y="456.5" class="ts" text-anchor="middle">source, record, date</text>
+<path d="M1040 234 L1040 396" class="ln" marker-end="url(#d5_n)"/>
+<rect x="560" y="350" width="270" height="70" rx="8" class="boxpos"/>
+<text x="695.0" y="380.5" class="tb" text-anchor="middle">Public slide</text>
+<text x="695.0" y="399.5" class="ts" text-anchor="middle">officially listed companies only</text>
+<rect x="560" y="460" width="270" height="70" rx="8" class="boxamb"/>
+<text x="695.0" y="490.5" class="tb" text-anchor="middle">Agency-only</text>
+<text x="695.0" y="509.5" class="ts" text-anchor="middle">unlisted companies, sent privately</text>
+<path d="M910 430 L870 430 L870 385 L834 385" class="ln" marker-end="url(#d5_n)"/>
+<path d="M910 454 L870 454 L870 495 L834 495" class="ln" marker-end="url(#d5_n)"/>
+<rect x="40" y="400" width="220" height="84" rx="8" class="box"/>
+<text x="150.0" y="447.0" class="tb" text-anchor="middle">New questions</text>
+<path d="M560 385 L420 385 L420 430 L264 430" class="ln" marker-end="url(#d5_n)"/>
+<path d="M560 495 L420 495 L420 455 L264 455" class="ln" marker-end="url(#d5_n)"/>
+<path d="M150 400 L150 238" class="ln" marker-end="url(#d5_n)"/>
+<rect x="584" y="22" width="5" height="82" rx="2" class="famb"/>
+<text x="600" y="34" class="tamb" text-anchor="start">Caught: country totals counted twice</text>
+<text x="600" y="56" class="ts" text-anchor="start">($52M was really $13.1M)</text>
+<text x="600" y="78" class="tamb" text-anchor="start">Caught: 'former' ownership</text>
+<text x="600" y="100" class="ts" text-anchor="start">reported as current</text>
+<rect x="894" y="22" width="5" height="82" rx="2" class="famb"/>
+<text x="910" y="34" class="tamb" text-anchor="start">Caught: sponsor flag said</text>
+<text x="910" y="56" class="ts" text-anchor="start">'not sanctioned' for an OFAC-listed firm</text>
+<text x="910" y="78" class="tamb" text-anchor="start">Caught: a database start date</text>
+<text x="910" y="100" class="ts" text-anchor="start">posing as a listing date</text>
+<path d="M710 116 L710 146" class="lamb" marker-end="url(#d5_amb)"/>
+<path d="M1040 116 L1040 146" class="lamb" marker-end="url(#d5_amb)"/>
+<text x="40" y="60" class="tb" text-anchor="start">Every figure passes two</text>
+<text x="40" y="80" class="tb" text-anchor="start">checks before it is shown</text>
+<rect x="40" y="564" width="34" height="22" rx="5" class="boxacc"/>
+<text x="84" y="580" class="t" text-anchor="start">Check step</text>
+<rect x="208.0" y="564" width="34" height="22" rx="5" class="boxambs"/>
+<text x="252.0" y="580" class="t" text-anchor="start">Error caught today</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="5_method.svg">5_method.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>Every number is re-derived from saved raw data by a checker that did not produce it.</li>
+    <li>Listing dates and list entries come from official pages, never from a data vendor's flag alone.</li>
+    <li>Unlisted companies stay agency-only. Today the checks caught four errors before they reached a slide.</li>
+  </ul>
+</section>
+<section id="incentives">
+  <p class="num">Diagram 6</p>
+  <h2>Who pays, who gains</h2>
+  <p class="takeaway">The detour pays the middle, costs the careful, and its harm lands on people far from the deal.</p>
+  <figure>
+    <div class="scroll"><svg class="dg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" role="img" aria-label="Who pays, who gains. The detour pays the middle, costs the careful, and its harm lands on people far from the deal.">
+<defs><marker id="d6_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d6_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d6_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d6_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d6_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d6_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d6_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d6_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d6_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d6_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="0" width="1200" height="660" rx="0" class="bg"/>
+<rect x="30" y="60" width="280" height="110" rx="8" class="box"/>
+<text x="170.0" y="101.0" class="tb" text-anchor="middle">Russian buyers</text>
+<text x="170.0" y="120.0" class="ts" text-anchor="middle">pay middlemen</text>
+<text x="170.0" y="139.0" class="ts" text-anchor="middle">for the detour</text>
+<rect x="460" y="60" width="290" height="110" rx="8" class="box"/>
+<text x="605.0" y="101.0" class="tb" text-anchor="middle">Middle firms and hubs</text>
+<text x="605.0" y="120.0" class="ts" text-anchor="middle">take a margin;</text>
+<text x="605.0" y="139.0" class="ts" text-anchor="middle">a new firm costs little</text>
+<rect x="900" y="60" width="270" height="110" rx="8" class="box"/>
+<text x="1035.0" y="101.0" class="tb" text-anchor="middle">Makers and distributors</text>
+<text x="1035.0" y="120.0" class="ts" text-anchor="middle">want the sale;</text>
+<text x="1035.0" y="139.0" class="ts" text-anchor="middle">checking buyers costs money</text>
+<path d="M310 115 L456 115" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="383" y="104" class="tteal" text-anchor="middle">margin</text>
+<path d="M750 115 L896 115" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="823" y="104" class="tteal" text-anchor="middle">payment</text>
+<rect x="460" y="290" width="290" height="100" rx="8" class="boxacc"/>
+<text x="605.0" y="326.0" class="tb" text-anchor="middle">Governments</text>
+<text x="605.0" y="345.0" class="ts" text-anchor="middle">need listings that hold up</text>
+<text x="605.0" y="364.0" class="ts" text-anchor="middle">in court, so they are slow</text>
+<rect x="900" y="290" width="270" height="100" rx="8" class="box"/>
+<text x="1035.0" y="326.0" class="tb" text-anchor="middle">Banks</text>
+<text x="1035.0" y="345.0" class="ts" text-anchor="middle">fear secondary sanctions:</text>
+<text x="1035.0" y="364.0" class="ts" text-anchor="middle">losing access to US dollars</text>
+<path d="M750 340 L896 340" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="823" y="328" class="tamb" text-anchor="middle">secondary</text>
+<text x="823" y="364" class="tamb" text-anchor="middle">sanctions</text>
+<path d="M735 290 L935 176" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="860" y="262" class="tamb" text-anchor="start">fines</text>
+<path d="M605 290 L605 176" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="615" y="236" class="tamb" text-anchor="start">lists them, months late</text>
+<text x="585" y="550" class="tb" text-anchor="middle">Who bears the cost</text>
+<rect x="30" y="490" width="420" height="110" rx="8" class="boxm"/>
+<text x="240.0" y="531.0" class="tb" text-anchor="middle">Civilians harmed by the weapons</text>
+<text x="240.0" y="550.0" class="ts" text-anchor="middle">foreign chips turn up in Russian</text>
+<text x="240.0" y="569.0" class="ts" text-anchor="middle">drones and missiles</text>
+<rect x="720" y="490" width="450" height="110" rx="8" class="boxm"/>
+<text x="945.0" y="531.0" class="tb" text-anchor="middle">Honest traders and families</text>
+<text x="945.0" y="550.0" class="ts" text-anchor="middle">clumsy refusals: medicine exports to Iran</text>
+<text x="945.0" y="569.0" class="ts" text-anchor="middle">fell about 35% (2017 to 2023) though exempt</text>
+<path d="M170 170 L170 484" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="182" y="330" class="t" text-anchor="start">weapons</text>
+<path d="M1035 390 L1035 484" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="1023" y="450" class="t" text-anchor="end">refuse whole regions</text>
+<path d="M40 640 L92 640" class="lmoney" marker-end="url(#d6_money)"/>
+<text x="104" y="645" class="t" text-anchor="start">Money</text>
+<path d="M186.0 640 L238.0 640" class="lrisk" marker-end="url(#d6_risk)"/>
+<text x="250.0" y="645" class="t" text-anchor="start">Risk and pressure</text>
+<path d="M432.8 640 L484.8 640" class="lharm" marker-end="url(#d6_harm)"/>
+<text x="496.8" y="645" class="t" text-anchor="start">Harm</text>
+<rect x="570.4" y="629" width="34" height="22" rx="5" class="boxacc"/>
+<text x="614.4" y="645" class="t" text-anchor="start">Sets the rules</text>
+</svg></div>
+    <p class="hint">Scroll sideways to see the whole diagram.</p>
+    <figcaption>Standalone file: <a href="6_incentives.svg">6_incentives.svg</a></figcaption>
+  </figure>
+  <ul class="pts">
+    <li>Russian buyers pay middlemen for the detour; the middle firms take a margin, and a new firm is cheap to open.</li>
+    <li>Banks and makers carry the risk of fines, so the cheap answer is to refuse whole regions.</li>
+    <li>The costs fall on civilians hit by the weapons, and on honest traders and families caught by clumsy refusals.</li>
+  </ul>
+</section>
+</main>
+<footer class="wrap">
+  <p>Figures come from the team's verified log of 25 September 2026 (sponsor trade data re-checked by an independent verifier, UN Comtrade aggregate rows, official listing pages) and cited reports (CREA on false-flag tankers). Raw vendor data is licensed for the day and is not published. Each diagram is also saved as a standalone SVG file in this folder.</p>
+  <p>Draft by Claude for the team; not yet reviewed by Alex.</p>
+</footer>
+<script>
+  (function () {
+    var btn = document.getElementById("themeBtn");
+    var order = ["system", "light", "dark"];
+    function current() { return document.documentElement.getAttribute("data-theme") || "system"; }
+    function show() { btn.textContent = "Theme: " + current(); }
+    btn.addEventListener("click", function () {
+      var next = order[(order.indexOf(current()) + 1) % order.length];
+      if (next === "system") document.documentElement.removeAttribute("data-theme");
+      else document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("diagrams-theme", next); } catch (e) {}
+      show();
+    });
+    show();
+  })();
+</script>
+</body>
+</html>

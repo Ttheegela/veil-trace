@@ -1,0 +1,346 @@
+/* Demo shell styles. Corporate look: tokens only (tokens.css), no raw hex, no hand-written fonts.
+   Beats put their own CSS inside their beat file, prefixed with #beat-<id>.
+
+   SHARED SIZES (DESIGN_SPEC 3.2). Set in vh so 1280x720 scales down evenly; phones switch to rem (body.narrow).
+     --s-hero  title-screen idea (b0, b6)      --s-idea  idea line (a)
+     --s-num   big number (d)                  --s-unit  big number unit
+     --s-sub   question line, big words        --s-line  explainer (b), why it matters (e)
+     --s-body  body, number captions           --s-note  chart annotations
+     --s-label chart direct labels             --s-min   axis ticks, small caps labels, footer (the floor: 22 px at 1080)
+     --s-chrome step rail, timer, E pill       --u       8 px spacing unit
+   SHARED HELPERS (optional; beats may use their own classes with the same sizes):
+     .d-idea  .d-explain (with .d-label inside)  .d-why (with .d-label)  .d-big > .d-big-n, .d-big-unit, .d-big-cap
+     .d-num   clickable number (no underline on the projector; underline on hover, focus and in presenter view)
+     [data-reveal="2"] on any element inside a beat: hidden (keeping its space) until reveal step 2. */
+
+:root {
+  --u: .74vh;
+  --s-hero: 9.6vh;
+  --s-idea: 6.3vh;
+  --s-num: 8vh;               /* 86 px at 1080: one size on every screen (the spec's 104 px did not fit three numbers on b2 and b5) */
+  --s-unit: 4.1vh;
+  --s-sub: 4.1vh;
+  --s-line: 2.8vh;
+  --s-body: 2.6vh;
+  --s-note: 2.4vh;
+  --s-label: 2.25vh;
+  --s-min: 2.05vh;
+  --s-chrome: 1.85vh;
+
+  --chrome-top: 5.2vh;        /* the step rail (56 px at 1080) */
+  --chrome-bottom: 4.45vh;    /* footer line and the sources pill (48 px at 1080) */
+  --gutter: clamp(16px, 5vw, 160px);
+  --hairline: color-mix(in oklab, var(--border) 45%, transparent);
+  --slate-1: color-mix(in oklab, var(--fg) 28%, var(--bg));
+  --slate-2: color-mix(in oklab, var(--fg) 18%, var(--bg));
+  --slate-3: color-mix(in oklab, var(--fg) 12%, var(--bg));
+
+  /* Older names kept so beats written before the redesign still size sensibly. */
+  --d-kicker-size: var(--s-min);
+  --d-title-size: var(--s-idea);
+  --d-lede-size: var(--s-line);
+  --d-h2-size: var(--s-line);
+  --d-body-size: var(--s-body);
+  --d-foot-size: var(--s-min);
+}
+:root[data-theme="dark"] {
+  --slate-1: color-mix(in oklab, var(--fg) 34%, var(--bg));
+  --slate-2: color-mix(in oklab, var(--fg) 22%, var(--bg));
+  --slate-3: color-mix(in oklab, var(--fg) 14%, var(--bg));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --slate-1: color-mix(in oklab, var(--fg) 34%, var(--bg));
+    --slate-2: color-mix(in oklab, var(--fg) 22%, var(--bg));
+    --slate-3: color-mix(in oklab, var(--fg) 14%, var(--bg));
+  }
+}
+/* Phones and portrait: rem sizes (DESIGN_SPEC 4.8). */
+body.narrow {
+  --s-hero: 2rem;
+  --s-idea: 1.75rem;
+  --s-num: 2.75rem;
+  --s-unit: 1.25rem;
+  --s-sub: 1.375rem;
+  --s-line: 1.0625rem;
+  --s-body: 1.0625rem;
+  --s-note: 1rem;
+  --s-label: 1rem;
+  --s-min: .9375rem;
+  --s-chrome: .9375rem;
+  --u: 8px;
+  --chrome-top: 3rem;
+  --chrome-bottom: 3.5rem;
+}
+
+html { font-size: clamp(16px, 1vw, 20px); height: 100%; }
+body { background: var(--bg); color: var(--fg); height: 100%; overflow: hidden; margin: 0; }
+body.shot #chrome { display: none; }
+
+/* ---------- Screen (stage + audience chrome), scaled down in presenter view ---------- */
+#screen { position: fixed; inset: 0; overflow: hidden; transform-origin: 0 0; }
+#stage { position: absolute; inset: 0; overflow: hidden; }
+.beat {
+  position: absolute; inset: 0;
+  padding: calc(var(--chrome-top) + var(--u) * 3) var(--gutter) calc(var(--chrome-bottom) + var(--u) * 2);
+  background: var(--bg); color: var(--fg);
+  overflow: hidden;
+  opacity: 0; visibility: hidden;
+  transition: opacity var(--dur-2, 240ms) var(--ease-out, ease), visibility 0s linear var(--dur-2, 240ms);
+}
+.beat.on-dark { background: var(--hero-bg); color: var(--hero-fg); }
+.beat.is-current { opacity: 1; visibility: visible; transition: opacity var(--dur-2, 240ms) var(--ease-out, ease), visibility 0s; }
+body.narrow .beat { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+/* Screen change: the idea line rises 12 px as it fades in. Nothing else moves. */
+.beat .d-idea, .beat [data-rise] { transform: translateY(1.1vh); transition: transform var(--dur-2, 240ms) var(--ease-out, ease); }
+.beat.is-current .d-idea, .beat.is-current [data-rise] { transform: none; }
+
+/* Reveal steps: layers not yet shown keep their space, then fade in over 200 ms. */
+.beat [data-reveal] { transition: opacity 200ms var(--ease-out, ease); }
+.beat .rv-hidden { visibility: hidden; opacity: 0; transition: none; }
+/* Motion (v3, shell.js MOTION): a queued move waits hidden, space kept, until its turn; the shell's Web Animations
+   own the timing of data-anim layers, so they skip the 200 ms fade above. Finished state = no inline styles. */
+.beat .mo-wait { visibility: hidden !important; }
+.beat [data-anim] { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .beat .d-idea, .beat [data-rise] { transform: none; }
+}
+
+/* ---------- Shared content helpers (reading order a to e) ---------- */
+.d-idea { font: var(--display-weight, 600) var(--s-idea)/1.08 var(--font-display, var(--font-sans)); letter-spacing: var(--display-tracking, -.02em); margin: 0; max-width: 30ch; text-wrap: balance; }
+.d-label { display: block; font: 600 var(--s-min)/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); margin: 0 0 calc(var(--u) * .5); }
+.on-dark .d-label { color: color-mix(in oklab, var(--hero-fg) 70%, transparent); }
+.d-explain, .d-why { font-size: var(--s-line); line-height: 1.3; margin: 0; max-width: 70ch; }
+.d-explain { color: var(--muted-fg); }
+.on-dark .d-explain { color: color-mix(in oklab, var(--hero-fg) 82%, transparent); }
+.d-why { padding-top: calc(var(--u) * 2); border-top: 1px solid var(--hairline); max-width: none; }
+.on-dark .d-why { border-top-color: color-mix(in oklab, var(--hero-fg) 18%, transparent); }
+.d-big { margin: 0; display: grid; gap: calc(var(--u) * .5); }
+.d-big-n { font: var(--display-weight, 600) var(--s-num)/1 var(--font-display, var(--font-sans)); letter-spacing: var(--display-tracking, -.02em); font-variant-numeric: tabular-nums lining-nums; }
+.d-big-unit { font-size: var(--s-unit); font-weight: 500; letter-spacing: 0; }
+.d-big-cap { font-size: var(--s-body); line-height: 1.3; color: var(--muted-fg); max-width: 34ch; }
+.d-note { font: 500 var(--s-note)/1.25 var(--font-sans); }
+.d-min { font: 500 var(--s-min)/1.25 var(--font-sans); color: var(--muted-fg); }
+/* Older helper names, still used by some beats. */
+.d-kicker { font: 600 var(--s-min)/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); margin: 0 0 var(--space-2); }
+.d-title { font: var(--display-weight, 600) var(--s-idea)/1.08 var(--font-display, var(--font-sans)); letter-spacing: var(--display-tracking, -.02em); margin: 0 0 var(--space-3); max-width: 30ch; }
+.d-lede { font-size: var(--s-line); line-height: 1.3; color: var(--muted-fg); max-width: 70ch; margin: 0; }
+.d-fine, .d-foot { font-size: var(--s-min); line-height: 1.4; color: var(--muted-fg); margin: 0; }
+
+/* Clickable numbers: look like text on the projector; the sources pill tells the audience sources exist. */
+.d-num {
+  font: inherit; font-weight: 600; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
+  border-bottom: 2px solid transparent; border-radius: 0; font-variant-numeric: tabular-nums lining-nums;
+}
+.d-num:hover, .d-num:focus-visible, body.presenter .d-num { border-bottom: 2px dotted color-mix(in oklab, currentColor 55%, transparent); }
+.d-num:focus-visible { outline-offset: 2px; }
+.beat-error { border: 1px dashed var(--border); border-radius: var(--radius); padding: var(--space-3); color: var(--muted-fg); max-width: 60ch; font-size: var(--s-body); }
+
+/* ---------- One visual system across screens (integration pass, 25 Sep) ----------
+   Every beat keeps its own classes and also carries these shared ones. The #screen #stage prefix makes them win
+   over beat-scoped CSS, so all content screens share one kicker, idea, explainer, number and "why" style.
+     .d-kick (step name above the idea)   .d-idea   .d-explain / .d-why with an inline .d-label
+     .d-big-n (big number)  .d-big-unit  .d-big-cap (its caption) */
+#screen #stage .beat .d-kick { display: block; font: 600 var(--s-min)/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); margin: 0 0 calc(var(--u) * 1); }
+#screen #stage .beat:not(.on-dark) .d-idea { font: var(--display-weight, 600) var(--s-idea)/1.08 var(--font-display, var(--font-sans)); letter-spacing: var(--display-tracking, -.02em); color: var(--fg); margin: 0; max-width: 90%; text-wrap: balance; }
+#screen #stage .beat .d-explain { font-size: var(--s-line); line-height: 1.3; max-width: none; }
+#screen #stage .beat:not(.on-dark) .d-explain { color: var(--fg); margin: calc(var(--u) * 2) 0 0; }
+#screen #stage .beat .d-why { font-size: var(--s-line); line-height: 1.3; padding-top: calc(var(--u) * 2); max-width: none; color: inherit; }
+#screen #stage .beat:not(.on-dark) .d-why { margin: calc(var(--u) * 3) 0 0; border-top: 1px solid var(--hairline); }
+#screen #stage .beat .d-explain > .d-label, #screen #stage .beat .d-why > .d-label { display: inline; margin: 0 .7em 0 0; font: 600 var(--s-min)/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); vertical-align: .12em; }
+#screen #stage .beat.on-dark .d-explain > .d-label, #screen #stage .beat.on-dark .d-why > .d-label { color: color-mix(in oklab, var(--hero-fg) 70%, transparent); }
+#screen #stage .beat .d-big-n { font: var(--display-weight, 600) var(--s-num)/1 var(--font-display, var(--font-sans)); letter-spacing: -.02em; font-variant-numeric: tabular-nums lining-nums; color: var(--fg); }
+#screen #stage .beat .d-big-unit { font-size: var(--s-unit); font-weight: 500; letter-spacing: 0; font-style: normal; }
+#screen #stage .beat .d-big-cap { font-size: var(--s-body); line-height: 1.3; color: var(--muted-fg); }
+body.narrow #screen #stage .beat .d-explain > .d-label, body.narrow #screen #stage .beat .d-why > .d-label { display: block; margin: 0 0 .25rem; }
+
+/* ---------- Audience chrome: step rail (top), footer line and sources pill (bottom) ---------- */
+#chrome { position: absolute; inset: 0; pointer-events: none; z-index: 10; color: var(--fg); }
+#chrome.on-dark { color-scheme: dark; color: var(--hero-fg); background: none; }
+#chrome > * { pointer-events: auto; }
+#chrome button { cursor: pointer; font-family: var(--font-sans); }
+kbd { font: 600 .8em/1 var(--font-mono); padding: .2em .4em; border: 1px solid var(--hairline); border-radius: var(--radius-control, 4px); color: inherit; }
+
+#rail {
+  position: absolute; top: 0; left: 0; right: 0; height: var(--chrome-top);
+  display: flex; align-items: center; gap: calc(var(--u) * 3); padding: 0 var(--gutter);
+  font-size: var(--s-chrome); pointer-events: none;
+  border-bottom: 1px solid var(--hairline);
+}
+#chrome.on-dark #rail { border-bottom-color: color-mix(in oklab, var(--hero-fg) 14%, transparent); }
+#rail > * { pointer-events: auto; }
+#steps { display: flex; align-items: stretch; gap: calc(var(--u) * 1); flex: 1; min-width: 0; height: 100%; margin: 0; padding: 0; list-style: none; }
+.rs {
+  position: relative; display: inline-flex; align-items: center; gap: .45em; height: 100%;
+  padding: 0 calc(var(--u) * 1.5); background: none; border: 0; color: color-mix(in oklab, var(--muted-fg) 70%, transparent);
+  font: 500 var(--s-chrome)/1 var(--font-sans); white-space: nowrap;
+}
+#chrome.on-dark .rs { color: color-mix(in oklab, var(--hero-fg) 50%, transparent); }
+.rs:hover { color: var(--fg); }
+#chrome.on-dark .rs:hover { color: var(--hero-fg); }
+.rs.done { color: var(--muted-fg); }
+#chrome.on-dark .rs.done { color: color-mix(in oklab, var(--hero-fg) 70%, transparent); }
+.rs.now { color: var(--fg); font-weight: 600; }
+#chrome.on-dark .rs.now { color: var(--hero-fg); }
+.rs svg.chk-mark { width: .9em; height: .9em; flex: none; }
+.rs-bar { position: absolute; left: calc(var(--u) * 1.5); right: calc(var(--u) * 1.5); bottom: -1px; height: 3px; background: color-mix(in oklab, var(--accent) 22%, transparent); display: none; }
+.rs.now .rs-bar { display: block; }
+.rs-bar > i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); transition: width 250ms linear; }
+.rs-dots { display: inline-flex; gap: .3em; margin-left: .1em; }
+.rs-dots i { width: .42em; height: .42em; border-radius: 50%; border: 1.5px solid currentColor; opacity: .75; }
+.rs-dots i.on { background: currentColor; opacity: 1; }
+#rail-compact { display: none; font: 600 var(--s-chrome)/1 var(--font-sans); white-space: nowrap; align-items: center; gap: .5em; }
+#rail-compact .rc-of { color: var(--muted-fg); font-weight: 500; }
+#chrome.on-dark #rail-compact .rc-of { color: color-mix(in oklab, var(--hero-fg) 70%, transparent); }
+
+#clock {
+  flex: none; font: 500 var(--s-chrome)/1 var(--font-mono); font-variant-numeric: tabular-nums;
+  color: color-mix(in oklab, var(--muted-fg) 70%, transparent); background: none; border: 0; padding: .4em 0;
+}
+#chrome.on-dark #clock { color: color-mix(in oklab, var(--hero-fg) 55%, transparent); }
+#clock.over { color: var(--warning); }
+#chrome.on-dark #clock.over { color: var(--warning); }
+body.no-clock #clock { display: none; }
+
+#bottom {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--chrome-bottom);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  padding: 0 var(--gutter); pointer-events: none;
+}
+#bottom > * { pointer-events: auto; }
+#leads { margin: 0; font: 500 var(--s-min)/1 var(--font-sans); color: var(--muted-fg); white-space: nowrap; }
+#chrome.on-dark #leads { color: color-mix(in oklab, var(--hero-fg) 70%, transparent); }
+.b-right { display: flex; align-items: center; gap: calc(var(--u) * 1); }
+#navbtns { display: flex; gap: calc(var(--u) * .5); opacity: 0; transition: opacity var(--dur-1, 120ms); }
+#bottom:hover #navbtns, #navbtns:focus-within { opacity: 1; }
+#navbtns button, #pill {
+  min-height: 3.6vh; font: 500 var(--s-chrome)/1 var(--font-sans); color: var(--muted-fg);
+  background: color-mix(in oklab, var(--surface) 80%, transparent); border: 1px solid var(--hairline);
+  border-radius: var(--radius-control, var(--radius)); padding: 0 .75em;
+}
+#navbtns button { min-width: 3.6vh; font-size: calc(var(--s-chrome) * 1.3); padding: 0 .45em; }
+#pill { display: inline-flex; align-items: center; gap: .55em; }
+#pill:hover, #pill[aria-pressed="true"] { color: var(--fg); border-color: var(--border); }
+#pill .pill-count { color: inherit; opacity: .85; }
+#chrome.on-dark #navbtns button, #chrome.on-dark #pill { color: color-mix(in oklab, var(--hero-fg) 75%, transparent); background: color-mix(in oklab, var(--hero-fg) 6%, transparent); border-color: color-mix(in oklab, var(--hero-fg) 22%, transparent); }
+#chrome.on-dark #pill:hover { color: var(--hero-fg); }
+#pill.ring { box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 55%, transparent); transition: box-shadow 400ms var(--ease-out, ease); }
+
+/* ---------- Presenter notes (N) ---------- */
+#notes {
+  position: fixed; left: var(--gutter); bottom: calc(var(--chrome-bottom) + .5rem); width: min(46rem, calc(100vw - 2 * var(--gutter)));
+  max-height: 45vh; overflow: auto; background: var(--surface); color: var(--surface-fg); z-index: 20;
+  border: 1px solid var(--hairline); border-radius: var(--radius-lg, var(--radius)); box-shadow: var(--shadow);
+  padding: var(--space-3) calc(var(--space-3) * 1.25);
+}
+.notes-head { display: flex; justify-content: space-between; gap: var(--space-3); font-size: var(--text-1); color: var(--muted-fg); text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--space-2); }
+.notes-body { font-size: var(--text-3); line-height: 1.45; white-space: pre-wrap; }
+
+/* ---------- Sources and details drawer (E) ---------- */
+#drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(34rem, 100vw); z-index: 30;
+  background: var(--surface); color: var(--surface-fg); border-left: 1px solid var(--hairline);
+  box-shadow: var(--shadow); padding: var(--space-4) var(--space-4) var(--space-4); overflow-y: auto;
+  display: flex; flex-direction: column; gap: var(--space-3);
+}
+.drawer-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); }
+.drawer-kicker { font-size: var(--text-1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); }
+#drawer h2 { margin: .15em 0 0; font-size: var(--text-4); font-weight: var(--display-weight, 600); letter-spacing: var(--display-tracking, -.02em); line-height: 1.1; }
+#drawer h3 { margin: var(--space-2) 0 0; font-size: var(--text-1); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); }
+#drawer-close { font-size: var(--text-1); color: inherit; background: var(--muted); border: 1px solid var(--hairline); border-radius: var(--radius-control, var(--radius)); padding: .45em .7em; white-space: nowrap; cursor: pointer; }
+.legend { display: grid; grid-template-columns: auto 1fr; gap: .4rem .6rem; align-items: center; font-size: var(--text-1); color: var(--muted-fg); padding: var(--space-2) 0; border-top: 1px solid var(--hairline); }
+.chk { display: inline-block; font: 600 .75rem/1 var(--font-sans); letter-spacing: .04em; text-transform: uppercase; padding: .32em .5em; border-radius: var(--radius-control, var(--radius)); border: 1px solid; white-space: nowrap; justify-self: start; }
+.chk-official { color: color-mix(in oklab, var(--accent) 80%, var(--fg)); border-color: var(--accent); background: color-mix(in oklab, var(--accent) 10%, transparent); }
+.chk-verified { color: color-mix(in oklab, var(--positive) 78%, var(--fg)); border-color: var(--positive); background: color-mix(in oklab, var(--positive) 10%, transparent); }
+.chk-approximate { color: var(--muted-fg); border-style: dashed; border-color: var(--border); background: var(--muted); }
+.ev-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.ev-list li { border: 1px solid var(--hairline); border-radius: var(--radius); padding: .8rem .95rem; display: grid; gap: .4rem; transition: box-shadow var(--dur-2, 240ms); }
+.ev-list li.hit { border-color: var(--accent); box-shadow: var(--glow, var(--shadow)); }
+.ev-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-2); }
+.ev-value { font: var(--display-weight, 600) var(--text-3)/1.15 var(--font-display, var(--font-sans)); font-variant-numeric: tabular-nums; }
+.ev-claim { font-size: var(--text-2); line-height: 1.45; }
+.ev-source { font-size: var(--text-1); line-height: 1.4; color: var(--muted-fg); }
+.ev-receipt { font: 400 var(--text-1)/1.4 var(--font-mono); color: var(--muted-fg); overflow-wrap: anywhere; opacity: .85; }
+.ev-empty { color: var(--muted-fg); font-size: var(--text-2); border: 0 !important; padding: 0 !important; }
+.gl-list { margin: 0; display: grid; grid-template-columns: minmax(8rem, auto) 1fr; gap: .5rem 1rem; font-size: var(--text-2); line-height: 1.4; }
+.gl-list dt { font-weight: 600; }
+.gl-list dd { margin: 0; color: var(--muted-fg); }
+.drawer-foot { margin: auto 0 0; padding-top: var(--space-2); font-size: var(--text-1); color: var(--muted-fg); }
+
+/* ---------- Presenter view (V) ---------- */
+#presenter { display: none; }
+body.presenter { background: var(--muted); }
+body.presenter #screen {
+  inset: auto; top: 2vh; left: 2vw; width: 100vw; height: 100vh;
+  transform: scale(.56); box-shadow: var(--shadow); outline: 1px solid var(--hairline);
+}
+body.presenter #presenter {
+  display: flex; flex-direction: column; gap: var(--space-3); position: fixed; top: 0; right: 0; bottom: 0; width: 40vw;
+  padding: 2vh 2vw; overflow-y: auto; background: var(--surface); color: var(--surface-fg); border-left: 1px solid var(--hairline); z-index: 15;
+}
+body.presenter #notes { display: none !important; }
+.pv-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-3); }
+.pv-kicker { font: 600 var(--text-1)/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted-fg); margin: 0 0 .35rem; }
+.pv-now { font: 600 var(--text-4)/1.1 var(--font-display, var(--font-sans)); margin: 0; }
+.pv-clock { font: 600 var(--text-4)/1 var(--font-mono); font-variant-numeric: tabular-nums; }
+.pv-clock small { display: block; font-size: var(--text-2); font-weight: 500; color: var(--muted-fg); margin-top: .3rem; text-align: right; }
+.pv-clock.over, .pv-clock small.over { color: var(--warning); }
+.pv-say { font-size: 28px; line-height: 1.4; margin: 0; white-space: pre-wrap; }
+.pv-list { margin: 0; padding-left: 1.2em; font-size: var(--text-2); line-height: 1.45; }
+.pv-list li.done { color: var(--muted-fg); text-decoration: line-through; }
+.pv-list li.now { font-weight: 600; }
+.pv-next { font-size: var(--text-3); margin: 0; }
+.pv-ev { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: var(--text-1); line-height: 1.4; }
+.pv-ev b { font-variant-numeric: tabular-nums; }
+.pv-ev button { all: unset; cursor: pointer; }
+.pv-ev button:hover { text-decoration: underline; }
+.pv-sec { border-top: 1px solid var(--hairline); padding-top: var(--space-2); }
+.pv-help { font-size: var(--text-1); color: var(--muted-fg); margin: auto 0 0; }
+
+/* ---------- Key help (?) ---------- */
+#help {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 40; width: min(34rem, 92vw);
+  background: var(--surface); color: var(--surface-fg); border: 1px solid var(--hairline); border-radius: var(--radius-lg, var(--radius));
+  box-shadow: var(--shadow); padding: var(--space-4);
+}
+#help h2 { margin: 0 0 var(--space-3); font-size: var(--text-3); }
+#help dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .5rem 1rem; font-size: var(--text-2); }
+#help dt { white-space: nowrap; }
+#help dd { margin: 0; color: var(--muted-fg); }
+
+/* ---------- Narrow screens (phone, portrait): compact rail, no timer, visible buttons ---------- */
+body.narrow #steps, body.narrow #clock { display: none; }
+body.narrow #rail-compact { display: inline-flex; }
+body.narrow #navbtns { opacity: 1; }
+body.narrow #navbtns button, body.narrow #pill { min-height: 44px; }
+body.narrow #navbtns button { min-width: 44px; }
+body.narrow #leads { font-size: .875rem; white-space: normal; }
+body.narrow .pill-label { display: none; }
+body.narrow .pill-count { display: none; }
+body.narrow #pill kbd { display: none; }
+body.narrow #pill::before { content: "Sources"; }
+body.narrow .notes-body { font-size: var(--text-2); }
+body.narrow #presenter { display: none !important; }
+/* On phones the screen scrolls under the chrome, so the rail and footer get a solid background. */
+body.narrow #rail, body.narrow #bottom { background: var(--bg); }
+body.narrow #bottom { border-top: 1px solid var(--hairline); }
+body.narrow #chrome.on-dark #rail, body.narrow #chrome.on-dark #bottom { background: var(--hero-bg); }
+
+@media print { #chrome { display: none; } .beat { position: static; opacity: 1; visibility: visible; page-break-after: always; height: 100vh; } }
+
+/* The hidden attribute must win over the display rules above. */
+#drawer[hidden], #notes[hidden], #help[hidden] { display: none !important; }
+
+/* Hover info box */
+#ev-tip { position: fixed; z-index: 60; max-width: min(460px, 90vw); padding: 14px 16px; border-radius: 8px;
+  background: var(--surface, var(--bg)); color: var(--fg); border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18); font: 400 16px/1.4 var(--font-sans); pointer-events: none;
+  opacity: 0; transform: translateY(4px); transition: opacity .15s ease, transform .15s ease; }
+#ev-tip.on { opacity: 1; transform: none; }
+#ev-tip .ev-tip-item + .ev-tip-item { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+#ev-tip .ev-tip-v { font-weight: 700; font-size: 20px; margin-bottom: 2px; }
+#ev-tip .ev-tip-s { margin-top: 6px; color: var(--muted-fg); font-size: 14px; }
+#ev-tip .ev-tip-k { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; border: 1px solid currentColor; font-size: 12px; }
+#ev-tip .ev-tip-more { margin-top: 8px; color: var(--muted-fg); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { #ev-tip { transition: none; } }

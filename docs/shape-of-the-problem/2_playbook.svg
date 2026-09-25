@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 830" role="img" aria-label="The evasion playbook. Every trick breaks the match between a listed name and a transaction." font-family='"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif'>
+<title>The evasion playbook</title>
+<style>
+svg{font-family:"IBM Plex Sans Variable", "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif}
+.bg{fill:#ffffff}
+.t{fill:#0f1b2d;font-size:16px;font-weight:500}
+.tb{fill:#0f1b2d;font-size:16px;font-weight:600}
+.th{fill:#0f1b2d;font-size:22px;font-weight:600}
+.ts{fill:#4a5a70;font-size:14px;font-weight:400}
+.tcap{fill:#4a5a70;font-size:16px;font-weight:400}
+.tacc{fill:#1f5fd1;font-size:15px;font-weight:600}
+.tteal{fill:#0f7c8c;font-size:15px;font-weight:600}
+.tamb{fill:#8f5600;font-size:15px;font-weight:600}
+.tpos{fill:#0f7a4a;font-size:15px;font-weight:600}
+.tinv{fill:#ffffff;font-size:15px;font-weight:600}
+.tnum{fill:#ffffff;font-size:15px;font-weight:700}
+.box{fill:#ffffff;stroke:#7d8ba1;stroke-width:1.3}
+.boxm{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1}
+.boxacc{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.8}
+.boxteal{fill:#e2f2f4;stroke:#0f7c8c;stroke-width:1.6}
+.boxamb{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6;stroke-dasharray:7 4}
+.boxambs{fill:#fbf0de;stroke:#8f5600;stroke-width:1.6}
+.boxpos{fill:#e3f3ea;stroke:#0f7a4a;stroke-width:1.6}
+.zone{fill:#eef2f7;stroke:#7d8ba1;stroke-width:1.2;stroke-dasharray:6 4}
+.lgoods{fill:none;stroke:#0f1b2d;stroke-width:2.6}
+.lmoney{fill:none;stroke:#0f7c8c;stroke-width:2.4;stroke-dasharray:9 6}
+.linfo{fill:none;stroke:#1f5fd1;stroke-width:2.6;stroke-dasharray:1.5 6;stroke-linecap:round}
+.lrisk{fill:none;stroke:#8f5600;stroke-width:2.4}
+.lharm{fill:none;stroke:#0f1b2d;stroke-width:2.4;stroke-dasharray:14 5 3 5}
+.ln{fill:none;stroke:#4a5a70;stroke-width:2}
+.lnthin{fill:none;stroke:#7d8ba1;stroke-width:1.2}
+.lamb{fill:none;stroke:#8f5600;stroke-width:2;stroke-dasharray:7 5}
+.lacc{fill:none;stroke:#1f5fd1;stroke-width:2.2}
+.lteal{fill:none;stroke:#0f7c8c;stroke-width:2.4}
+.fgoods{fill:#0f1b2d}
+.fmoney{fill:#0f7c8c}
+.finfo{fill:#1f5fd1}
+.frisk{fill:#8f5600}
+.fmfg{fill:#4a5a70}
+.fteal{fill:#0f7c8c}
+.facc{fill:#1f5fd1}
+.famb{fill:#8f5600}
+.fpos{fill:#0f7a4a}
+.fborder{fill:#7d8ba1}
+.band{fill:#1f5fd1}
+.bandL{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2;stroke-dasharray:4 3}
+.listband{fill:#e8effc;stroke:#1f5fd1;stroke-width:1.2}
+.barAmb{fill:#8f5600}
+.barMfg{fill:#4a5a70}
+.barTeal{fill:#0f7c8c}
+.hatchbg{fill:#eef2f7}
+.hatchln{stroke:#4a5a70;stroke-width:2}
+.hatchbox{stroke:#4a5a70;stroke-width:1.3;stroke-dasharray:5 3}
+@media (prefers-color-scheme: dark){
+.bg{fill:#121b2d}
+.t{fill:#e8eef7}
+.tb{fill:#e8eef7}
+.th{fill:#e8eef7}
+.ts{fill:#a3b1c6}
+.tcap{fill:#a3b1c6}
+.tacc{fill:#7fa8ff}
+.tteal{fill:#4fd1c5}
+.tamb{fill:#f2b84b}
+.tpos{fill:#4cc98a}
+.tinv{fill:#121b2d}
+.tnum{fill:#121b2d}
+.box{fill:#121b2d;stroke:#5f6e87}
+.boxm{fill:#1a2438;stroke:#5f6e87}
+.boxacc{fill:#17274a;stroke:#7fa8ff}
+.boxteal{fill:#10302f;stroke:#4fd1c5}
+.boxamb{fill:#2f2512;stroke:#f2b84b}
+.boxambs{fill:#2f2512;stroke:#f2b84b}
+.boxpos{fill:#10301f;stroke:#4cc98a}
+.zone{fill:#1a2438;stroke:#5f6e87}
+.lgoods{stroke:#e8eef7}
+.lmoney{stroke:#4fd1c5}
+.linfo{stroke:#7fa8ff}
+.lrisk{stroke:#f2b84b}
+.lharm{stroke:#e8eef7}
+.ln{stroke:#a3b1c6}
+.lnthin{stroke:#5f6e87}
+.lamb{stroke:#f2b84b}
+.lacc{stroke:#7fa8ff}
+.lteal{stroke:#4fd1c5}
+.fgoods{fill:#e8eef7}
+.fmoney{fill:#4fd1c5}
+.finfo{fill:#7fa8ff}
+.frisk{fill:#f2b84b}
+.fmfg{fill:#a3b1c6}
+.fteal{fill:#4fd1c5}
+.facc{fill:#7fa8ff}
+.famb{fill:#f2b84b}
+.fpos{fill:#4cc98a}
+.fborder{fill:#5f6e87}
+.band{fill:#7fa8ff}
+.bandL{fill:#17274a;stroke:#7fa8ff}
+.listband{fill:#17274a;stroke:#7fa8ff}
+.barAmb{fill:#f2b84b}
+.barMfg{fill:#a3b1c6}
+.barTeal{fill:#4fd1c5}
+.hatchbg{fill:#1a2438}
+.hatchln{stroke:#a3b1c6}
+.hatchbox{stroke:#a3b1c6}
+}
+</style>
+<defs><marker id="d2_goods" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d2_money" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmoney"/></marker><marker id="d2_info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="finfo"/></marker><marker id="d2_risk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="frisk"/></marker><marker id="d2_harm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fgoods"/></marker><marker id="d2_n" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fmfg"/></marker><marker id="d2_acc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="facc"/></marker><marker id="d2_amb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="famb"/></marker><marker id="d2_teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="strokeWidth"><path d="M0 0 L10 5 L0 10 z" class="fteal"/></marker><pattern id="d2_hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="9" height="9" class="hatchbg"/><line x1="0" y1="0" x2="0" y2="9" class="hatchln"/></pattern></defs>
+<rect x="0" y="-80" width="1200" height="830" rx="0" class="bg"/><text x="40" y="-34" class="th">The evasion playbook</text>
+<rect x="750" y="165" width="440" height="135" rx="12" class="zone"/>
+<rect x="30" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="115.0" y="233.5" class="tb" text-anchor="middle">Maker</text>
+<text x="115.0" y="252.5" class="ts" text-anchor="middle">e.g. a chip maker</text>
+<rect x="270" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="355.0" y="233.5" class="tb" text-anchor="middle">Distributor</text>
+<text x="355.0" y="252.5" class="ts" text-anchor="middle">sells on</text>
+<rect x="510" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="595.0" y="233.5" class="tb" text-anchor="middle">Middle firm</text>
+<text x="595.0" y="252.5" class="ts" text-anchor="middle">e.g. Hong Kong, Turkey</text>
+<rect x="770" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="855.0" y="233.5" class="tb" text-anchor="middle">Hub country</text>
+<text x="855.0" y="252.5" class="ts" text-anchor="middle">e.g. Kyrgyzstan</text>
+<rect x="1010" y="200" width="170" height="76" rx="8" class="box"/>
+<text x="1095.0" y="233.5" class="tb" text-anchor="middle">Russian buyer</text>
+<text x="1095.0" y="252.5" class="ts" text-anchor="middle">final customer</text>
+<path d="M200 238.0 L266 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M440 238.0 L506 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M680 238.0 L766 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M940 238.0 L1006 238.0" class="lgoods" marker-end="url(#d2_goods)"/>
+<text x="30" y="40" class="tb" text-anchor="start">A part's journey, and where each trick acts</text>
+<text x="30" y="62" class="ts" text-anchor="start">Goods move left to right. Amber numbers mark the tricks.</text>
+<circle cx="595" cy="200" r="14" class="famb"/>
+<text x="595" y="205" class="tnum" text-anchor="middle">1</text>
+<text x="480" y="95" class="tamb" text-anchor="start">New company name</text>
+<text x="480" y="114" class="ts" text-anchor="start">firms registered 18 and 21 days</text>
+<text x="480" y="133" class="ts" text-anchor="start">after the invasion (ELEM GROUP,</text>
+<text x="480" y="152" class="ts" text-anchor="start">RM Design and Development)</text>
+<circle cx="990" cy="238.0" r="14" class="famb"/>
+<text x="990" y="243.0" class="tnum" text-anchor="middle">4</text>
+<text x="780" y="95" class="tamb" text-anchor="start">No border inside a customs union</text>
+<text x="780" y="114" class="ts" text-anchor="start">Kazakhstan, Kyrgyzstan, Armenia and Russia</text>
+<text x="780" y="133" class="ts" text-anchor="start">share one customs area: no customs check</text>
+<text x="780" y="152" class="ts" text-anchor="start">on the way in</text>
+<text x="764" y="292" class="ts" text-anchor="start">customs union</text>
+<circle cx="475" cy="238.0" r="14" class="famb"/>
+<text x="475" y="243.0" class="tnum" text-anchor="middle">2</text>
+<text x="290" y="330" class="tamb" text-anchor="start">Relabelled goods</text>
+<text x="290" y="349" class="ts" text-anchor="start">a generic description or a</text>
+<text x="290" y="368" class="ts" text-anchor="start">different product code on</text>
+<text x="290" y="387" class="ts" text-anchor="start">the customs form</text>
+<rect x="1010" y="350" width="170" height="60" rx="8" class="boxamb"/>
+<text x="1095" y="376" class="tb" text-anchor="middle">Listed owner</text>
+<text x="1095" y="396" class="ts" text-anchor="middle">(behind the buyer)</text>
+<path d="M1095 350 L1095 280" class="lamb" marker-end="url(#d2_amb)"/>
+<circle cx="1010" cy="350" r="14" class="famb"/>
+<text x="1010" y="355" class="tnum" text-anchor="middle">3</text>
+<text x="640" y="330" class="tamb" text-anchor="start">Hidden owner</text>
+<text x="640" y="349" class="ts" text-anchor="start">a stake under 50%, or an unlisted company</text>
+<text x="640" y="368" class="ts" text-anchor="start">in between, is not blocked automatically</text>
+<text x="640" y="387" class="ts" text-anchor="start">e.g. Gazprom Neft's 44.85% of NIS (Serbia)</text>
+<text x="30" y="475" class="tb" text-anchor="start">Oil runs the other way,</text>
+<text x="30" y="495" class="tb" text-anchor="start">out of Russia by sea:</text>
+<rect x="270" y="448" width="170" height="54" rx="8" class="box"/>
+<text x="355.0" y="480.0" class="tb" text-anchor="middle">Russian port</text>
+<rect x="510" y="448" width="220" height="54" rx="8" class="boxambs"/>
+<text x="620.0" y="480.0" class="tb" text-anchor="middle">Tanker, false flag</text>
+<rect x="800" y="448" width="200" height="54" rx="8" class="boxambs"/>
+<text x="900.0" y="480.0" class="tb" text-anchor="middle">Second tanker</text>
+<path d="M440 475 L506 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M730 475 L796 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<path d="M1000 475 L1066 475" class="lgoods" marker-end="url(#d2_goods)"/>
+<text x="1076" y="480" class="t" text-anchor="start">buyer</text>
+<circle cx="765" cy="475" r="14" class="famb"/>
+<text x="765" y="480" class="tnum" text-anchor="middle">5</text>
+<text x="510" y="528" class="ts" text-anchor="start">Ship-to-ship transfer at sea, false flags: 113 tankers under false flags carried</text>
+<text x="510" y="547" class="ts" text-anchor="start">EUR 4.7bn of Russian oil in the first nine months of 2025 (CREA)</text>
+<circle cx="44" cy="630" r="14" class="famb"/>
+<text x="44" y="635" class="tnum" text-anchor="middle">6</text>
+<text x="70" y="635" class="tamb" text-anchor="start">Trade before the list catches up</text>
+<rect x="470" y="618" width="520" height="24" rx="5" class="boxambs"/>
+<text x="730" y="635" class="t" text-anchor="middle">trading window: 15 to 23 months in every case we checked</text>
+<text x="460" y="635" class="ts" text-anchor="end">firm appears</text>
+<path d="M990 610 L990 650" class="lacc"/>
+<text x="1000" y="635" class="tacc" text-anchor="start">list arrives</text>
+<text x="40" y="716" class="tcap">Every trick breaks the match between a listed name and a transaction.</text>
+</svg>
