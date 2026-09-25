@@ -95,6 +95,7 @@
     g.setAttribute('tabindex', '0');
     g.setAttribute('role', 'button');
     g.setAttribute('aria-label', label + ' (open sources)');
+    g.setAttribute('data-ev', ids.join(','));
     g.addEventListener('click', function () { ctx.openEvidence(ids); });
     g.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); e.stopPropagation(); ctx.openEvidence(ids); } });
   }
@@ -268,6 +269,7 @@
       if (L.id === 'rm') note += 'Left this route 24 days before it was listed. It kept shipping after being sanctioned: ' + L.afterCount + ' records, declared as leaving Turkey.';
       else note += 'No records left when it was listed.';
       b.querySelector('.b3-row-note').textContent = note;
+      b.setAttribute('data-ev', (L.id === 'rm' ? ['b3-e2', 'b3-e6', 'b3-e7'] : [laneEv[L.id], 'b3-e6', 'b3-e5']).join(','));
       b.addEventListener('click', function () { ctx.openEvidence(L.id === 'rm' ? ['b3-e2', 'b3-e6', 'b3-e7'] : [laneEv[L.id], 'b3-e6', 'b3-e5']); });
       box.appendChild(b);
     });
@@ -285,6 +287,7 @@
     b.querySelector('.b3-n-v').textContent = value;
     b.querySelector('.b3-n-c').textContent = caption;
     b.setAttribute('aria-label', value + ': ' + caption + ' (open sources)');
+    b.setAttribute('data-ev', ids.join(','));
     b.addEventListener('click', function () { ctx.openEvidence(ids); });
     return b;
   }
